@@ -1852,6 +1852,13 @@ function sideHTML(o,L){
 }
 
 /* ---------- frame elevations ---------- */
+// frame title with the real axis position of this option's grid (e.g. 'Axis y = 4.00' or '≈ 7.93')
+function ftitle(o,f){
+  const C=colOf(o), v=f.cols.map(id=>C[id]).filter(c=>c&&!c.post).map(c=>f.ax==='y'?c.x:c.y);
+  if(!v.length) return T(f.key);
+  const lo=Math.min(...v), hi=Math.max(...v), m=v.reduce((a,b)=>a+b,0)/v.length;
+  return T(f.key).replace(/[=≈]\s*[\d.,]+$/,(hi-lo<0.02?'= ':'≈ ')+N(hi-lo<0.02?lo:m,2));
+}
 const FRAMES=[
   {id:'party',cols:['C1','C4','C7','C10','C12'],ax:'y',key:'frE_party',ends:['frSideBurj','frSideBack']},
   {id:'y43',cols:['C4','C5','C14','C6'],ax:'x',key:'frE_y43',ends:['frSideParty','frSideCarr']},
@@ -1984,7 +1991,7 @@ function render(){
   document.getElementById('fr-plan').innerHTML=planSVG(o,L);
   document.getElementById('fr-key').innerHTML=keyHTML(L);
   document.getElementById('fr-side').innerHTML=sideHTML(o,L);
-  document.getElementById('fr-etabs').innerHTML=FRAMES.map(f=>`<button class="btn" role="tab" data-e="${f.id}" aria-selected="${f.id===elSel}">${T(f.key)}</button>`).join('');
+  document.getElementById('fr-etabs').innerHTML=FRAMES.map(f=>`<button class="btn" role="tab" data-e="${f.id}" aria-selected="${f.id===elSel}">${ftitle(o,f)}</button>`).join('');
   const f=FRAMES.find(q=>q.id===elSel), ev=document.getElementById('fr-elev');
   ev.setAttribute('viewBox',elevBox(o,f).vb); ev.innerHTML=elevSVG(o,f);
 }
@@ -2008,7 +2015,7 @@ window.FRAMEVIEW={pages(){
     h+=`<section class="pp">${head(lvName(o,L,true),lab+' · '+sc)}<svg class="pp-plan" viewBox="-2.9 -16.9 15.4 20.1" role="img">${planSVG(o,L)}</svg>`
       +`<div class="st-key fr-pkey">${keyHTML(L)}</div><p class="fr-cap">${note}</p><table class="st-table fr-bl ${L.kind==='found'?'fr-bl4':''}">${sideTable(o,L)}</table></section>`;
   });
-  const fig=f=>{const B=elevBox(o,f); return `<figure class="fr-fig"><svg viewBox="${B.vb}" style="width:${r(B.w*8)}mm;height:${r(B.h*8)}mm">${elevSVG(o,f)}</svg><figcaption>${T(f.key)}</figcaption></figure>`;};
+  const fig=f=>{const B=elevBox(o,f); return `<figure class="fr-fig"><svg viewBox="${B.vb}" style="width:${r(B.w*8)}mm;height:${r(B.h*8)}mm">${elevSVG(o,f)}</svg><figcaption>${ftitle(o,f)}</figcaption></figure>`;};
   [['party'],['y43','y81'],['back','burj']].forEach(g=>{
     h+=`<section class="pp">${head(T('frElev'),lab+' · '+sc)}<div class="fr-figs">${g.map(id=>fig(FRAMES.find(f=>f.id===id))).join('')}</div><p class="fr-cap">${T('frElevNote')}</p></section>`;
   });
