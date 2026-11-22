@@ -408,8 +408,8 @@ footer.wrap{padding-block:30px 40px;color:var(--muted);font-size:13px}
 const D={
  en:{
   eyebrow:'Av. Burjassot 229 · Valencia · Concept, not for construction',
-  lede:'Keep the two street façades of the corner house, rebuild the inside and add floors, with an ático studio on top. Two versions to compare: planta baja + 2, or planta baja + 3 (about 341 m², as in your urban analysis). The building entrance stays on Carrer Carrasqueta, through the existing door.', verLabel:'Version', liftLabel:'Lift', liftYes:'With lift', liftNo:'Without lift', noLiftTag:'no lift', storage:'STORAGE', 'Stair + storage':'Stair + storage', 'plan:Stair + storage':'Stair + storage',
-  noLiftNote:'Without a lift the shaft becomes a storage cupboard on every floor. Spanish rules (CTE DB-SUA 9) normally require a lift when a home is more than two floors above the entrance, as the ático is here; see the steel section for the details.', stPending:'The no-lift calculation is being prepared; the numbers shown are with lift.', stLiftH:'With or without lift', homesFmt:'{n} × 2-bed · 1 studio',
+  lede:'Keep the two street façades of the corner house, rebuild the inside and add floors, with an ático studio on top. Two versions to compare: planta baja + 2, or planta baja + 3 (about 341 m², as in your urban analysis). The building entrance stays on Carrer Carrasqueta, through the existing door.', verLabel:'Version', liftLabel:'Lift', liftYes:'With lift', liftNo:'Without lift', noLiftTag:'no lift', storage:'STORAGE', 'Stair + storage':'Stair + storage', 'plan:Stair + storage':'Stair + storage', 'Laundry / storage':'Laundry / storage', 'plan:Laundry / storage':'Laundry', 'Stair':'Stair',
+  noLiftNote:'Without a lift, the space of the shaft (behind the hall) joins each flat as a laundry / storage room; in the ático it is a storage cupboard off the landing. Spanish rules (CTE DB-SUA 9) normally require a lift when a home is more than two floors above the entrance, as the ático is here; see the steel section for the details.', stPending:'The no-lift calculation is being prepared; the numbers shown are with lift.', stLiftH:'With or without lift', homesFmt:'{n} × 2-bed · 1 studio',
   fPlot:'Plot', fPlotV:'85.35 m²', fLevels:'Levels', fBuilt:'Built area', fHomes:'Homes', fHomesV:'3 × 2-bed · 1 studio · 1 shop', fHeight:'Cornice height', fEntrance:'Entrance',
   todayH:'The building today', todayP:'A recent photo of the corner, and elevations from the 2020 façade restoration project. These are the façades the proposal keeps.',
   altPhoto:'Colour photo of the corner house with its café, the yellow building no. 227 and the red party walls', altElevB:'Elevation drawing of the Av. Burjassot façade', altElevC:'Elevation drawing of the C/ Carrasqueta façade',
@@ -453,8 +453,8 @@ const D={
  },
  es:{
   eyebrow:'Av. Burjassot 229 · Valencia · Concepto, no válido para obra',
-  lede:'Conservar las dos fachadas a calle de la casa en esquina, rehacer el interior y crecer en altura, con un estudio en ático. Dos versiones para comparar: planta baja + 2, o planta baja + 3 (unos 341 m², como en tu análisis urbanístico). La entrada del edificio sigue en el Carrer Carrasqueta, por la puerta existente.', verLabel:'Versión', liftLabel:'Ascensor', liftYes:'Con ascensor', liftNo:'Sin ascensor', noLiftTag:'sin ascensor', storage:'TRASTERO', 'Stair + storage':'Escalera + trastero', 'plan:Stair + storage':'Esc. + trastero',
-  noLiftNote:'Sin ascensor, el hueco se convierte en un trastero en cada planta. La normativa (CTE DB-SUA 9) suele exigir ascensor cuando una vivienda está a más de dos plantas sobre la entrada, como el ático aquí; ver los detalles en la sección de estructura.', stPending:'El cálculo sin ascensor se está preparando; las cifras mostradas son con ascensor.', stLiftH:'Con o sin ascensor', homesFmt:'{n} × 2 dorm. · 1 estudio',
+  lede:'Conservar las dos fachadas a calle de la casa en esquina, rehacer el interior y crecer en altura, con un estudio en ático. Dos versiones para comparar: planta baja + 2, o planta baja + 3 (unos 341 m², como en tu análisis urbanístico). La entrada del edificio sigue en el Carrer Carrasqueta, por la puerta existente.', verLabel:'Versión', liftLabel:'Ascensor', liftYes:'Con ascensor', liftNo:'Sin ascensor', noLiftTag:'sin ascensor', storage:'TRASTERO', 'Stair + storage':'Escalera + trastero', 'plan:Stair + storage':'Esc. + trastero', 'Laundry / storage':'Lavadero / almacén', 'plan:Laundry / storage':'Lavadero', 'Stair':'Escalera',
+  noLiftNote:'Sin ascensor, el espacio del hueco (detrás del pasillo) se une a cada vivienda como lavadero / almacén; en el ático es un trastero junto al rellano. La normativa (CTE DB-SUA 9) suele exigir ascensor cuando una vivienda está a más de dos plantas sobre la entrada, como el ático aquí; ver los detalles en la sección de estructura.', stPending:'El cálculo sin ascensor se está preparando; las cifras mostradas son con ascensor.', stLiftH:'Con o sin ascensor', homesFmt:'{n} × 2 dorm. · 1 estudio',
   fPlot:'Solar', fPlotV:'85,35 m²', fLevels:'Plantas', fBuilt:'Superficie construida', fHomes:'Viviendas', fHomesV:'3 × 2 dorm. · 1 estudio · 1 local', fHeight:'Altura de cornisa', fEntrance:'Entrada',
   todayH:'El edificio hoy', todayP:'Una foto reciente de la esquina y los alzados del proyecto de restauración de fachadas de 2020. Son las fachadas que conserva la propuesta.',
   altPhoto:'Foto en color de la casa en esquina con su cafetería, el edificio amarillo nº 227 y las medianeras rojas', altElevB:'Alzado de la fachada a la Av. Burjassot', altElevC:'Alzado de la fachada a la C/ Carrasqueta',
@@ -848,10 +848,18 @@ function setFor(lv){
     :lv.kind==='attic'?{rooms:H.ATT_ROOMS,furn:H.ATT_FURN,doors:H.ATT_DOORS,opens:H.ATT_OPENINGS}
     :{rooms:H.APT_ROOMS,furn:H.APT_FURN,doors:H.APT_DOORS,opens:H.aptOpenings(lv)};
   if(H.lift) return set;
-  // no lift: the shaft becomes a storage cupboard; the core is "stair + storage"
+  if(lv.kind==='attic') // ático: the shaft becomes a storage cupboard off the landing
+    return Object.assign({},set,{
+      furn:set.furn.map(f=>f.k==='lift'?Object.assign({},f,{k:'store'}):f),
+      rooms:set.rooms.map(r=>r.n==='Stair + lift'?Object.assign({},r,{n:'Stair + storage'}):r)});
+  // apartments without lift: the old shaft, right behind the hall, joins the flat as a laundry / storage room
+  const YL=12.75, LAUN=H.rect(0,H.YC,1.3,YL-H.YC);
+  const CORE_NL=[[1.3,H.YC],[H.fx(H.YC),H.YC],[H.BK,H.L],[0,H.L],[0,YL],[1.3,YL]];
   return Object.assign({},set,{
-    furn:set.furn.map(f=>f.k==='lift'?Object.assign({},f,{k:'store'}):f),
-    rooms:set.rooms.map(r=>r.n==='Stair + lift'?Object.assign({},r,{n:'Stair + storage'}):r)});
+    rooms:set.rooms.map(r=>r.n==='Stair + lift'?Object.assign({},r,{n:'Stair',p:CORE_NL,lp:[2.75,12.05]}):r)
+      .concat([{n:'Laundry / storage',t:'wet',p:LAUN,lp:[0.65,11.82],sm:1}]),
+    furn:set.furn.filter(f=>f.k!=='lift').concat([{k:'wm',r:[0.7,12.12,0.55,0.55]},{k:'ward',r:[0.12,12.2,0.45,0.5]}]),
+    doors:set.doors.concat([{open:[[0.15,H.YC],[1.1,H.YC]]}])});
 }
 
 function render(lv,svg,schedEl,sfx){
