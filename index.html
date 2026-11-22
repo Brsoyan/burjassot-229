@@ -176,6 +176,13 @@ h2{font-family:var(--f-display);font-weight:600;font-size:24px;letter-spacing:-.
 .sw{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:8px;vertical-align:-1px;border:1px solid var(--line)}
 .sw.keep{background:var(--keep);border-color:var(--keep);height:4px;vertical-align:3px}
 .legend-note{margin:14px 0 0;font-size:13px;color:var(--muted)}
+.verswitch{display:flex;flex-wrap:wrap;align-items:center;gap:0;margin:0 0 16px}
+.verswitch span{font:500 11px/1 var(--f-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-right:12px}
+.verswitch button{font:600 14px/1 var(--f-body);padding:11px 16px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.verswitch button+button{border-left:0}
+.verswitch span+button{border-radius:4px 0 0 4px} .verswitch button:last-child{border-radius:0 4px 4px 0}
+.verswitch button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--sheet)}
+.verswitch button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
 /* SVG classes */
 .rm-living{fill:var(--r-living)} .rm-bed{fill:var(--r-bed)} .rm-wet{fill:var(--r-wet)} .rm-circ{fill:var(--r-circ)}
@@ -209,7 +216,7 @@ footer.wrap{padding-block:30px 40px;color:var(--muted);font-size:13px}
   <div class="topbar">
     <p class="eyebrow" data-i18n="eyebrow">Av. Burjassot 229 · Valencia · Concept, not for construction</p>
     <div class="tools">
-      <a class="dl" id="dl" href="burjassot-229-en.pdf" download data-i18n="dlPdf">Download PDF</a>
+      <a class="dl" id="dl" href="burjassot-229-pb3-en.pdf" download data-i18n="dlPdf">Download PDF</a>
       <div class="lang" role="group" aria-label="Language / Idioma">
         <button type="button" data-lang="en" aria-pressed="true" lang="en" title="English">EN</button>
         <button type="button" data-lang="es" aria-pressed="false" lang="es" title="Español">ES</button>
@@ -217,12 +224,17 @@ footer.wrap{padding-block:30px 40px;color:var(--muted);font-size:13px}
     </div>
   </div>
   <h1>Burjassot 229</h1>
-  <p class="lede" data-i18n="lede">Keep the two street façades of the corner house, rebuild the inside, and add floors up to planta baja + 3 (about 341 m², as in your urban analysis), with an ático studio on top. The building entrance stays on Carrer Carrasqueta, through the existing door.</p>
+  <p class="lede" data-i18n="lede">Keep the two street façades of the corner house, rebuild the inside and add floors, with an ático studio on top. Two versions to compare: planta baja + 2, or planta baja + 3 (about 341 m², as in your urban analysis). The building entrance stays on Carrer Carrasqueta, through the existing door.</p>
+  <div class="verswitch scr" role="group" aria-label="Version" data-i18n-aria="verLabel">
+    <span data-i18n="verLabel">Version</span>
+    <button type="button" data-ver="pb2" aria-pressed="false">PB + 2 + Ático</button>
+    <button type="button" data-ver="pb3" aria-pressed="true">PB + 3 + Ático</button>
+  </div>
   <dl class="facts">
     <div><dt data-i18n="fPlot">Plot</dt><dd data-i18n="fPlotV">85.35 m²</dd></div>
-    <div><dt data-i18n="fLevels">Levels</dt><dd>PB + 3 + Ático</dd></div>
+    <div><dt data-i18n="fLevels">Levels</dt><dd id="f-levels">PB + 3 + Ático</dd></div>
     <div><dt data-i18n="fBuilt">Built area</dt><dd id="f-built">≈ 341 m²</dd></div>
-    <div><dt data-i18n="fHomes">Homes</dt><dd data-i18n="fHomesV">3 × 2-bed · 1 studio · 1 shop</dd></div>
+    <div><dt data-i18n="fHomes">Homes</dt><dd id="f-homes">3 × 2-bed · 1 studio · 1 shop</dd></div>
     <div><dt data-i18n="fHeight">Cornice height</dt><dd id="f-height">≈ 13.0 m</dd></div>
     <div><dt data-i18n="fEntrance">Entrance</dt><dd>C/ Carrasqueta</dd></div>
   </dl>
@@ -257,7 +269,7 @@ footer.wrap{padding-block:30px 40px;color:var(--muted);font-size:13px}
           <li data-i18n="k1">Brace both street façades from outside with a temporary steel frame.</li>
           <li data-i18n="k2">Remove the roof, floors and inside walls. The party wall with no. 227 stays.</li>
           <li data-i18n="k3">Build a new concrete frame inside, on its own foundations, and tie the old walls to it.</li>
-          <li data-i18n="k4">Add Planta 2, Planta 3 and the ático on the new frame. With 3 m floors the old cornice would cut across Planta 2, so it is taken down and re-made at the new roof line.</li>
+          <li data-i18n="k4">Add the new floors and the ático on the new frame. With 3 m floors the old cornice would cut across Planta 2, so it is taken down and re-made at the new roof line.</li>
         </ol>
       </div>
     </div>
@@ -316,7 +328,7 @@ footer.wrap{padding-block:30px 40px;color:var(--muted);font-size:13px}
       <li><b data-i18n="n3h">An engineer must check the old walls</b><p data-i18n="n3p">Keeping a façade needs a structural survey of the walls and foundations, and temporary bracing during the works.</p></li>
       <li><b data-i18n="n4h">Ground floor is 3.69 m high</b><p data-i18n="n4p">The rules ask for 3.70 to 4.80 m. An existing façade is usually accepted as it is, but confirm it with the city.</p></li>
       <li><b data-i18n="n5h">Parking: 1 space per home</b><p data-i18n="n5p">There is no room for cars on this footprint. Ask the city about an exemption or another solution early.</p></li>
-      <li><b data-i18n="n6h">Check height and balconies</b><p data-i18n="n6p">The new cornice is about 13.0 m. Confirm the maximum cornice height for PB + 3 in ENS-1, and how far balconies may stick out (Art. 6.19.10).</p></li>
+      <li><b data-i18n="n6h">Check height and balconies</b><p data-i18n="n6p">The new cornice is about 13.0 m with PB + 3 and 10.0 m with PB + 2. Confirm the maximum cornice height in ENS-1, and how far balconies may stick out (Art. 6.19.10).</p></li>
     </ul>
   </section>
 </main>
@@ -329,7 +341,7 @@ footer.wrap{padding-block:30px 40px;color:var(--muted);font-size:13px}
 const D={
  en:{
   eyebrow:'Av. Burjassot 229 · Valencia · Concept, not for construction',
-  lede:'Keep the two street façades of the corner house, rebuild the inside, and add floors up to planta baja + 3 (about 341 m², as in your urban analysis), with an ático studio on top. The building entrance stays on Carrer Carrasqueta, through the existing door.',
+  lede:'Keep the two street façades of the corner house, rebuild the inside and add floors, with an ático studio on top. Two versions to compare: planta baja + 2, or planta baja + 3 (about 341 m², as in your urban analysis). The building entrance stays on Carrer Carrasqueta, through the existing door.', verLabel:'Version', homesFmt:'{n} × 2-bed · 1 studio · 1 shop',
   fPlot:'Plot', fPlotV:'85.35 m²', fLevels:'Levels', fBuilt:'Built area', fHomes:'Homes', fHomesV:'3 × 2-bed · 1 studio · 1 shop', fHeight:'Cornice height', fEntrance:'Entrance',
   todayH:'The building today', todayP:'A recent photo of the corner, and elevations from the 2020 façade restoration project. These are the façades the proposal keeps.',
   altPhoto:'Colour photo of the corner house with its café, the yellow building no. 227 and the red party walls', altElevB:'Elevation drawing of the Av. Burjassot façade', altElevC:'Elevation drawing of the C/ Carrasqueta façade',
@@ -341,7 +353,7 @@ const D={
   k1:'Brace both street façades from outside with a temporary steel frame.',
   k2:'Remove the roof, floors and inside walls. The party wall with no. 227 stays.',
   k3:'Build a new concrete frame inside, on its own foundations, and tie the old walls to it.',
-  k4:'Add Planta 2, Planta 3 and the ático on the new frame. With 3 m floors the old cornice would cut across Planta 2, so it is taken down and re-made at the new roof line.',
+  k4:'Add the new floors and the ático on the new frame. With 3 m floors the old cornice would cut across Planta 2, so it is taken down and re-made at the new roof line.',
   extH:'Exterior', extP:'Switch between the house today and the proposal. Up to 7 m it is the real façade; the new floors repeat its window rhythm and iron balconies, and the classic cornice is re-made at the top. Neighbouring buildings follow your photo (size, colour, brick and render); streets follow your street-plan drawings.',
   model3d:'3D model of the building', camViews:'Camera views', vCorner:'Corner', vAerial:'From above',
   modeAria:'Show building', mToday:'Today', mProp:'Proposal',
@@ -353,7 +365,7 @@ const D={
   n3h:'An engineer must check the old walls', n3p:'Keeping a façade needs a structural survey of the walls and foundations, and temporary bracing during the works.',
   n4h:'Ground floor is 3.69 m high', n4p:'The rules ask for 3.70 to 4.80 m. An existing façade is usually accepted as it is, but confirm it with the city.',
   n5h:'Parking: 1 space per home', n5p:'There is no room for cars on this footprint. Ask the city about an exemption or another solution early.',
-  n6h:'Check height and balconies', n6p:'The new cornice is about 13.0 m. Confirm the maximum cornice height for PB + 3 in ENS-1, and how far balconies may stick out (Art. 6.19.10).',
+  n6h:'Check height and balconies', n6p:'The new cornice is about 13.0 m with PB + 3 and 10.0 m with PB + 2. Confirm the maximum cornice height in ENS-1, and how far balconies may stick out (Art. 6.19.10).',
   footer:'Concept visualization for discussion. Not a construction or permit drawing.',
   planAria:'Floor plan', lift:'LIFT', pergola:'pergola above', approx:'approx.', entrance:'Entrance', balcony:'iron balcony', partyWall:'PARTY WALL · NO. 227',
   titleApt:'2-bedroom apartment', titleAtt:'Studio with roof terrace', titleGround:'Shop + building entrance', level:'Level', f2f:'floor to floor',
@@ -368,7 +380,7 @@ const D={
  },
  es:{
   eyebrow:'Av. Burjassot 229 · Valencia · Concepto, no válido para obra',
-  lede:'Conservar las dos fachadas a calle de la casa en esquina, rehacer el interior y crecer hasta planta baja + 3 (unos 341 m², como en tu análisis urbanístico), con un estudio en ático. La entrada del edificio sigue en el Carrer Carrasqueta, por la puerta existente.',
+  lede:'Conservar las dos fachadas a calle de la casa en esquina, rehacer el interior y crecer en altura, con un estudio en ático. Dos versiones para comparar: planta baja + 2, o planta baja + 3 (unos 341 m², como en tu análisis urbanístico). La entrada del edificio sigue en el Carrer Carrasqueta, por la puerta existente.', verLabel:'Versión', homesFmt:'{n} × 2 dorm. · 1 estudio · 1 local',
   fPlot:'Solar', fPlotV:'85,35 m²', fLevels:'Plantas', fBuilt:'Superficie construida', fHomes:'Viviendas', fHomesV:'3 × 2 dorm. · 1 estudio · 1 local', fHeight:'Altura de cornisa', fEntrance:'Entrada',
   todayH:'El edificio hoy', todayP:'Una foto reciente de la esquina y los alzados del proyecto de restauración de fachadas de 2020. Son las fachadas que conserva la propuesta.',
   altPhoto:'Foto en color de la casa en esquina con su cafetería, el edificio amarillo nº 227 y las medianeras rojas', altElevB:'Alzado de la fachada a la Av. Burjassot', altElevC:'Alzado de la fachada a la C/ Carrasqueta',
@@ -380,7 +392,7 @@ const D={
   k1:'Apuntalar las dos fachadas a calle desde fuera con un estabilizador metálico provisional.',
   k2:'Retirar cubierta, forjados y tabiques. La medianera con el nº 227 se mantiene.',
   k3:'Construir una nueva estructura de hormigón dentro, con su propia cimentación, y atar a ella los muros antiguos.',
-  k4:'Levantar la Planta 2, la Planta 3 y el ático sobre la nueva estructura. Con plantas de 3 m la cornisa antigua cortaría la Planta 2, así que se desmonta y se rehace en la nueva coronación.',
+  k4:'Levantar las plantas nuevas y el ático sobre la nueva estructura. Con plantas de 3 m la cornisa antigua cortaría la Planta 2, así que se desmonta y se rehace en la nueva coronación.',
   extH:'Exterior', extP:'Cambia entre la casa de hoy y la propuesta. Hasta 7 m es la fachada real; las plantas nuevas repiten su ritmo de huecos y los balcones de forja, y la cornisa clásica se rehace arriba. Los edificios vecinos siguen tu foto (tamaño, color, ladrillo y revoco); las calles siguen tus planos.',
   model3d:'Modelo 3D del edificio', camViews:'Vistas de cámara', vCorner:'Esquina', vAerial:'Desde arriba',
   modeAria:'Mostrar edificio', mToday:'Hoy', mProp:'Propuesta',
@@ -392,7 +404,7 @@ const D={
   n3h:'Un técnico debe revisar los muros antiguos', n3p:'Conservar una fachada exige un estudio estructural de muros y cimentación, y un apuntalamiento provisional durante la obra.',
   n4h:'La planta baja mide 3,69 m', n4p:'La normativa pide entre 3,70 y 4,80 m. Una fachada existente suele aceptarse tal cual, pero confírmalo con el Ayuntamiento.',
   n5h:'Aparcamiento: 1 plaza por vivienda', n5p:'En esta huella no hay sitio para coches. Consulta cuanto antes con el Ayuntamiento una exención u otra solución.',
-  n6h:'Comprobar altura y balcones', n6p:'La nueva cornisa queda a unos 13,0 m. Confirma la altura máxima de cornisa para PB + 3 en ENS-1 y cuánto pueden volar los balcones (art. 6.19.10).',
+  n6h:'Comprobar altura y balcones', n6p:'La nueva cornisa queda a unos 13,0 m con PB + 3 y 10,0 m con PB + 2. Confirma la altura máxima de cornisa en ENS-1 y cuánto pueden volar los balcones (art. 6.19.10).',
   footer:'Visualización conceptual para debatir. No es un plano de obra ni de licencia.',
   planAria:'Plano de planta', lift:'ASCENSOR', pergola:'pérgola encima', approx:'aprox.', entrance:'Entrada', balcony:'balcón de forja', partyWall:'MEDIANERA · Nº 227',
   titleApt:'Vivienda de 2 dormitorios', titleAtt:'Estudio con terraza', titleGround:'Local + portal', level:'Nivel', f2f:'altura entre plantas',
@@ -427,7 +439,7 @@ function apply(){
   document.querySelectorAll('[data-i18n]').forEach(el=>{el.innerHTML=t(el.dataset.i18n);});
   document.querySelectorAll('[data-i18n-aria]').forEach(el=>el.setAttribute('aria-label',t(el.dataset.i18nAria)));
   document.querySelectorAll('[data-i18n-alt]').forEach(el=>el.setAttribute('alt',t(el.dataset.i18nAlt)));
-  const dl=document.getElementById('dl'); if(dl) dl.setAttribute('href','burjassot-229-'+lang+'.pdf');
+  const dl=document.getElementById('dl'); if(dl) dl.setAttribute('href','burjassot-229-'+((window.HOUSE&&window.HOUSE.ver)||'pb3')+'-'+lang+'.pdf');
   document.querySelectorAll('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.lang===lang?'true':'false'));
 }
 function set(l){
@@ -459,13 +471,24 @@ const CORE=[[0,YC],[fx(YC),YC],[BK,L],[0,L]];
 const ATT=[[0,3.6],[4.5,3.6],[4.5,9.0],[fx(YC),YC],[BK,L],[0,L]];
 
 /* Level stack. existing:true = inside the kept façade. Add a floor by inserting another {kind:'apt'} entry. */
-const LEVELS=[
-  {id:'pb',num:1,name:'Planta baja',kind:'ground',h:4.0,existing:true},
-  {id:'p1',num:2,name:'Planta 1',kind:'apt',h:3.0,existing:true},
-  {id:'p2',num:3,name:'Planta 2',kind:'apt',h:3.0},
-  {id:'p3',num:4,name:'Planta 3',kind:'apt',h:3.0},
-  {id:'at',num:5,name:'Ático',kind:'attic',h:3.0}
+const STACK=[
+  {id:'pb',name:'Planta baja',kind:'ground',h:4.0,existing:true},
+  {id:'p1',name:'Planta 1',kind:'apt',h:3.0,existing:true},
+  {id:'p2',name:'Planta 2',kind:'apt',h:3.0},
+  {id:'p3',name:'Planta 3',kind:'apt',h:3.0},
+  {id:'at',name:'Ático',kind:'attic',h:3.0}
 ];
+/* Two versions to compare. The page shows one at a time; ?v=pb2 or ?v=pb3 picks it. */
+const VERSIONS={pb3:['pb','p1','p2','p3','at'], pb2:['pb','p1','p2','at']};
+const VLABEL={pb3:'PB + 3 + Ático', pb2:'PB + 2 + Ático'};
+const levelsFor=v=>VERSIONS[v].map((id,i)=>Object.assign({},STACK.find(l=>l.id===id),{num:i+1}));
+const LEVELS=[]; let VER='pb3';
+function setVersion(v,silent){
+  if(!VERSIONS[v]) v='pb3'; VER=v; LEVELS.length=0; levelsFor(v).forEach(l=>LEVELS.push(l));
+  try{localStorage.setItem('b229-ver',v);}catch(e){}
+  if(!silent) document.dispatchEvent(new Event('versionchange'));
+}
+{let v=null; try{v=new URLSearchParams(location.search).get('v')||localStorage.getItem('b229-ver');}catch(e){} setVersion(v||'pb3',true);}
 
 const CORE_FURN=[{k:'lift',r:[0.15,11.55,1.15,1.15]},{k:'stair',r:[0.15,12.85,1.95,2.3],run:1.65}];
 const CORE_ROOM={n:'Stair + lift',t:'core',p:CORE,shared:1,lp:[2.65,12.05],sm:1};
@@ -569,7 +592,7 @@ function segOf(o){
   return [[fx(o.a),o.a],[fx(o.b),o.b]];
 }
 
-window.HOUSE={W,L,BK,K,fx,LC,dC,nC,YC,YOLD,sToY,band,rect,PARCEL,CORE,ATT,TERRACE,LEVELS,area,segOf,
+window.HOUSE={W,L,BK,K,fx,LC,dC,nC,YC,YOLD,sToY,band,rect,PARCEL,CORE,ATT,TERRACE,LEVELS,area,segOf,VERSIONS,VLABEL,levelsFor,setVersion,get ver(){return VER;},
   GROUND_ROOMS,GROUND_FURN,GROUND_DOORS,OPEN_GROUND,
   APT_ROOMS,APT_FURN,APT_DOORS,aptOpenings,ATT_ROOMS,ATT_FURN,ATT_DOORS,ATT_OPENINGS};
 })();
@@ -746,25 +769,35 @@ function schedule(lv,rooms,el){
 
 const tabs=document.getElementById('tabs');
 let cur=H.LEVELS[0];
-H.LEVELS.forEach((lv,i)=>{
-  const b=document.createElement('button');
-  b.className='btn'; b.id='tab-'+lv.id; b.setAttribute('role','tab');
-  b.textContent=lv.num+' · '+lv.name;
-  b.setAttribute('aria-selected',i===0?'true':'false');
-  b.addEventListener('click',()=>{
-    tabs.querySelectorAll('.btn').forEach(x=>x.setAttribute('aria-selected','false'));
-    b.setAttribute('aria-selected','true'); cur=lv; refresh();
+function buildTabs(){
+  tabs.innerHTML='';
+  cur=H.LEVELS.find(l=>l.id===(cur&&cur.id))||H.LEVELS[0];
+  H.LEVELS.forEach(lv=>{
+    const b=document.createElement('button');
+    b.className='btn'; b.id='tab-'+lv.id; b.setAttribute('role','tab');
+    b.textContent=lv.num+' · '+lv.name;
+    b.setAttribute('aria-selected',lv.id===cur.id?'true':'false');
+    b.addEventListener('click',()=>{
+      tabs.querySelectorAll('.btn').forEach(x=>x.setAttribute('aria-selected','false'));
+      b.setAttribute('aria-selected','true'); cur=lv; refresh();
+    });
+    tabs.appendChild(b);
   });
-  tabs.appendChild(b);
-});
-const cornice=H.LEVELS.filter(l=>l.kind!=='attic').reduce((s,l)=>s+l.h,0);
-const floors=H.LEVELS.filter(l=>l.kind!=='attic').length;
+}
 window.PLANS={render};
 function refresh(){
   render(cur,document.getElementById('plan'),document.getElementById('schedule'),'s');
+  const ab=H.LEVELS.filter(l=>l.kind!=='attic'), cornice=ab.reduce((s,l)=>s+l.h,0), apts=H.LEVELS.filter(l=>l.kind==='apt').length;
+  document.getElementById('f-levels').textContent=H.VLABEL[H.ver];
+  document.getElementById('f-homes').textContent=T('homesFmt').replace('{n}',apts);
   document.getElementById('f-height').textContent='≈ '+N(cornice,1)+' m';
-  document.getElementById('f-built').textContent='≈ '+N(floors*area(PARCEL),0)+' m² + '+T('atico')+' '+N(area(ATT),0)+' m²';
+  document.getElementById('f-built').textContent='≈ '+N(ab.length*area(PARCEL),0)+' m² + '+T('atico')+' '+N(area(ATT),0)+' m²';
+  document.querySelectorAll('[data-ver]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.ver===H.ver?'true':'false'));
+  const dl=document.getElementById('dl'); if(dl) dl.setAttribute('href','burjassot-229-'+H.ver+'-'+I.lang+'.pdf');
 }
+document.querySelectorAll('[data-ver]').forEach(b=>b.addEventListener('click',()=>{ if(b.dataset.ver!==H.ver) H.setVersion(b.dataset.ver); }));
+document.addEventListener('versionchange',()=>{buildTabs();refresh();});
+buildTabs();
 refresh();
 document.addEventListener('langchange',refresh);
 })();
@@ -1000,7 +1033,7 @@ try{
                  extrude([[23,-34],[60,-34],[60,-18.5],[23,-18.5]],0,19,[mat.roofGrey,mat.beige])];
 
   /* ---------- the house today ---------- */
-  const todayG=new THREE.Group(), propG=new THREE.Group(); scene.add(todayG); scene.add(propG);
+  const todayG=new THREE.Group(); scene.add(todayG);
   G=todayG;
   extrude(band(0,0,YOLD),0,8.22,mat.old);
   const slope=0.282, zr=9.8, yr=5.6, zAt=y=>zr-slope*Math.abs(y-yr);     // 28 % gable, ridge 9.80 m
@@ -1017,9 +1050,10 @@ try{
   opening3d({s:'C',a:H.sToY(12.0),b:H.sToY(13.2),sill:4.95,h:0.65,bars:1},0);
 
   /* ---------- the proposal: the same old façade below, new floors and ático above ---------- */
-  G=propG;
+  function buildProposal(levels){
+  const grp=new THREE.Group(); scene.add(grp); G=grp;
   let z=0;
-  LEVELS.forEach(lv=>{
+  levels.forEach(lv=>{
     if(lv.kind!=='attic'){
       if(lv.existing){ extrude(band(0,0,YOLD),z,lv.h,mat.old); extrude(band(0,YOLD,L),z,lv.h,mat.newR); }
       else { extrude(PARCEL,z,lv.h,mat.newR); if(z>8.5) extrude(offsetPoly(PARCEL,0.04),z-0.1,0.2,mat.mould); }
@@ -1043,13 +1077,16 @@ try{
     z+=lv.h;
   });
   oldDecor(7.0);
-  const zTop=LEVELS.filter(l=>l.kind!=='attic').reduce((a,l)=>a+l.h,0);
+  const zTop=levels.filter(l=>l.kind!=='attic').reduce((a,l)=>a+l.h,0);
   cornice([[[0,0],[W,0]],[[W,0],P(YC)]],zTop-0.05);
+  G=scene; return grp;
+  }
+  const propGs={}; Object.keys(H.VERSIONS).forEach(v=>{propGs[v]=buildProposal(H.levelsFor(v));});
 
   /* today / proposal switch */
   let mode='proposal';
   function setMode(m){
-    mode=m; todayG.visible=m==='today'; propG.visible=m!=='today';
+    mode=m; todayG.visible=m==='today'; Object.keys(propGs).forEach(v=>{propGs[v].visible=m!=='today'&&v===H.ver;});
     document.querySelectorAll('[data-mode]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.mode===m?'true':'false'));
   }
   document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.mode)));
@@ -1110,32 +1147,42 @@ try{
     autoHide(cam); renderer.setSize(w,h,false); renderer.render(scene,cam);
     return canvas.toDataURL('image/jpeg',0.88);
   }
+  let ALL=null;
+  function showSnaps(){
+    if(!ALL) return;
+    window.SNAPS=Object.assign({},ALL[H.ver],{today:ALL.today});
+    document.getElementById('elevB').src=window.SNAPS.elevB;
+    document.getElementById('elevC').src=window.SNAPS.elevC;
+    document.getElementById('facades').hidden=false;
+    document.dispatchEvent(new Event('snaps'));
+  }
   function capture(){
-    const snaps={}, pr=renderer.getPixelRatio(), bg=scene.background, keepMode=mode;
+    const all={}, pr=renderer.getPixelRatio(), bg=scene.background, keepMode=mode, keepVer=H.ver;
     renderer.setPixelRatio(1);
     camera.aspect=1.6; camera.updateProjectionMatrix();
     const shoot=n=>{const {p,t}=fitPos(VIEWS[n]); camera.position.copy(p); camera.lookAt(t); return grab(1600,1000,camera);};
-    setMode('proposal');
-    ['corner','carrasqueta','burjassot','aerial'].forEach(n=>{snaps[n]=shoot(n);});
-    setMode('today'); snaps.today=shoot('corner'); setMode('proposal');
     // orthographic elevations: 19.2 m tall frame, 80 px per metre
-    scene.background=new THREE.Color(0xffffff);
     const Y0=-0.6, Y1=18.6, ym=(Y0+Y1)/2, PPM=80;
     function elev(tgt,nrm,halfW){
       const cam=new THREE.OrthographicCamera(-halfW,halfW,(Y1-Y0)/2,-(Y1-Y0)/2,0.1,200);
       cam.position.set(tgt[0]+nrm[0]*40,ym,tgt[1]+nrm[1]*40); cam.lookAt(tgt[0],ym,tgt[1]);
       carsG.visible=false; const img=grab(Math.round(2*halfW*PPM),Math.round((Y1-Y0)*PPM),cam); carsG.visible=true; return img;
     }
-    snaps.elevB=elev([4.3,0],[0,1],5.5);
-    snaps.elevC=elev([mid[0],-mid[1]],[nC[0],-nC[1]],9.6);
-    scene.background=bg; renderer.setPixelRatio(pr); setMode(keepMode);
+    const showOnly=v=>{todayG.visible=false; Object.keys(propGs).forEach(k=>{propGs[k].visible=k===v;});};
+    Object.keys(propGs).forEach(v=>{
+      showOnly(v); const sn={};
+      ['corner','carrasqueta','burjassot','aerial'].forEach(n=>{sn[n]=shoot(n);});
+      scene.background=new THREE.Color(0xffffff);
+      sn.elevB=elev([4.3,0],[0,1],5.5);
+      sn.elevC=elev([mid[0],-mid[1]],[nC[0],-nC[1]],9.6);
+      scene.background=bg; all[v]=sn;
+    });
+    todayG.visible=true; Object.keys(propGs).forEach(k=>{propGs[k].visible=false;}); all.today=shoot('corner');
+    renderer.setPixelRatio(pr); setMode(keepMode);
     resize(); setView(current,true);
-    window.SNAPS=snaps;
-    document.getElementById('elevB').src=snaps.elevB;
-    document.getElementById('elevC').src=snaps.elevC;
-    document.getElementById('facades').hidden=false;
-    document.dispatchEvent(new Event('snaps'));
+    ALL=all; showSnaps();
   }
+  document.addEventListener('versionchange',()=>{setMode(mode); showSnaps();});
   const fontsReady=(document.fonts&&document.fonts.ready)?document.fonts.ready:Promise.resolve();
   fontsReady.then(()=>{
     streetLabel('AVINGUDA BURJASSOT',12,[-12,-7.4],0);
@@ -1156,7 +1203,7 @@ const H=window.HOUSE, I=window.I18N, T=I.t, out=document.getElementById('print')
 function build(){
   const S=window.SNAPS||{}, facts=document.querySelector('.facts').outerHTML;
   const notes=document.querySelector('#notes .notes').outerHTML;
-  let h=`<section class="pp"><p class="eyebrow">${T('eyebrow')}</p><h1>Burjassot 229</h1><p class="lede">${T('lede')}</p>${facts}`;
+  let h=`<section class="pp"><p class="eyebrow">${T('eyebrow')}</p><h1>Burjassot 229 · ${H.VLABEL[H.ver]}</h1><p class="lede">${T('lede')}</p>${facts}`;
   if(S.corner){
     h+=`<img class="cv-main" src="${S.corner}" alt="">`;
     h+=`<div class="cv-row">`+[['today',T('todayView')],['carrasqueta','C/ Carrasqueta'],['burjassot','Av. Burjassot']]
@@ -1187,6 +1234,7 @@ function build(){
 build();
 document.addEventListener('snaps',build);
 document.addEventListener('langchange',build);
+document.addEventListener('versionchange',build);
 })();
 
 /* ---------- Download PDF ---------- */
@@ -1196,7 +1244,7 @@ try{ if(window.claude&&window.claude.use) window.claude.use('downloads').then(d=
 dl.addEventListener('click',async e=>{
   if(!cap) return;                       // plain link (e.g. GitHub Pages)
   e.preventDefault();
-  const name='burjassot-229-'+window.I18N.lang+'.pdf';
+  const name='burjassot-229-'+window.HOUSE.ver+'-'+window.I18N.lang+'.pdf';
   try{
     const res=await fetch(name); if(!res.ok) throw new Error('fetch '+res.status);
     await cap.save({filename:name,data:await res.blob()});
