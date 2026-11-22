@@ -602,36 +602,36 @@ const OPEN_GROUND_NEW=[
 ];
 
 /* ---- apartment floors (P1 inside the old façade, P2–P3 new) ---- */
-const HALL=[[0,4.3],[1.1,4.3],[1.1,10.5],[fx(10.5),10.5],[fx(YC),YC],[0,YC]];
+const HALL=[[0,4.3],[1.25,4.3],[1.25,10.5],[fx(10.5),10.5],[fx(YC),YC],[0,YC]];
 const APT_ROOMS=[
   {n:'Living · kitchen · dining',t:'living',p:band(0,0,4.3),lp:[5.2,1.45]},
-  {n:'Bedroom 1',t:'bed',p:band(1.1,4.3,6.9),lp:[4.55,5.3]},
-  {n:'Bathroom',t:'wet',p:band(1.1,6.9,8.2),lp:[3.05,7.82],sm:1,short:'Bath'},
-  {n:'Bedroom 2',t:'bed',p:band(1.1,8.2,10.5),lp:[3.05,8.82],sm:1},
+  {n:'Bedroom 1',t:'bed',p:band(1.25,4.3,6.9),lp:[4.55,5.3]},
+  {n:'Bathroom',t:'wet',p:band(1.25,6.9,8.2),lp:[3.05,7.82],sm:1,short:'Bath'},
+  {n:'Bedroom 2',t:'bed',p:band(1.25,8.2,10.5),lp:[3.05,8.82],sm:1},
   {n:'Hall',t:'circ',p:HALL,lp:[3.35,10.95],sm:1,one:1},
   CORE_ROOM
 ];
 const APT_FURN=[
   {k:'counter',r:[0.15,1.0,0.62,3.0]},{k:'table',r:[1.7,1.2,0.9,1.6]},
   {k:'sofa',r:[3.6,3.4,2.3,0.82],back:'top'},{k:'box',r:[4.15,2.25,1.2,0.6]},
-  {k:'bed',r:[1.3,4.5,2.0,1.5]},{k:'ward',r:[2.1,6.38,2.3,0.48]},
+  {k:'bed',r:[1.45,4.5,2.0,1.5]},{k:'ward',r:[2.1,6.38,2.3,0.48]},
   {k:'sink',r:[2.0,6.98,0.8,0.42]},{k:'wm',r:[2.9,6.98,0.6,0.55]},{k:'wc',r:[2.05,7.55,0.42,0.6],tank:'up'},{k:'shower',r:[3.6,7.0,1.05,0.95]},
-  {k:'bed',r:[1.25,9.5,2.0,0.9]},
+  {k:'bed',r:[1.4,9.5,2.0,0.9]},
   ...CORE_FURN
 ];
 const APT_DOORS=[
   {h:[2.35,YC],u:[-1,0],v:[0,-1],w:0.85},
-  {h:[1.1,6.8],u:[0,-1],v:[1,0],w:0.75},
-  {h:[1.1,8.1],u:[0,-1],v:[1,0],w:0.7},
-  {h:[1.1,8.3],u:[0,1],v:[1,0],w:0.75},
-  {open:[[0.12,4.3],[1.05,4.3]]}
+  {h:[1.25,6.8],u:[0,-1],v:[1,0],w:0.75},
+  {h:[1.25,8.1],u:[0,-1],v:[1,0],w:0.7},
+  {h:[1.25,8.3],u:[0,1],v:[1,0],w:0.75},
+  {open:[[0.12,4.3],[1.2,4.3]]}
 ];
 /* Planta baja apartment: same plan, but bath and bedroom 1 swap so bedroom 1 gets the old Carrasqueta window */
 const APT_ROOMS_PB=[
   {n:'Living · kitchen · dining',t:'living',p:band(0,0,4.3),lp:[5.2,1.45]},
-  {n:'Bathroom',t:'wet',p:band(1.1,4.3,5.6),lp:[5.45,4.98],sm:1,short:'Bath'},
-  {n:'Bedroom 1',t:'bed',p:band(1.1,5.6,8.2),lp:[4.35,6.6]},
-  {n:'Bedroom 2',t:'bed',p:band(1.1,8.2,10.5),lp:[3.05,8.82],sm:1},
+  {n:'Bathroom',t:'wet',p:band(1.25,4.3,5.6),lp:[5.45,4.98],sm:1,short:'Bath'},
+  {n:'Bedroom 1',t:'bed',p:band(1.25,5.6,8.2),lp:[4.35,6.6]},
+  {n:'Bedroom 2',t:'bed',p:band(1.25,8.2,10.5),lp:[3.05,8.82],sm:1},
   {n:'Hall',t:'circ',p:HALL,lp:[3.35,10.95],sm:1,one:1},
   CORE_ROOM
 ];
@@ -639,16 +639,16 @@ const APT_FURN_PB=[
   {k:'counter',r:[0.15,1.0,0.62,3.0]},{k:'table',r:[1.7,1.2,0.9,1.6]},
   {k:'sofa',r:[3.6,3.4,2.3,0.82],back:'top'},{k:'box',r:[4.15,2.25,1.2,0.6]},
   {k:'wc',r:[2.05,4.95,0.42,0.6],tank:'up'},{k:'sink',r:[2.7,5.1,0.8,0.42]},{k:'wm',r:[2.7,4.4,0.6,0.55]},{k:'shower',r:[3.8,4.4,1.05,0.95]},
-  {k:'bed',r:[1.3,5.8,2.0,1.5]},{k:'ward',r:[2.1,7.68,2.3,0.48]},
-  {k:'bed',r:[1.25,9.5,2.0,0.9]},
+  {k:'bed',r:[1.45,5.8,2.0,1.5]},{k:'ward',r:[2.2,7.68,2.2,0.48]},
+  {k:'bed',r:[1.4,9.5,2.0,0.9]},
   ...CORE_FURN
 ];
 const APT_DOORS_PB=[
   {h:[2.35,YC],u:[-1,0],v:[0,-1],w:0.85},
-  {h:[1.1,4.45],u:[0,1],v:[1,0],w:0.7},
-  {h:[1.1,8.1],u:[0,-1],v:[1,0],w:0.75},
-  {h:[1.1,8.3],u:[0,1],v:[1,0],w:0.75},
-  {open:[[0.12,4.3],[1.05,4.3]]}
+  {h:[1.25,4.45],u:[0,1],v:[1,0],w:0.7},
+  {h:[1.25,8.1],u:[0,-1],v:[1,0],w:0.75},
+  {h:[1.25,8.3],u:[0,1],v:[1,0],w:0.75},
+  {open:[[0.12,4.3],[1.2,4.3]]}
 ];
 /* Balcony doors and windows sit where the old ones are (P1); the new floors repeat them */
 function aptOpenings(lv){
