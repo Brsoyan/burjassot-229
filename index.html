@@ -789,6 +789,76 @@ const ATT_OPENINGS=[
   {s:'C',a:13.4,b:14.0,sill:0.3,h:2.5}
 ];
 
+/* ===== WITH LIFT: bigger core from y = 10.15 so the code-size U-stair and the lift sit side by side =====
+   Landing x 0.15–2.25 / y 10.15–11.76; lift shaft x 2.30–3.80 / y 10.20–11.80 (door to the landing);
+   U-stair x 0.15–2.20, flights y 11.76–14.00 (8 treads × 0.28), half landing y 14.00–15.00;
+   entrance strip beside the stair x 2.25 → façade, y 11.80–12.90, with the single street door. */
+const YCL=10.15;
+const CORE_L=[[0,YCL],[fx(YCL),YCL],[BK,L],[0,L]];
+const CORE_FURN_L=[{k:'lift',r:[2.3,10.2,1.5,1.6]},{k:'stair',r:[0.15,11.76,2.05,3.24],run:2.24}];
+const CORE_ROOM_L={n:'Stair + lift',t:'core',p:CORE_L,shared:1,lp:[1.2,10.95],sm:1};
+const HALL_L=rect(0,4.0,1.25,YCL-4.0);
+const LIVING_FURN_L=[{k:'counter',r:[0.15,0.9,0.62,2.8]},{k:'table',r:[1.7,1.0,0.9,1.6]},{k:'sofa',r:[3.6,3.15,2.3,0.8],back:'top'},{k:'box',r:[4.15,2.0,1.2,0.6]}];
+const APT_DOOR_L={h:[0.2,YCL],u:[1,0],v:[0,-1],w:0.85};
+const APT_ROOMS_L=[
+  {n:'Living · kitchen · dining',t:'living',p:band(0,0,4.0),lp:[5.1,1.3]},
+  {n:'Bedroom 1',t:'bed',p:band(1.25,4.0,6.6),lp:[4.6,5.0]},
+  {n:'Bathroom',t:'wet',p:band(1.25,6.6,7.9),lp:[3.15,7.5],sm:1,short:'Bath'},
+  {n:'Bedroom 2',t:'bed',p:band(1.25,7.9,YCL),lp:[3.1,8.5],sm:1},
+  {n:'Hall',t:'circ',p:HALL_L,lp:[0.64,7.0],sm:1},
+  CORE_ROOM_L
+];
+const APT_FURN_L=[...LIVING_FURN_L,
+  {k:'bed',r:[1.45,4.2,2.0,1.5]},{k:'ward',r:[2.2,6.08,2.2,0.48]},
+  {k:'sink',r:[2.1,6.68,0.8,0.42]},{k:'wm',r:[3.0,6.68,0.6,0.55]},{k:'wc',r:[2.15,7.25,0.42,0.6],tank:'up'},{k:'shower',r:[3.7,6.7,1.05,0.95]},
+  {k:'bed',r:[1.4,9.15,2.0,0.9]},
+  ...CORE_FURN_L];
+const APT_DOORS_L=[APT_DOOR_L,
+  {h:[1.25,6.5],u:[0,-1],v:[1,0],w:0.75},{h:[1.25,7.8],u:[0,-1],v:[1,0],w:0.7},{h:[1.25,8.0],u:[0,1],v:[1,0],w:0.75},
+  {open:[[0.12,4.0],[1.2,4.0]]}];
+const APT_ROOMS_PB_L=[
+  {n:'Living · kitchen · dining',t:'living',p:band(0,0,4.0),lp:[5.1,1.3]},
+  {n:'Bathroom',t:'wet',p:band(1.25,4.0,5.3),lp:[5.45,4.6],sm:1,short:'Bath'},
+  {n:'Bedroom 1',t:'bed',p:band(1.25,5.3,7.9),lp:[4.3,6.3]},
+  {n:'Bedroom 2',t:'bed',p:band(1.25,7.9,YCL),lp:[3.1,8.5],sm:1},
+  {n:'Hall',t:'circ',p:HALL_L,lp:[0.64,7.0],sm:1},
+  CORE_ROOM_L
+];
+const APT_FURN_PB_L=[...LIVING_FURN_L,
+  {k:'wc',r:[2.15,4.65,0.42,0.6],tank:'up'},{k:'sink',r:[2.8,4.8,0.8,0.42]},{k:'wm',r:[2.8,4.1,0.6,0.55]},{k:'shower',r:[3.9,4.1,1.05,0.95]},
+  {k:'bed',r:[1.45,5.5,2.0,1.5]},{k:'ward',r:[2.2,7.38,2.2,0.48]},
+  {k:'bed',r:[1.4,9.15,2.0,0.9]},
+  ...CORE_FURN_L];
+const APT_DOORS_PB_L=[APT_DOOR_L,
+  {h:[1.25,4.15],u:[0,1],v:[1,0],w:0.7},{h:[1.25,7.8],u:[0,-1],v:[1,0],w:0.75},{h:[1.25,8.0],u:[0,1],v:[1,0],w:0.75},
+  {open:[[0.12,4.0],[1.2,4.0]]}];
+const OPEN_GROUND_NEW_L=OPEN_GROUND_NEW.map(o=>o.entry?Object.assign({},o,{a:11.95,b:12.85}):o);
+const STUDIO_L=[[0,3.6],[4.5,3.6],[4.5,YCL],[1.4,YCL],[1.4,7.75],[0,7.75]];
+const TERRACE_L=[[0,0],[W,0],[fx(YCL),YCL],[4.5,YCL],[4.5,3.6],[0,3.6]];
+const ATT_L=[[0,3.6],[4.5,3.6],[4.5,YCL],[fx(YCL),YCL],[BK,L],[0,L]];
+const ATT_ROOMS_L=[
+  {n:'Studio',t:'living',p:STUDIO_L,lp:[3.3,4.8]},
+  {n:'Bathroom',t:'wet',p:rect(0,7.75,1.4,YCL-7.75),lp:[0.98,8.9],sm:1,short:'Bath'},
+  {n:'Roof terrace',t:'terrace',p:TERRACE_L,lp:[5.6,3.3],outdoor:1},
+  CORE_ROOM_L
+];
+const ATT_FURN_L=[
+  {k:'counter',r:[0.15,4.1,0.62,2.4]},{k:'table',r:[1.3,4.3,0.8,0.8]},
+  {k:'sofa',r:[2.3,5.6,2.0,0.8],back:'top'},{k:'bed',r:[1.55,7.9,2.0,1.6]},{k:'ward',r:[3.7,7.9,0.5,1.6]},
+  {k:'wc',r:[0.12,7.85,0.58,0.4],tank:'left'},{k:'sink',r:[0.12,8.6,0.45,0.5]},{k:'shower',r:[0.12,9.25,1.15,0.8]},
+  {k:'pergola',r:[0.35,0.35,3.9,2.9]},{k:'table',r:[1.4,1.0,1.4,0.8]},
+  {k:'lounger',r:[5.2,0.5,0.7,1.9]},{k:'lounger',r:[6.1,0.5,0.7,1.9]},
+  {k:'plant',c:[7.55,0.5],rad:0.3},{k:'plant',c:[4.95,7.0],rad:0.32},
+  ...CORE_FURN_L];
+const ATT_DOORS_L=[{h:[2.35,YCL],u:[-1,0],v:[0,-1],w:0.85},{h:[1.4,7.95],u:[0,1],v:[-1,0],w:0.7}];
+const ATT_OPENINGS_L=[{p0:[0.4,3.6],p1:[4.1,3.6],sill:0,h:2.45},{p0:[4.5,4.0],p1:[4.5,9.6],sill:0,h:2.45},{s:'C',a:13.4,b:14.0,sill:0.3,h:2.5}];
+/* everything that depends on the lift option, in one place */
+const layout=lift=>lift
+  ?{YC:YCL,CORE:CORE_L,ATT:ATT_L,TERRACE:TERRACE_L,openGround:OPEN_GROUND_NEW_L,attOpen:ATT_OPENINGS_L,
+    core:{stair:[0.15,2.2,11.76,15.0],runEnd:14.0,lift:[2.3,3.8,10.2,11.8]}}
+  :{YC,CORE,ATT,TERRACE,openGround:OPEN_GROUND_NEW,attOpen:ATT_OPENINGS,
+    core:{stair:[0.15,2.1,12.85,15.15],runEnd:14.5,lift:null}};
+
 function segOf(o){
   if(o.p0) return [o.p0,o.p1];
   if(o.s==='B') return [[o.a,0],[o.b,0]];
@@ -797,7 +867,8 @@ function segOf(o){
 
 window.HOUSE={W,L,BK,K,fx,LC,dC,nC,YC,YOLD,sToY,band,rect,PARCEL,CORE,ATT,TERRACE,LEVELS,area,segOf,VERSIONS,VLABEL,levelsFor,setVersion,setLift,varKey,get ver(){return VER;},get lift(){return LIFT;},
   GROUND_ROOMS,GROUND_FURN,GROUND_DOORS,OPEN_GROUND,OPEN_GROUND_NEW,
-  APT_ROOMS,APT_FURN,APT_DOORS,aptOpenings,APT_ROOMS_PB,APT_FURN_PB,APT_DOORS_PB,ATT_ROOMS,ATT_FURN,ATT_DOORS,ATT_OPENINGS};
+  APT_ROOMS,APT_FURN,APT_DOORS,aptOpenings,APT_ROOMS_PB,APT_FURN_PB,APT_DOORS_PB,
+  APT_ROOMS_L,APT_FURN_L,APT_DOORS_L,APT_ROOMS_PB_L,APT_FURN_PB_L,APT_DOORS_PB_L,ATT_ROOMS_L,ATT_FURN_L,ATT_DOORS_L,layout,get L_(){return layout(LIFT);},ATT_ROOMS,ATT_FURN,ATT_DOORS,ATT_OPENINGS};
 })();
 
 /* ---------- Floor plans (SVG) ---------- */
@@ -930,7 +1001,9 @@ function setFor(lv){
   const set=lv.ground?{rooms:H.APT_ROOMS_PB,furn:H.APT_FURN_PB,doors:H.APT_DOORS_PB,opens:H.OPEN_GROUND_NEW}
     :lv.kind==='attic'?{rooms:H.ATT_ROOMS,furn:H.ATT_FURN,doors:H.ATT_DOORS,opens:H.ATT_OPENINGS}
     :{rooms:H.APT_ROOMS,furn:H.APT_FURN,doors:H.APT_DOORS,opens:H.aptOpenings(lv)};
-  if(H.lift) return set;
+  if(H.lift) return lv.ground?{rooms:H.APT_ROOMS_PB_L,furn:H.APT_FURN_PB_L,doors:H.APT_DOORS_PB_L,opens:H.layout(true).openGround}
+    :lv.kind==='attic'?{rooms:H.ATT_ROOMS_L,furn:H.ATT_FURN_L,doors:H.ATT_DOORS_L,opens:H.layout(true).attOpen}
+    :{rooms:H.APT_ROOMS_L,furn:H.APT_FURN_L,doors:H.APT_DOORS_L,opens:H.aptOpenings(lv)};
   if(lv.kind==='attic') // ático: the shaft becomes a storage cupboard off the landing
     return Object.assign({},set,{
       furn:set.furn.map(f=>f.k==='lift'?Object.assign({},f,{k:'store'}):f),
@@ -952,7 +1025,7 @@ function render(lv,svg,schedEl,sfx){
   rooms.forEach(rm=>s+=`<polygon points="${pts(rm.p)}" class="rm-${rm.t} iwall" stroke-width="0.1" stroke-linejoin="miter"${rm.t==='terrace'?` style="fill:url(#deck-${sfx})"`:''}/>`);
   if(attic){
     s+=`<polygon points="${pts(PARCEL)}" class="wall" stroke-width="0.16"/>`;
-    s+=`<polygon points="${pts(ATT)}" class="wall" stroke-width="0.26"/>`;
+    s+=`<polygon points="${pts(H.L_.ATT)}" class="wall" stroke-width="0.26"/>`;
   } else {
     s+=`<polygon points="${pts(PARCEL)}" class="wall" stroke-width="0.3"/>`;
   }
@@ -1009,7 +1082,7 @@ function refresh(){
   document.querySelectorAll('[data-lift]').forEach(b=>b.setAttribute('aria-pressed',(b.dataset.lift==='1')===H.lift?'true':'false'));
   document.getElementById('f-homes').textContent=T('homesFmt').replace('{n}',apts);
   document.getElementById('f-height').textContent='≈ '+U(cornice,1);
-  document.getElementById('f-built').textContent='≈ '+N(ab.length*area(PARCEL),0)+' m² + '+T('atico')+' '+N(area(ATT),0)+' m²';
+  document.getElementById('f-built').textContent='≈ '+N(ab.length*area(PARCEL),0)+' m² + '+T('atico')+' '+N(area(H.L_.ATT),0)+' m²';
   document.querySelectorAll('[data-ver]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.ver===H.ver?'true':'false'));
   const dl=document.getElementById('dl'); if(dl) dl.setAttribute('href','burjassot-229-'+H.varKey()+'-'+I.lang+'.pdf');
 }
@@ -1269,14 +1342,15 @@ try{
   segBox([0.3,0],[3.15,0],2.78,0.06,1.25,0.62,mat.awningBlue); segBox([0.3,0],[3.15,0],2.5,0.3,0.03,1.25,mat.awningBlue);   // today's café awning
 
   /* ---------- the proposal: the same old façade below, new floors and ático above ---------- */
-  function buildProposal(levels){
+  function buildProposal(levels,lift){
+  const LY=H.layout(lift), YC=LY.YC, ATT=LY.ATT, TERRACE=LY.TERRACE;
   const grp=new THREE.Group(); scene.add(grp); G=grp;
   let z=0;
   levels.forEach(lv=>{
     if(lv.kind!=='attic'){
       if(lv.existing){ extrude(band(0,0,YOLD),z,lv.h,mat.old); extrude(band(0,YOLD,L),z,lv.h,mat.newR); }
       else { extrude(PARCEL,z,lv.h,mat.newR); if(z>8.5) extrude(offsetPoly(PARCEL,0.04),z-0.1,0.2,mat.mould); }
-      (lv.ground?H.OPEN_GROUND_NEW:H.aptOpenings(lv)).forEach(op=>opening3d(op,z));
+      (lv.ground?LY.openGround:H.aptOpenings(lv)).forEach(op=>opening3d(op,z));
     } else {
       extrude(offsetPoly(PARCEL,0.14),z-0.32,0.44,mat.mould);
       extrude(TERRACE,z+0.12,0.06,mat.deck);
@@ -1285,7 +1359,7 @@ try{
       rail([0,0],[W,0]); rail([W,0],P(YC)); rail([0,3.6],[0,0],true);
       extrude(ATT,z+0.12,lv.h,mat.anth);
       extrude(offsetPoly(ATT,0.14),z+0.12+lv.h,0.24,mat.mould);
-      H.ATT_OPENINGS.forEach(op=>opening3d(op,z+0.12));
+      LY.attOpen.forEach(op=>opening3d(op,z+0.12));
       const zp=z+0.12;
       [[0.45,0.45],[4.15,0.45]].forEach(([x,y])=>boxAt(x,y,zp,0.12,0.12,2.6,mat.timber));
       boxAt(2.3,0.45,zp+2.6,3.9,0.14,0.2,mat.timber);
@@ -1300,7 +1374,8 @@ try{
   cornice([[[0,0],[W,0]],[[W,0],P(YC)]],zTop-0.05);
   G=scene; return grp;
   }
-  const propGs={}; Object.keys(H.VERSIONS).forEach(v=>{propGs[v]=buildProposal(H.levelsFor(v));});
+  const pKey=()=>H.ver+(H.lift?'':'-nolift');
+  const propGs={}; Object.keys(H.VERSIONS).forEach(v=>[true,false].forEach(lf=>{propGs[v+(lf?'':'-nolift')]=buildProposal(H.levelsFor(v),lf);}));
 
   /* ---------- structure: the steel frame and the stairs, from frame-data.js (built on first use) ---------- */
   const structGs={};
@@ -1324,8 +1399,8 @@ try{
     const add=(sx,sz,xx)=>{const m=new THREE.Mesh(new THREE.BoxGeometry(sx,hgt,sz),SM.col); m.position.x=xx; m.castShadow=true; g.add(m);};
     add(0.014,b,-h/2+0.007); add(0.014,b,h/2-0.007); add(h,0.009,0);
     g.position.set(x,z0+hgt/2,-y); G.add(g);}
-  function stairs(st){ // U-stair: flight up along the party wall, half landing at the back, flight back to the floor above
-    const [sx0,sx1,sy0,sy1]=window.FRAME.geom.stair, mid=(sx0+sx1)/2, yL=sy1-0.65, z0=st.z0, hh=st.h;
+  function stairs(st,cg){ // U-stair: flight up along the party wall, half landing at the back, flight back to the floor above
+    const [sx0,sx1,sy0,sy1]=cg.stair, mid=(sx0+sx1)/2, yL=cg.runEnd, z0=st.z0, hh=st.h;
     const nR=Math.max(14,Math.round(hh/0.18)), r=hh/nR, nA=Math.ceil(nR/2), nB=nR-nA, tA=(yL-sy0)/nA, tB=(yL-sy0)/nB, w=mid-sx0-0.06;
     for(let i=0;i<nA;i++) boxAt(sx0+0.03+w/2, sy0+(i+0.5)*tA, z0+(i+1)*r-0.04, w, tA+0.02, 0.04, SM.tread);
     boxAt((sx0+sx1)/2, (yL+sy1)/2, z0+nA*r-0.12, sx1-sx0-0.06, sy1-yL, 0.12, SM.tread);
@@ -1335,22 +1410,23 @@ try{
   }
   function buildStructure(k){
     const F=window.FRAME, o=F.options[k], grp=new THREE.Group(); scene.add(grp); G=grp;
+    const cg=H.layout(!!o.lift).core;
     const C={}; o.columns.forEach(c=>C[c.id]=c);
     o.caps.forEach(q=>{const c=C[q.id]; if(c) boxAt(c.x,c.y,-0.45,0.95,0.95,0.55,SM.cap);});
     o.columns.forEach(c=>c.profiles.forEach((p,i)=>{ if(p) iCol(c.x,c.y,o.storeys[i].z0,o.storeys[i].h,p); }));
     o.slabs.forEach(sl=>{
       sl.beams.forEach(b=>iBeam(b.x1,b.y1,b.x2,b.y2,sl.z,b.profile));
-      const shp=new THREE.Shape((sl.type==='roof'?F.geom.atico:H.PARCEL).map(q=>new THREE.Vector2(q[0],q[1])));
-      if(sl.type!=='roof'){ const [a,b,c,d]=F.geom.stair, hole=new THREE.Path([[a,c],[b,c],[b,d],[a,d]].map(q=>new THREE.Vector2(q[0],q[1]))); shp.holes.push(hole);
-        if(o.lift){const [e,f,g,h]=F.geom.lift; shp.holes.push(new THREE.Path([[e,g],[f,g],[f,h],[e,h]].map(q=>new THREE.Vector2(q[0],q[1]))));} }
+      const shp=new THREE.Shape((sl.type==='roof'?H.layout(!!o.lift).ATT:H.PARCEL).map(q=>new THREE.Vector2(q[0],q[1])));
+      if(sl.type!=='roof'){ const [a,b,c,d]=cg.stair, hole=new THREE.Path([[a,c],[b,c],[b,d],[a,d]].map(q=>new THREE.Vector2(q[0],q[1]))); shp.holes.push(hole);
+        if(cg.lift){const [e,f,g,h]=cg.lift; shp.holes.push(new THREE.Path([[e,g],[f,g],[f,h],[e,h]].map(q=>new THREE.Vector2(q[0],q[1]))));} }
       const geo=new THREE.ExtrudeGeometry(shp,{depth:F.geom.slab_t_m,bevelEnabled:false}); geo.rotateX(-Math.PI/2);
       const m=new THREE.Mesh(geo,SM.slab); m.position.y=sl.z-F.geom.slab_t_m; m.renderOrder=2; G.add(m);
     });
     o.bracing.forEach(pl=>pl.storeys.forEach(q=>q.bays.forEach(([a,b])=>{const A=C[a],B=C[b]; if(!A||!B) return;
       const st=o.storeys[q.k], z0=st.z0+0.05, z1=st.z0+st.h-0.25, d=/(\d+)/.exec(q.profile), rad=/SHS/.test(q.profile)?(+d[1])/2000:Math.max(0.018,(+d[1])/1000);
       stick([A.x,A.y,z0],[B.x,B.y,z1],rad,SM.brace); stick([A.x,A.y,z1],[B.x,B.y,z0],rad,SM.brace);})));
-    o.storeys.forEach(st=>{ if(!/tico/i.test(st.name)) stairs(st); });
-    if(o.lift){const [e,f,g,h]=F.geom.lift, top=o.storeys[o.storeys.length-1].z0+0.2; const m=boxAt((e+f)/2,(g+h)/2,-1.2,f-e,h-g,top+1.2,SM.shaft); m.castShadow=false;}
+    o.storeys.forEach(st=>{ if(!/tico/i.test(st.name)) stairs(st,cg); });
+    if(cg.lift){const [e,f,g,h]=cg.lift, top=o.storeys[o.storeys.length-1].z0+0.2; const m=boxAt((e+f)/2,(g+h)/2,-1.2,f-e,h-g,top+1.2,SM.shaft); m.castShadow=false;}
     OLD_SEGS.forEach(([a,b])=>{const m=segBox(a,b,0,7.0,0.35,0.15,SM.ghost); m.castShadow=false; m.renderOrder=3;});
     G=scene; return grp;
   }
@@ -1364,7 +1440,7 @@ try{
   /* today / proposal / structure switch */
   let mode='proposal';
   function setMode(m){
-    mode=m; todayG.visible=m==='today'; Object.keys(propGs).forEach(v=>{propGs[v].visible=m==='proposal'&&v===H.ver;});
+    mode=m; todayG.visible=m==='today'; Object.keys(propGs).forEach(v=>{propGs[v].visible=m==='proposal'&&v===pKey();});
     showStructure(m==='structure');
     document.querySelectorAll('[data-mode]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.mode===m?'true':'false'));
   }
@@ -1431,7 +1507,7 @@ try{
   let ALL=null;
   function showSnaps(){
     if(!ALL) return;
-    window.SNAPS=Object.assign({},ALL[H.ver],{today:ALL.today});
+    window.SNAPS=Object.assign({},ALL[pKey()],{today:ALL.today});
     document.getElementById('elevB').src=window.SNAPS.elevB;
     document.getElementById('elevC').src=window.SNAPS.elevC;
     document.getElementById('facades').hidden=false;
@@ -1525,15 +1601,15 @@ function cmpTable(){
 }
 
 function planSVG(o){
-  const op=D.options[o], C={}; D.grid.columns.forEach(c=>C[c.id]=c);
+  const op=D.options[o], GR=op.grid||D.grid, C={}; GR.columns.forEach(c=>C[c.id]=c);
   const load={}; op.column_loads.forEach(l=>load[l.id]=l);
   let s=`<polygon points="${H.PARCEL.map(p=>S(p[0],p[1])).join(' ')}" fill="var(--r-circ)" stroke="var(--ink)" stroke-width="0.25"/>`;
-  s+=`<polygon points="${H.CORE.map(p=>S(p[0],p[1])).join(' ')}" fill="var(--r-core)" stroke="none"/>`;
+  s+=`<polygon points="${H.L_.CORE.map(p=>S(p[0],p[1])).join(' ')}" fill="var(--r-core)" stroke="none"/>`;
   s+=`<text x="${r(H.W/2-0.3)}" y="2.55" font-size="0.36" class="street" text-anchor="middle">AVINGUDA BURJASSOT</text>`;
-  D.grid.beams.forEach(b=>{const a=C[b.from],c=C[b.to]; if(a&&c) s+=`<line x1="${a.x}" y1="${-a.y}" x2="${c.x}" y2="${-c.y}" stroke="var(--ink)" stroke-width="0.09"><title>${b.id} · ${Lx(b.role)}</title></line>`;});
-  D.grid.bracing.forEach(b=>{const a=C[b.from],c=C[b.to]; if(a&&c){ s+=`<line x1="${a.x}" y1="${-a.y}" x2="${c.x}" y2="${-c.y}" stroke="#c0392b" stroke-width="0.16" stroke-dasharray="0.3 0.18"><title>${Lx(b.plane)}</title></line>`;
+  GR.beams.forEach(b=>{const a=C[b.from],c=C[b.to]; if(a&&c) s+=`<line x1="${a.x}" y1="${-a.y}" x2="${c.x}" y2="${-c.y}" stroke="var(--ink)" stroke-width="0.09"><title>${b.id} · ${Lx(b.role)}</title></line>`;});
+  GR.bracing.forEach(b=>{const a=C[b.from],c=C[b.to]; if(a&&c){ s+=`<line x1="${a.x}" y1="${-a.y}" x2="${c.x}" y2="${-c.y}" stroke="#c0392b" stroke-width="0.16" stroke-dasharray="0.3 0.18"><title>${Lx(b.plane)}</title></line>`;
     const mx=(a.x+c.x)/2,my=(a.y+c.y)/2; s+=`<text x="${r(mx+0.18)}" y="${r(-my-0.12)}" font-size="0.36" fill="#c0392b" font-weight="700">X</text>`;}});
-  D.grid.columns.forEach(c=>{
+  GR.columns.forEach(c=>{
     const l=load[c.id], post=!l;
     s+=`<rect x="${r(c.x-0.15)}" y="${r(-c.y-0.15)}" width="0.3" height="0.3" fill="${post?'var(--sheet)':'var(--ink)'}" stroke="var(--ink)" stroke-width="0.05"><title>${c.id}${l?` · ${l.N_sls_kN} kN SLS / ${l.N_uls_kN} kN ULS`:''}</title></rect>`;
     const right=c.x<4;
@@ -1621,6 +1697,8 @@ const H=window.HOUSE, I=window.I18N, T=I.t, N=I.num, U=I.len, F=window.FRAME;
 const sec=document.getElementById('frame');
 if(!F){ sec.hidden=true; window.FRAMEVIEW=null; return; }
 const G=F.geom;
+/* stair, lift and ático outline follow the lift option (the with-lift core is bigger) */
+const GO=o=>{const c=H.layout(!!o.lift); return {stair:c.core.stair, lift:c.core.lift, atico:c.ATT, runEnd:c.core.runEnd};};
 const key=()=>{const k=(H.ver==='pb2'?'B':'A')+(H.lift?'':'0'); return F.options[k]?k:k[0];};
 const O=()=>F.options[key()];
 const r=n=>Math.round(n*1000)/1000;
@@ -1677,7 +1755,7 @@ function voids(o){
     return `<rect x="${x0}" y="${-y1}" width="${r(x1-x0)}" height="${r(y1-y0)}" fill="var(--sheet)" stroke="var(--ink)" stroke-width="0.05"/>`
       +`<path d="M${P(x0,y0)}L${P(x1,y1)}M${P(x0,y1)}L${P(x1,y0)}" stroke="var(--muted)" stroke-width="0.025"/>`
       +`<text x="${r((x0+x1)/2)}" y="${r(-(y0+y1)/2-0.08)}" font-size="0.2" fill="var(--muted)" text-anchor="middle" paint-order="stroke" stroke="var(--sheet)" stroke-width="0.08">${lab}</text>`;};
-  return R(G.stair,T('frStair'))+(o.lift?R(G.lift,T('frLift')):'');
+  return R(GO(o).stair,T('frStair'))+(o.lift&&GO(o).lift?R(GO(o).lift,T('frLift')):'');
 }
 
 // eccentric pile cap: push a w×h cap (rotated rotDeg on screen) inside the parcel by the least amount
@@ -1695,7 +1773,7 @@ function pushIn(cx,cy,w,h,rotDeg){
 function planSVG(o,L){
   const C=colOf(o), id='fr'+(++uid);
   let s=`<defs><pattern id="${id}" width="0.3" height="1" patternUnits="userSpaceOnUse"><line x1="0.15" y1="0" x2="0.15" y2="1" stroke="var(--accent)" stroke-width="0.025" opacity="0.55"/></pattern></defs>`;
-  const parcel=H.PARCEL.map(p=>P(p[0],p[1])).join(' '), at=G.atico.map(p=>P(p[0],p[1])).join(' ');
+  const parcel=H.PARCEL.map(p=>P(p[0],p[1])).join(' '), at=GO(o).atico.map(p=>P(p[0],p[1])).join(' ');
   s+=streets();
   if(L.kind==='found'){
     s+=`<polygon points="${parcel}" fill="var(--r-circ)" stroke="var(--ink)" stroke-width="0.2"/>`;
@@ -1859,7 +1937,7 @@ function isoSVG(o){
   let back='';
   back+=`<polygon points="${poly(H.PARCEL,0)}" fill="var(--r-circ)" stroke="var(--muted)" stroke-width="0.04"/>`;
   o.caps.forEach(q=>{const c=C[q.id], h=0.45; back+=`<polygon points="${poly([[c.x-h,c.y-h],[c.x+h,c.y-h],[c.x+h,c.y+h],[c.x-h,c.y+h]],0)}" fill="var(--line)" stroke="var(--muted)" stroke-width="0.03"/>`;});
-  o.slabs.forEach(sl=>{const ps=sl.type==='roof'?G.atico:H.PARCEL;
+  o.slabs.forEach(sl=>{const ps=sl.type==='roof'?GO(o).atico:H.PARCEL;
     back+=`<polygon points="${poly(ps,sl.z)}" fill="var(--accent)" fill-opacity="0.07" stroke="var(--accent)" stroke-opacity="0.35" stroke-width="0.03"/>`;});
   o.columns.forEach(c=>c.profiles.forEach((p,k)=>{ if(!p) return; const st=o.storeys[k];
     seg([c.x,c.y,st.z0],[c.x,c.y,st.z0+st.h],`stroke="var(--ink)" stroke-width="${r(0.06+hebB(p)*0.35)}" stroke-linecap="square"`,dep(c.x,c.y)); }));
@@ -1868,7 +1946,7 @@ function isoSVG(o){
     seg([A.x,A.y,z0],[B.x,B.y,z1],`stroke="${RED}" stroke-width="0.04"`,d); seg([A.x,A.y,z1],[B.x,B.y,z0],`stroke="${RED}" stroke-width="0.04"`,d);})));
   // stairs: each storey's U-stair (flight up, half landing, flight up), drawn as stepped stringers
   o.storeys.forEach(st=>{ if(/tico/i.test(st.name)) return;
-    const [sx0,sx1,sy0,sy1]=G.stair, mid=(sx0+sx1)/2, yL=sy1-0.65, nR=Math.max(14,Math.round(st.h/0.18)), rr=st.h/nR, nA=Math.ceil(nR/2), nB=nR-nA;
+    const [sx0,sx1,sy0,sy1]=GO(o).stair, mid=(sx0+sx1)/2, yL=GO(o).runEnd, nR=Math.max(14,Math.round(st.h/0.18)), rr=st.h/nR, nA=Math.ceil(nR/2), nB=nR-nA;
     const step=(x,ya,yb,za,n)=>{const ps=[]; for(let i=0;i<n;i++){const y0=ya+(yb-ya)*i/n, y1=ya+(yb-ya)*(i+1)/n; ps.push([x,y0,za+i*rr],[x,y0,za+(i+1)*rr],[x,y1,za+(i+1)*rr]);} return ps;};
     [[(sx0+mid)/2,sy0,yL,st.z0,nA],[(mid+sx1)/2,yL,sy0,st.z0+nA*rr,nB]].forEach(([x,ya,yb,za,n])=>{
       const ps=step(x,ya,yb,za,n); for(let i=0;i<ps.length-1;i++) seg(ps[i],ps[i+1],`stroke="var(--muted)" stroke-width="0.035"`,dep(x,(ya+yb)/2)-0.005);});
