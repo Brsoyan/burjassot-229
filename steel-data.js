@@ -2484,8 +2484,8 @@ window.STEEL={
       "es": "El sismo (NCSE-02) no es obligatorio en este edificio, pero el cortante basal orientativo (terreno blando C = 2,0) supera al viento mayorado en dirección y (paralela a la medianera). Si el proyectista decide aplicarlo voluntariamente, los tirantes del plano de medianera crecerían uno o dos diámetros."
     },
     {
-      "en": "Wind is taken without any shelter from neighbour no. 227 (6 storeys) — conservative for x-direction; the x-direction bracing (plane C8–C9) and its columns are governed by wind drift and uplift.",
-      "es": "El viento se ha tomado sin el apantallamiento del colindante nº 227 (6 plantas), del lado de la seguridad en dirección x; el arriostramiento en x (plano C8–C9) y sus pilares los gobiernan el desplome y la tracción por viento."
+      "en": "Wind is taken without any shelter from neighbour no. 227 (6 storeys) — conservative for x-direction. The x-direction bracing (planes y = 4.3, y≈8.1 and the back boundary) and its columns are governed by wind; with the shelter counted, steel would fall by ~1.4 t (A) / ~0.5 t (B).",
+      "es": "El viento se ha tomado sin el apantallamiento del colindante nº 227 (6 plantas), del lado de la seguridad en dirección x. El arriostramiento en x (planos y = 4,3, y≈8,1 y lindero trasero) y sus pilares los gobierna el viento; contando ese apantallamiento, el acero bajaría ~1,4 t (A) / ~0,5 t (B)."
     },
     {
       "en": "Valencia alluvial soils can have a high water table. Pile-cap excavation may need dewatering, and the micropile capacity (250 kN assumed) is only an assumption until it is load-tested.",
