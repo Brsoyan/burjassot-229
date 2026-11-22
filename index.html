@@ -234,7 +234,7 @@ footer.wrap{padding-block:30px 40px;color:var(--muted);font-size:13px}
     <div><dt data-i18n="fPlot">Plot</dt><dd data-i18n="fPlotV">85.35 m²</dd></div>
     <div><dt data-i18n="fLevels">Levels</dt><dd id="f-levels">PB + 3 + Ático</dd></div>
     <div><dt data-i18n="fBuilt">Built area</dt><dd id="f-built">≈ 341 m²</dd></div>
-    <div><dt data-i18n="fHomes">Homes</dt><dd id="f-homes">3 × 2-bed · 1 studio · 1 shop</dd></div>
+    <div><dt data-i18n="fHomes">Homes</dt><dd id="f-homes">4 × 2-bed · 1 studio</dd></div>
     <div><dt data-i18n="fHeight">Cornice height</dt><dd id="f-height">≈ 13.0 m</dd></div>
     <div><dt data-i18n="fEntrance">Entrance</dt><dd>C/ Carrasqueta</dd></div>
   </dl>
@@ -268,7 +268,7 @@ footer.wrap{padding-block:30px 40px;color:var(--muted);font-size:13px}
         <ol class="steps">
           <li data-i18n="k1">Brace both street façades from outside with a temporary steel frame.</li>
           <li data-i18n="k2">Remove the roof, floors and inside walls. The party wall with no. 227 stays.</li>
-          <li data-i18n="k3">Build a new concrete frame inside, on its own foundations, and tie the old walls to it.</li>
+          <li data-i18n="k3">Build a new steel frame inside, on its own micropile foundations, and tie the old walls to it.</li>
           <li data-i18n="k4">Add the new floors and the ático on the new frame. With 3 m floors the old cornice would cut across Planta 2, so it is taken down and re-made at the new roof line.</li>
         </ol>
       </div>
@@ -341,7 +341,7 @@ footer.wrap{padding-block:30px 40px;color:var(--muted);font-size:13px}
 const D={
  en:{
   eyebrow:'Av. Burjassot 229 · Valencia · Concept, not for construction',
-  lede:'Keep the two street façades of the corner house, rebuild the inside and add floors, with an ático studio on top. Two versions to compare: planta baja + 2, or planta baja + 3 (about 341 m², as in your urban analysis). The building entrance stays on Carrer Carrasqueta, through the existing door.', verLabel:'Version', homesFmt:'{n} × 2-bed · 1 studio · 1 shop',
+  lede:'Keep the two street façades of the corner house, rebuild the inside and add floors, with an ático studio on top. Two versions to compare: planta baja + 2, or planta baja + 3 (about 341 m², as in your urban analysis). The building entrance stays on Carrer Carrasqueta, through the existing door.', verLabel:'Version', homesFmt:'{n} × 2-bed · 1 studio',
   fPlot:'Plot', fPlotV:'85.35 m²', fLevels:'Levels', fBuilt:'Built area', fHomes:'Homes', fHomesV:'3 × 2-bed · 1 studio · 1 shop', fHeight:'Cornice height', fEntrance:'Entrance',
   todayH:'The building today', todayP:'A recent photo of the corner, and elevations from the 2020 façade restoration project. These are the façades the proposal keeps.',
   altPhoto:'Colour photo of the corner house with its café, the yellow building no. 227 and the red party walls', altElevB:'Elevation drawing of the Av. Burjassot façade', altElevC:'Elevation drawing of the C/ Carrasqueta façade',
@@ -352,7 +352,7 @@ const D={
   kH:'How the façades are kept',
   k1:'Brace both street façades from outside with a temporary steel frame.',
   k2:'Remove the roof, floors and inside walls. The party wall with no. 227 stays.',
-  k3:'Build a new concrete frame inside, on its own foundations, and tie the old walls to it.',
+  k3:'Build a new steel frame inside, on its own micropile foundations, and tie the old walls to it.',
   k4:'Add the new floors and the ático on the new frame. With 3 m floors the old cornice would cut across Planta 2, so it is taken down and re-made at the new roof line.',
   extH:'Exterior', extP:'Switch between the house today and the proposal. Up to 7 m it is the real façade; the new floors repeat its window rhythm and iron balconies, and the classic cornice is re-made at the top. Neighbouring buildings follow your photo (size, colour, brick and render); streets follow your street-plan drawings.',
   model3d:'3D model of the building', camViews:'Camera views', vCorner:'Corner', vAerial:'From above',
@@ -371,7 +371,7 @@ const D={
   titleApt:'2-bedroom apartment', titleAtt:'Studio with roof terrace', titleGround:'Shop + building entrance', level:'Level', f2f:'floor to floor',
   totApt:'Apartment total', totAtt:'Studio total', totGround:'Shop total', shared:'shared', wholeFloor:'Whole floor (plot)', keepRow:'Kept: old façades and party wall', atico:'ático',
   noteAtt:'The ático is set back 3.6 m from Av. Burjassot, so the terrace wraps the corner and looks over both streets.',
-  noteGround:'One door only: the building entrance at the back end of the Carrer Carrasqueta façade, next to the stair and lift. There are no doors on Av. Burjassot; the old doors become windows. The shop is reached from the entrance hall.',
+  noteGround:'Ground-floor apartment inside the kept façade; its windows use the old openings, and bath and bedroom 1 swap so the bedroom gets the old Carrasqueta window. The building has one door only, at the back end of Carrer Carrasqueta next to the stair and lift; there are no doors on Av. Burjassot.',
   noteP1:'Inside the kept façade: the balcony doors and windows stay where the old ones are. The old balcony doors are 2.75 m tall, so the Planta 2 floor sits at 7.0 m with a slab no thicker than 25 cm.',
   noteNew:'New floor on the new frame. It repeats the old window rhythm and iron balconies, so the street sees one building.',
   dlPdf:'Download PDF', facH:'Façades', facP:"Straight-on views of the proposal's two street fronts, at the same scale. Neighbours shown for context.",
@@ -380,7 +380,7 @@ const D={
  },
  es:{
   eyebrow:'Av. Burjassot 229 · Valencia · Concepto, no válido para obra',
-  lede:'Conservar las dos fachadas a calle de la casa en esquina, rehacer el interior y crecer en altura, con un estudio en ático. Dos versiones para comparar: planta baja + 2, o planta baja + 3 (unos 341 m², como en tu análisis urbanístico). La entrada del edificio sigue en el Carrer Carrasqueta, por la puerta existente.', verLabel:'Versión', homesFmt:'{n} × 2 dorm. · 1 estudio · 1 local',
+  lede:'Conservar las dos fachadas a calle de la casa en esquina, rehacer el interior y crecer en altura, con un estudio en ático. Dos versiones para comparar: planta baja + 2, o planta baja + 3 (unos 341 m², como en tu análisis urbanístico). La entrada del edificio sigue en el Carrer Carrasqueta, por la puerta existente.', verLabel:'Versión', homesFmt:'{n} × 2 dorm. · 1 estudio',
   fPlot:'Solar', fPlotV:'85,35 m²', fLevels:'Plantas', fBuilt:'Superficie construida', fHomes:'Viviendas', fHomesV:'3 × 2 dorm. · 1 estudio · 1 local', fHeight:'Altura de cornisa', fEntrance:'Entrada',
   todayH:'El edificio hoy', todayP:'Una foto reciente de la esquina y los alzados del proyecto de restauración de fachadas de 2020. Son las fachadas que conserva la propuesta.',
   altPhoto:'Foto en color de la casa en esquina con su cafetería, el edificio amarillo nº 227 y las medianeras rojas', altElevB:'Alzado de la fachada a la Av. Burjassot', altElevC:'Alzado de la fachada a la C/ Carrasqueta',
@@ -391,7 +391,7 @@ const D={
   kH:'Cómo se conservan las fachadas',
   k1:'Apuntalar las dos fachadas a calle desde fuera con un estabilizador metálico provisional.',
   k2:'Retirar cubierta, forjados y tabiques. La medianera con el nº 227 se mantiene.',
-  k3:'Construir una nueva estructura de hormigón dentro, con su propia cimentación, y atar a ella los muros antiguos.',
+  k3:'Construir una nueva estructura de acero dentro, con su propia cimentación de micropilotes, y atar a ella los muros antiguos.',
   k4:'Levantar las plantas nuevas y el ático sobre la nueva estructura. Con plantas de 3 m la cornisa antigua cortaría la Planta 2, así que se desmonta y se rehace en la nueva coronación.',
   extH:'Exterior', extP:'Cambia entre la casa de hoy y la propuesta. Hasta 7 m es la fachada real; las plantas nuevas repiten su ritmo de huecos y los balcones de forja, y la cornisa clásica se rehace arriba. Los edificios vecinos siguen tu foto (tamaño, color, ladrillo y revoco); las calles siguen tus planos.',
   model3d:'Modelo 3D del edificio', camViews:'Vistas de cámara', vCorner:'Esquina', vAerial:'Desde arriba',
@@ -410,7 +410,7 @@ const D={
   titleApt:'Vivienda de 2 dormitorios', titleAtt:'Estudio con terraza', titleGround:'Local + portal', level:'Nivel', f2f:'altura entre plantas',
   totApt:'Total vivienda', totAtt:'Total estudio', totGround:'Total local', shared:'zona común', wholeFloor:'Planta completa (solar)', keepRow:'Se conservan: fachadas antiguas y medianera', atico:'ático',
   noteAtt:'El ático se retranquea 3,6 m respecto a la Av. Burjassot, así que la terraza rodea la esquina y da a las dos calles.',
-  noteGround:'Una sola puerta: la entrada del edificio al final de la fachada del Carrer Carrasqueta, junto a la escalera y el ascensor. No hay puertas a la Av. Burjassot; las puertas antiguas pasan a ser ventanas. Al local se accede desde el portal.',
+  noteGround:'Vivienda en planta baja dentro de la fachada conservada; sus ventanas usan los huecos antiguos, y el baño y el dormitorio 1 se intercambian para que el dormitorio tenga la ventana antigua a Carrasqueta. El edificio tiene una sola puerta, al final del Carrer Carrasqueta junto a la escalera y el ascensor; no hay puertas a la Av. Burjassot.',
   noteP1:'Dentro de la fachada conservada: los balcones y ventanas quedan donde están. Las puertas de balcón antiguas miden 2,75 m, así que el forjado de la Planta 2 va a 7,0 m con un canto máximo de 25 cm.',
   noteNew:'Planta nueva sobre la nueva estructura. Repite el ritmo de huecos y los balcones de forja, para que desde la calle se lea un solo edificio.',
   dlPdf:'Descargar PDF', facH:'Fachadas', facP:'Vistas frontales de las dos fachadas a calle de la propuesta, a la misma escala. Los edificios vecinos se muestran como referencia.',
@@ -472,7 +472,7 @@ const ATT=[[0,3.6],[4.5,3.6],[4.5,9.0],[fx(YC),YC],[BK,L],[0,L]];
 
 /* Level stack. existing:true = inside the kept façade. Add a floor by inserting another {kind:'apt'} entry. */
 const STACK=[
-  {id:'pb',name:'Planta baja',kind:'ground',h:4.0,existing:true},
+  {id:'pb',name:'Planta baja',kind:'apt',ground:true,h:4.0,existing:true},
   {id:'p1',name:'Planta 1',kind:'apt',h:3.0,existing:true},
   {id:'p2',name:'Planta 2',kind:'apt',h:3.0},
   {id:'p3',name:'Planta 3',kind:'apt',h:3.0},
@@ -558,6 +558,30 @@ const APT_DOORS=[
   {h:[1.1,8.3],u:[0,1],v:[1,0],w:0.75},
   {open:[[0.12,4.3],[1.05,4.3]]}
 ];
+/* Planta baja apartment: same plan, but bath and bedroom 1 swap so bedroom 1 gets the old Carrasqueta window */
+const APT_ROOMS_PB=[
+  {n:'Living · kitchen · dining',t:'living',p:band(0,0,4.3),lp:[5.2,1.45]},
+  {n:'Bathroom',t:'wet',p:band(1.1,4.3,5.6),lp:[5.45,4.98],sm:1,short:'Bath'},
+  {n:'Bedroom 1',t:'bed',p:band(1.1,5.6,8.2),lp:[4.35,6.6]},
+  {n:'Bedroom 2',t:'bed',p:band(1.1,8.2,10.5),lp:[3.05,8.82],sm:1},
+  {n:'Hall',t:'circ',p:HALL,lp:[3.35,10.95],sm:1,one:1},
+  CORE_ROOM
+];
+const APT_FURN_PB=[
+  {k:'counter',r:[0.15,1.0,0.62,3.0]},{k:'table',r:[1.7,1.2,0.9,1.6]},
+  {k:'sofa',r:[3.6,3.4,2.3,0.82],back:'top'},{k:'box',r:[4.15,2.25,1.2,0.6]},
+  {k:'wc',r:[2.05,4.95,0.42,0.6],tank:'up'},{k:'sink',r:[2.7,5.1,0.8,0.42]},{k:'wm',r:[2.7,4.4,0.6,0.55]},{k:'shower',r:[3.8,4.4,1.05,0.95]},
+  {k:'bed',r:[1.3,5.8,2.0,1.5]},{k:'ward',r:[2.1,7.68,2.3,0.48]},
+  {k:'bed',r:[1.25,9.5,2.0,0.9]},
+  ...CORE_FURN
+];
+const APT_DOORS_PB=[
+  {h:[2.35,YC],u:[-1,0],v:[0,-1],w:0.85},
+  {h:[1.1,4.45],u:[0,1],v:[1,0],w:0.7},
+  {h:[1.1,8.1],u:[0,-1],v:[1,0],w:0.75},
+  {h:[1.1,8.3],u:[0,1],v:[1,0],w:0.75},
+  {open:[[0.12,4.3],[1.05,4.3]]}
+];
 /* Balcony doors and windows sit where the old ones are (P1); the new floors repeat them */
 function aptOpenings(lv){
   const tall=!!lv.existing, dh=tall?2.75:2.4, wh=tall?1.45:1.35;
@@ -606,7 +630,7 @@ function segOf(o){
 
 window.HOUSE={W,L,BK,K,fx,LC,dC,nC,YC,YOLD,sToY,band,rect,PARCEL,CORE,ATT,TERRACE,LEVELS,area,segOf,VERSIONS,VLABEL,levelsFor,setVersion,get ver(){return VER;},
   GROUND_ROOMS,GROUND_FURN,GROUND_DOORS,OPEN_GROUND,OPEN_GROUND_NEW,
-  APT_ROOMS,APT_FURN,APT_DOORS,aptOpenings,ATT_ROOMS,ATT_FURN,ATT_DOORS,ATT_OPENINGS};
+  APT_ROOMS,APT_FURN,APT_DOORS,aptOpenings,APT_ROOMS_PB,APT_FURN_PB,APT_DOORS_PB,ATT_ROOMS,ATT_FURN,ATT_DOORS,ATT_OPENINGS};
 })();
 
 /* ---------- Floor plans (SVG) ---------- */
@@ -735,7 +759,7 @@ function context(lv,sfx){
 }
 
 function setFor(lv){
-  if(lv.kind==='ground') return {rooms:H.GROUND_ROOMS,furn:H.GROUND_FURN,doors:H.GROUND_DOORS,opens:H.OPEN_GROUND_NEW};
+  if(lv.ground) return {rooms:H.APT_ROOMS_PB,furn:H.APT_FURN_PB,doors:H.APT_DOORS_PB,opens:H.OPEN_GROUND_NEW};
   if(lv.kind==='attic') return {rooms:H.ATT_ROOMS,furn:H.ATT_FURN,doors:H.ATT_DOORS,opens:H.ATT_OPENINGS};
   return {rooms:H.APT_ROOMS,furn:H.APT_FURN,doors:H.APT_DOORS,opens:H.aptOpenings(lv)};
 }
@@ -756,7 +780,7 @@ function render(lv,svg,schedEl,sfx){
   opens.forEach(o=>s+=opening(o,(attic&&o.p0)?0.26:0.3));
   furn.forEach(f=>s+=furniture(f));
   rooms.forEach(rm=>s+=roomLabel(rm));
-  if(lv.kind==='apt') s+=tx(3.55,-0.92,0.2,'ar',T('balcony'));
+  if(lv.kind==='apt'&&!lv.ground) s+=tx(3.55,-0.92,0.2,'ar',T('balcony'));
   svg.innerHTML=s;
   svg.setAttribute('aria-label',T('planAria')+', '+lv.name);
   schedule(lv,rooms,schedEl);
@@ -775,7 +799,7 @@ function schedule(lv,rooms,el){
   shared.forEach(r=>rows+=`<tr class="sub"><td>${sw(r.t)}${T(r.n)} (${T('shared')})</td><td>${fmt(area(r.p))} m²</td></tr>`);
   rows+=`<tr class="sub"><td>${T('wholeFloor')}</td><td>${fmt(area(PARCEL))} m²</td></tr>`;
   if(lv.existing) rows+=`<tr class="sub"><td><span class="sw keep"></span>${T('keepRow')}</td><td></td></tr>`;
-  const note=K==='attic'?T('noteAtt'):K==='ground'?T('noteGround'):lv.existing?T('noteP1'):T('noteNew');
+  const note=K==='attic'?T('noteAtt'):lv.ground?T('noteGround'):lv.existing?T('noteP1'):T('noteNew');
   el.innerHTML=`<h3>${title}</h3><p class="sub">${sub}</p><table>${rows}</table><p class="legend-note">${note}</p>`;
 }
 
@@ -1024,8 +1048,9 @@ try{
   extrude([[-17,0],[-7,0],[-7,12],[-17,12]],0,15.5,[mat.roofGrey,mat.redF]);
   G=scene;
   // the red stair tower of the building behind our plot, with small windows
-  boxAt(1.4,17.2,0,3.2,3.8,17.6,mat.red);
-  boxAt(3.02,17.0,12.8,0.04,0.55,0.7,mat.glass); boxAt(3.02,17.0,15.4,0.04,0.55,0.7,mat.glass);
+  // kept inside the Carrasqueta building line, so it does not stand on the sidewalk
+  extrude([[-0.6,L],[fx(L),L],P(18.8),[-0.6,18.8]],0,17.6,mat.red);
+  for(const zw of [12.8,15.4]) segBox(P(16.6),P(17.3),zw,0.7,0.04,0.02,mat.glass);
   // C/ Carrasqueta, next to our back: orange V-floor block with balconies and a red side wall; then white; then brick
   const backN=new THREE.Group(); scene.add(backN); G=backN;
   extrude([[-8,L],[BK,L],P(24),[-8,24]],0,15.5,[mat.roofGrey,mat.ochre]);
@@ -1039,8 +1064,6 @@ try{
   const acrossC=extrude([[offX(0,8.4),0],[34,0],[34,32],[offX(32,8.4),32]],0,34,[mat.roofGrey,mat.brickTall]);
   // orange trees on Av. Burjassot (as in the photo)
   for(const x of [-8.6,-13.5]){cyl(x,-2.3,0,0.13,2.3,mat.trunk,8); const c=new THREE.Mesh(new THREE.SphereGeometry(1.7,14,12),mat.leaf); c.position.set(x,3.7,2.3); c.scale.set(1,0.85,1); put(c);}
-  // the café's blue awning on our ground floor (both today and in the proposal)
-  segBox([0.3,0],[3.15,0],2.78,0.06,1.25,0.62,mat.awningBlue); segBox([0.3,0],[3.15,0],2.5,0.3,0.03,1.25,mat.awningBlue);
   const acrossB=[extrude([[-50,-34],[13,-34],[13,-18.5],[-50,-18.5]],0,19,[mat.roofGrey,mat.white]),
                  extrude([[23,-34],[60,-34],[60,-18.5],[23,-18.5]],0,19,[mat.roofGrey,mat.beige])];
 
@@ -1060,6 +1083,7 @@ try{
   H.OPEN_GROUND.forEach(op=>opening3d(op,0));
   H.aptOpenings({existing:true}).slice(0,4).forEach(op=>opening3d(op,4.0));
   opening3d({s:'C',a:H.sToY(12.0),b:H.sToY(13.2),sill:4.95,h:0.65,bars:1},0);
+  segBox([0.3,0],[3.15,0],2.78,0.06,1.25,0.62,mat.awningBlue); segBox([0.3,0],[3.15,0],2.5,0.3,0.03,1.25,mat.awningBlue);   // today's café awning
 
   /* ---------- the proposal: the same old façade below, new floors and ático above ---------- */
   function buildProposal(levels){
@@ -1069,7 +1093,7 @@ try{
     if(lv.kind!=='attic'){
       if(lv.existing){ extrude(band(0,0,YOLD),z,lv.h,mat.old); extrude(band(0,YOLD,L),z,lv.h,mat.newR); }
       else { extrude(PARCEL,z,lv.h,mat.newR); if(z>8.5) extrude(offsetPoly(PARCEL,0.04),z-0.1,0.2,mat.mould); }
-      (lv.kind==='ground'?H.OPEN_GROUND_NEW:H.aptOpenings(lv)).forEach(op=>opening3d(op,z));
+      (lv.ground?H.OPEN_GROUND_NEW:H.aptOpenings(lv)).forEach(op=>opening3d(op,z));
     } else {
       extrude(offsetPoly(PARCEL,0.14),z-0.32,0.44,mat.mould);
       extrude(TERRACE,z+0.12,0.06,mat.deck);
