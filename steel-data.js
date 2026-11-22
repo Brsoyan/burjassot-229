@@ -2173,6 +2173,1568 @@ window.STEEL={
           "ok": true
         }
       ]
+    },
+    "A0": {
+      "label": {
+        "en": "Option A0 — PB + 3 + ático, no lift",
+        "es": "Opción A0 — PB + 3 + ático, sin ascensor"
+      },
+      "levels": [
+        {
+          "name": "PB",
+          "h": 4.0
+        },
+        {
+          "name": "P1",
+          "h": 3.0
+        },
+        {
+          "name": "P2",
+          "h": 3.0
+        },
+        {
+          "name": "P3",
+          "h": 3.0
+        },
+        {
+          "name": "Ático",
+          "h": 3.0
+        }
+      ],
+      "cornice_m": 13.0,
+      "top_m": 16.0,
+      "homes": 5,
+      "built_m2": 390.2,
+      "members": [
+        {
+          "group": {
+            "en": "Core trimmer beams (stair opening; lift shaft closed)",
+            "es": "Brochales del núcleo (hueco de escalera; sin hueco de ascensor)"
+          },
+          "profile": "IPE 160",
+          "where": {
+            "en": "8 pieces over all levels, total length 22.0 m",
+            "es": "8 piezas en todas las plantas, longitud total 22.0 m"
+          },
+          "count": 8,
+          "length_m": 22.0,
+          "kg_per_m": 15.8,
+          "kg": 347.6
+        },
+        {
+          "group": {
+            "en": "Street-facade edge beams (Burjassot + Carrasqueta)",
+            "es": "Vigas de borde de fachada (Burjassot + Carrasqueta)"
+          },
+          "profile": "IPE 180",
+          "where": {
+            "en": "11 pieces over all levels, total length 41.8 m",
+            "es": "11 piezas en todas las plantas, longitud total 41.8 m"
+          },
+          "count": 11,
+          "length_m": 41.82,
+          "kg_per_m": 18.8,
+          "kg": 786.2
+        },
+        {
+          "group": {
+            "en": "Street-facade edge beams (Burjassot + Carrasqueta)",
+            "es": "Vigas de borde de fachada (Burjassot + Carrasqueta)"
+          },
+          "profile": "IPE 240",
+          "where": {
+            "en": "3 pieces over all levels, total length 12.1 m",
+            "es": "3 piezas en todas las plantas, longitud total 12.1 m"
+          },
+          "count": 3,
+          "length_m": 12.08,
+          "kg_per_m": 30.7,
+          "kg": 370.9
+        },
+        {
+          "group": {
+            "en": "Street-facade edge beams (Burjassot + Carrasqueta)",
+            "es": "Vigas de borde de fachada (Burjassot + Carrasqueta)"
+          },
+          "profile": "IPE 160",
+          "where": {
+            "en": "6 pieces over all levels, total length 22.4 m",
+            "es": "6 piezas en todas las plantas, longitud total 22.4 m"
+          },
+          "count": 6,
+          "length_m": 22.36,
+          "kg_per_m": 15.8,
+          "kg": 353.3
+        },
+        {
+          "group": {
+            "en": "Street-facade edge beams (Burjassot + Carrasqueta)",
+            "es": "Vigas de borde de fachada (Burjassot + Carrasqueta)"
+          },
+          "profile": "IPE 200",
+          "where": {
+            "en": "4 pieces over all levels, total length 13.3 m",
+            "es": "4 piezas en todas las plantas, longitud total 13.3 m"
+          },
+          "count": 4,
+          "length_m": 13.28,
+          "kg_per_m": 22.4,
+          "kg": 297.5
+        },
+        {
+          "group": {
+            "en": "Primary floor beams (x-direction, under cross walls)",
+            "es": "Vigas principales de forjado (dirección x, bajo tabiques transversales)"
+          },
+          "profile": "IPE 200",
+          "where": {
+            "en": "13 pieces over all levels, total length 40.0 m",
+            "es": "13 piezas en todas las plantas, longitud total 40.0 m"
+          },
+          "count": 13,
+          "length_m": 39.99,
+          "kg_per_m": 22.4,
+          "kg": 895.8
+        },
+        {
+          "group": {
+            "en": "Primary floor beams (x-direction, under cross walls)",
+            "es": "Vigas principales de forjado (dirección x, bajo tabiques transversales)"
+          },
+          "profile": "IPE 160",
+          "where": {
+            "en": "8 pieces over all levels, total length 15.4 m",
+            "es": "8 piezas en todas las plantas, longitud total 15.4 m"
+          },
+          "count": 8,
+          "length_m": 15.44,
+          "kg_per_m": 15.8,
+          "kg": 244.0
+        },
+        {
+          "group": {
+            "en": "Primary floor beams (x-direction, under cross walls)",
+            "es": "Vigas principales de forjado (dirección x, bajo tabiques transversales)"
+          },
+          "profile": "IPE 180",
+          "where": {
+            "en": "2 pieces over all levels, total length 5.7 m",
+            "es": "2 piezas en todas las plantas, longitud total 5.7 m"
+          },
+          "count": 2,
+          "length_m": 5.73,
+          "kg_per_m": 18.8,
+          "kg": 107.7
+        },
+        {
+          "group": {
+            "en": "Primary floor beams (x-direction, under cross walls)",
+            "es": "Vigas principales de forjado (dirección x, bajo tabiques transversales)"
+          },
+          "profile": "IPE 220",
+          "where": {
+            "en": "1 pieces over all levels, total length 2.7 m",
+            "es": "1 piezas en todas las plantas, longitud total 2.7 m"
+          },
+          "count": 1,
+          "length_m": 2.74,
+          "kg_per_m": 26.2,
+          "kg": 71.8
+        },
+        {
+          "group": {
+            "en": "Party-wall edge beams / bracing struts",
+            "es": "Vigas de borde de medianera / montantes de arriostramiento"
+          },
+          "profile": "IPE 200",
+          "where": {
+            "en": "16 pieces over all levels, total length 57.8 m",
+            "es": "16 piezas en todas las plantas, longitud total 57.8 m"
+          },
+          "count": 16,
+          "length_m": 57.8,
+          "kg_per_m": 22.4,
+          "kg": 1294.7
+        },
+        {
+          "group": {
+            "en": "Ático roof beams",
+            "es": "Vigas de cubierta del ático"
+          },
+          "profile": "IPE 160",
+          "where": {
+            "en": "11 pieces over all levels, total length 32.1 m",
+            "es": "11 piezas en todas las plantas, longitud total 32.1 m"
+          },
+          "count": 11,
+          "length_m": 32.14,
+          "kg_per_m": 15.8,
+          "kg": 507.8
+        },
+        {
+          "group": {
+            "en": "Ático roof beams",
+            "es": "Vigas de cubierta del ático"
+          },
+          "profile": "IPE 200",
+          "where": {
+            "en": "1 pieces over all levels, total length 3.4 m",
+            "es": "1 piezas en todas las plantas, longitud total 3.4 m"
+          },
+          "count": 1,
+          "length_m": 3.41,
+          "kg_per_m": 22.4,
+          "kg": 76.4
+        },
+        {
+          "group": {
+            "en": "Bracing tubes (X, tension + compression, bolted at crossing)",
+            "es": "Diagonales de arriostramiento en tubo (cruz de San Andrés, tracción y compresión, atornilladas en el cruce)"
+          },
+          "profile": "SHS 120x120x6",
+          "where": {
+            "en": "Back boundary plane y=15.05 (blind, neighbour at the rear) — 4 diagonals, total 16.5 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano del lindero trasero y=15,05 (ciego, colindante posterior) — 4 diagonales, total 16.5 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 4,
+          "length_m": 16.49,
+          "kg_per_m": 23.1,
+          "kg": 380.9
+        },
+        {
+          "group": {
+            "en": "Bracing tubes (X, tension + compression, bolted at crossing)",
+            "es": "Diagonales de arriostramiento en tubo (cruz de San Andrés, tracción y compresión, atornilladas en el cruce)"
+          },
+          "profile": "SHS 100x100x6",
+          "where": {
+            "en": "Back boundary plane y=15.05 (blind, neighbour at the rear) — 2 diagonals, total 7.4 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano del lindero trasero y=15,05 (ciego, colindante posterior) — 2 diagonales, total 7.4 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 2,
+          "length_m": 7.39,
+          "kg_per_m": 19.03,
+          "kg": 140.6
+        },
+        {
+          "group": {
+            "en": "Bracing tubes (X, tension + compression, bolted at crossing)",
+            "es": "Diagonales de arriostramiento en tubo (cruz de San Andrés, tracción y compresión, atornilladas en el cruce)"
+          },
+          "profile": "SHS 90x90x5",
+          "where": {
+            "en": "Back boundary plane y=15.05 (blind, neighbour at the rear) — 2 diagonals, total 7.4 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano del lindero trasero y=15,05 (ciego, colindante posterior) — 2 diagonales, total 7.4 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 2,
+          "length_m": 7.39,
+          "kg_per_m": 14.41,
+          "kg": 106.5
+        },
+        {
+          "group": {
+            "en": "Bracing rods (X, tension-only, with turnbuckles)",
+            "es": "Tirantes de arriostramiento (cruz de San Andrés, redondos con tensor)"
+          },
+          "profile": "Ø36 mm round bar",
+          "where": {
+            "en": "Back boundary plane y=15.05 (blind, neighbour at the rear) — 2 diagonals, total 7.4 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano del lindero trasero y=15,05 (ciego, colindante posterior) — 2 diagonales, total 7.4 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 2,
+          "length_m": 7.39,
+          "kg_per_m": 8.79,
+          "kg": 65.0
+        },
+        {
+          "group": {
+            "en": "Bracing rods (X, tension-only, with turnbuckles)",
+            "es": "Tirantes de arriostramiento (cruz de San Andrés, redondos con tensor)"
+          },
+          "profile": "Ø30 mm round bar",
+          "where": {
+            "en": "Party-wall plane x=0.30 (blind wall, neighbour no. 227) — 4 diagonals, total 21.4 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano de medianera x=0,30 (paño ciego, colindante nº 227) — 4 diagonales, total 21.4 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 4,
+          "length_m": 21.42,
+          "kg_per_m": 6.11,
+          "kg": 130.9
+        },
+        {
+          "group": {
+            "en": "Bracing rods (X, tension-only, with turnbuckles)",
+            "es": "Tirantes de arriostramiento (cruz de San Andrés, redondos con tensor)"
+          },
+          "profile": "Ø24 mm round bar",
+          "where": {
+            "en": "Party-wall plane x=0.30 (blind wall, neighbour no. 227) — 4 diagonals, total 18.6 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano de medianera x=0,30 (paño ciego, colindante nº 227) — 4 diagonales, total 18.6 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 4,
+          "length_m": 18.61,
+          "kg_per_m": 3.91,
+          "kg": 72.8
+        },
+        {
+          "group": {
+            "en": "Bracing rods (X, tension-only, with turnbuckles)",
+            "es": "Tirantes de arriostramiento (cruz de San Andrés, redondos con tensor)"
+          },
+          "profile": "Ø16 mm round bar",
+          "where": {
+            "en": "Party-wall plane x=0.30 (blind wall, neighbour no. 227) — 8 diagonals, total 37.2 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano de medianera x=0,30 (paño ciego, colindante nº 227) — 8 diagonales, total 37.2 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 8,
+          "length_m": 37.23,
+          "kg_per_m": 1.74,
+          "kg": 64.8
+        },
+        {
+          "group": {
+            "en": "Bracing rods (X, tension-only, with turnbuckles)",
+            "es": "Tirantes de arriostramiento (cruz de San Andrés, redondos con tensor)"
+          },
+          "profile": "Ø20 mm round bar",
+          "where": {
+            "en": "Party-wall plane x=0.30 (blind wall, neighbour no. 227) — 4 diagonals, total 18.6 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano de medianera x=0,30 (paño ciego, colindante nº 227) — 4 diagonales, total 18.6 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 4,
+          "length_m": 18.61,
+          "kg_per_m": 2.72,
+          "kg": 50.6
+        },
+        {
+          "group": {
+            "en": "Bracing tubes (X, tension + compression, bolted at crossing)",
+            "es": "Diagonales de arriostramiento en tubo (cruz de San Andrés, tracción y compresión, atornilladas en el cruce)"
+          },
+          "profile": "SHS 90x90x5",
+          "where": {
+            "en": "Cross-wall plane y=4.3 between C5 and C6 (blind wall between living room and bedroom 1 / PB bathroom; PB to P3/P2, not in the ático) — 2 diagonals, total 9.7 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano del tabique transversal y=4,3 entre C5 y C6 (paño ciego entre salón y dormitorio 1 / baño de PB; de PB a la última planta de viviendas, no en el ático) — 2 diagonales, total 9.7 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 2,
+          "length_m": 9.7,
+          "kg_per_m": 14.41,
+          "kg": 139.8
+        },
+        {
+          "group": {
+            "en": "Bracing tubes (X, tension + compression, bolted at crossing)",
+            "es": "Diagonales de arriostramiento en tubo (cruz de San Andrés, tracción y compresión, atornilladas en el cruce)"
+          },
+          "profile": "SHS 80x80x4",
+          "where": {
+            "en": "Cross-wall plane y=4.3 between C5 and C6 (blind wall between living room and bedroom 1 / PB bathroom; PB to P3/P2, not in the ático) — 2 diagonals, total 8.1 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano del tabique transversal y=4,3 entre C5 y C6 (paño ciego entre salón y dormitorio 1 / baño de PB; de PB a la última planta de viviendas, no en el ático) — 2 diagonales, total 8.1 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 2,
+          "length_m": 8.13,
+          "kg_per_m": 10.14,
+          "kg": 82.4
+        },
+        {
+          "group": {
+            "en": "Bracing rods (X, tension-only, with turnbuckles)",
+            "es": "Tirantes de arriostramiento (cruz de San Andrés, redondos con tensor)"
+          },
+          "profile": "Ø36 mm round bar",
+          "where": {
+            "en": "Cross-wall plane y=4.3 between C5 and C6 (blind wall between living room and bedroom 1 / PB bathroom; PB to P3/P2, not in the ático) — 2 diagonals, total 8.1 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano del tabique transversal y=4,3 entre C5 y C6 (paño ciego entre salón y dormitorio 1 / baño de PB; de PB a la última planta de viviendas, no en el ático) — 2 diagonales, total 8.1 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 2,
+          "length_m": 8.13,
+          "kg_per_m": 8.79,
+          "kg": 71.5
+        },
+        {
+          "group": {
+            "en": "Bracing rods (X, tension-only, with turnbuckles)",
+            "es": "Tirantes de arriostramiento (cruz de San Andrés, redondos con tensor)"
+          },
+          "profile": "Ø27 mm round bar",
+          "where": {
+            "en": "Cross-wall plane y=4.3 between C5 and C6 (blind wall between living room and bedroom 1 / PB bathroom; PB to P3/P2, not in the ático) — 2 diagonals, total 8.1 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano del tabique transversal y=4,3 entre C5 y C6 (paño ciego entre salón y dormitorio 1 / baño de PB; de PB a la última planta de viviendas, no en el ático) — 2 diagonales, total 8.1 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 2,
+          "length_m": 8.13,
+          "kg_per_m": 4.94,
+          "kg": 40.2
+        },
+        {
+          "group": {
+            "en": "Bracing tubes (X, tension + compression, bolted at crossing)",
+            "es": "Diagonales de arriostramiento en tubo (cruz de San Andrés, tracción y compresión, atornilladas en el cruce)"
+          },
+          "profile": "SHS 80x80x4",
+          "where": {
+            "en": "Cross-wall plane y≈8.1 between C8 and C9 (blind wall between bedroom 1 / bathroom and bedroom 2 on every level) — 2 diagonals, total 9.8 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano del tabique transversal y≈8,1 entre C8 y C9 (paño ciego entre dormitorio 1 / baño y dormitorio 2 en todas las plantas) — 2 diagonales, total 9.8 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 2,
+          "length_m": 9.84,
+          "kg_per_m": 10.14,
+          "kg": 99.8
+        },
+        {
+          "group": {
+            "en": "Bracing rods (X, tension-only, with turnbuckles)",
+            "es": "Tirantes de arriostramiento (cruz de San Andrés, redondos con tensor)"
+          },
+          "profile": "Ø36 mm round bar",
+          "where": {
+            "en": "Cross-wall plane y≈8.1 between C8 and C9 (blind wall between bedroom 1 / bathroom and bedroom 2 on every level) — 2 diagonals, total 8.3 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano del tabique transversal y≈8,1 entre C8 y C9 (paño ciego entre dormitorio 1 / baño y dormitorio 2 en todas las plantas) — 2 diagonales, total 8.3 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 2,
+          "length_m": 8.3,
+          "kg_per_m": 8.79,
+          "kg": 73.0
+        },
+        {
+          "group": {
+            "en": "Bracing rods (X, tension-only, with turnbuckles)",
+            "es": "Tirantes de arriostramiento (cruz de San Andrés, redondos con tensor)"
+          },
+          "profile": "Ø27 mm round bar",
+          "where": {
+            "en": "Cross-wall plane y≈8.1 between C8 and C9 (blind wall between bedroom 1 / bathroom and bedroom 2 on every level) — 2 diagonals, total 8.3 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano del tabique transversal y≈8,1 entre C8 y C9 (paño ciego entre dormitorio 1 / baño y dormitorio 2 en todas las plantas) — 2 diagonales, total 8.3 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 2,
+          "length_m": 8.3,
+          "kg_per_m": 4.94,
+          "kg": 41.0
+        },
+        {
+          "group": {
+            "en": "Bracing rods (X, tension-only, with turnbuckles)",
+            "es": "Tirantes de arriostramiento (cruz de San Andrés, redondos con tensor)"
+          },
+          "profile": "Ø24 mm round bar",
+          "where": {
+            "en": "Cross-wall plane y≈8.1 between C8 and C9 (blind wall between bedroom 1 / bathroom and bedroom 2 on every level) — 2 diagonals, total 8.3 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano del tabique transversal y≈8,1 entre C8 y C9 (paño ciego entre dormitorio 1 / baño y dormitorio 2 en todas las plantas) — 2 diagonales, total 8.3 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 2,
+          "length_m": 8.3,
+          "kg_per_m": 3.91,
+          "kg": 32.5
+        },
+        {
+          "group": {
+            "en": "Bracing rods (X, tension-only, with turnbuckles)",
+            "es": "Tirantes de arriostramiento (cruz de San Andrés, redondos con tensor)"
+          },
+          "profile": "Ø20 mm round bar",
+          "where": {
+            "en": "Cross-wall plane y≈8.1 between C8 and C9 (blind wall between bedroom 1 / bathroom and bedroom 2 on every level) — 2 diagonals, total 7.7 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano del tabique transversal y≈8,1 entre C8 y C9 (paño ciego entre dormitorio 1 / baño y dormitorio 2 en todas las plantas) — 2 diagonales, total 7.7 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 2,
+          "length_m": 7.69,
+          "kg_per_m": 2.72,
+          "kg": 20.9
+        },
+        {
+          "group": {
+            "en": "Columns P2–P3",
+            "es": "Pilares P2–P3"
+          },
+          "profile": "HEB 140",
+          "where": {
+            "en": "C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13 — 13 pieces, total length 78.0 m",
+            "es": "C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13 — 13 piezas, longitud total 78.0 m"
+          },
+          "count": 13,
+          "length_m": 78.0,
+          "kg_per_m": 33.7,
+          "kg": 2628.6
+        },
+        {
+          "group": {
+            "en": "Columns PB–P1",
+            "es": "Pilares PB–P1"
+          },
+          "profile": "HEB 160",
+          "where": {
+            "en": "C2, C3, C4, C10, C11 — 5 pieces, total length 35.0 m",
+            "es": "C2, C3, C4, C10, C11 — 5 piezas, longitud total 35.0 m"
+          },
+          "count": 5,
+          "length_m": 35.0,
+          "kg_per_m": 42.6,
+          "kg": 1491.0
+        },
+        {
+          "group": {
+            "en": "Columns PB–P1",
+            "es": "Pilares PB–P1"
+          },
+          "profile": "HEB 200",
+          "where": {
+            "en": "C9, C12, C13 — 3 pieces, total length 21.0 m",
+            "es": "C9, C12, C13 — 3 piezas, longitud total 21.0 m"
+          },
+          "count": 3,
+          "length_m": 21.0,
+          "kg_per_m": 61.3,
+          "kg": 1287.3
+        },
+        {
+          "group": {
+            "en": "Columns PB–P1",
+            "es": "Pilares PB–P1"
+          },
+          "profile": "HEB 220",
+          "where": {
+            "en": "C5, C6 — 2 pieces, total length 14.0 m",
+            "es": "C5, C6 — 2 piezas, longitud total 14.0 m"
+          },
+          "count": 2,
+          "length_m": 14.0,
+          "kg_per_m": 71.5,
+          "kg": 1001.0
+        },
+        {
+          "group": {
+            "en": "Columns PB–P1",
+            "es": "Pilares PB–P1"
+          },
+          "profile": "HEB 140",
+          "where": {
+            "en": "C1, C7 — 2 pieces, total length 14.0 m",
+            "es": "C1, C7 — 2 piezas, longitud total 14.0 m"
+          },
+          "count": 2,
+          "length_m": 14.0,
+          "kg_per_m": 33.7,
+          "kg": 471.8
+        },
+        {
+          "group": {
+            "en": "Columns PB–P1",
+            "es": "Pilares PB–P1"
+          },
+          "profile": "HEB 180",
+          "where": {
+            "en": "C8 — 1 pieces, total length 7.0 m",
+            "es": "C8 — 1 piezas, longitud total 7.0 m"
+          },
+          "count": 1,
+          "length_m": 7.0,
+          "kg_per_m": 51.2,
+          "kg": 358.4
+        },
+        {
+          "group": {
+            "en": "Columns Ático",
+            "es": "Pilares Ático"
+          },
+          "profile": "HEB 140",
+          "where": {
+            "en": "C4, C5, C7, C8, C10, C11, C12, C13 — 8 pieces, total length 24.0 m",
+            "es": "C4, C5, C7, C8, C10, C11, C12, C13 — 8 piezas, longitud total 24.0 m"
+          },
+          "count": 8,
+          "length_m": 24.0,
+          "kg_per_m": 33.7,
+          "kg": 808.8
+        },
+        {
+          "group": {
+            "en": "Columns Ático",
+            "es": "Pilares Ático"
+          },
+          "profile": "HEB 120",
+          "where": {
+            "en": "C14, C15 — 2 pieces, total length 6.0 m",
+            "es": "C14, C15 — 2 piezas, longitud total 6.0 m"
+          },
+          "count": 2,
+          "length_m": 6.0,
+          "kg_per_m": 26.7,
+          "kg": 160.2
+        },
+        {
+          "group": {
+            "en": "Stair stringers (estimate, steps excluded)",
+            "es": "Zancas de escalera (estimación, peldaños no incluidos)"
+          },
+          "profile": "UPN 180",
+          "where": {
+            "en": "16 stringers, total 50.3 m",
+            "es": "16 zancas, longitud total 50.3 m"
+          },
+          "count": 16,
+          "length_m": 50.27,
+          "kg_per_m": 22.0,
+          "kg": 1105.9
+        },
+        {
+          "group": {
+            "en": "Connections, plates, stiffeners, bolts (+12 %)",
+            "es": "Uniones, chapas, rigidizadores y tornillería (+12 %)"
+          },
+          "profile": "plates/bolts",
+          "where": {
+            "en": "Allowance on all members above",
+            "es": "Repercusión sobre todos los elementos anteriores"
+          },
+          "count": 1,
+          "length_m": 0.0,
+          "kg_per_m": 0.0,
+          "kg": 1953.6
+        }
+      ],
+      "slab": {
+        "type": {
+          "en": "Composite steel-deck slab (forjado de chapa colaborante), 60 mm trapezoidal deck 0.8–1.0 mm, HA-25, mesh; 13 cm on every floor; propped at mid-span when concreting",
+          "es": "Forjado de chapa colaborante, chapa grecada de 60 mm y 0,8–1,0 mm, HA-25, mallazo; canto 13 cm en todas las plantas; apuntalado en centro de vano durante el hormigonado"
+        },
+        "thickness_cm": 13,
+        "area_m2": 348.0
+      },
+      "column_loads": [
+        {
+          "id": "C1",
+          "N_sls_kN": 160,
+          "N_uls_kN": 222
+        },
+        {
+          "id": "C2",
+          "N_sls_kN": 302,
+          "N_uls_kN": 418
+        },
+        {
+          "id": "C3",
+          "N_sls_kN": 275,
+          "N_uls_kN": 379
+        },
+        {
+          "id": "C4",
+          "N_sls_kN": 356,
+          "N_uls_kN": 548
+        },
+        {
+          "id": "C5",
+          "N_sls_kN": 821,
+          "N_uls_kN": 1262
+        },
+        {
+          "id": "C6",
+          "N_sls_kN": 750,
+          "N_uls_kN": 1164
+        },
+        {
+          "id": "C7",
+          "N_sls_kN": 141,
+          "N_uls_kN": 196
+        },
+        {
+          "id": "C8",
+          "N_sls_kN": 504,
+          "N_uls_kN": 760
+        },
+        {
+          "id": "C9",
+          "N_sls_kN": 537,
+          "N_uls_kN": 803
+        },
+        {
+          "id": "C10",
+          "N_sls_kN": 350,
+          "N_uls_kN": 542
+        },
+        {
+          "id": "C11",
+          "N_sls_kN": 338,
+          "N_uls_kN": 468
+        },
+        {
+          "id": "C12",
+          "N_sls_kN": 528,
+          "N_uls_kN": 831
+        },
+        {
+          "id": "C13",
+          "N_sls_kN": 577,
+          "N_uls_kN": 898
+        }
+      ],
+      "foundations": [
+        {
+          "type": {
+            "en": "RECOMMENDED: micropiles + pile caps + tie beams",
+            "es": "RECOMENDADA: micropilotes + encepados + vigas de atado"
+          },
+          "detail": {
+            "en": "Micropiles Ø150–200 mm, ~15 m, assumed 250 kN service each (min. 2 per cap): C1 ×2; C2 ×2; C3 ×2; C4 ×2; C5 ×4; C6 ×4; C7 ×2; C8 ×3; C9 ×3; C10 ×2; C11 ×2; C12 ×3; C13 ×3 → 34 micropiles in total. Caps tied in both directions with 40×50 cm tie beams; perimeter caps tied back to interior caps. Small rigs can drill 0.25–0.30 m from the party wall and the retained facades without undermining them. Net uplift (characteristic) at C5, C6, C8, C9, C12, C13 up to 316 kN — taken by micropiles in tension.",
+            "es": "Micropilotes Ø150–200 mm, ~15 m, carga de servicio supuesta 250 kN (mín. 2 por encepado): C1 ×2; C2 ×2; C3 ×2; C4 ×2; C5 ×4; C6 ×4; C7 ×2; C8 ×3; C9 ×3; C10 ×2; C11 ×2; C12 ×3; C13 ×3 → 34 micropilotes en total. Encepados atados en ambas direcciones con vigas de atado de 40×50 cm; los encepados perimetrales se atan a los interiores. Las máquinas pequeñas perforan a 0,25–0,30 m de la medianera y de las fachadas conservadas sin descalzarlas. Tracción neta (característica) en C5, C6, C8, C9, C12, C13 hasta 316 kN — la absorben los micropilotes a tracción."
+          }
+        },
+        {
+          "type": {
+            "en": "Alternative: shallow footings at 150 kPa (only if the geotechnical study allows)",
+            "es": "Alternativa: zapatas a 150 kPa (sólo si el estudio geotécnico lo permite)"
+          },
+          "detail": {
+            "en": "Required plan sizes: C1 1.10×1.10 m (corner); C2 1.25×1.90 m (eccentric); C3 1.45×1.45 m (corner); C4 1.35×2.05 m (eccentric); C5 2.50×2.50 m (centred); C6 1.95×2.95 m (eccentric); C7 0.85×1.30 m (eccentric); C8 1.95×1.95 m (centred); C9 1.65×2.50 m (eccentric); C10 1.35×2.05 m (eccentric); C11 1.30×1.95 m (eccentric); C12 2.00×2.00 m (corner); C13 2.10×2.10 m (corner). Only C5 and C8 can be centred footings. All perimeter columns sit 0.30 m from the party wall or 0.6 m from the retained facades, so they need eccentric party-wall / corner footings (zapatas de medianería / esquina) with strap beams (vigas centradoras). C7 and C8 are only 1.7 m apart and C8's footing is large, so they need a combined footing. The bracing columns (C5, C6, C8, C9, C12, C13) have net uplift under wind, so footings there would need heavy ballast or combined footings. Risks: settlement in soft clay next to old facade footings, and digging beside the neighbour's foundation (possible underpinning).",
+            "es": "Dimensiones necesarias en planta: C1 1,10×1,10 m (de esquina); C2 1,25×1,90 m (medianera/fachada); C3 1,45×1,45 m (de esquina); C4 1,35×2,05 m (medianera/fachada); C5 2,50×2,50 m (centrada); C6 1,95×2,95 m (medianera/fachada); C7 0,85×1,30 m (medianera/fachada); C8 1,95×1,95 m (centrada); C9 1,65×2,50 m (medianera/fachada); C10 1,35×2,05 m (medianera/fachada); C11 1,30×1,95 m (medianera/fachada); C12 2,00×2,00 m (de esquina); C13 2,10×2,10 m (de esquina). Sólo C5 y C8 admiten zapata centrada. Todos los pilares perimetrales están a 0,30 m de la medianera o a 0,6 m de las fachadas conservadas, por lo que necesitan zapatas de medianería / esquina con vigas centradoras. C7 y C8 están a sólo 1,7 m y la zapata de C8 es grande: zapata combinada. Los pilares de arriostramiento (C5, C6, C8, C9, C12, C13) tienen tracción neta con viento, por lo que sus zapatas necesitarían mucho lastre o ser combinadas. Riesgos: asientos en arcillas blandas junto a la cimentación de las fachadas antiguas y excavación junto a la cimentación del colindante (posible recalce)."
+          }
+        },
+        {
+          "type": {
+            "en": "Geotechnical study required",
+            "es": "Estudio geotécnico obligatorio"
+          },
+          "detail": {
+            "en": "CTE DB-SE-C requires an estudio geotécnico, typically 2–3 boreholes or penetrometer tests to ≥ 15–20 m, plus water table level and soil aggressiveness. It sets the allowable pressure, micropile length and capacity (pile load test recommended), and the slab-on-grade design.",
+            "es": "El CTE DB-SE-C exige estudio geotécnico, normalmente 2–3 sondeos o penetrómetros hasta ≥ 15–20 m, con nivel freático y agresividad del terreno. Fija la tensión admisible, la longitud y capacidad de los micropilotes (se recomienda prueba de carga) y la solera."
+          }
+        }
+      ],
+      "fire": {
+        "en": "Evacuation height = ático floor level = 13.0 m (≤ 14 m → unprotected stair allowed, DB-SI SI3 Table 5.1; ≤ 15 m → residential structure R60, SI6 Table 3.1). The whole building is Residencial Vivienda (PB is a flat too), so there is no other-use fire sector and the structure is R60 throughout, including the PB columns and the P1 floor. 13 cm slabs give h_eff ≈ 92 mm ≥ 80 mm (R60, EN 1994-1-2). Steel protected with intumescent paint (R60).",
+        "es": "Altura de evacuación = cota del suelo del ático = 13,0 m (≤ 14 m → se admite escalera no protegida, DB-SI SI3 Tabla 5.1; ≤ 15 m → estructura residencial R60, SI6 Tabla 3.1). Todo el edificio es Residencial Vivienda (la PB también es vivienda), por lo que no hay sector de otro uso y la estructura es R60 en su totalidad, incluidos los pilares de PB y el forjado de P1. Forjados de 13 cm: h_eff ≈ 92 mm ≥ 80 mm (R60, UNE-EN 1994-1-2). Acero protegido con pintura intumescente (R60)."
+      },
+      "totals": {
+        "steel_kg": 18233.5,
+        "steel_kg_m2": 46.7,
+        "cost_eur_low": 136000.0,
+        "cost_eur_high": 208700.0,
+        "cost_per_home_low": 27200.0,
+        "cost_per_home_high": 41700.0
+      },
+      "checks": [
+        {
+          "item": {
+            "en": "Composite slab: max span / depth",
+            "es": "Forjado colaborante: luz máxima / canto"
+          },
+          "value": "3.90 m / 0.13 m = 30 ≤ 32 (EC4 guidance); propped at mid-span when concreting",
+          "ok": true
+        },
+        {
+          "item": {
+            "en": "Beams: max utilisation (bending + strut axial / shear / deflection)",
+            "es": "Vigas: aprovechamiento máximo (flexión + axil de montante / cortante / flecha)"
+          },
+          "value": "0.96 — B2 IPE 200 at P1",
+          "ok": true
+        },
+        {
+          "item": {
+            "en": "Beams: active deflection (worst ratio to limit)",
+            "es": "Vigas: flecha activa (peor relación con el límite)"
+          },
+          "value": "7.7 mm vs 8.1 mm — B2 IPE 200",
+          "ok": true
+        },
+        {
+          "item": {
+            "en": "Columns: max N_Ed / Nb,Rd (weak axis, Lcr = storey height)",
+            "es": "Pilares: N_Ed / Nb,Rd máximo (eje débil, Lcr = altura de planta)"
+          },
+          "value": "0.83 ≤ 0.85 — C8 HEB 180, storey PB",
+          "ok": true
+        },
+        {
+          "item": {
+            "en": "Bracing diagonals: max utilisation (rods tension-only, SHS tension + compression)",
+            "es": "Diagonales de arriostramiento: aprovechamiento máximo (redondos sólo tracción, tubos tracción y compresión)"
+          },
+          "value": "0.96",
+          "ok": true
+        },
+        {
+          "item": {
+            "en": "Lateral drift under characteristic wind",
+            "es": "Desplome con viento característico"
+          },
+          "value": "top 25.6 mm ≤ H/500 = 32.0 mm; worst storey 68 % of h/250",
+          "ok": true
+        },
+        {
+          "item": {
+            "en": "Seismic NCSE-02",
+            "es": "Sismo NCSE-02"
+          },
+          "value": "not mandatory (ab 0.06g < 0.08g, normal importance, braced both ways, < 7 storeys); indicative Vs ≈ 334 kN vs ULS wind x 346 kN / y 155 kN — if applied voluntarily it would govern the party-wall (y) bracing",
+          "ok": true
+        },
+        {
+          "item": {
+            "en": "Uplift at bracing columns (characteristic)",
+            "es": "Tracción en pilares de arriostramiento (característica)"
+          },
+          "value": "max 316 kN → micropiles in tension",
+          "ok": true
+        },
+        {
+          "item": {
+            "en": "Headroom: 3.0 m floor-to-floor",
+            "es": "Altura libre: 3,0 m entre forjados"
+          },
+          "value": "3.00 − 0.13 slab − 0.07 finishes = 2.80 m clear; beams ≤ 300 mm sit in cross walls",
+          "ok": true
+        },
+        {
+          "item": {
+            "en": "Fire resistance",
+            "es": "Resistencia al fuego"
+          },
+          "value": "R60 throughout, residential only (h_evac 13.0 m ≤ 15 m); no other-use sector",
+          "ok": true
+        },
+        {
+          "item": {
+            "en": "Accessibility between floors (CTE DB-SUA 9 §1.1.2)",
+            "es": "Accesibilidad entre plantas (CTE DB-SUA 9 §1.1.2)"
+          },
+          "value": "no lift: 4 floors to climb from the entrance to the ático (> 2) → accessible lift required; does not comply",
+          "ok": false
+        }
+      ]
+    },
+    "B0": {
+      "label": {
+        "en": "Option B0 — PB + 2 + ático, no lift",
+        "es": "Opción B0 — PB + 2 + ático, sin ascensor"
+      },
+      "levels": [
+        {
+          "name": "PB",
+          "h": 4.0
+        },
+        {
+          "name": "P1",
+          "h": 3.0
+        },
+        {
+          "name": "P2",
+          "h": 3.0
+        },
+        {
+          "name": "Ático",
+          "h": 3.0
+        }
+      ],
+      "cornice_m": 10.0,
+      "top_m": 13.0,
+      "homes": 4,
+      "built_m2": 304.9,
+      "members": [
+        {
+          "group": {
+            "en": "Core trimmer beams (stair opening; lift shaft closed)",
+            "es": "Brochales del núcleo (hueco de escalera; sin hueco de ascensor)"
+          },
+          "profile": "IPE 160",
+          "where": {
+            "en": "6 pieces over all levels, total length 16.5 m",
+            "es": "6 piezas en todas las plantas, longitud total 16.5 m"
+          },
+          "count": 6,
+          "length_m": 16.5,
+          "kg_per_m": 15.8,
+          "kg": 260.7
+        },
+        {
+          "group": {
+            "en": "Street-facade edge beams (Burjassot + Carrasqueta)",
+            "es": "Vigas de borde de fachada (Burjassot + Carrasqueta)"
+          },
+          "profile": "IPE 180",
+          "where": {
+            "en": "8 pieces over all levels, total length 30.1 m",
+            "es": "8 piezas en todas las plantas, longitud total 30.1 m"
+          },
+          "count": 8,
+          "length_m": 30.09,
+          "kg_per_m": 18.8,
+          "kg": 565.7
+        },
+        {
+          "group": {
+            "en": "Street-facade edge beams (Burjassot + Carrasqueta)",
+            "es": "Vigas de borde de fachada (Burjassot + Carrasqueta)"
+          },
+          "profile": "IPE 160",
+          "where": {
+            "en": "5 pieces over all levels, total length 18.8 m",
+            "es": "5 piezas en todas las plantas, longitud total 18.8 m"
+          },
+          "count": 5,
+          "length_m": 18.82,
+          "kg_per_m": 15.8,
+          "kg": 297.4
+        },
+        {
+          "group": {
+            "en": "Street-facade edge beams (Burjassot + Carrasqueta)",
+            "es": "Vigas de borde de fachada (Burjassot + Carrasqueta)"
+          },
+          "profile": "IPE 240",
+          "where": {
+            "en": "2 pieces over all levels, total length 8.1 m",
+            "es": "2 piezas en todas las plantas, longitud total 8.1 m"
+          },
+          "count": 2,
+          "length_m": 8.05,
+          "kg_per_m": 30.7,
+          "kg": 247.1
+        },
+        {
+          "group": {
+            "en": "Street-facade edge beams (Burjassot + Carrasqueta)",
+            "es": "Vigas de borde de fachada (Burjassot + Carrasqueta)"
+          },
+          "profile": "IPE 200",
+          "where": {
+            "en": "3 pieces over all levels, total length 10.2 m",
+            "es": "3 piezas en todas las plantas, longitud total 10.2 m"
+          },
+          "count": 3,
+          "length_m": 10.2,
+          "kg_per_m": 22.4,
+          "kg": 228.5
+        },
+        {
+          "group": {
+            "en": "Primary floor beams (x-direction, under cross walls)",
+            "es": "Vigas principales de forjado (dirección x, bajo tabiques transversales)"
+          },
+          "profile": "IPE 200",
+          "where": {
+            "en": "9 pieces over all levels, total length 27.9 m",
+            "es": "9 piezas en todas las plantas, longitud total 27.9 m"
+          },
+          "count": 9,
+          "length_m": 27.87,
+          "kg_per_m": 22.4,
+          "kg": 624.3
+        },
+        {
+          "group": {
+            "en": "Primary floor beams (x-direction, under cross walls)",
+            "es": "Vigas principales de forjado (dirección x, bajo tabiques transversales)"
+          },
+          "profile": "IPE 160",
+          "where": {
+            "en": "6 pieces over all levels, total length 11.6 m",
+            "es": "6 piezas en todas las plantas, longitud total 11.6 m"
+          },
+          "count": 6,
+          "length_m": 11.58,
+          "kg_per_m": 15.8,
+          "kg": 183.0
+        },
+        {
+          "group": {
+            "en": "Primary floor beams (x-direction, under cross walls)",
+            "es": "Vigas principales de forjado (dirección x, bajo tabiques transversales)"
+          },
+          "profile": "IPE 180",
+          "where": {
+            "en": "2 pieces over all levels, total length 5.7 m",
+            "es": "2 piezas en todas las plantas, longitud total 5.7 m"
+          },
+          "count": 2,
+          "length_m": 5.73,
+          "kg_per_m": 18.8,
+          "kg": 107.7
+        },
+        {
+          "group": {
+            "en": "Primary floor beams (x-direction, under cross walls)",
+            "es": "Vigas principales de forjado (dirección x, bajo tabiques transversales)"
+          },
+          "profile": "IPE 220",
+          "where": {
+            "en": "1 pieces over all levels, total length 2.7 m",
+            "es": "1 piezas en todas las plantas, longitud total 2.7 m"
+          },
+          "count": 1,
+          "length_m": 2.74,
+          "kg_per_m": 26.2,
+          "kg": 71.8
+        },
+        {
+          "group": {
+            "en": "Party-wall edge beams / bracing struts",
+            "es": "Vigas de borde de medianera / montantes de arriostramiento"
+          },
+          "profile": "IPE 200",
+          "where": {
+            "en": "12 pieces over all levels, total length 43.4 m",
+            "es": "12 piezas en todas las plantas, longitud total 43.4 m"
+          },
+          "count": 12,
+          "length_m": 43.35,
+          "kg_per_m": 22.4,
+          "kg": 971.0
+        },
+        {
+          "group": {
+            "en": "Ático roof beams",
+            "es": "Vigas de cubierta del ático"
+          },
+          "profile": "IPE 160",
+          "where": {
+            "en": "11 pieces over all levels, total length 32.1 m",
+            "es": "11 piezas en todas las plantas, longitud total 32.1 m"
+          },
+          "count": 11,
+          "length_m": 32.14,
+          "kg_per_m": 15.8,
+          "kg": 507.8
+        },
+        {
+          "group": {
+            "en": "Ático roof beams",
+            "es": "Vigas de cubierta del ático"
+          },
+          "profile": "IPE 200",
+          "where": {
+            "en": "1 pieces over all levels, total length 3.4 m",
+            "es": "1 piezas en todas las plantas, longitud total 3.4 m"
+          },
+          "count": 1,
+          "length_m": 3.41,
+          "kg_per_m": 22.4,
+          "kg": 76.4
+        },
+        {
+          "group": {
+            "en": "Bracing tubes (X, tension + compression, bolted at crossing)",
+            "es": "Diagonales de arriostramiento en tubo (cruz de San Andrés, tracción y compresión, atornilladas en el cruce)"
+          },
+          "profile": "SHS 80x80x4",
+          "where": {
+            "en": "Back boundary plane y=15.05 (blind, neighbour at the rear) — 2 diagonals, total 9.1 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano del lindero trasero y=15,05 (ciego, colindante posterior) — 2 diagonales, total 9.1 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 2,
+          "length_m": 9.09,
+          "kg_per_m": 10.14,
+          "kg": 92.2
+        },
+        {
+          "group": {
+            "en": "Bracing rods (X, tension-only, with turnbuckles)",
+            "es": "Tirantes de arriostramiento (cruz de San Andrés, redondos con tensor)"
+          },
+          "profile": "Ø30 mm round bar",
+          "where": {
+            "en": "Back boundary plane y=15.05 (blind, neighbour at the rear) — 2 diagonals, total 7.4 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano del lindero trasero y=15,05 (ciego, colindante posterior) — 2 diagonales, total 7.4 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 2,
+          "length_m": 7.39,
+          "kg_per_m": 6.11,
+          "kg": 45.2
+        },
+        {
+          "group": {
+            "en": "Bracing rods (X, tension-only, with turnbuckles)",
+            "es": "Tirantes de arriostramiento (cruz de San Andrés, redondos con tensor)"
+          },
+          "profile": "Ø24 mm round bar",
+          "where": {
+            "en": "Back boundary plane y=15.05 (blind, neighbour at the rear) — 2 diagonals, total 7.4 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano del lindero trasero y=15,05 (ciego, colindante posterior) — 2 diagonales, total 7.4 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 2,
+          "length_m": 7.39,
+          "kg_per_m": 3.91,
+          "kg": 28.9
+        },
+        {
+          "group": {
+            "en": "Bracing rods (X, tension-only, with turnbuckles)",
+            "es": "Tirantes de arriostramiento (cruz de San Andrés, redondos con tensor)"
+          },
+          "profile": "Ø16 mm round bar",
+          "where": {
+            "en": "Back boundary plane y=15.05 (blind, neighbour at the rear) — 2 diagonals, total 7.4 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano del lindero trasero y=15,05 (ciego, colindante posterior) — 2 diagonales, total 7.4 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 2,
+          "length_m": 7.39,
+          "kg_per_m": 1.74,
+          "kg": 12.9
+        },
+        {
+          "group": {
+            "en": "Bracing rods (X, tension-only, with turnbuckles)",
+            "es": "Tirantes de arriostramiento (cruz de San Andrés, redondos con tensor)"
+          },
+          "profile": "Ø27 mm round bar",
+          "where": {
+            "en": "Party-wall plane x=0.30 (blind wall, neighbour no. 227) — 4 diagonals, total 21.4 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano de medianera x=0,30 (paño ciego, colindante nº 227) — 4 diagonales, total 21.4 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 4,
+          "length_m": 21.42,
+          "kg_per_m": 4.94,
+          "kg": 105.8
+        },
+        {
+          "group": {
+            "en": "Bracing rods (X, tension-only, with turnbuckles)",
+            "es": "Tirantes de arriostramiento (cruz de San Andrés, redondos con tensor)"
+          },
+          "profile": "Ø16 mm round bar",
+          "where": {
+            "en": "Party-wall plane x=0.30 (blind wall, neighbour no. 227) — 8 diagonals, total 37.2 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano de medianera x=0,30 (paño ciego, colindante nº 227) — 8 diagonales, total 37.2 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 8,
+          "length_m": 37.23,
+          "kg_per_m": 1.74,
+          "kg": 64.8
+        },
+        {
+          "group": {
+            "en": "Bracing rods (X, tension-only, with turnbuckles)",
+            "es": "Tirantes de arriostramiento (cruz de San Andrés, redondos con tensor)"
+          },
+          "profile": "Ø20 mm round bar",
+          "where": {
+            "en": "Party-wall plane x=0.30 (blind wall, neighbour no. 227) — 4 diagonals, total 18.6 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano de medianera x=0,30 (paño ciego, colindante nº 227) — 4 diagonales, total 18.6 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 4,
+          "length_m": 18.61,
+          "kg_per_m": 2.72,
+          "kg": 50.6
+        },
+        {
+          "group": {
+            "en": "Bracing tubes (X, tension + compression, bolted at crossing)",
+            "es": "Diagonales de arriostramiento en tubo (cruz de San Andrés, tracción y compresión, atornilladas en el cruce)"
+          },
+          "profile": "SHS 80x80x4",
+          "where": {
+            "en": "Cross-wall plane y=4.3 between C5 and C6 (blind wall between living room and bedroom 1 / PB bathroom; PB to P3/P2, not in the ático) — 2 diagonals, total 9.7 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano del tabique transversal y=4,3 entre C5 y C6 (paño ciego entre salón y dormitorio 1 / baño de PB; de PB a la última planta de viviendas, no en el ático) — 2 diagonales, total 9.7 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 2,
+          "length_m": 9.7,
+          "kg_per_m": 10.14,
+          "kg": 98.4
+        },
+        {
+          "group": {
+            "en": "Bracing rods (X, tension-only, with turnbuckles)",
+            "es": "Tirantes de arriostramiento (cruz de San Andrés, redondos con tensor)"
+          },
+          "profile": "Ø36 mm round bar",
+          "where": {
+            "en": "Cross-wall plane y=4.3 between C5 and C6 (blind wall between living room and bedroom 1 / PB bathroom; PB to P3/P2, not in the ático) — 2 diagonals, total 8.1 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano del tabique transversal y=4,3 entre C5 y C6 (paño ciego entre salón y dormitorio 1 / baño de PB; de PB a la última planta de viviendas, no en el ático) — 2 diagonales, total 8.1 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 2,
+          "length_m": 8.13,
+          "kg_per_m": 8.79,
+          "kg": 71.5
+        },
+        {
+          "group": {
+            "en": "Bracing rods (X, tension-only, with turnbuckles)",
+            "es": "Tirantes de arriostramiento (cruz de San Andrés, redondos con tensor)"
+          },
+          "profile": "Ø27 mm round bar",
+          "where": {
+            "en": "Cross-wall plane y=4.3 between C5 and C6 (blind wall between living room and bedroom 1 / PB bathroom; PB to P3/P2, not in the ático) — 2 diagonals, total 8.1 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano del tabique transversal y=4,3 entre C5 y C6 (paño ciego entre salón y dormitorio 1 / baño de PB; de PB a la última planta de viviendas, no en el ático) — 2 diagonales, total 8.1 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 2,
+          "length_m": 8.13,
+          "kg_per_m": 4.94,
+          "kg": 40.2
+        },
+        {
+          "group": {
+            "en": "Bracing rods (X, tension-only, with turnbuckles)",
+            "es": "Tirantes de arriostramiento (cruz de San Andrés, redondos con tensor)"
+          },
+          "profile": "Ø36 mm round bar",
+          "where": {
+            "en": "Cross-wall plane y≈8.1 between C8 and C9 (blind wall between bedroom 1 / bathroom and bedroom 2 on every level) — 2 diagonals, total 9.8 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano del tabique transversal y≈8,1 entre C8 y C9 (paño ciego entre dormitorio 1 / baño y dormitorio 2 en todas las plantas) — 2 diagonales, total 9.8 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 2,
+          "length_m": 9.84,
+          "kg_per_m": 8.79,
+          "kg": 86.5
+        },
+        {
+          "group": {
+            "en": "Bracing rods (X, tension-only, with turnbuckles)",
+            "es": "Tirantes de arriostramiento (cruz de San Andrés, redondos con tensor)"
+          },
+          "profile": "Ø20 mm round bar",
+          "where": {
+            "en": "Cross-wall plane y≈8.1 between C8 and C9 (blind wall between bedroom 1 / bathroom and bedroom 2 on every level) — 4 diagonals, total 16.0 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano del tabique transversal y≈8,1 entre C8 y C9 (paño ciego entre dormitorio 1 / baño y dormitorio 2 en todas las plantas) — 4 diagonales, total 16.0 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 4,
+          "length_m": 15.98,
+          "kg_per_m": 2.72,
+          "kg": 43.5
+        },
+        {
+          "group": {
+            "en": "Bracing rods (X, tension-only, with turnbuckles)",
+            "es": "Tirantes de arriostramiento (cruz de San Andrés, redondos con tensor)"
+          },
+          "profile": "Ø27 mm round bar",
+          "where": {
+            "en": "Cross-wall plane y≈8.1 between C8 and C9 (blind wall between bedroom 1 / bathroom and bedroom 2 on every level) — 2 diagonals, total 8.3 m (kg/m incl. +10 % turnbuckles/gussets)",
+            "es": "Plano del tabique transversal y≈8,1 entre C8 y C9 (paño ciego entre dormitorio 1 / baño y dormitorio 2 en todas las plantas) — 2 diagonales, total 8.3 m (kg/m incl. +10 % tensores/cartelas)"
+          },
+          "count": 2,
+          "length_m": 8.3,
+          "kg_per_m": 4.94,
+          "kg": 41.0
+        },
+        {
+          "group": {
+            "en": "Columns P2–Ático",
+            "es": "Pilares P2–Ático"
+          },
+          "profile": "HEB 140",
+          "where": {
+            "en": "C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13 — 13 pieces, total length 63.0 m",
+            "es": "C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13 — 13 piezas, longitud total 63.0 m"
+          },
+          "count": 13,
+          "length_m": 63.0,
+          "kg_per_m": 33.7,
+          "kg": 2123.1
+        },
+        {
+          "group": {
+            "en": "Columns P2–Ático",
+            "es": "Pilares P2–Ático"
+          },
+          "profile": "HEB 120",
+          "where": {
+            "en": "C14, C15 — 2 pieces, total length 6.0 m",
+            "es": "C14, C15 — 2 piezas, longitud total 6.0 m"
+          },
+          "count": 2,
+          "length_m": 6.0,
+          "kg_per_m": 26.7,
+          "kg": 160.2
+        },
+        {
+          "group": {
+            "en": "Columns PB–P1",
+            "es": "Pilares PB–P1"
+          },
+          "profile": "HEB 160",
+          "where": {
+            "en": "C4, C8, C9, C10, C12 — 5 pieces, total length 35.0 m",
+            "es": "C4, C8, C9, C10, C12 — 5 piezas, longitud total 35.0 m"
+          },
+          "count": 5,
+          "length_m": 35.0,
+          "kg_per_m": 42.6,
+          "kg": 1491.0
+        },
+        {
+          "group": {
+            "en": "Columns PB–P1",
+            "es": "Pilares PB–P1"
+          },
+          "profile": "HEB 140",
+          "where": {
+            "en": "C1, C2, C3, C7, C11 — 5 pieces, total length 35.0 m",
+            "es": "C1, C2, C3, C7, C11 — 5 piezas, longitud total 35.0 m"
+          },
+          "count": 5,
+          "length_m": 35.0,
+          "kg_per_m": 33.7,
+          "kg": 1179.5
+        },
+        {
+          "group": {
+            "en": "Columns PB–P1",
+            "es": "Pilares PB–P1"
+          },
+          "profile": "HEB 180",
+          "where": {
+            "en": "C6, C13 — 2 pieces, total length 14.0 m",
+            "es": "C6, C13 — 2 piezas, longitud total 14.0 m"
+          },
+          "count": 2,
+          "length_m": 14.0,
+          "kg_per_m": 51.2,
+          "kg": 716.8
+        },
+        {
+          "group": {
+            "en": "Columns PB–P1",
+            "es": "Pilares PB–P1"
+          },
+          "profile": "HEB 200",
+          "where": {
+            "en": "C5 — 1 pieces, total length 7.0 m",
+            "es": "C5 — 1 piezas, longitud total 7.0 m"
+          },
+          "count": 1,
+          "length_m": 7.0,
+          "kg_per_m": 61.3,
+          "kg": 429.1
+        },
+        {
+          "group": {
+            "en": "Stair stringers (estimate, steps excluded)",
+            "es": "Zancas de escalera (estimación, peldaños no incluidos)"
+          },
+          "profile": "UPN 180",
+          "where": {
+            "en": "12 stringers, total 38.7 m",
+            "es": "12 zancas, longitud total 38.7 m"
+          },
+          "count": 12,
+          "length_m": 38.67,
+          "kg_per_m": 22.0,
+          "kg": 850.7
+        },
+        {
+          "group": {
+            "en": "Connections, plates, stiffeners, bolts (+12 %)",
+            "es": "Uniones, chapas, rigidizadores y tornillería (+12 %)"
+          },
+          "profile": "plates/bolts",
+          "where": {
+            "en": "Allowance on all members above",
+            "es": "Repercusión sobre todos los elementos anteriores"
+          },
+          "count": 1,
+          "length_m": 0.0,
+          "kg_per_m": 0.0,
+          "kg": 1424.8
+        }
+      ],
+      "slab": {
+        "type": {
+          "en": "Composite steel-deck slab (forjado de chapa colaborante), 60 mm trapezoidal deck 0.8–1.0 mm, HA-25, mesh; 13 cm on every floor; propped at mid-span when concreting",
+          "es": "Forjado de chapa colaborante, chapa grecada de 60 mm y 0,8–1,0 mm, HA-25, mallazo; canto 13 cm en todas las plantas; apuntalado en centro de vano durante el hormigonado"
+        },
+        "thickness_cm": 13,
+        "area_m2": 267.2
+      },
+      "column_loads": [
+        {
+          "id": "C1",
+          "N_sls_kN": 117,
+          "N_uls_kN": 162
+        },
+        {
+          "id": "C2",
+          "N_sls_kN": 220,
+          "N_uls_kN": 304
+        },
+        {
+          "id": "C3",
+          "N_sls_kN": 191,
+          "N_uls_kN": 263
+        },
+        {
+          "id": "C4",
+          "N_sls_kN": 253,
+          "N_uls_kN": 394
+        },
+        {
+          "id": "C5",
+          "N_sls_kN": 561,
+          "N_uls_kN": 876
+        },
+        {
+          "id": "C6",
+          "N_sls_kN": 488,
+          "N_uls_kN": 775
+        },
+        {
+          "id": "C7",
+          "N_sls_kN": 112,
+          "N_uls_kN": 156
+        },
+        {
+          "id": "C8",
+          "N_sls_kN": 341,
+          "N_uls_kN": 513
+        },
+        {
+          "id": "C9",
+          "N_sls_kN": 354,
+          "N_uls_kN": 530
+        },
+        {
+          "id": "C10",
+          "N_sls_kN": 249,
+          "N_uls_kN": 390
+        },
+        {
+          "id": "C11",
+          "N_sls_kN": 259,
+          "N_uls_kN": 358
+        },
+        {
+          "id": "C12",
+          "N_sls_kN": 344,
+          "N_uls_kN": 554
+        },
+        {
+          "id": "C13",
+          "N_sls_kN": 382,
+          "N_uls_kN": 605
+        }
+      ],
+      "foundations": [
+        {
+          "type": {
+            "en": "RECOMMENDED: micropiles + pile caps + tie beams",
+            "es": "RECOMENDADA: micropilotes + encepados + vigas de atado"
+          },
+          "detail": {
+            "en": "Micropiles Ø150–200 mm, ~15 m, assumed 250 kN service each (min. 2 per cap): C1 ×2; C2 ×2; C3 ×2; C4 ×2; C5 ×3; C6 ×2; C7 ×2; C8 ×2; C9 ×2; C10 ×2; C11 ×2; C12 ×2; C13 ×2 → 27 micropiles in total. Caps tied in both directions with 40×50 cm tie beams; perimeter caps tied back to interior caps. Small rigs can drill 0.25–0.30 m from the party wall and the retained facades without undermining them. Net uplift (characteristic) at C5, C6, C12, C13 up to 181 kN — taken by micropiles in tension.",
+            "es": "Micropilotes Ø150–200 mm, ~15 m, carga de servicio supuesta 250 kN (mín. 2 por encepado): C1 ×2; C2 ×2; C3 ×2; C4 ×2; C5 ×3; C6 ×2; C7 ×2; C8 ×2; C9 ×2; C10 ×2; C11 ×2; C12 ×2; C13 ×2 → 27 micropilotes en total. Encepados atados en ambas direcciones con vigas de atado de 40×50 cm; los encepados perimetrales se atan a los interiores. Las máquinas pequeñas perforan a 0,25–0,30 m de la medianera y de las fachadas conservadas sin descalzarlas. Tracción neta (característica) en C5, C6, C12, C13 hasta 181 kN — la absorben los micropilotes a tracción."
+          }
+        },
+        {
+          "type": {
+            "en": "Alternative: shallow footings at 150 kPa (only if the geotechnical study allows)",
+            "es": "Alternativa: zapatas a 150 kPa (sólo si el estudio geotécnico lo permite)"
+          },
+          "detail": {
+            "en": "Required plan sizes: C1 0.95×0.95 m (corner); C2 1.05×1.60 m (eccentric); C3 1.20×1.20 m (corner); C4 1.15×1.75 m (eccentric); C5 2.05×2.05 m (centred); C6 1.55×2.35 m (eccentric); C7 0.75×1.15 m (eccentric); C8 1.60×1.60 m (centred); C9 1.35×2.05 m (eccentric); C10 1.15×1.75 m (eccentric); C11 1.15×1.75 m (eccentric); C12 1.60×1.60 m (corner); C13 1.70×1.70 m (corner). Only C5 and C8 can be centred footings. All perimeter columns sit 0.30 m from the party wall or 0.6 m from the retained facades, so they need eccentric party-wall / corner footings (zapatas de medianería / esquina) with strap beams (vigas centradoras). C7 and C8 are only 1.7 m apart and C8's footing is large, so they need a combined footing. The bracing columns (C5, C6, C12, C13) have net uplift under wind, so footings there would need heavy ballast or combined footings. Risks: settlement in soft clay next to old facade footings, and digging beside the neighbour's foundation (possible underpinning).",
+            "es": "Dimensiones necesarias en planta: C1 0,95×0,95 m (de esquina); C2 1,05×1,60 m (medianera/fachada); C3 1,20×1,20 m (de esquina); C4 1,15×1,75 m (medianera/fachada); C5 2,05×2,05 m (centrada); C6 1,55×2,35 m (medianera/fachada); C7 0,75×1,15 m (medianera/fachada); C8 1,60×1,60 m (centrada); C9 1,35×2,05 m (medianera/fachada); C10 1,15×1,75 m (medianera/fachada); C11 1,15×1,75 m (medianera/fachada); C12 1,60×1,60 m (de esquina); C13 1,70×1,70 m (de esquina). Sólo C5 y C8 admiten zapata centrada. Todos los pilares perimetrales están a 0,30 m de la medianera o a 0,6 m de las fachadas conservadas, por lo que necesitan zapatas de medianería / esquina con vigas centradoras. C7 y C8 están a sólo 1,7 m y la zapata de C8 es grande: zapata combinada. Los pilares de arriostramiento (C5, C6, C12, C13) tienen tracción neta con viento, por lo que sus zapatas necesitarían mucho lastre o ser combinadas. Riesgos: asientos en arcillas blandas junto a la cimentación de las fachadas antiguas y excavación junto a la cimentación del colindante (posible recalce)."
+          }
+        },
+        {
+          "type": {
+            "en": "Geotechnical study required",
+            "es": "Estudio geotécnico obligatorio"
+          },
+          "detail": {
+            "en": "CTE DB-SE-C requires an estudio geotécnico, typically 2–3 boreholes or penetrometer tests to ≥ 15–20 m, plus water table level and soil aggressiveness. It sets the allowable pressure, micropile length and capacity (pile load test recommended), and the slab-on-grade design.",
+            "es": "El CTE DB-SE-C exige estudio geotécnico, normalmente 2–3 sondeos o penetrómetros hasta ≥ 15–20 m, con nivel freático y agresividad del terreno. Fija la tensión admisible, la longitud y capacidad de los micropilotes (se recomienda prueba de carga) y la solera."
+          }
+        }
+      ],
+      "fire": {
+        "en": "Evacuation height = ático floor level = 10.0 m (≤ 14 m → unprotected stair allowed, DB-SI SI3 Table 5.1; ≤ 15 m → residential structure R60, SI6 Table 3.1). The whole building is Residencial Vivienda (PB is a flat too), so there is no other-use fire sector and the structure is R60 throughout, including the PB columns and the P1 floor. 13 cm slabs give h_eff ≈ 92 mm ≥ 80 mm (R60, EN 1994-1-2). Steel protected with intumescent paint (R60).",
+        "es": "Altura de evacuación = cota del suelo del ático = 10,0 m (≤ 14 m → se admite escalera no protegida, DB-SI SI3 Tabla 5.1; ≤ 15 m → estructura residencial R60, SI6 Tabla 3.1). Todo el edificio es Residencial Vivienda (la PB también es vivienda), por lo que no hay sector de otro uso y la estructura es R60 en su totalidad, incluidos los pilares de PB y el forjado de P1. Forjados de 13 cm: h_eff ≈ 92 mm ≥ 80 mm (R60, UNE-EN 1994-1-2). Acero protegido con pintura intumescente (R60)."
+      },
+      "totals": {
+        "steel_kg": 13298.1,
+        "steel_kg_m2": 43.6,
+        "cost_eur_low": 104700.0,
+        "cost_eur_high": 160800.0,
+        "cost_per_home_low": 26200.0,
+        "cost_per_home_high": 40200.0
+      },
+      "checks": [
+        {
+          "item": {
+            "en": "Composite slab: max span / depth",
+            "es": "Forjado colaborante: luz máxima / canto"
+          },
+          "value": "3.90 m / 0.13 m = 30 ≤ 32 (EC4 guidance); propped at mid-span when concreting",
+          "ok": true
+        },
+        {
+          "item": {
+            "en": "Beams: max utilisation (bending + strut axial / shear / deflection)",
+            "es": "Vigas: aprovechamiento máximo (flexión + axil de montante / cortante / flecha)"
+          },
+          "value": "0.96 — B2 IPE 200 at P1",
+          "ok": true
+        },
+        {
+          "item": {
+            "en": "Beams: active deflection (worst ratio to limit)",
+            "es": "Vigas: flecha activa (peor relación con el límite)"
+          },
+          "value": "7.7 mm vs 8.1 mm — B2 IPE 200",
+          "ok": true
+        },
+        {
+          "item": {
+            "en": "Columns: max N_Ed / Nb,Rd (weak axis, Lcr = storey height)",
+            "es": "Pilares: N_Ed / Nb,Rd máximo (eje débil, Lcr = altura de planta)"
+          },
+          "value": "0.85 ≤ 0.85 — C6 HEB 180, storey PB",
+          "ok": true
+        },
+        {
+          "item": {
+            "en": "Bracing diagonals: max utilisation (rods tension-only, SHS tension + compression)",
+            "es": "Diagonales de arriostramiento: aprovechamiento máximo (redondos sólo tracción, tubos tracción y compresión)"
+          },
+          "value": "0.95",
+          "ok": true
+        },
+        {
+          "item": {
+            "en": "Lateral drift under characteristic wind",
+            "es": "Desplome con viento característico"
+          },
+          "value": "top 23.6 mm ≤ H/500 = 26.0 mm; worst storey 60 % of h/250",
+          "ok": true
+        },
+        {
+          "item": {
+            "en": "Seismic NCSE-02",
+            "es": "Sismo NCSE-02"
+          },
+          "value": "not mandatory (ab 0.06g < 0.08g, normal importance, braced both ways, < 7 storeys); indicative Vs ≈ 255 kN vs ULS wind x 254 kN / y 110 kN — if applied voluntarily it would govern the party-wall (y) bracing",
+          "ok": true
+        },
+        {
+          "item": {
+            "en": "Uplift at bracing columns (characteristic)",
+            "es": "Tracción en pilares de arriostramiento (característica)"
+          },
+          "value": "max 181 kN → micropiles in tension",
+          "ok": true
+        },
+        {
+          "item": {
+            "en": "Headroom: 3.0 m floor-to-floor",
+            "es": "Altura libre: 3,0 m entre forjados"
+          },
+          "value": "3.00 − 0.13 slab − 0.07 finishes = 2.80 m clear; beams ≤ 300 mm sit in cross walls",
+          "ok": true
+        },
+        {
+          "item": {
+            "en": "Fire resistance",
+            "es": "Resistencia al fuego"
+          },
+          "value": "R60 throughout, residential only (h_evac 10.0 m ≤ 15 m); no other-use sector",
+          "ok": true
+        },
+        {
+          "item": {
+            "en": "Accessibility between floors (CTE DB-SUA 9 §1.1.2)",
+            "es": "Accesibilidad entre plantas (CTE DB-SUA 9 §1.1.2)"
+          },
+          "value": "no lift: 3 floors to climb from the entrance to the ático (> 2) → accessible lift required; does not comply",
+          "ok": false
+        }
+      ]
     }
   },
   "comparison": [
@@ -2328,6 +3890,332 @@ window.STEEL={
       "A": "within 'Número de plantas 4' (PB+3) + ático",
       "B": "within 'Número de plantas 4'; confirm building one storey below the maximum is permitted",
       "better": "same"
+    }
+  ],
+  "comparison0": [
+    {
+      "metric": {
+        "en": "Storeys",
+        "es": "Plantas"
+      },
+      "A": "PB + 3 + ático",
+      "B": "PB + 2 + ático",
+      "better": "same"
+    },
+    {
+      "metric": {
+        "en": "Cornice / top height",
+        "es": "Altura de cornisa / coronación"
+      },
+      "A": "13.0 m / 16.0 m",
+      "B": "10.0 m / 13.0 m",
+      "better": "same"
+    },
+    {
+      "metric": {
+        "en": "Homes",
+        "es": "Viviendas"
+      },
+      "A": "5 (4 two-bed flats PB–P3 + ático studio)",
+      "B": "4 (3 two-bed flats PB–P2 + ático studio)",
+      "better": "A"
+    },
+    {
+      "metric": {
+        "en": "Built area",
+        "es": "Superficie construida"
+      },
+      "A": "390 m²",
+      "B": "305 m²",
+      "better": "A"
+    },
+    {
+      "metric": {
+        "en": "Structural steel",
+        "es": "Acero estructural"
+      },
+      "A": "18,234 kg",
+      "B": "13,298 kg",
+      "better": "B"
+    },
+    {
+      "metric": {
+        "en": "Steel per m² built",
+        "es": "Acero por m² construido"
+      },
+      "A": "46.7 kg/m²",
+      "B": "43.6 kg/m²",
+      "better": "B"
+    },
+    {
+      "metric": {
+        "en": "Column sizes at base (PB)",
+        "es": "Pilares en planta baja"
+      },
+      "A": "HEB 140 – HEB 220",
+      "B": "HEB 140 – HEB 200",
+      "better": "B"
+    },
+    {
+      "metric": {
+        "en": "Largest column load at foundation (SLS / ULS)",
+        "es": "Mayor carga de pilar en cimentación (ELS / ELU)"
+      },
+      "A": "821 / 1262 kN",
+      "B": "561 / 876 kN",
+      "better": "B"
+    },
+    {
+      "metric": {
+        "en": "Typical gravity-only column, C2 behind the pilaster (SLS / ULS)",
+        "es": "Pilar tipo sólo gravitatorio, C2 tras la pilastra (ELS / ELU)"
+      },
+      "A": "302 / 418 kN",
+      "B": "220 / 304 kN",
+      "better": "B"
+    },
+    {
+      "metric": {
+        "en": "Total load on foundations (SLS)",
+        "es": "Carga total en cimentación (ELS)"
+      },
+      "A": "5,639 kN",
+      "B": "3,871 kN",
+      "better": "B"
+    },
+    {
+      "metric": {
+        "en": "Foundations (recommended)",
+        "es": "Cimentación (recomendada)"
+      },
+      "A": "34 micropiles Ø150–200 + caps + tie beams",
+      "B": "27 micropiles Ø150–200 + caps + tie beams",
+      "better": "B"
+    },
+    {
+      "metric": {
+        "en": "Fire rating",
+        "es": "Resistencia al fuego"
+      },
+      "A": "R60 throughout (h_evac 13.0 m ≤ 15 m)",
+      "B": "R60 throughout (h_evac 10.0 m ≤ 15 m)",
+      "better": "same"
+    },
+    {
+      "metric": {
+        "en": "Stair",
+        "es": "Escalera"
+      },
+      "A": "unprotected allowed (13.0 ≤ 14 m, tight margin)",
+      "B": "unprotected allowed (10.0 ≤ 14 m)",
+      "better": "B"
+    },
+    {
+      "metric": {
+        "en": "Structure cost range (steel + fire protection + slabs + foundations)",
+        "es": "Coste de estructura (acero + protección al fuego + forjados + cimentación)"
+      },
+      "A": "136,000 – 208,700 €",
+      "B": "104,700 – 160,800 €",
+      "better": "B"
+    },
+    {
+      "metric": {
+        "en": "Structure cost per home",
+        "es": "Coste de estructura por vivienda"
+      },
+      "A": "27,200 – 41,700 €",
+      "B": "26,200 – 40,200 €",
+      "better": "B"
+    },
+    {
+      "metric": {
+        "en": "Structure cost per m² built",
+        "es": "Coste de estructura por m² construido"
+      },
+      "A": "349 – 535 €/m²",
+      "B": "343 – 527 €/m²",
+      "better": "same"
+    },
+    {
+      "metric": {
+        "en": "Planning (urban report)",
+        "es": "Urbanismo (informe urbanístico)"
+      },
+      "A": "within 'Número de plantas 4' (PB+3) + ático",
+      "B": "within 'Número de plantas 4'; confirm building one storey below the maximum is permitted",
+      "better": "same"
+    },
+    {
+      "metric": {
+        "en": "Lift / accessibility (CTE DB-SUA 9 §1.1.2)",
+        "es": "Ascensor / accesibilidad (CTE DB-SUA 9 §1.1.2)"
+      },
+      "A": "no lift — 4 floors to climb to the ático: does NOT comply (lift required)",
+      "B": "no lift — 3 floors to climb to the ático: does NOT comply (lift required)",
+      "better": "same"
+    }
+  ],
+  "lift_compare": [
+    {
+      "metric": {
+        "en": "Lift",
+        "es": "Ascensor"
+      },
+      "A": "yes — accessible lift, 5 stops (PB–ático)",
+      "A0": "no — shaft area becomes a storage cupboard on each floor",
+      "B": "yes — accessible lift, 4 stops (PB–ático)",
+      "B0": "no — shaft area becomes a storage cupboard on each floor"
+    },
+    {
+      "metric": {
+        "en": "Structural steel",
+        "es": "Acero estructural"
+      },
+      "A": "18,234 kg",
+      "A0": "18,234 kg",
+      "B": "13,298 kg",
+      "B0": "13,298 kg"
+    },
+    {
+      "metric": {
+        "en": "Structure cost (steel + fire + slabs + foundations)",
+        "es": "Coste de estructura (acero + fuego + forjados + cimentación)"
+      },
+      "A": "135,700 – 208,300 €",
+      "A0": "136,000 – 208,700 €",
+      "B": "104,500 – 160,500 €",
+      "B0": "104,700 – 160,800 €"
+    },
+    {
+      "metric": {
+        "en": "Structure cost difference with lift (vs. no lift)",
+        "es": "Diferencia de coste de estructura con ascensor (frente a sin ascensor)"
+      },
+      "A": "-300 / -400 € vs A0 (lift opening = less slab)",
+      "A0": "—",
+      "B": "-200 / -300 € vs B0 (lift opening = less slab)",
+      "B0": "—"
+    },
+    {
+      "metric": {
+        "en": "Lift equipment, supplied and installed (assumed 2026 range)",
+        "es": "Ascensor: suministro e instalación (rango supuesto 2026)"
+      },
+      "A": "28,000 – 40,000 €",
+      "A0": "0 €",
+      "B": "25,000 – 36,000 €",
+      "B0": "0 €"
+    },
+    {
+      "metric": {
+        "en": "Builder's work for the lift (pit, shaft enclosure, power, finishes)",
+        "es": "Obra asociada al ascensor (foso, cerramiento del hueco, acometida, remates)"
+      },
+      "A": "6,000 – 12,000 €",
+      "A0": "0 €",
+      "B": "6,000 – 12,000 €",
+      "B0": "0 €"
+    },
+    {
+      "metric": {
+        "en": "Total extra investment for having a lift",
+        "es": "Inversión adicional total por tener ascensor"
+      },
+      "A": "33,600 – 51,700 €",
+      "A0": "0 €",
+      "B": "30,700 – 47,800 €",
+      "B0": "0 €"
+    },
+    {
+      "metric": {
+        "en": "Lift investment per home",
+        "es": "Inversión en ascensor por vivienda"
+      },
+      "A": "6,720 – 10,340 €",
+      "A0": "0 €",
+      "B": "7,675 – 11,950 €",
+      "B0": "0 €"
+    },
+    {
+      "metric": {
+        "en": "Yearly lift maintenance + periodic inspections (assumed)",
+        "es": "Mantenimiento anual + inspecciones periódicas (supuesto)"
+      },
+      "A": "1,500 – 3,000 €/year",
+      "A0": "0 €/year",
+      "B": "1,500 – 3,000 €/year",
+      "B0": "0 €/year"
+    },
+    {
+      "metric": {
+        "en": "Floor area gained without lift (storage cupboard)",
+        "es": "Superficie ganada sin ascensor (trastero)"
+      },
+      "A": "—",
+      "A0": "1.32 m² per floor × 5 floors = 6.6 m²",
+      "B": "—",
+      "B0": "1.32 m² per floor × 4 floors = 5.3 m²"
+    },
+    {
+      "metric": {
+        "en": "Climb from the entrance to the ático",
+        "es": "Subida desde la entrada al ático"
+      },
+      "A": "by lift",
+      "A0": "13.0 m ≈ 74 steps on foot",
+      "B": "by lift",
+      "B0": "10.0 m ≈ 57 steps on foot"
+    },
+    {
+      "metric": {
+        "en": "Accessibility (CTE DB-SUA 9 §1.1.2)",
+        "es": "Accesibilidad (CTE DB-SUA 9 §1.1.2)"
+      },
+      "A": "complies (accessible lift)",
+      "A0": "does NOT comply: 4 floors to climb > 2 → lift required",
+      "B": "complies (accessible lift)",
+      "B0": "does NOT comply: 3 floors to climb > 2 → lift required"
+    },
+    {
+      "metric": {
+        "en": "If no lift now: shaft reserved for a future lift (framed opening + pit + removable infill)",
+        "es": "Si no se pone ahora: hueco reservado para ascensor futuro (hueco enmarcado + foso + cierre desmontable)"
+      },
+      "A": "—",
+      "A0": "+ 5,000 – 8,500 €; cupboards usable until the lift is fitted; still NOT compliant for a new building",
+      "B": "—",
+      "B0": "+ 4,600 – 7,800 €; cupboards usable until the lift is fitted; still NOT compliant for a new building"
+    }
+  ],
+  "lift_warnings": [
+    {
+      "en": "Accessibility decides this, not the structure. CTE DB-SUA 9 §1.1.2 (current text with the Ministry's comments; wording checked) requires an accessible lift (or accessible ramp) in a Residencial Vivienda building where more than two floors must be climbed from an accessible main entrance to any dwelling. The Ministry's comment gives 'planta baja + 3' as an example where it is required. A0 has 4 floors to climb to the ático (P1, P2, P3, ático) and B0 has 3 (P1, P2, ático). Neither no-lift option complies, and a building licence would very likely be refused.",
+      "es": "Lo decisivo es la accesibilidad, no la estructura. El CTE DB-SUA 9 §1.1.2 (texto vigente con comentarios del Ministerio; redacción comprobada) exige ascensor accesible (o rampa accesible) en edificios de Residencial Vivienda en los que haya que salvar más de dos plantas desde una entrada principal accesible hasta alguna vivienda. El comentario del Ministerio pone 'planta baja + 3' como ejemplo en que es obligatorio. A0 obliga a salvar 4 plantas hasta el ático (P1, P2, P3, ático) y B0, 3 (P1, P2, ático). Ninguna de las dos opciones sin ascensor cumple, y lo más probable es que no obtenga licencia."
+    },
+    {
+      "en": "The CTE's only exception does not apply here. When at most two floors must be climbed, the project only has to provide for a future lift 'dimensionally and structurally' (a reserved shaft). That would be planta baja + 2 with no ático, not B0. Storage rooms and drying areas do not count as floors, but the ático is a dwelling, so it counts.",
+      "es": "La única excepción del CTE no aplica: si sólo hay que salvar dos plantas o menos, basta con 'prever dimensional y estructuralmente' el ascensor (hueco reservado). Eso sería planta baja + 2 sin ático, no B0. Trasteros y tendederos no cuentan como plantas, pero el ático es una vivienda y sí cuenta."
+    },
+    {
+      "en": "Valencian rules apply on top of the CTE and cannot be less demanding. They are Decreto 65/2019 on accessibility in buildings (arts. 7 and 16, 'accesibilidad entre plantas'), the housing design and quality rules (Decreto 80/2023, which replaced DC-09) and Ley 8/2024 on universal accessibility. Their exact wording was not verified in this study: the architect must check it, and it may require more (e.g. wheelchair-accessible dwellings).",
+      "es": "La normativa valenciana se suma al CTE y no puede ser menos exigente: Decreto 65/2019 de accesibilidad en la edificación (arts. 7 y 16, 'accesibilidad entre plantas'), las normas de diseño y calidad de vivienda (Decreto 80/2023, que sustituyó a la DC-09) y la Ley 8/2024 de accesibilidad universal. Su redacción exacta no se ha comprobado en este estudio; debe verificarla el arquitecto, y puede exigir más (p. ej. viviendas accesibles para silla de ruedas)."
+    },
+    {
+      "en": "The 'flexibility' or 'reasonable adjustments' allowed for existing buildings will almost certainly not help. Only the façades are kept; the structure, floors and layout are new, and the shaft fits in the plan. The Ayuntamiento is likely to treat this as new construction. Do not count on an exemption without a written prior opinion from the Ayuntamiento.",
+      "es": "La 'flexibilidad' o los 'ajustes razonables' para edificios existentes casi seguro no servirán: sólo se conservan las fachadas, la estructura, los forjados y la distribución son nuevos, y el hueco cabe en planta. El Ayuntamiento previsiblemente lo tratará como obra nueva. No contar con una exención sin un informe previo por escrito del Ayuntamiento."
+    },
+    {
+      "en": "Structurally the lift changes almost nothing. Without it the 1.3 m² opening is closed with slab and the lift head load (≈ 35 kN at the roof) disappears. Grid, bracing, column sizes and micropiles stay the same, and steel is the same to the kilo at this level of detail. The real difference is the lift itself: about 31–52 k€ to install (equipment plus builder's work) and 1.5–3 k€ per year.",
+      "es": "Estructuralmente el ascensor apenas cambia nada: sin él se cierra con forjado el hueco de 1,3 m² y desaparece la carga de cabeza del ascensor (≈ 35 kN en cubierta). Retícula, arriostramientos, pilares y micropilotes no cambian, y el acero es el mismo a este nivel de detalle. La diferencia real es el propio ascensor: unos 31–52 k€ de instalación (equipo + obra asociada) y 1,5–3 k€ al año."
+    },
+    {
+      "en": "If the owner still wants to postpone the lift, at least reserve the shaft:\n- Frame the structure exactly as in A/B.\n- Build the lift pit now with the foundations; it is very hard to add later under the slab and pile caps.\n- Close the opening on each floor with a removable infill, so it works as a storage cupboard meanwhile.\n- Leave the power supply ready.\nThis costs only a few thousand euros (see lift_compare), but it does NOT make A0/B0 compliant as new buildings.",
+      "es": "Si aun así se quiere aplazar el ascensor, como mínimo reservar el hueco:\n- Estructura exactamente como A/B.\n- Foso construido ahora con la cimentación (muy difícil de hacer después bajo solera y encepados).\n- Cierre desmontable en cada planta, usable mientras tanto como trastero.\n- Acometida eléctrica prevista.\nCuesta sólo unos miles de euros (ver lift_compare), pero NO hace que A0/B0 cumplan como edificio nuevo."
+    },
+    {
+      "en": "Without a lift, no flat above planta baja (including the ático and its terrace) is reachable for people with reduced mobility, and sale and rental values fall. Adding a lift later in a divided building needs a community agreement (Ley de Propiedad Horizontal) and costs more.",
+      "es": "Sin ascensor, ninguna vivienda por encima de planta baja (ni el ático ni su terraza) es accesible para personas con movilidad reducida, y baja el valor de venta y alquiler. Instalarlo después en un edificio en propiedad horizontal exige acuerdo de la comunidad y cuesta más."
     }
   ],
   "procedure": [
