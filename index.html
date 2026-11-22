@@ -84,6 +84,9 @@ header.wrap{padding-block:40px 8px}
     --r-living:#F2E5CC; --r-bed:#DAE6F0; --r-wet:#D0EAE5; --r-circ:#E9EBE8; --r-core:#D8DBD8;
     --r-terrace:#EADBC2; --r-balc:#E2EAEE; --r-shop:#EFE0D6; --furn:#7C878B; color-scheme:light}
   html,body{background:#fff!important}
+  .pp .st-table{font-size:8pt} .pp .st-table td,.pp .st-table th{padding:1mm 1.5mm}
+  .pp .st-proc{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2mm 6mm} .pp .st-proc p{font-size:8pt} .pp .st-proc b{font-size:9pt}
+  .pp .st-warn{font-size:8pt}
   body{font-size:10pt;line-height:1.45}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .scr{display:none!important}
@@ -201,6 +204,37 @@ h2{font-family:var(--f-display);font-weight:600;font-size:24px;letter-spacing:-.
 .north{fill:var(--ink)} .pergola{fill:none;stroke:var(--timber);stroke-dasharray:.15 .1}
 .plant{fill:var(--r-wet);stroke:var(--furn)}
 
+/* Steel structure */
+.st-cmp{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:20px;align-items:start}
+@media (max-width:900px){.st-cmp{grid-template-columns:minmax(0,1fr)}}
+.st-stack{background:var(--sheet);border:1px solid var(--line);border-radius:6px;padding:10px;min-width:0}
+.st-stack svg{display:block;width:100%;height:auto}
+.st-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:14px}
+.st-table th{text-align:left;font:500 11px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:6px 8px;border-bottom:1px solid var(--line)}
+.st-table td{padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.st-table td.cur,.st-table th.cur{background:var(--accent-soft)}
+.st-wrap{overflow-x:auto;background:var(--sheet);border:1px solid var(--line);border-radius:6px;min-width:0}
+.win{display:inline-block;margin-left:6px;font:600 10px/1 var(--f-mono);padding:3px 5px;border-radius:3px;background:var(--keep);color:var(--sheet);vertical-align:1px}
+.st-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:20px;align-items:start;margin-top:20px}
+@media (max-width:900px){.st-grid{grid-template-columns:minmax(0,1fr)}}
+.st-plan svg{display:block;width:100%;height:auto;max-height:78vh}
+.st-key{display:flex;flex-wrap:wrap;gap:6px 16px;margin:8px 4px 2px;font-size:13px;color:var(--muted)}
+.st-key i{display:inline-block;width:14px;height:0;border-top:3px solid var(--ink);vertical-align:3px;margin-right:6px}
+.st-key i.br{border-top:3px dashed #c0392b} .st-key i.co{width:10px;height:10px;border:0;background:var(--ink);vertical-align:0}
+.st-side h3{font-family:var(--f-display);font-weight:600;font-size:18px;margin:0 0 6px}
+.st-big{display:flex;flex-wrap:wrap;gap:8px 24px;margin:0 0 12px}
+.st-big div{display:flex;flex-direction:column} .st-big dt{font:500 11px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.st-big dd{margin:0;font:700 20px/1.2 var(--f-display);font-variant-numeric:tabular-nums}
+.st-side p{margin:0 0 10px;font-size:14px}
+details.st-d{margin-top:14px;background:var(--sheet);border:1px solid var(--line);border-radius:6px;padding:10px 14px;min-width:0}
+details.st-d summary{cursor:pointer;font-family:var(--f-display);font-weight:600;font-size:16px}
+details.st-d[open] summary{margin-bottom:10px}
+.st-proc{margin:0;padding-left:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px 28px}
+.st-proc li{border-top:1px solid var(--line);padding-top:10px} .st-proc b{display:block;font-family:var(--f-display);font-weight:600;margin-bottom:2px}
+.st-proc p{margin:0;color:var(--muted);font-size:14px}
+.st-warn{margin:0;padding-left:1.2em;font-size:14px;color:var(--muted);display:grid;gap:6px}
+.st-status{margin:0 0 14px;padding:10px 12px;border-left:3px solid var(--keep);background:var(--sheet);font-size:14px}
+.ok{color:#2e7d4f;font-weight:700} .nok{color:#c0392b;font-weight:700}
 /* Notes */
 .notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px 28px;margin:0;padding:0;list-style:none}
 .notes li{border-top:1px solid var(--line);padding-top:10px;min-width:0}
@@ -320,6 +354,30 @@ footer.wrap{padding-block:30px 40px;color:var(--muted);font-size:13px}
     </div>
   </section>
 
+  <section class="wrap" id="steel">
+    <div class="sec-head">
+      <h2 data-i18n="stH">Steel structure</h2>
+      <p data-i18n="stP">Pre-dimensioning of a new steel frame for both versions, with the same grid. It follows the version switch at the top of the page.</p>
+    </div>
+    <p class="st-status" id="st-status"></p>
+    <div class="st-cmp">
+      <div class="st-stack"><svg id="st-stack" viewBox="0 0 30 21" role="img" aria-label="Both versions side by side"></svg></div>
+      <div class="st-wrap"><table class="st-table" id="st-cmp"></table></div>
+    </div>
+    <div class="st-grid">
+      <div class="sheet st-plan"><svg id="st-plan" viewBox="-2.9 -16.9 15.4 20.1" role="img" aria-label="Structural plan"></svg>
+        <div class="st-key"><span><i class="co"></i><span data-i18n="stKeyCol">Column, with load at foundation</span></span><span><i></i><span data-i18n="stKeyBeam">Beam</span></span><span><i class="br"></i><span data-i18n="stKeyBr">Bracing (X), blind walls only</span></span></div>
+      </div>
+      <div class="st-side" id="st-side"></div>
+    </div>
+    <details class="st-d"><summary data-i18n="stMembers">Member schedule</summary><div class="st-wrap" style="border:0"><table class="st-table" id="st-members"></table></div></details>
+    <details class="st-d"><summary data-i18n="stAssum">Assumptions and loads</summary><div class="st-wrap" style="border:0"><table class="st-table" id="st-assum"></table></div></details>
+    <h3 style="font-family:var(--f-display);font-weight:600;font-size:20px;margin:26px 0 10px" data-i18n="stProc">How it must be built</h3>
+    <ol class="st-proc" id="st-proc"></ol>
+    <h3 style="font-family:var(--f-display);font-weight:600;font-size:20px;margin:26px 0 10px" data-i18n="stWarn">Open points for the engineer</h3>
+    <ul class="st-warn" id="st-warn"></ul>
+  </section>
+
   <section class="wrap" id="notes">
     <div class="sec-head"><h2 data-i18n="notesH">Before this goes further</h2></div>
     <ul class="notes">
@@ -376,6 +434,11 @@ const D={
   noteNew:'New floor on the new frame. It repeats the old window rhythm and iron balconies, so the street sees one building.',
   dlPdf:'Download PDF', facH:'Façades', facP:"Straight-on views of the proposal's two street fronts, at the same scale. Neighbours shown for context.",
   elevB:'Av. Burjassot façade', elevC:'C/ Carrasqueta façade', scale125:'Scale 1:125 on A4 · areas to wall centre lines', exteriorViews:'Exterior views', no3d:'3D views were not available when this document was made.',
+  stH:'Steel structure', stP:'Pre-dimensioning of a new steel frame for both versions, with the same grid. It follows the version switch at the top of the page.',
+  stKeyCol:'Column, with load at foundation', stKeyBeam:'Beam', stKeyBr:'Bracing (X), blind walls only', stMembers:'Member schedule', stAssum:'Assumptions and loads',
+  stProc:'How it must be built', stWarn:'Open points for the engineer', stMetric:'Compare', stShown:'shown', stSteel:'Steel', stCost:'Structure cost', stPerHome:'per home',
+  stHomes:'Homes', stCornice:'Cornice', stBase:'Base columns', stMicro:'Micropiles', stProfile:'Profile', stGroup:'Element', stWhere:'Where', stKg:'kg', stTotal:'Total steel',
+  stLoad:'Load', stValue:'Value', stFound:'Foundations', stFire:'Fire', stChecks:'Checks', stPlanT:'Structural plan, same on every floor', stCostNote:'Steel, fire protection, slabs and micropiles. Not included: façade stabiliser and demolition, lift, finishes, VAT and fees.',
   todayView:'Today (same corner)', facScale:'Same scale, about 1:180 on A4', todaySrc:'Source: 2020 façade restoration project'
  },
  es:{
@@ -415,6 +478,11 @@ const D={
   noteNew:'Planta nueva sobre la nueva estructura. Repite el ritmo de huecos y los balcones de forja, para que desde la calle se lea un solo edificio.',
   dlPdf:'Descargar PDF', facH:'Fachadas', facP:'Vistas frontales de las dos fachadas a calle de la propuesta, a la misma escala. Los edificios vecinos se muestran como referencia.',
   elevB:'Fachada a Av. Burjassot', elevC:'Fachada a C/ Carrasqueta', scale125:'Escala 1:125 en A4 · superficies a eje de muros', exteriorViews:'Vistas exteriores', no3d:'Las vistas 3D no estaban disponibles al generar este documento.',
+  stH:'Estructura de acero', stP:'Predimensionado de una nueva estructura metálica para las dos versiones, con la misma retícula. Sigue el selector de versión de arriba.',
+  stKeyCol:'Pilar, con su carga en cimentación', stKeyBeam:'Viga', stKeyBr:'Arriostramiento (cruz de San Andrés), solo en paños ciegos', stMembers:'Listado de perfiles', stAssum:'Hipótesis y cargas',
+  stProc:'Cómo se debe construir', stWarn:'Puntos abiertos para el técnico', stMetric:'Comparación', stShown:'mostrada', stSteel:'Acero', stCost:'Coste de estructura', stPerHome:'por vivienda',
+  stHomes:'Viviendas', stCornice:'Cornisa', stBase:'Pilares en base', stMicro:'Micropilotes', stProfile:'Perfil', stGroup:'Elemento', stWhere:'Dónde', stKg:'kg', stTotal:'Acero total',
+  stLoad:'Carga', stValue:'Valor', stFound:'Cimentación', stFire:'Fuego', stChecks:'Comprobaciones', stPlanT:'Planta estructural, igual en todas las plantas', stCostNote:'Acero, protección contra incendios, forjados y micropilotes. No incluye: estabilizador de fachada y demolición, ascensor, acabados, IVA ni honorarios.',
   todayView:'Hoy (misma esquina)', facScale:'Misma escala, aprox. 1:180 en A4', todaySrc:'Fuente: proyecto de restauración de fachadas de 2020',
   /* room names, keyed by their English name */
   'Living · kitchen · dining':'Salón · cocina · comedor', 'Bedroom 1':'Dormitorio 1', 'Bedroom 2':'Dormitorio 2',
@@ -1232,6 +1300,130 @@ try{
 })();
 </script>
 
+<script src="steel-data.js"></script>
+<script>
+/* ---------- Steel structure (data: structure/steel-calc.json → steel-data.js) ---------- */
+(function(){
+const H=window.HOUSE, I=window.I18N, T=I.t, N=I.num, D=window.STEEL;
+const sec=document.getElementById('steel');
+if(!D){ sec.hidden=true; window.STEELVIEW=null; return; }
+const Lx=o=>o==null?'':(typeof o==='string'?o:(o[I.lang]||o.en||''));
+const opt=()=>H.ver==='pb2'?'B':'A';
+const r=n=>Math.round(n*1000)/1000, S=(x,y)=>r(x)+','+r(-y);
+const eur=n=>N(n/1000,0)+' k€';
+const baseCols=o=>{const ps=D.options[o].members.filter(m=>/^HEB/.test(m.profile)&&/PB/.test(m.group.en)).map(m=>+m.profile.split(' ')[1]);return ps.length?'HEB '+Math.min(...ps)+' – HEB '+Math.max(...ps):'';};
+const micro=o=>{const f=Lx(D.options[o].foundations[0].detail),m=f.match(/(\d+)\s*micropil/);return m?m[1]:'';};
+
+function stack(){
+  // both versions side by side, to the same scale (1 unit = 1 m)
+  const svg=document.getElementById('st-stack'); let s='';
+  const draw=(o,x0)=>{
+    const op=D.options[o], cur=o===opt(); let z=0;
+    const ink=cur?'var(--ink)':'var(--muted)', fill=cur?'var(--accent-soft)':'var(--sheet)';
+    op.levels.forEach((lv,i)=>{
+      const att=/tico/i.test(lv.name), w=att?5.2:8.2, x=att?x0:x0;
+      s+=`<rect x="${x}" y="${r(19-z-lv.h)}" width="${w}" height="${lv.h}" fill="${att?'var(--r-core)':fill}" stroke="${ink}" stroke-width="0.08"/>`;
+      s+=`<text x="${x+w/2}" y="${r(19-z-lv.h/2+0.25)}" font-size="0.7" text-anchor="middle" fill="${ink}" font-family="var(--f-mono)">${lv.name}</text>`;
+      z+=lv.h;
+    });
+    s+=`<line x1="${x0-0.6}" y1="${r(19-op.cornice_m)}" x2="${x0+8.8}" y2="${r(19-op.cornice_m)}" stroke="var(--keep)" stroke-width="0.07" stroke-dasharray="0.3 0.2"/>`;
+    s+=`<text x="${x0+8.9}" y="${r(19-op.cornice_m+0.25)}" font-size="0.65" fill="var(--keep)" font-family="var(--f-mono)">${N(op.cornice_m,1)} m</text>`;
+    s+=`<text x="${x0+4.1}" y="${r(19-op.top_m-0.9)}" font-size="1.0" text-anchor="middle" font-weight="700" fill="${ink}" font-family="var(--f-display)">${H.VLABEL[o==='A'?'pb3':'pb2']}${cur?' ◂':''}</text>`;
+    s+=`<text x="${x0+4.1}" y="20.4" font-size="0.62" text-anchor="middle" fill="${ink}" font-family="var(--f-mono)">${op.homes} ${T('stHomes').toLowerCase()} · ${N(op.totals.steel_kg/1000,1)} t ${T('stSteel').toLowerCase()}</text>`;
+  };
+  s+=`<line x1="0" y1="19" x2="30" y2="19" stroke="var(--ink)" stroke-width="0.1"/>`;
+  draw('B',1.5); draw('A',16.2);
+  svg.innerHTML=s;
+}
+
+function cmpTable(){
+  const o=opt(), el=document.getElementById('st-cmp');
+  let h=`<tr><th>${T('stMetric')}</th><th class="${o==='B'?'cur':''}">${H.VLABEL.pb2}</th><th class="${o==='A'?'cur':''}">${H.VLABEL.pb3}</th></tr>`;
+  D.comparison.forEach(c=>{
+    const win=k=>c.better===k?'<span class="win">✓</span>':'';
+    h+=`<tr><td>${Lx(c.metric)}</td><td class="${o==='B'?'cur':''}">${Lx(c.B)}${win('B')}</td><td class="${o==='A'?'cur':''}">${Lx(c.A)}${win('A')}</td></tr>`;
+  });
+  el.innerHTML=h;
+}
+
+function planSVG(o){
+  const op=D.options[o], C={}; D.grid.columns.forEach(c=>C[c.id]=c);
+  const load={}; op.column_loads.forEach(l=>load[l.id]=l);
+  let s=`<polygon points="${H.PARCEL.map(p=>S(p[0],p[1])).join(' ')}" fill="var(--r-circ)" stroke="var(--ink)" stroke-width="0.25"/>`;
+  s+=`<polygon points="${H.CORE.map(p=>S(p[0],p[1])).join(' ')}" fill="var(--r-core)" stroke="none"/>`;
+  s+=`<text x="${r(H.W/2-0.3)}" y="2.55" font-size="0.36" class="street" text-anchor="middle">AVINGUDA BURJASSOT</text>`;
+  D.grid.beams.forEach(b=>{const a=C[b.from],c=C[b.to]; if(a&&c) s+=`<line x1="${a.x}" y1="${-a.y}" x2="${c.x}" y2="${-c.y}" stroke="var(--ink)" stroke-width="0.09"><title>${b.id} · ${Lx(b.role)}</title></line>`;});
+  D.grid.bracing.forEach(b=>{const a=C[b.from],c=C[b.to]; if(a&&c){ s+=`<line x1="${a.x}" y1="${-a.y}" x2="${c.x}" y2="${-c.y}" stroke="#c0392b" stroke-width="0.16" stroke-dasharray="0.3 0.18"><title>${Lx(b.plane)}</title></line>`;
+    const mx=(a.x+c.x)/2,my=(a.y+c.y)/2; s+=`<text x="${r(mx+0.18)}" y="${r(-my-0.12)}" font-size="0.36" fill="#c0392b" font-weight="700">X</text>`;}});
+  D.grid.columns.forEach(c=>{
+    const l=load[c.id], post=!l;
+    s+=`<rect x="${r(c.x-0.15)}" y="${r(-c.y-0.15)}" width="0.3" height="0.3" fill="${post?'var(--sheet)':'var(--ink)'}" stroke="var(--ink)" stroke-width="0.05"><title>${c.id}${l?` · ${l.N_sls_kN} kN SLS / ${l.N_uls_kN} kN ULS`:''}</title></rect>`;
+    const right=c.x<4;
+    s+=post?`<text x="${r(c.x)}" y="${r(-c.y+0.55)}" font-size="0.26" font-weight="700" fill="var(--muted)" text-anchor="middle">${c.id}</text>`
+           :`<text x="${r(c.x+(right?0.25:-0.25))}" y="${r(-c.y-0.2)}" font-size="0.3" font-weight="700" fill="var(--ink)" text-anchor="${right?'start':'end'}">${c.id}</text>`;
+    if(l) s+=`<text x="${r(c.x+(right?0.25:-0.25))}" y="${r(-c.y+0.22)}" font-size="0.24" fill="var(--muted)" font-family="var(--f-mono)" text-anchor="${right?'start':'end'}">${l.N_sls_kN} kN</text>`;
+  });
+  return s;
+}
+
+function side(o){
+  const op=D.options[o], t=op.totals;
+  let h=`<h3>${Lx(op.label)}</h3><dl class="st-big">`
+    +`<div><dt>${T('stTotal')}</dt><dd>${N(t.steel_kg/1000,1)} t</dd></div>`
+    +`<div><dt>${T('stCost')}</dt><dd>${eur(t.cost_eur_low)}–${eur(t.cost_eur_high)}</dd></div>`
+    +`<div><dt>${T('stPerHome')}</dt><dd>${eur(t.cost_per_home_low)}–${eur(t.cost_per_home_high)}</dd></div>`
+    +`<div><dt>${T('stBase')}</dt><dd style="font-size:16px">${baseCols(o)}</dd></div>`
+    +`<div><dt>${T('stMicro')}</dt><dd>${micro(o)}</dd></div></dl>`;
+  h+=`<p style="color:var(--muted);font-size:13px">${T('stCostNote')}</p>`;
+  h+=`<p><b>${Lx(op.slab.type).split(';')[0]}</b></p>`;
+  op.foundations.forEach(f=>h+=`<p><b>${T('stFound')}:</b> ${Lx(f.type)} — ${Lx(f.detail)}</p>`);
+  h+=`<p><b>${T('stFire')}:</b> ${Lx(op.fire)}</p>`;
+  h+=`<details class="st-d" style="margin-top:6px"><summary>${T('stChecks')}</summary><table class="st-table">`
+    +op.checks.map(c=>`<tr><td>${Lx(c.item)}</td><td>${c.value}</td><td class="${c.ok?'ok':'nok'}">${c.ok?'✓':'!'}</td></tr>`).join('')+`</table></details>`;
+  return h;
+}
+
+function membersTable(o){
+  const op=D.options[o];
+  return `<tr><th>${T('stGroup')}</th><th>${T('stProfile')}</th><th>${T('stWhere')}</th><th style="text-align:right">${T('stKg')}</th></tr>`
+    +op.members.map(m=>`<tr><td>${Lx(m.group)}</td><td style="white-space:nowrap;font-family:var(--f-mono)">${m.profile}</td><td style="color:var(--muted)">${Lx(m.where)}</td><td style="text-align:right;font-family:var(--f-mono)">${N(m.kg,0)}</td></tr>`).join('')
+    +`<tr><td colspan="3"><b>${T('stTotal')}</b></td><td style="text-align:right;font-family:var(--f-mono)"><b>${N(op.totals.steel_kg,0)}</b></td></tr>`;
+}
+
+function render(){
+  const o=opt();
+  document.getElementById('st-status').innerHTML=Lx(D.meta.status);
+  stack(); cmpTable();
+  document.getElementById('st-plan').innerHTML=planSVG(o);
+  document.getElementById('st-side').innerHTML=side(o);
+  document.getElementById('st-members').innerHTML=membersTable(o);
+  document.getElementById('st-assum').innerHTML=`<tr><th>${T('stGroup')}</th><th>${T('stValue')}</th></tr>`
+    +D.assumptions.map(a=>`<tr><td>${Lx(a.label)}</td><td>${a.value}</td></tr>`).join('')
+    +D.loads.map(l=>`<tr><td>${Lx(l.label)} (${l.type})</td><td style="font-family:var(--f-mono)">${N(l.kN_m2,2)} kN/m²</td></tr>`).join('');
+  document.getElementById('st-proc').innerHTML=D.procedure.map(p=>`<li><b>${Lx(p.title)}</b><p>${Lx(p.text)}</p></li>`).join('');
+  document.getElementById('st-warn').innerHTML=D.warnings.map(w=>`<li>${Lx(w)}</li>`).join('');
+}
+render();
+document.addEventListener('langchange',render);
+document.addEventListener('versionchange',render);
+
+/* pages for the PDF */
+window.STEELVIEW={pages(){
+  const o=opt(), op=D.options[o];
+  return `<section class="pp"><div class="pp-head"><h2>${T('stH')}</h2><span>${Lx(op.label)}</span></div>`
+    +`<p class="st-status">${Lx(D.meta.status)}</p>`
+    +`<svg viewBox="0 0 30 21" style="width:150mm;height:105mm;display:block;margin:0 auto 4mm">${document.getElementById('st-stack').innerHTML}</svg>`
+    +`<table class="st-table">${document.getElementById('st-cmp').innerHTML}</table></section>`
+    +`<section class="pp"><div class="pp-head"><h2>${T('stPlanT')}</h2><span>${Lx(op.label)}</span></div>`
+    +`<svg viewBox="-2.9 -16.9 15.4 20.1" style="width:95mm;height:124mm;display:block;margin:0 auto 3mm">${planSVG(o)}</svg>`
+    +`<div class="st-side">${side(o).replace(/<details[\s\S]*<\/details>/,'')}</div></section>`
+    +`<section class="pp"><div class="pp-head"><h2>${T('stMembers')}</h2><span>${Lx(op.label)}</span></div><table class="st-table">${membersTable(o)}</table></section>`
+    +`<section class="pp"><div class="pp-head"><h2>${T('stProc')}</h2></div><ol class="st-proc">${document.getElementById('st-proc').innerHTML}</ol>`
+    +`<h3 style="margin-top:5mm">${T('stWarn')}</h3><ul class="st-warn">${document.getElementById('st-warn').innerHTML}</ul></section>`;
+}};
+})();
+</script>
+
 <script>
 /* ---------- Print document (what the PDF and Ctrl+P show) ---------- */
 (function(){
@@ -1263,6 +1455,7 @@ function build(){
     h+=`<section class="pp"><div class="pp-head"><h2>${T('level')} ${lv.num} · ${lv.name}</h2><span>${T('scale125')}</span></div>`
       +`<svg class="pp-plan" id="pp-plan-${lv.id}" viewBox="-2.9 -16.9 15.4 20.1" role="img"></svg><aside class="schedule" id="pp-sch-${lv.id}"></aside></section>`;
   });
+  if(window.STEELVIEW) h+=window.STEELVIEW.pages();
   h+=`<section class="pp"><div class="pp-head"><h2>${T('notesH')}</h2></div>${notes}<p class="pp-foot">${T('footer')}</p></section>`;
   out.innerHTML=h;
   H.LEVELS.forEach(lv=>window.PLANS.render(lv,document.getElementById('pp-plan-'+lv.id),document.getElementById('pp-sch-'+lv.id),'p'+lv.id));
