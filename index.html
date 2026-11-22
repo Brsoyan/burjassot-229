@@ -183,7 +183,7 @@ h2{font-family:var(--f-display);font-weight:600;font-size:24px;letter-spacing:-.
 .verswitch span{font:500 11px/1 var(--f-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-right:12px}
 .verswitch button{font:600 14px/1 var(--f-body);padding:11px 16px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
 .verswitch button+button{border-left:0}
-.verswitch span+button{border-radius:4px 0 0 4px} .verswitch button:last-child{border-radius:0 4px 4px 0}
+.verswitch span+button{border-radius:4px 0 0 4px} .verswitch button:last-child,.verswitch button:has(+span){border-radius:0 4px 4px 0}
 .verswitch button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--sheet)}
 .verswitch button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
@@ -263,6 +263,9 @@ footer.wrap{padding-block:30px 40px;color:var(--muted);font-size:13px}
     <span data-i18n="verLabel">Version</span>
     <button type="button" data-ver="pb2" aria-pressed="false">PB + 2 + Ático</button>
     <button type="button" data-ver="pb3" aria-pressed="true">PB + 3 + Ático</button>
+    <span style="margin-left:22px" data-i18n="liftLabel">Lift</span>
+    <button type="button" data-lift="1" aria-pressed="true" data-i18n="liftYes">With lift</button>
+    <button type="button" data-lift="0" aria-pressed="false" data-i18n="liftNo">Without lift</button>
   </div>
   <dl class="facts">
     <div><dt data-i18n="fPlot">Plot</dt><dd data-i18n="fPlotV">85.35 m²</dd></div>
@@ -360,6 +363,7 @@ footer.wrap{padding-block:30px 40px;color:var(--muted);font-size:13px}
       <p data-i18n="stP">Pre-dimensioning of a new steel frame for both versions, with the same grid. It follows the version switch at the top of the page.</p>
     </div>
     <p class="st-status" id="st-status"></p>
+    <p class="st-status" id="st-pending" hidden data-i18n="stPending">The no-lift calculation is being prepared; the numbers shown are with lift.</p>
     <div class="st-cmp">
       <div class="st-stack"><svg id="st-stack" viewBox="0 0 30 21" role="img" aria-label="Both versions side by side"></svg></div>
       <div class="st-wrap"><table class="st-table" id="st-cmp"></table></div>
@@ -372,6 +376,11 @@ footer.wrap{padding-block:30px 40px;color:var(--muted);font-size:13px}
     </div>
     <details class="st-d"><summary data-i18n="stMembers">Member schedule</summary><div class="st-wrap" style="border:0"><table class="st-table" id="st-members"></table></div></details>
     <details class="st-d"><summary data-i18n="stAssum">Assumptions and loads</summary><div class="st-wrap" style="border:0"><table class="st-table" id="st-assum"></table></div></details>
+    <div id="st-lift" hidden>
+      <h3 style="font-family:var(--f-display);font-weight:600;font-size:20px;margin:26px 0 10px" data-i18n="stLiftH">With or without lift</h3>
+      <div class="st-wrap"><table class="st-table" id="st-liftcmp"></table></div>
+      <ul class="st-warn" id="st-liftwarn" style="margin-top:12px"></ul>
+    </div>
     <h3 style="font-family:var(--f-display);font-weight:600;font-size:20px;margin:26px 0 10px" data-i18n="stProc">How it must be built</h3>
     <ol class="st-proc" id="st-proc"></ol>
     <h3 style="font-family:var(--f-display);font-weight:600;font-size:20px;margin:26px 0 10px" data-i18n="stWarn">Open points for the engineer</h3>
@@ -399,7 +408,8 @@ footer.wrap{padding-block:30px 40px;color:var(--muted);font-size:13px}
 const D={
  en:{
   eyebrow:'Av. Burjassot 229 · Valencia · Concept, not for construction',
-  lede:'Keep the two street façades of the corner house, rebuild the inside and add floors, with an ático studio on top. Two versions to compare: planta baja + 2, or planta baja + 3 (about 341 m², as in your urban analysis). The building entrance stays on Carrer Carrasqueta, through the existing door.', verLabel:'Version', homesFmt:'{n} × 2-bed · 1 studio',
+  lede:'Keep the two street façades of the corner house, rebuild the inside and add floors, with an ático studio on top. Two versions to compare: planta baja + 2, or planta baja + 3 (about 341 m², as in your urban analysis). The building entrance stays on Carrer Carrasqueta, through the existing door.', verLabel:'Version', liftLabel:'Lift', liftYes:'With lift', liftNo:'Without lift', noLiftTag:'no lift', storage:'STORAGE', 'Stair + storage':'Stair + storage', 'plan:Stair + storage':'Stair + storage',
+  noLiftNote:'Without a lift the shaft becomes a storage cupboard on every floor. Spanish rules (CTE DB-SUA 9) normally require a lift when a home is more than two floors above the entrance, as the ático is here; see the steel section for the details.', stPending:'The no-lift calculation is being prepared; the numbers shown are with lift.', stLiftH:'With or without lift', homesFmt:'{n} × 2-bed · 1 studio',
   fPlot:'Plot', fPlotV:'85.35 m²', fLevels:'Levels', fBuilt:'Built area', fHomes:'Homes', fHomesV:'3 × 2-bed · 1 studio · 1 shop', fHeight:'Cornice height', fEntrance:'Entrance',
   todayH:'The building today', todayP:'A recent photo of the corner, and elevations from the 2020 façade restoration project. These are the façades the proposal keeps.',
   altPhoto:'Colour photo of the corner house with its café, the yellow building no. 227 and the red party walls', altElevB:'Elevation drawing of the Av. Burjassot façade', altElevC:'Elevation drawing of the C/ Carrasqueta façade',
@@ -443,7 +453,8 @@ const D={
  },
  es:{
   eyebrow:'Av. Burjassot 229 · Valencia · Concepto, no válido para obra',
-  lede:'Conservar las dos fachadas a calle de la casa en esquina, rehacer el interior y crecer en altura, con un estudio en ático. Dos versiones para comparar: planta baja + 2, o planta baja + 3 (unos 341 m², como en tu análisis urbanístico). La entrada del edificio sigue en el Carrer Carrasqueta, por la puerta existente.', verLabel:'Versión', homesFmt:'{n} × 2 dorm. · 1 estudio',
+  lede:'Conservar las dos fachadas a calle de la casa en esquina, rehacer el interior y crecer en altura, con un estudio en ático. Dos versiones para comparar: planta baja + 2, o planta baja + 3 (unos 341 m², como en tu análisis urbanístico). La entrada del edificio sigue en el Carrer Carrasqueta, por la puerta existente.', verLabel:'Versión', liftLabel:'Ascensor', liftYes:'Con ascensor', liftNo:'Sin ascensor', noLiftTag:'sin ascensor', storage:'TRASTERO', 'Stair + storage':'Escalera + trastero', 'plan:Stair + storage':'Esc. + trastero',
+  noLiftNote:'Sin ascensor, el hueco se convierte en un trastero en cada planta. La normativa (CTE DB-SUA 9) suele exigir ascensor cuando una vivienda está a más de dos plantas sobre la entrada, como el ático aquí; ver los detalles en la sección de estructura.', stPending:'El cálculo sin ascensor se está preparando; las cifras mostradas son con ascensor.', stLiftH:'Con o sin ascensor', homesFmt:'{n} × 2 dorm. · 1 estudio',
   fPlot:'Solar', fPlotV:'85,35 m²', fLevels:'Plantas', fBuilt:'Superficie construida', fHomes:'Viviendas', fHomesV:'3 × 2 dorm. · 1 estudio · 1 local', fHeight:'Altura de cornisa', fEntrance:'Entrada',
   todayH:'El edificio hoy', todayP:'Una foto reciente de la esquina y los alzados del proyecto de restauración de fachadas de 2020. Son las fachadas que conserva la propuesta.',
   altPhoto:'Foto en color de la casa en esquina con su cafetería, el edificio amarillo nº 227 y las medianeras rojas', altElevB:'Alzado de la fachada a la Av. Burjassot', altElevC:'Alzado de la fachada a la C/ Carrasqueta',
@@ -507,7 +518,7 @@ function apply(){
   document.querySelectorAll('[data-i18n]').forEach(el=>{el.innerHTML=t(el.dataset.i18n);});
   document.querySelectorAll('[data-i18n-aria]').forEach(el=>el.setAttribute('aria-label',t(el.dataset.i18nAria)));
   document.querySelectorAll('[data-i18n-alt]').forEach(el=>el.setAttribute('alt',t(el.dataset.i18nAlt)));
-  const dl=document.getElementById('dl'); if(dl) dl.setAttribute('href','burjassot-229-'+((window.HOUSE&&window.HOUSE.ver)||'pb3')+'-'+lang+'.pdf');
+  const dl=document.getElementById('dl'); if(dl) dl.setAttribute('href','burjassot-229-'+((window.HOUSE&&window.HOUSE.varKey())||'pb3')+'-'+lang+'.pdf');
   document.querySelectorAll('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.lang===lang?'true':'false'));
 }
 function set(l){
@@ -557,6 +568,11 @@ function setVersion(v,silent){
   if(!silent) document.dispatchEvent(new Event('versionchange'));
 }
 {let v=null; try{v=new URLSearchParams(location.search).get('v')||localStorage.getItem('b229-ver');}catch(e){} setVersion(v||'pb3',true);}
+/* Lift on/off: ?lift=0 shows the option without a lift (the shaft becomes a storage cupboard) */
+let LIFT=true;
+try{const q=new URLSearchParams(location.search).get('lift'), sv=localStorage.getItem('b229-lift'); LIFT=q!=null?q!=='0':sv!=null?sv!=='0':true;}catch(e){}
+function setLift(on){ LIFT=!!on; try{localStorage.setItem('b229-lift',LIFT?'1':'0');}catch(e){} document.dispatchEvent(new Event('versionchange')); }
+const varKey=()=>VER+(LIFT?'':'-nolift');
 
 const CORE_FURN=[{k:'lift',r:[0.15,11.55,1.15,1.15]},{k:'stair',r:[0.15,12.85,1.95,2.3],run:1.65}];
 const CORE_ROOM={n:'Stair + lift',t:'core',p:CORE,shared:1,lp:[2.65,12.05],sm:1};
@@ -696,7 +712,7 @@ function segOf(o){
   return [[fx(o.a),o.a],[fx(o.b),o.b]];
 }
 
-window.HOUSE={W,L,BK,K,fx,LC,dC,nC,YC,YOLD,sToY,band,rect,PARCEL,CORE,ATT,TERRACE,LEVELS,area,segOf,VERSIONS,VLABEL,levelsFor,setVersion,get ver(){return VER;},
+window.HOUSE={W,L,BK,K,fx,LC,dC,nC,YC,YOLD,sToY,band,rect,PARCEL,CORE,ATT,TERRACE,LEVELS,area,segOf,VERSIONS,VLABEL,levelsFor,setVersion,setLift,varKey,get ver(){return VER;},get lift(){return LIFT;},
   GROUND_ROOMS,GROUND_FURN,GROUND_DOORS,OPEN_GROUND,OPEN_GROUND_NEW,
   APT_ROOMS,APT_FURN,APT_DOORS,aptOpenings,APT_ROOMS_PB,APT_FURN_PB,APT_DOORS_PB,ATT_ROOMS,ATT_FURN,ATT_DOORS,ATT_OPENINGS};
 })();
@@ -740,6 +756,7 @@ function furniture(f){
       else {s+=rc(x,y,0.17,h,'furn-f',0.025);s+=`<ellipse cx="${r(x+0.17+(w-0.17)/2)}" cy="${r(-(y+h/2))}" rx="${r((w-0.17)/2)}" ry="${r(h/2-0.02)}" class="furn-f" stroke-width="0.025"/>`;}
       break;}
     case 'shower': s+=rc(x,y,w,h,'furn-f',0.025)+ln([x,y],[x+w,y+h],'furn',0.015)+ln([x+w,y],[x,y+h],'furn',0.015)+`<circle cx="${r(x+w/2)}" cy="${r(-(y+h/2))}" r="0.05" class="furn" stroke-width="0.02"/>`; break;
+    case 'store': s+=rc(x,y,w,h,'furn-f',0.04)+ln([x,y+h*0.5],[x+w,y+h*0.5],'furn',0.015)+tx(x+w/2,y+h/2-0.08,Math.min(0.2,0.95/(T('storage').length*0.6)),'ar',T('storage')); break;
     case 'lift': s+=rc(x,y,w,h,'furn-f',0.04)+ln([x,y],[x+w,y+h],'furn',0.02)+ln([x+w,y],[x,y+h],'furn',0.02)+tx(x+w/2,y+h/2-0.08,Math.min(0.22,0.95/(T('lift').length*0.6)),'ar',T('lift')); break;
     case 'stair':{
       const mid=x+w/2, yr=y+f.run;
@@ -827,9 +844,14 @@ function context(lv,sfx){
 }
 
 function setFor(lv){
-  if(lv.ground) return {rooms:H.APT_ROOMS_PB,furn:H.APT_FURN_PB,doors:H.APT_DOORS_PB,opens:H.OPEN_GROUND_NEW};
-  if(lv.kind==='attic') return {rooms:H.ATT_ROOMS,furn:H.ATT_FURN,doors:H.ATT_DOORS,opens:H.ATT_OPENINGS};
-  return {rooms:H.APT_ROOMS,furn:H.APT_FURN,doors:H.APT_DOORS,opens:H.aptOpenings(lv)};
+  const set=lv.ground?{rooms:H.APT_ROOMS_PB,furn:H.APT_FURN_PB,doors:H.APT_DOORS_PB,opens:H.OPEN_GROUND_NEW}
+    :lv.kind==='attic'?{rooms:H.ATT_ROOMS,furn:H.ATT_FURN,doors:H.ATT_DOORS,opens:H.ATT_OPENINGS}
+    :{rooms:H.APT_ROOMS,furn:H.APT_FURN,doors:H.APT_DOORS,opens:H.aptOpenings(lv)};
+  if(H.lift) return set;
+  // no lift: the shaft becomes a storage cupboard; the core is "stair + storage"
+  return Object.assign({},set,{
+    furn:set.furn.map(f=>f.k==='lift'?Object.assign({},f,{k:'store'}):f),
+    rooms:set.rooms.map(r=>r.n==='Stair + lift'?Object.assign({},r,{n:'Stair + storage'}):r)});
 }
 
 function render(lv,svg,schedEl,sfx){
@@ -868,7 +890,7 @@ function schedule(lv,rooms,el){
   rows+=`<tr class="sub"><td>${T('wholeFloor')}</td><td>${fmt(area(PARCEL))} m²</td></tr>`;
   if(lv.existing) rows+=`<tr class="sub"><td><span class="sw keep"></span>${T('keepRow')}</td><td></td></tr>`;
   const note=K==='attic'?T('noteAtt'):lv.ground?T('noteGround'):lv.existing?T('noteP1'):T('noteNew');
-  el.innerHTML=`<h3>${title}</h3><p class="sub">${sub}</p><table>${rows}</table><p class="legend-note">${note}</p>`;
+  el.innerHTML=`<h3>${title}</h3><p class="sub">${sub}</p><table>${rows}</table><p class="legend-note">${note}</p>`+(H.lift?'':`<p class="legend-note">${T('noLiftNote')}</p>`);
 }
 
 const tabs=document.getElementById('tabs');
@@ -892,14 +914,16 @@ window.PLANS={render};
 function refresh(){
   render(cur,document.getElementById('plan'),document.getElementById('schedule'),'s');
   const ab=H.LEVELS.filter(l=>l.kind!=='attic'), cornice=ab.reduce((s,l)=>s+l.h,0), apts=H.LEVELS.filter(l=>l.kind==='apt').length;
-  document.getElementById('f-levels').textContent=H.VLABEL[H.ver];
+  document.getElementById('f-levels').textContent=H.VLABEL[H.ver]+(H.lift?'':' · '+T('noLiftTag'));
+  document.querySelectorAll('[data-lift]').forEach(b=>b.setAttribute('aria-pressed',(b.dataset.lift==='1')===H.lift?'true':'false'));
   document.getElementById('f-homes').textContent=T('homesFmt').replace('{n}',apts);
   document.getElementById('f-height').textContent='≈ '+N(cornice,1)+' m';
   document.getElementById('f-built').textContent='≈ '+N(ab.length*area(PARCEL),0)+' m² + '+T('atico')+' '+N(area(ATT),0)+' m²';
   document.querySelectorAll('[data-ver]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.ver===H.ver?'true':'false'));
-  const dl=document.getElementById('dl'); if(dl) dl.setAttribute('href','burjassot-229-'+H.ver+'-'+I.lang+'.pdf');
+  const dl=document.getElementById('dl'); if(dl) dl.setAttribute('href','burjassot-229-'+H.varKey()+'-'+I.lang+'.pdf');
 }
 document.querySelectorAll('[data-ver]').forEach(b=>b.addEventListener('click',()=>{ if(b.dataset.ver!==H.ver) H.setVersion(b.dataset.ver); }));
+document.querySelectorAll('[data-lift]').forEach(b=>b.addEventListener('click',()=>{ const on=b.dataset.lift==='1'; if(on!==H.lift) H.setLift(on); }));
 document.addEventListener('versionchange',()=>{buildTabs();refresh();});
 buildTabs();
 refresh();
@@ -1308,7 +1332,8 @@ const H=window.HOUSE, I=window.I18N, T=I.t, N=I.num, D=window.STEEL;
 const sec=document.getElementById('steel');
 if(!D){ sec.hidden=true; window.STEELVIEW=null; return; }
 const Lx=o=>o==null?'':(typeof o==='string'?o:(o[I.lang]||o.en||''));
-const opt=()=>H.ver==='pb2'?'B':'A';
+const sfx=()=>(!H.lift&&D.options.A0&&D.options.B0)?'0':'';
+const opt=()=>(H.ver==='pb2'?'B':'A')+sfx();
 const r=n=>Math.round(n*1000)/1000, S=(x,y)=>r(x)+','+r(-y);
 const eur=n=>N(n/1000,0)+' k€';
 const baseCols=o=>{const ps=D.options[o].members.filter(m=>/^HEB/.test(m.profile)&&/PB/.test(m.group.en)).map(m=>+m.profile.split(' ')[1]);return ps.length?'HEB '+Math.min(...ps)+' – HEB '+Math.max(...ps):'';};
@@ -1318,7 +1343,7 @@ function stack(){
   // both versions side by side, to the same scale (1 unit = 1 m)
   const svg=document.getElementById('st-stack'); let s='';
   const draw=(o,x0)=>{
-    const op=D.options[o], cur=o===opt(); let z=0;
+    const op=D.options[o+sfx()], cur=o+sfx()===opt(); let z=0;
     const ink=cur?'var(--ink)':'var(--muted)', fill=cur?'var(--accent-soft)':'var(--sheet)';
     op.levels.forEach((lv,i)=>{
       const att=/tico/i.test(lv.name), w=att?5.2:8.2, x=att?x0:x0;
@@ -1337,11 +1362,11 @@ function stack(){
 }
 
 function cmpTable(){
-  const o=opt(), el=document.getElementById('st-cmp');
-  let h=`<tr><th>${T('stMetric')}</th><th class="${o==='B'?'cur':''}">${H.VLABEL.pb2}</th><th class="${o==='A'?'cur':''}">${H.VLABEL.pb3}</th></tr>`;
-  D.comparison.forEach(c=>{
+  const cb=opt()[0], el=document.getElementById('st-cmp'), tag=sfx()?' · '+T('noLiftTag'):'';
+  let h=`<tr><th>${T('stMetric')}</th><th class="${cb==='B'?'cur':''}">${H.VLABEL.pb2}${tag}</th><th class="${cb==='A'?'cur':''}">${H.VLABEL.pb3}${tag}</th></tr>`;
+  ((sfx()&&D.comparison0)||D.comparison).forEach(c=>{
     const win=k=>c.better===k?'<span class="win">✓</span>':'';
-    h+=`<tr><td>${Lx(c.metric)}</td><td class="${o==='B'?'cur':''}">${Lx(c.B)}${win('B')}</td><td class="${o==='A'?'cur':''}">${Lx(c.A)}${win('A')}</td></tr>`;
+    h+=`<tr><td>${Lx(c.metric)}</td><td class="${cb==='B'?'cur':''}">${Lx(c.B)}${win('B')}</td><td class="${cb==='A'?'cur':''}">${Lx(c.A)}${win('A')}</td></tr>`;
   });
   el.innerHTML=h;
 }
@@ -1402,6 +1427,16 @@ function render(){
     +D.loads.map(l=>`<tr><td>${Lx(l.label)} (${l.type})</td><td style="font-family:var(--f-mono)">${N(l.kN_m2,2)} kN/m²</td></tr>`).join('');
   document.getElementById('st-proc').innerHTML=D.procedure.map(p=>`<li><b>${Lx(p.title)}</b><p>${Lx(p.text)}</p></li>`).join('');
   document.getElementById('st-warn').innerHTML=D.warnings.map(w=>`<li>${Lx(w)}</li>`).join('');
+  // with / without lift
+  const lw=document.getElementById('st-lift'), pend=!H.lift&&!sfx();
+  document.getElementById('st-pending').hidden=!pend;
+  if(D.lift_compare){
+    lw.hidden=false;
+    const cur=k=>k===opt()?'cur':'';
+    document.getElementById('st-liftcmp').innerHTML=`<tr><th>${T('stMetric')}</th><th class="${cur('B')}">${H.VLABEL.pb2}</th><th class="${cur('B0')}">${H.VLABEL.pb2} · ${T('noLiftTag')}</th><th class="${cur('A')}">${H.VLABEL.pb3}</th><th class="${cur('A0')}">${H.VLABEL.pb3} · ${T('noLiftTag')}</th></tr>`
+      +D.lift_compare.map(c=>`<tr><td>${Lx(c.metric)}</td><td class="${cur('B')}">${Lx(c.B)}</td><td class="${cur('B0')}">${Lx(c.B0)}</td><td class="${cur('A')}">${Lx(c.A)}</td><td class="${cur('A0')}">${Lx(c.A0)}</td></tr>`).join('');
+    document.getElementById('st-liftwarn').innerHTML=(D.lift_warnings||[]).map(w=>`<li>${Lx(w)}</li>`).join('');
+  } else lw.hidden=true;
 }
 render();
 document.addEventListener('langchange',render);
@@ -1418,6 +1453,7 @@ window.STEELVIEW={pages(){
     +`<svg viewBox="-2.9 -16.9 15.4 20.1" style="width:95mm;height:124mm;display:block;margin:0 auto 3mm">${planSVG(o)}</svg>`
     +`<div class="st-side">${side(o).replace(/<details[\s\S]*<\/details>/,'')}</div></section>`
     +`<section class="pp"><div class="pp-head"><h2>${T('stMembers')}</h2><span>${Lx(op.label)}</span></div><table class="st-table">${membersTable(o)}</table></section>`
+    +(D.lift_compare?`<section class="pp"><div class="pp-head"><h2>${T('stLiftH')}</h2></div><table class="st-table">${document.getElementById('st-liftcmp').innerHTML}</table><ul class="st-warn" style="margin-top:4mm">${document.getElementById('st-liftwarn').innerHTML}</ul></section>`:'')
     +`<section class="pp"><div class="pp-head"><h2>${T('stProc')}</h2></div><ol class="st-proc">${document.getElementById('st-proc').innerHTML}</ol>`
     +`<h3 style="margin-top:5mm">${T('stWarn')}</h3><ul class="st-warn">${document.getElementById('st-warn').innerHTML}</ul></section>`;
 }};
@@ -1431,7 +1467,7 @@ const H=window.HOUSE, I=window.I18N, T=I.t, out=document.getElementById('print')
 function build(){
   const S=window.SNAPS||{}, facts=document.querySelector('.facts').outerHTML;
   const notes=document.querySelector('#notes .notes').outerHTML;
-  let h=`<section class="pp"><p class="eyebrow">${T('eyebrow')}</p><h1>Burjassot 229 · ${H.VLABEL[H.ver]}</h1><p class="lede">${T('lede')}</p>${facts}`;
+  let h=`<section class="pp"><p class="eyebrow">${T('eyebrow')}</p><h1>Burjassot 229 · ${H.VLABEL[H.ver]}${H.lift?'':' · '+T('noLiftTag')}</h1><p class="lede">${T('lede')}</p>${facts}`;
   if(S.corner){
     h+=`<img class="cv-main" src="${S.corner}" alt="">`;
     h+=`<div class="cv-row">`+[['today',T('todayView')],['carrasqueta','C/ Carrasqueta'],['burjassot','Av. Burjassot']]
@@ -1473,7 +1509,7 @@ try{ if(window.claude&&window.claude.use) window.claude.use('downloads').then(d=
 dl.addEventListener('click',async e=>{
   if(!cap) return;                       // plain link (e.g. GitHub Pages)
   e.preventDefault();
-  const name='burjassot-229-'+window.HOUSE.ver+'-'+window.I18N.lang+'.pdf';
+  const name='burjassot-229-'+window.HOUSE.varKey()+'-'+window.I18N.lang+'.pdf';
   try{
     const res=await fetch(name); if(!res.ok) throw new Error('fetch '+res.status);
     await cap.save({filename:name,data:await res.blob()});
