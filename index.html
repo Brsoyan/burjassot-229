@@ -810,7 +810,10 @@ try{
     g.fillStyle=win;g.fillRect(40,22,48,80);g.fillStyle='rgba(255,255,255,.12)';g.fillRect(64,22,3,80);
     if(rail){g.fillStyle=rail;g.fillRect(32,98,64,5);for(let x=34;x<96;x+=7)g.fillRect(x,84,2,16);}
     g.fillStyle='rgba(0,0,0,.08)';g.fillRect(0,124,w,4);},1,1);
-  const tex227=facadeTex('#d6c8b2','#4c5660','#2a2a2a'); tex227.repeat.set(12/3,19/3);
+  const tex227=facadeTex('#d3cabb','#3f4850',null); tex227.repeat.set(12/3,18.8/3);
+  const mediTex=canvasTex(256,256,(g,w,h)=>{g.fillStyle='#c4bbac';g.fillRect(0,0,w,h);noise(g,w,h,320,0.07);
+    g.fillStyle='rgba(90,80,65,.12)';for(let y=0;y<h;y+=43)g.fillRect(0,y,w,2);
+    for(let i=0;i<6;i++){g.fillStyle='rgba(80,70,60,.06)';g.fillRect(Math.random()*w,0,6+Math.random()*14,h);}},12/6,18.8/6);
   const texWhite=facadeTex('#ece9e2','#56616a','#3a3a3a'); texWhite.repeat.set(1/3,1/3);
   const texBeige=facadeTex('#e2d5bf','#55606a',null); texBeige.repeat.set(1/3,1/3);
 
@@ -828,7 +831,7 @@ try{
     rail:M({color:0xc4dbe6,roughness:0.1,transparent:true,opacity:0.28,depthWrite:false}),
     deck:M({color:0x9b7654,roughness:0.9}), awning:M({color:0x2f5a46,roughness:0.9}),
     roofGrey:M({color:0x9a958c,roughness:0.95}), medianera:M({color:0xcfc4b3,roughness:0.95}),
-    n227:M({map:tex227,roughness:0.95}), white:M({map:texWhite,roughness:0.95}), beige:M({map:texBeige,roughness:0.95}),
+    n227:M({map:tex227,roughness:0.95}), medi227:M({map:mediTex,roughness:0.97}), white:M({map:texWhite,roughness:0.95}), beige:M({map:texBeige,roughness:0.95}),
     asphalt:M({color:0x45484b,roughness:1}), walk:M({color:0xb3ada2,roughness:0.95}), bike:M({color:0x7a4a42,roughness:1}),
     paint:M({color:0xe9e9e4,roughness:0.8}), dark:M({color:0x23282a,roughness:0.6,metalness:0.3}),
     green:M({color:0x5f7d4e,roughness:1}), red:M({color:0xc0322b,roughness:0.6})
@@ -939,9 +942,31 @@ try{
   [7.5,12.5,17.5,22.5].forEach((y,i)=>car(addv(P(y),nC,5.65),Math.atan2(dC[1],dC[0]),i+2));
 
   /* ---------- neighbours (heights from the cadastral map) ---------- */
-  const nbA=new THREE.Mesh(new THREE.BoxGeometry(12,19,9),[mat.medianera,mat.medianera,mat.roofGrey,mat.medianera,mat.n227,mat.medianera]);
-  nbA.position.set(-6,9.5,-4.5); nbA.castShadow=nbA.receiveShadow=true; scene.add(nbA);                 // no. 227, VI floors
-  const nbA2=boxAt(-4,12.15,0,8,6.3,4.2,mat.medianera);                                                // its one-storey back part
+  /* no. 227 as in the owner's photo: VI floors, a balcony on every floor next to our house,
+     café with awning and tables on the ground floor, large blank party wall above our roof */
+  const nbA=new THREE.Group(); scene.add(nbA); G=nbA;
+  const H227=18.8, D227=12;
+  {const b=new THREE.Mesh(new THREE.BoxGeometry(12,H227,D227),[mat.medi227,mat.medianera,mat.roofGrey,mat.medianera,mat.n227,mat.medianera]);
+   b.position.set(-6,H227/2,-D227/2); put(b);}
+  boxAt(-6,-0.02,0,11.6,0.06,3.4,mat.glass);                                    // shop fronts
+  for(const x of [-8.2,-4.3]) boxAt(x,-0.06,0,0.35,0.12,3.6,mat.medianera);       // piers between shops
+  segBox([-4.4,0],[-0.25,0],2.85,0.06,1.6,0.8,mat.awning); segBox([-4.4,0],[-0.25,0],2.6,0.3,0.03,1.6,mat.awning);
+  for(const [x,y] of [[-3.6,-1.4],[-2.1,-1.4],[-3.6,-2.5],[-2.1,-2.5]]){
+    cyl(x,y,0.12,0.04,0.72,mat.dark,8); cyl(x,y,0.84,0.32,0.04,mat.frame,16);
+    boxAt(x-0.48,y,0.12,0.4,0.4,0.45,mat.frame); boxAt(x+0.48,y,0.12,0.4,0.4,0.45,mat.frame);}
+  for(let f=0;f<5;f++){
+    const zb=3.8+f*3.0;
+    for(const [x0,x1] of [[-4.8,-0.4],[-10.6,-6.2]]){
+      const w=x1-x0, cx=(x0+x1)/2;
+      boxAt(cx,-0.45,zb-0.15,w,0.9,0.15,mat.mould);                                // slab
+      boxAt(cx,-0.88,zb,w,0.06,0.3,mat.mould);                                     // solid lower band
+      const fr=new THREE.Mesh(new THREE.PlaneGeometry(w,0.7),mat.iron); fr.position.set(cx,zb+0.65,0.88); put(fr);
+      for(const sx of [x0,x1]){const sd=new THREE.Mesh(new THREE.PlaneGeometry(0.9,1.0),mat.iron); sd.rotation.y=Math.PI/2; sd.position.set(sx,zb+0.5,0.45); put(sd);}
+      boxAt(cx,-0.88,zb+1.0,w+0.04,0.05,0.04,mat.ironSolid);
+    }
+  }
+  const nbA2=boxAt(-4,(D227+L)/2,0,8,L-D227,4.2,mat.medianera);                   // its one-storey back part
+  G=scene;
   const backN=extrude([[-8,L],[BK,L],P(30),[-8,30]],0,7,[mat.roofGrey,mat.beige]);                    // along Carrasqueta, II floors
   const acrossC=extrude([[offX(0,8.4),0],[34,0],[34,32],[offX(32,8.4),32]],0,16,[mat.roofGrey,mat.white]);
   const acrossB=[extrude([[-50,-34],[13,-34],[13,-18.5],[-50,-18.5]],0,19,[mat.roofGrey,mat.white]),
@@ -963,7 +988,6 @@ try{
   H.OPEN_GROUND.forEach(op=>opening3d(op,0));
   H.aptOpenings({existing:true}).slice(0,4).forEach(op=>opening3d(op,4.0));
   opening3d({s:'C',a:H.sToY(12.0),b:H.sToY(13.2),sill:4.95,h:0.65,bars:1},0);
-  segBox([0.45,0],[3.2,0],2.75,0.06,1.3,0.65,mat.awning); segBox([0.45,0],[3.2,0],2.5,0.3,0.03,1.3,mat.awning);
 
   /* ---------- the proposal: the same old façade below, new floors and ático above ---------- */
   G=propG;
