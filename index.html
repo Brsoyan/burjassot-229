@@ -235,7 +235,7 @@ footer.wrap{padding-block:30px 40px;color:var(--muted);font-size:13px}
       <p data-i18n="todayP">Photo and elevations from the 2020 façade restoration project. These are the façades the proposal keeps.</p>
     </div>
     <div class="today-grid">
-      <figure><img src="img/today-photo.jpg" width="558" height="684" alt="Black and white photo of the two-storey corner house with iron balconies" data-i18n-alt="altPhoto"><figcaption data-i18n="capPhoto">Corner of Av. Burjassot and C/ Carrasqueta</figcaption></figure>
+      <figure><img src="img/today-photo.jpg" width="720" height="960" alt="Colour photo of the corner house with its café, the yellow building no. 227 and the red party walls" data-i18n-alt="altPhoto"><figcaption data-i18n="capPhoto">The corner today, Av. Burjassot and C/ Carrasqueta</figcaption></figure>
       <figure><img src="img/elev-burjassot.jpg" width="500" height="560" alt="Elevation drawing of the Av. Burjassot façade" data-i18n-alt="altElevB"><figcaption data-i18n="capElevB">Elevation, Av. Burjassot (eaves 8.22 m)</figcaption></figure>
       <figure class="wide"><img src="img/elev-carrasqueta.jpg" width="880" height="550" alt="Elevation drawing of the C/ Carrasqueta façade" data-i18n-alt="altElevC"><figcaption data-i18n="capElevC">Elevation, C/ Carrasqueta (ridge 9.80 m, back extension 6.12 m)</figcaption></figure>
     </div>
@@ -331,9 +331,9 @@ const D={
   eyebrow:'Av. Burjassot 229 · Valencia · Concept, not for construction',
   lede:'Keep the two street façades of the corner house, rebuild the inside, and add floors up to planta baja + 3 (about 341 m², as in your urban analysis), with an ático studio on top. The building entrance stays on Carrer Carrasqueta, through the existing door.',
   fPlot:'Plot', fPlotV:'85.35 m²', fLevels:'Levels', fBuilt:'Built area', fHomes:'Homes', fHomesV:'3 × 2-bed · 1 studio · 1 shop', fHeight:'Cornice height', fEntrance:'Entrance',
-  todayH:'The building today', todayP:'Photo and elevations from the 2020 façade restoration project. These are the façades the proposal keeps.',
-  altPhoto:'Black and white photo of the two-storey corner house with iron balconies', altElevB:'Elevation drawing of the Av. Burjassot façade', altElevC:'Elevation drawing of the C/ Carrasqueta façade',
-  capPhoto:'Corner of Av. Burjassot and C/ Carrasqueta', capElevB:'Elevation, Av. Burjassot (eaves 8.22 m)', capElevC:'Elevation, C/ Carrasqueta (ridge 9.80 m, back extension 6.12 m)',
+  todayH:'The building today', todayP:'A recent photo of the corner, and elevations from the 2020 façade restoration project. These are the façades the proposal keeps.',
+  altPhoto:'Colour photo of the corner house with its café, the yellow building no. 227 and the red party walls', altElevB:'Elevation drawing of the Av. Burjassot façade', altElevC:'Elevation drawing of the C/ Carrasqueta façade',
+  capPhoto:'The corner today, Av. Burjassot and C/ Carrasqueta', capElevB:'Elevation, Av. Burjassot (eaves 8.22 m)', capElevC:'Elevation, C/ Carrasqueta (ridge 9.80 m, back extension 6.12 m)',
   tH:'What is there now', tFloors:'Floors', tFloorsV:'Planta baja + 1, tiled gable roof', tHeights:'Heights', tHeightsV:'Eaves 8.22 m · ridge 9.80 m',
   tStorey:'Storeys', tStoreyV:'PB 3.69 m · P1 4.08 m', tSides:'Façades', tSidesV:'8.21 m Burjassot · 16.17 m Carrasqueta',
   tUse:'Use', tUseV:'Café on the ground floor, house above', tProt:'Protection', tProtV:'Not listed (no protected elements in the urban report)',
@@ -342,7 +342,7 @@ const D={
   k2:'Remove the roof, floors and inside walls. The party wall with no. 227 stays.',
   k3:'Build a new concrete frame inside, on its own foundations, and tie the old walls to it.',
   k4:'Add Planta 2, Planta 3 and the ático on the new frame. With 3 m floors the old cornice would cut across Planta 2, so it is taken down and re-made at the new roof line.',
-  extH:'Exterior', extP:'Switch between the house today and the proposal. Up to 7 m it is the real façade; the new floors repeat its window rhythm and iron balconies, and the classic cornice is re-made at the top. Streets, crossings, lamp post and fountain follow your street-plan drawings.',
+  extH:'Exterior', extP:'Switch between the house today and the proposal. Up to 7 m it is the real façade; the new floors repeat its window rhythm and iron balconies, and the classic cornice is re-made at the top. Neighbouring buildings follow your photo (size, colour, brick and render); streets follow your street-plan drawings.',
   model3d:'3D model of the building', camViews:'Camera views', vCorner:'Corner', vAerial:'From above',
   modeAria:'Show building', mToday:'Today', mProp:'Proposal',
   hint:'Drag to rotate · scroll or pinch to zoom', err3d:'The 3D view could not load here. The floor plans below still work.',
@@ -370,9 +370,9 @@ const D={
   eyebrow:'Av. Burjassot 229 · Valencia · Concepto, no válido para obra',
   lede:'Conservar las dos fachadas a calle de la casa en esquina, rehacer el interior y crecer hasta planta baja + 3 (unos 341 m², como en tu análisis urbanístico), con un estudio en ático. La entrada del edificio sigue en el Carrer Carrasqueta, por la puerta existente.',
   fPlot:'Solar', fPlotV:'85,35 m²', fLevels:'Plantas', fBuilt:'Superficie construida', fHomes:'Viviendas', fHomesV:'3 × 2 dorm. · 1 estudio · 1 local', fHeight:'Altura de cornisa', fEntrance:'Entrada',
-  todayH:'El edificio hoy', todayP:'Foto y alzados del proyecto de restauración de fachadas de 2020. Son las fachadas que conserva la propuesta.',
-  altPhoto:'Foto en blanco y negro de la casa en esquina de dos plantas con balcones de forja', altElevB:'Alzado de la fachada a la Av. Burjassot', altElevC:'Alzado de la fachada a la C/ Carrasqueta',
-  capPhoto:'Esquina de la Av. Burjassot con la C/ Carrasqueta', capElevB:'Alzado, Av. Burjassot (alero a 8,22 m)', capElevC:'Alzado, C/ Carrasqueta (cumbrera a 9,80 m, cuerpo trasero a 6,12 m)',
+  todayH:'El edificio hoy', todayP:'Una foto reciente de la esquina y los alzados del proyecto de restauración de fachadas de 2020. Son las fachadas que conserva la propuesta.',
+  altPhoto:'Foto en color de la casa en esquina con su cafetería, el edificio amarillo nº 227 y las medianeras rojas', altElevB:'Alzado de la fachada a la Av. Burjassot', altElevC:'Alzado de la fachada a la C/ Carrasqueta',
+  capPhoto:'La esquina hoy, Av. Burjassot y C/ Carrasqueta', capElevB:'Alzado, Av. Burjassot (alero a 8,22 m)', capElevC:'Alzado, C/ Carrasqueta (cumbrera a 9,80 m, cuerpo trasero a 6,12 m)',
   tH:'Lo que hay ahora', tFloors:'Plantas', tFloorsV:'Planta baja + 1, cubierta de teja a dos aguas', tHeights:'Alturas', tHeightsV:'Alero 8,22 m · cumbrera 9,80 m',
   tStorey:'Alturas de planta', tStoreyV:'PB 3,69 m · P1 4,08 m', tSides:'Fachadas', tSidesV:'8,21 m Burjassot · 16,17 m Carrasqueta',
   tUse:'Uso', tUseV:'Cafetería en planta baja, vivienda arriba', tProt:'Protección', tProtV:'No catalogado (sin elementos protegidos en el informe urbanístico)',
@@ -381,7 +381,7 @@ const D={
   k2:'Retirar cubierta, forjados y tabiques. La medianera con el nº 227 se mantiene.',
   k3:'Construir una nueva estructura de hormigón dentro, con su propia cimentación, y atar a ella los muros antiguos.',
   k4:'Levantar la Planta 2, la Planta 3 y el ático sobre la nueva estructura. Con plantas de 3 m la cornisa antigua cortaría la Planta 2, así que se desmonta y se rehace en la nueva coronación.',
-  extH:'Exterior', extP:'Cambia entre la casa de hoy y la propuesta. Hasta 7 m es la fachada real; las plantas nuevas repiten su ritmo de huecos y los balcones de forja, y la cornisa clásica se rehace arriba. Calles, pasos de peatones, farola y fuente siguen tus planos de la calle.',
+  extH:'Exterior', extP:'Cambia entre la casa de hoy y la propuesta. Hasta 7 m es la fachada real; las plantas nuevas repiten su ritmo de huecos y los balcones de forja, y la cornisa clásica se rehace arriba. Los edificios vecinos siguen tu foto (tamaño, color, ladrillo y revoco); las calles siguen tus planos.',
   model3d:'Modelo 3D del edificio', camViews:'Vistas de cámara', vCorner:'Esquina', vAerial:'Desde arriba',
   modeAria:'Mostrar edificio', mToday:'Hoy', mProp:'Propuesta',
   hint:'Arrastra para girar · rueda o pellizca para hacer zoom', err3d:'La vista 3D no se ha podido cargar aquí. Los planos de abajo siguen funcionando.',
@@ -802,15 +802,21 @@ try{
     const t=new THREE.CanvasTexture(c);t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(rx,ry);t.encoding=THREE.sRGBEncoding;t.anisotropy=4;return t;}
   const noise=(g,w,h,n,a)=>{for(let i=0;i<n;i++){const v=Math.random()*40|0;g.fillStyle=`rgba(${120+v},${110+v},${95+v},${a})`;g.fillRect(Math.random()*w,Math.random()*h,6+Math.random()*24,2+Math.random()*8);}};
   // old façade: cream render with horizontal rustication every 0.5 m (texture tile = 2 m × 2 m)
-  const oldTex=canvasTex(256,256,(g,w,h)=>{g.fillStyle='#e3d2b2';g.fillRect(0,0,w,h);noise(g,w,h,260,0.06);
-    g.fillStyle='rgba(120,100,70,.35)';for(let y=0;y<h;y+=64)g.fillRect(0,y,w,3);},0.5,0.5);
+  const oldTex=canvasTex(256,256,(g,w,h)=>{g.fillStyle='#e4dfd5';g.fillRect(0,0,w,h);noise(g,w,h,260,0.05);
+    g.fillStyle='rgba(110,100,85,.22)';for(let y=0;y<h;y+=64)g.fillRect(0,y,w,2);},0.5,0.5);
   const ironTex=canvasTex(256,128,(g,w,h)=>{g.clearRect(0,0,w,h);g.fillStyle='#1c1e1f';g.fillRect(0,0,w,8);g.fillRect(0,h-12,w,12);g.fillRect(0,h*0.5,w,4);
     for(let x=4;x<w;x+=16)g.fillRect(x,0,4,h);},1,1);
   const facadeTex=(wall,win,rail)=>canvasTex(128,128,(g,w,h)=>{g.fillStyle=wall;g.fillRect(0,0,w,h);noise(g,w,h,60,0.05);
     g.fillStyle=win;g.fillRect(40,22,48,80);g.fillStyle='rgba(255,255,255,.12)';g.fillRect(64,22,3,80);
     if(rail){g.fillStyle=rail;g.fillRect(32,98,64,5);for(let x=34;x<96;x+=7)g.fillRect(x,84,2,16);}
     g.fillStyle='rgba(0,0,0,.08)';g.fillRect(0,124,w,4);},1,1);
-  const tex227=facadeTex('#d3cabb','#3f4850',null); tex227.repeat.set(12/3,18.8/3);
+  const tex227=facadeTex('#d8b34e','#3b434a',null); tex227.repeat.set(7/3.5,18.8/3);
+  const plainTex=(c,n)=>canvasTex(128,128,(g,w,h)=>{g.fillStyle=c;g.fillRect(0,0,w,h);noise(g,w,h,n||90,0.06);},1,1);
+  const brickTex=(base,win)=>canvasTex(128,128,(g,w,h)=>{g.fillStyle=base;g.fillRect(0,0,w,h);noise(g,w,h,80,0.06);
+    g.fillStyle='rgba(60,40,25,.18)';for(let y=0;y<h;y+=4)g.fillRect(0,y,w,1);
+    g.fillStyle=win;g.fillRect(36,24,56,74);g.fillStyle='rgba(0,0,0,.18)';g.fillRect(30,98,68,4);},1/3,1/3);
+  const texRedF=facadeTex('#86261f','#3b434a','#222'); texRedF.repeat.set(1/3,1/3);
+  const texOchre=facadeTex('#d08a3c','#3b434a',null); texOchre.repeat.set(1/3.2,1/3);
   const mediTex=canvasTex(256,256,(g,w,h)=>{g.fillStyle='#c4bbac';g.fillRect(0,0,w,h);noise(g,w,h,320,0.07);
     g.fillStyle='rgba(90,80,65,.12)';for(let y=0;y<h;y+=43)g.fillRect(0,y,w,2);
     for(let i=0;i<6;i++){g.fillStyle='rgba(80,70,60,.06)';g.fillRect(Math.random()*w,0,6+Math.random()*14,h);}},12/6,18.8/6);
@@ -819,7 +825,7 @@ try{
 
   const M=(o)=>new THREE.MeshStandardMaterial(o);
   const mat={
-    old:M({map:oldTex,roughness:0.95}), oldPlain:M({color:0xe3d2b2,roughness:0.95,side:THREE.DoubleSide}),
+    old:M({map:oldTex,roughness:0.95}), oldPlain:M({color:0xe4dfd5,roughness:0.95,side:THREE.DoubleSide}),
     newR:M({color:0xf0e9dc,roughness:0.92}), mould:M({color:0xf3ead8,roughness:0.85}),
     stone:M({color:0x9c907c,roughness:0.95}), tile:M({color:0xa9583a,roughness:0.9,side:THREE.DoubleSide}),
     anth:M({color:0x3b4045,roughness:0.65,metalness:0.15}),
@@ -831,7 +837,15 @@ try{
     rail:M({color:0xc4dbe6,roughness:0.1,transparent:true,opacity:0.28,depthWrite:false}),
     deck:M({color:0x9b7654,roughness:0.9}), awning:M({color:0x2f5a46,roughness:0.9}),
     roofGrey:M({color:0x9a958c,roughness:0.95}), medianera:M({color:0xcfc4b3,roughness:0.95}),
-    n227:M({map:tex227,roughness:0.95}), medi227:M({map:mediTex,roughness:0.97}), white:M({map:texWhite,roughness:0.95}), beige:M({map:texBeige,roughness:0.95}),
+    n227:M({map:tex227,roughness:0.95}), medi227:M({map:mediTex,roughness:0.97}),
+    yellow227:M({map:tex227,roughness:0.95}), yellowSlab:M({color:0xe3c574,roughness:0.9}),
+    red:M({map:plainTex('#6e1d1a',140),roughness:0.95}), redF:M({map:texRedF,roughness:0.95}),
+    brick:M({map:brickTex('#8a4a33','#8a4a33'),roughness:0.95}), shopDark:M({color:0x2d3236,roughness:0.5,metalness:0.2}),
+    ochre:M({map:texOchre,roughness:0.95}), brickF:M({map:brickTex('#9c5a3f','#3b434a'),roughness:0.95}),
+    brickTall:M({map:brickTex('#c9a57c','#4a5258'),roughness:0.95}),
+    awningY:M({color:0xd9c27a,roughness:0.9}), awningBlue:M({color:0x23395a,roughness:0.85}),
+    trunk:M({color:0x5b4632,roughness:1}), leaf:M({color:0x24451f,roughness:1}), fgreen:M({color:0x2d4a3a,roughness:0.6,metalness:0.3}),
+    bollard:M({color:0x3f8a4a,roughness:0.6}), white:M({map:texWhite,roughness:0.95}), beige:M({map:texBeige,roughness:0.95}),
     asphalt:M({color:0x45484b,roughness:1}), walk:M({color:0xb3ada2,roughness:0.95}), bike:M({color:0x7a4a42,roughness:1}),
     paint:M({color:0xe9e9e4,roughness:0.8}), dark:M({color:0x23282a,roughness:0.6,metalness:0.3}),
     green:M({color:0x5f7d4e,roughness:1}), red:M({color:0xc0322b,roughness:0.6})
@@ -924,10 +938,10 @@ try{
     const m=new THREE.Mesh(new THREE.PlaneGeometry(len,len/8),new THREE.MeshBasicMaterial({map:tex,transparent:true,depthWrite:false}));
     m.geometry.rotateX(-Math.PI/2); m.rotation.y=angle; m.position.set(pos[0],0.03,-pos[1]); scene.add(m);}
   // street furniture from the drawings: lamp post, fountain, traffic light, bollards, no-entry sign
-  cyl(8.5,-2.5,0,0.16,0.35,mat.dark); cyl(8.5,-2.5,0,0.07,4.0,mat.dark); boxAt(8.5,-2.5,4.0,0.38,0.38,0.55,mat.glass); boxAt(8.5,-2.5,4.55,0.46,0.46,0.08,mat.dark);
-  cyl(7.3,-2.6,0,0.22,0.9,mat.dark); cyl(7.3,-2.6,0.9,0.1,0.25,mat.dark); boxAt(7.3,-2.85,0.3,0.5,0.3,0.06,mat.dark);
+  cyl(8.5,-2.5,0,0.16,0.35,mat.fgreen); cyl(8.5,-2.5,0,0.07,4.0,mat.fgreen); boxAt(8.5,-2.5,4.0,0.38,0.38,0.55,mat.glass); boxAt(8.5,-2.5,4.55,0.46,0.46,0.08,mat.dark);
+  cyl(7.3,-2.6,0,0.22,0.9,mat.fgreen); cyl(7.3,-2.6,0.9,0.1,0.25,mat.fgreen); boxAt(7.3,-2.85,0.3,0.5,0.3,0.06,mat.fgreen);
   cyl(2.3,-3.1,0,0.06,3.1,mat.dark); boxAt(2.3,-3.1,2.4,0.3,0.25,0.75,mat.dark);
-  [0.9,1.5].forEach(x=>cyl(x,-3.15,0,0.07,0.9,mat.dark));
+  [0.9,1.5].forEach(x=>cyl(x,-3.15,0,0.07,0.9,mat.bollard));
   const signP=[curbCorner[0]-1.0,-SW_B+0.4]; cyl(signP[0],signP[1],0,0.04,2.6,mat.dark);
   {const d=new THREE.Mesh(new THREE.CylinderGeometry(0.3,0.3,0.03,24),mat.red);d.rotation.x=Math.PI/2;d.position.set(signP[0],2.35,-signP[1]+0.03);scene.add(d);
    boxAt(signP[0],signP[1]-0.05,2.32,0.38,0.02,0.07,mat.paint);}
@@ -942,33 +956,46 @@ try{
   [7.5,12.5,17.5,22.5].forEach((y,i)=>car(addv(P(y),nC,5.65),Math.atan2(dC[1],dC[0]),i+2));
 
   /* ---------- neighbours (heights from the cadastral map) ---------- */
-  /* no. 227 as in the owner's photo: VI floors, a balcony on every floor next to our house,
-     café with awning and tables on the ground floor, large blank party wall above our roof */
+  /* ---------- neighbours, sized and coloured from the owner's 2026 photo ---------- */
+  // no. 227: VI floors, yellow render with exposed-brick edges, a black iron balcony on every floor,
+  // and a dark-red party wall above our roof
   const nbA=new THREE.Group(); scene.add(nbA); G=nbA;
-  const H227=18.8, D227=12;
-  {const b=new THREE.Mesh(new THREE.BoxGeometry(12,H227,D227),[mat.medi227,mat.medianera,mat.roofGrey,mat.medianera,mat.n227,mat.medianera]);
-   b.position.set(-6,H227/2,-D227/2); put(b);}
-  boxAt(-6,-0.02,0,11.6,0.06,3.4,mat.glass);                                    // shop fronts
-  for(const x of [-8.2,-4.3]) boxAt(x,-0.06,0,0.35,0.12,3.6,mat.medianera);       // piers between shops
-  segBox([-4.4,0],[-0.25,0],2.85,0.06,1.6,0.8,mat.awning); segBox([-4.4,0],[-0.25,0],2.6,0.3,0.03,1.6,mat.awning);
-  for(const [x,y] of [[-3.6,-1.4],[-2.1,-1.4],[-3.6,-2.5],[-2.1,-2.5]]){
-    cyl(x,y,0.12,0.04,0.72,mat.dark,8); cyl(x,y,0.84,0.32,0.04,mat.frame,16);
-    boxAt(x-0.48,y,0.12,0.4,0.4,0.45,mat.frame); boxAt(x+0.48,y,0.12,0.4,0.4,0.45,mat.frame);}
+  const H227=18.8, D227=12, W227=7;
+  {const b=new THREE.Mesh(new THREE.BoxGeometry(W227,H227,D227),[mat.red,mat.red,mat.roofGrey,mat.red,mat.yellow227,mat.red]);
+   b.position.set(-W227/2,H227/2,-D227/2); put(b);}
+  boxAt(-0.28,-0.04,3.6,0.56,0.08,H227-3.6,mat.brick); boxAt(-W227+0.28,-0.04,3.6,0.56,0.08,H227-3.6,mat.brick);
+  boxAt(-W227/2,-0.03,0,W227-0.2,0.06,3.5,mat.shopDark);
+  boxAt(-W227/2,-0.05,3.5,W227,0.1,0.25,mat.brick);
   for(let f=0;f<5;f++){
-    const zb=3.8+f*3.0;
-    for(const [x0,x1] of [[-4.8,-0.4],[-10.6,-6.2]]){
-      const w=x1-x0, cx=(x0+x1)/2;
-      boxAt(cx,-0.45,zb-0.15,w,0.9,0.15,mat.mould);                                // slab
-      boxAt(cx,-0.88,zb,w,0.06,0.3,mat.mould);                                     // solid lower band
-      const fr=new THREE.Mesh(new THREE.PlaneGeometry(w,0.7),mat.iron); fr.position.set(cx,zb+0.65,0.88); put(fr);
-      for(const sx of [x0,x1]){const sd=new THREE.Mesh(new THREE.PlaneGeometry(0.9,1.0),mat.iron); sd.rotation.y=Math.PI/2; sd.position.set(sx,zb+0.5,0.45); put(sd);}
-      boxAt(cx,-0.88,zb+1.0,w+0.04,0.05,0.04,mat.ironSolid);
-    }
+    const zb=3.8+f*3.0, x0=-6.1, x1=-1.0, w=x1-x0, cx=(x0+x1)/2;
+    boxAt(cx,-0.42,zb-0.15,w,0.85,0.15,mat.yellowSlab);
+    const fr=new THREE.Mesh(new THREE.PlaneGeometry(w,1.0),mat.iron); fr.position.set(cx,zb+0.5,0.85); put(fr);
+    for(const sx of [x0,x1]){const sd=new THREE.Mesh(new THREE.PlaneGeometry(0.85,1.0),mat.iron); sd.rotation.y=Math.PI/2; sd.position.set(sx,zb+0.5,0.42); put(sd);}
+    boxAt(cx,-0.85,zb+1.0,w+0.04,0.05,0.04,mat.ironSolid);
   }
-  const nbA2=boxAt(-4,(D227+L)/2,0,8,L-D227,4.2,mat.medianera);                   // its one-storey back part
+  segBox([-6.2,0],[-0.9,0],17.4,0.06,1.4,0.7,mat.awningY);                        // sun awning on the top balcony
+  const nbA2=boxAt(-3.5,(D227+L)/2,0,7,L-D227,4.2,mat.medianera);                // one-storey back part
+  // the next building on Burjassot: red render, V floors
+  extrude([[-17,0],[-7,0],[-7,12],[-17,12]],0,15.5,[mat.roofGrey,mat.redF]);
   G=scene;
-  const backN=extrude([[-8,L],[BK,L],P(30),[-8,30]],0,7,[mat.roofGrey,mat.beige]);                    // along Carrasqueta, II floors
-  const acrossC=extrude([[offX(0,8.4),0],[34,0],[34,32],[offX(32,8.4),32]],0,16,[mat.roofGrey,mat.white]);
+  // the red stair tower of the building behind our plot, with small windows
+  boxAt(1.4,17.2,0,3.2,3.8,17.6,mat.red);
+  boxAt(3.02,17.0,12.8,0.04,0.55,0.7,mat.glass); boxAt(3.02,17.0,15.4,0.04,0.55,0.7,mat.glass);
+  // C/ Carrasqueta, next to our back: orange V-floor block with balconies and a red side wall; then white; then brick
+  const backN=new THREE.Group(); scene.add(backN); G=backN;
+  extrude([[-8,L],[BK,L],P(24),[-8,24]],0,15.5,[mat.roofGrey,mat.ochre]);
+  segBox([-8,L],[BK,L],4.0,11.5,0.05,0.03,mat.red);
+  for(let f=0;f<4;f++){const zb=3.6+f*3.0; segBox(P(17.2),P(23.2),zb-0.12,0.12,0.75,0.38,mat.mould); segBox(P(17.2),P(23.2),zb,1.0,0.03,0.74,mat.iron);}
+  extrude([[-8,24],P(24),P(32),[-8,32]],0,16,[mat.roofGrey,mat.white]);
+  for(let f=0;f<4;f++){const zb=3.6+f*3.0; segBox(P(25),P(31),zb-0.12,0.12,0.7,0.35,mat.mould); segBox(P(25),P(31),zb,1.0,0.03,0.69,mat.iron);}
+  extrude([[-8,32],P(32),P(42),[-8,42]],0,13,[mat.roofGrey,mat.brickF]);
+  G=scene;
+  // across C/ Carrasqueta, on the Burjassot corner: tall beige brick block (about XI floors)
+  const acrossC=extrude([[offX(0,8.4),0],[34,0],[34,32],[offX(32,8.4),32]],0,34,[mat.roofGrey,mat.brickTall]);
+  // orange trees on Av. Burjassot (as in the photo)
+  for(const x of [-8.6,-13.5]){cyl(x,-2.3,0,0.13,2.3,mat.trunk,8); const c=new THREE.Mesh(new THREE.SphereGeometry(1.7,14,12),mat.leaf); c.position.set(x,3.7,2.3); c.scale.set(1,0.85,1); put(c);}
+  // the café's blue awning on our ground floor (both today and in the proposal)
+  segBox([0.3,0],[3.15,0],2.78,0.06,1.25,0.62,mat.awningBlue); segBox([0.3,0],[3.15,0],2.5,0.3,0.03,1.25,mat.awningBlue);
   const acrossB=[extrude([[-50,-34],[13,-34],[13,-18.5],[-50,-18.5]],0,19,[mat.roofGrey,mat.white]),
                  extrude([[23,-34],[60,-34],[60,-18.5],[23,-18.5]],0,19,[mat.roofGrey,mat.beige])];
 
