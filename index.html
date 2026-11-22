@@ -371,7 +371,7 @@ const D={
   titleApt:'2-bedroom apartment', titleAtt:'Studio with roof terrace', titleGround:'Shop + building entrance', level:'Level', f2f:'floor to floor',
   totApt:'Apartment total', totAtt:'Studio total', totGround:'Shop total', shared:'shared', wholeFloor:'Whole floor (plot)', keepRow:'Kept: old façades and party wall', atico:'ático',
   noteAtt:'The ático is set back 3.6 m from Av. Burjassot, so the terrace wraps the corner and looks over both streets.',
-  noteGround:'The building entrance uses the existing double door on Carrer Carrasqueta. The shop keeps the old shop window and doors on Av. Burjassot.',
+  noteGround:'One building entrance only: the existing double door on Carrer Carrasqueta. The old house door on Av. Burjassot becomes a window; the shop keeps its own glass door and shop window there.',
   noteP1:'Inside the kept façade: the balcony doors and windows stay where the old ones are. The old balcony doors are 2.75 m tall, so the Planta 2 floor sits at 7.0 m with a slab no thicker than 25 cm.',
   noteNew:'New floor on the new frame. It repeats the old window rhythm and iron balconies, so the street sees one building.',
   dlPdf:'Download PDF', facH:'Façades', facP:"Straight-on views of the proposal's two street fronts, at the same scale. Neighbours shown for context.",
@@ -410,7 +410,7 @@ const D={
   titleApt:'Vivienda de 2 dormitorios', titleAtt:'Estudio con terraza', titleGround:'Local + portal', level:'Nivel', f2f:'altura entre plantas',
   totApt:'Total vivienda', totAtt:'Total estudio', totGround:'Total local', shared:'zona común', wholeFloor:'Planta completa (solar)', keepRow:'Se conservan: fachadas antiguas y medianera', atico:'ático',
   noteAtt:'El ático se retranquea 3,6 m respecto a la Av. Burjassot, así que la terraza rodea la esquina y da a las dos calles.',
-  noteGround:'La entrada del edificio usa la puerta doble existente del Carrer Carrasqueta. El local conserva el escaparate y las puertas antiguas a la Av. Burjassot.',
+  noteGround:'Una sola entrada al edificio: la puerta doble existente del Carrer Carrasqueta. La antigua puerta de la vivienda en la Av. Burjassot pasa a ser ventana; el local conserva allí su puerta de vidrio y su escaparate.',
   noteP1:'Dentro de la fachada conservada: los balcones y ventanas quedan donde están. Las puertas de balcón antiguas miden 2,75 m, así que el forjado de la Planta 2 va a 7,0 m con un canto máximo de 25 cm.',
   noteNew:'Planta nueva sobre la nueva estructura. Repite el ritmo de huecos y los balcones de forja, para que desde la calle se lea un solo edificio.',
   dlPdf:'Descargar PDF', facH:'Fachadas', facP:'Vistas frontales de las dos fachadas a calle de la propuesta, a la misma escala. Los edificios vecinos se muestran como referencia.',
@@ -520,6 +520,9 @@ const OPEN_GROUND=[
   {s:'C',a:sToY(6.95),b:sToY(8.55),sill:0.85,h:1.85,classic:1,fan:1},
   {s:'C',a:sToY(9.3),b:sToY(11.0),sill:0,h:2.7,kind:'wood',classic:1,fan:1,entry:1}
 ];
+/* Future building: one building entrance only, on C/ Carrasqueta. The old house door on Burjassot becomes a window
+   (same opening width, so the façade keeps its rhythm); the shop keeps its own door. */
+const OPEN_GROUND_NEW=OPEN_GROUND.map((o,i)=>i===0?{s:'B',a:o.a,b:o.b,sill:0.9,h:1.55,classic:1}:o);
 
 /* ---- apartment floors (P1 inside the old façade, P2–P3 new) ---- */
 const HALL=[[0,4.3],[1.1,4.3],[1.1,10.5],[fx(10.5),10.5],[fx(YC),YC],[0,YC]];
@@ -593,7 +596,7 @@ function segOf(o){
 }
 
 window.HOUSE={W,L,BK,K,fx,LC,dC,nC,YC,YOLD,sToY,band,rect,PARCEL,CORE,ATT,TERRACE,LEVELS,area,segOf,VERSIONS,VLABEL,levelsFor,setVersion,get ver(){return VER;},
-  GROUND_ROOMS,GROUND_FURN,GROUND_DOORS,OPEN_GROUND,
+  GROUND_ROOMS,GROUND_FURN,GROUND_DOORS,OPEN_GROUND,OPEN_GROUND_NEW,
   APT_ROOMS,APT_FURN,APT_DOORS,aptOpenings,ATT_ROOMS,ATT_FURN,ATT_DOORS,ATT_OPENINGS};
 })();
 
@@ -723,7 +726,7 @@ function context(lv,sfx){
 }
 
 function setFor(lv){
-  if(lv.kind==='ground') return {rooms:H.GROUND_ROOMS,furn:H.GROUND_FURN,doors:H.GROUND_DOORS,opens:H.OPEN_GROUND};
+  if(lv.kind==='ground') return {rooms:H.GROUND_ROOMS,furn:H.GROUND_FURN,doors:H.GROUND_DOORS,opens:H.OPEN_GROUND_NEW};
   if(lv.kind==='attic') return {rooms:H.ATT_ROOMS,furn:H.ATT_FURN,doors:H.ATT_DOORS,opens:H.ATT_OPENINGS};
   return {rooms:H.APT_ROOMS,furn:H.APT_FURN,doors:H.APT_DOORS,opens:H.aptOpenings(lv)};
 }
@@ -1057,7 +1060,7 @@ try{
     if(lv.kind!=='attic'){
       if(lv.existing){ extrude(band(0,0,YOLD),z,lv.h,mat.old); extrude(band(0,YOLD,L),z,lv.h,mat.newR); }
       else { extrude(PARCEL,z,lv.h,mat.newR); if(z>8.5) extrude(offsetPoly(PARCEL,0.04),z-0.1,0.2,mat.mould); }
-      (lv.kind==='ground'?H.OPEN_GROUND:H.aptOpenings(lv)).forEach(op=>opening3d(op,z));
+      (lv.kind==='ground'?H.OPEN_GROUND_NEW:H.aptOpenings(lv)).forEach(op=>opening3d(op,z));
     } else {
       extrude(offsetPoly(PARCEL,0.14),z-0.32,0.44,mat.mould);
       extrude(TERRACE,z+0.12,0.06,mat.deck);
