@@ -355,6 +355,7 @@ footer.wrap{padding-block:30px 40px;color:var(--muted);font-size:13px}
       <div class="mode" role="group" aria-label="Show building" data-i18n-aria="modeAria">
         <button type="button" data-mode="today" aria-pressed="false" data-i18n="mToday">Today</button>
         <button type="button" data-mode="proposal" aria-pressed="true" data-i18n="mProp">Proposal</button>
+        <button type="button" data-mode="structure" aria-pressed="false" data-i18n="mStruct">Structure</button>
       </div>
       <p class="hint" data-i18n="hint">Drag to rotate · scroll or pinch to zoom</p>
       <p class="err3d" id="err3d" hidden data-i18n="err3d">The 3D view could not load here. The floor plans below still work.</p>
@@ -470,9 +471,9 @@ const D={
   k2:'Remove the roof, floors and inside walls. The party wall with no. 227 stays.',
   k3:'Build a new steel frame inside, on its own micropile foundations, and tie the old walls to it.',
   k4:'Add the new floors and the ático on the new frame. With 3 m floors the old cornice would cut across Planta 2, so it is taken down and re-made at the new roof line.',
-  extH:'Exterior', extP:'Switch between the house today and the proposal. Up to 7 m it is the real façade; the new floors repeat its window rhythm and iron balconies, and the classic cornice is re-made at the top. Neighbouring buildings follow your photo (size, colour, brick and render); streets follow your street-plan drawings.',
+  extH:'Exterior', extP:'Switch between the house today and the proposal. Up to 7 m it is the real façade; the new floors repeat its window rhythm and iron balconies, and the classic cornice is re-made at the top. Neighbouring buildings follow your photo (size, colour, brick and render); streets follow your street-plan drawings. Structure shows the steel frame with the stairs, for the version and lift option chosen above.',
   model3d:'3D model of the building', camViews:'Camera views', vCorner:'Corner', vAerial:'From above',
-  modeAria:'Show building', mToday:'Today', mProp:'Proposal',
+  modeAria:'Show building', mToday:'Today', mProp:'Proposal', mStruct:'Structure',
   hint:'Drag to rotate · scroll or pinch to zoom', err3d:'The 3D view could not load here. The floor plans below still work.',
   plansH:'Floor plans', plansP:'Pick a level. Areas are measured to wall centre lines. The orange line marks walls that are kept.',
   notesH:'Before this goes further',
@@ -498,10 +499,10 @@ const D={
   stHomes:'Homes', stCornice:'Cornice', stBase:'Base columns', stMicro:'Micropiles', stProfile:'Profile', stGroup:'Element', stWhere:'Where', stKg:'kg', stTotal:'Total steel',
   stLoad:'Load', stValue:'Value', stFound:'Foundations', stFire:'Fire', stChecks:'Checks', stPlanT:'Structural plan, same on every floor', stCostNote:'Steel, fire protection, slabs and micropiles. Not included: façade stabiliser and demolition, lift, finishes, VAT and fees.',
   todayView:'Today (same corner)', facScale:'Same scale, about 1:180 on A4', todaySrc:'Source: 2020 façade restoration project',
-  frH:'Structural frame drawings', frP:'The steel skeleton member by member: foundations, every floor, the braced frames and the column schedule. It follows the version and lift switches at the top of the page.', fr3d:'Steel skeleton seen from the street corner', fr3dNote:'Steel skeleton seen from the corner of Av. Burjassot and C/ Carrasqueta. Black: columns and beams. Red: bracing. Dashed orange: the old street façades that are kept (to +7.00). Blue: floor slabs.', frSched:'Column schedule', frSchedNote:'Profile of each column in each storey (S275, HEB). Splices every two storeys, about 0.5 m above the floor. Bold: larger than HEB 140.', frPlans:'Plans by level', frFound:'Foundations', frFloorOf:'Floor of {n}', frRoof:'Ático roof', frElev:'Frame elevations', frElevNote:'Each braced frame unfolded flat, seen from inside the plot. Bracing sizes change from storey to storey. Blue tick: column splice.', frE_party:'Party wall, x = 0.30', frE_y43:'Axis y = 4.30', frE_y81:'Axis y ≈ 8.10', frE_back:'Back boundary, y = 15.05', frE_burj:'Behind Av. Burjassot façade, y = 0.60', frSideBurj:'Av. Burjassot', frSideBack:'Back', frSideParty:'Party wall', frSideCarr:'C/ Carrasqueta', frKeyCol:'Column of the storey below', frKeyColBase:'Column base', frKeyPost:'Post that starts on this floor', frKeyBeam:'Beam (id and profile)', frKeyBr:'Bracing in the storey below', frKeyDeck:'Composite deck, ribs in the span direction', frKeyVoid:'Opening', frKeyCap:'Pile cap with micropiles', frKeyTie:'Tie beam 40×50 cm', frStair:'Stair', frLift:'Lift', frDeck:'deck {t} cm', frAticoAbove:'ático above', frBeam:'Beam', frLen:'Length', frCol:'Column', frBase:'Base profile', frCap:'Pile cap', frNsls:'Load (SLS)', frMp:'{n} micropiles', frMpShort:'{n} mp', frUplift:'Uplift (tension) under wind', frOnBeam:'on beam', frGround:'Ground', frExistFac:'Existing façade, kept, to +7.00', frScale:'1:125 on A4', frFoundNote:'Micropiles Ø150–200 mm, about 15 m long, assumed 250 kN each in compression and 150 kN in tension. Caps are tied in both directions with 40×50 cm beams. Next to the party wall the caps must be eccentric; the geotechnical study sets the final number and length. ↑ = uplift under wind.', frSlabNote:'Composite slab 13 cm (60 mm steel deck + concrete) spanning in y between the beams, propped at mid-span while concreting. Beams ≤ 300 mm deep, hidden in the cross walls.', frRoofNote:'Ático roof: same composite slab over the studio only. The rest of the top floor is the terrace on the floor below.'
+  frH:'Structural frame drawings', frP:'The steel skeleton member by member: foundations, every floor, the braced frames and the column schedule. It follows the version and lift switches at the top of the page.', fr3d:'Steel skeleton seen from the street corner', fr3dNote:'Steel skeleton seen from the corner of Av. Burjassot and C/ Carrasqueta. Black: columns and beams. Red: bracing. Dashed orange: the old street façades that are kept (to +7.00). Blue: floor slabs. Grey steps: the stairs, one U-stair per storey.', frSched:'Column schedule', frSchedNote:'Profile of each column in each storey (S275, HEB). Splices every two storeys, about 0.5 m above the floor. Bold: larger than HEB 140.', frPlans:'Plans by level', frFound:'Foundations', frFloorOf:'Floor of {n}', frRoof:'Ático roof', frElev:'Frame elevations', frElevNote:'Each braced frame unfolded flat, seen from inside the plot. Bracing sizes change from storey to storey. Blue tick: column splice.', frE_party:'Party wall, x = 0.30', frE_y43:'Axis y = 4.30', frE_y81:'Axis y ≈ 8.10', frE_back:'Back boundary, y = 15.05', frE_burj:'Behind Av. Burjassot façade, y = 0.60', frSideBurj:'Av. Burjassot', frSideBack:'Back', frSideParty:'Party wall', frSideCarr:'C/ Carrasqueta', frKeyCol:'Column of the storey below', frKeyColBase:'Column base', frKeyPost:'Post that starts on this floor', frKeyBeam:'Beam (id and profile)', frKeyBr:'Bracing in the storey below', frKeyDeck:'Composite deck, ribs in the span direction', frKeyVoid:'Opening', frKeyCap:'Pile cap with micropiles', frKeyTie:'Tie beam 40×50 cm', frStair:'Stair', frLift:'Lift', frDeck:'deck {t} cm', frAticoAbove:'ático above', frBeam:'Beam', frLen:'Length', frCol:'Column', frBase:'Base profile', frCap:'Pile cap', frNsls:'Load (SLS)', frMp:'{n} micropiles', frMpShort:'{n} mp', frUplift:'Uplift (tension) under wind', frOnBeam:'on beam', frGround:'Ground', frExistFac:'Existing façade, kept, to +7.00', frScale:'1:125 on A4', frFoundNote:'Micropiles Ø150–200 mm, about 15 m long, assumed 250 kN each in compression and 150 kN in tension. Caps are tied in both directions with 40×50 cm beams. Next to the party wall the caps must be eccentric; the geotechnical study sets the final number and length. ↑ = uplift under wind.', frSlabNote:'Composite slab 13 cm (60 mm steel deck + concrete) spanning in y between the beams, propped at mid-span while concreting. Beams ≤ 300 mm deep, hidden in the cross walls.', frRoofNote:'Ático roof: same composite slab over the studio only. The rest of the top floor is the terrace on the floor below.'
  },
  es:{
-  frH:'Planos de estructura (carcasa)', frP:'El esqueleto de acero pieza a pieza: cimentación, cada forjado, los pórticos arriostrados y el cuadro de pilares. Sigue los selectores de versión y ascensor de arriba.', fr3d:'Esqueleto de acero visto desde la esquina', fr3dNote:'Esqueleto de acero visto desde la esquina de Av. Burjassot y C/ Carrasqueta. Negro: pilares y vigas. Rojo: arriostramientos. Naranja discontinuo: las fachadas antiguas que se conservan (hasta +7,00). Azul: forjados.', frSched:'Cuadro de pilares', frSchedNote:'Perfil de cada pilar en cada planta (S275, HEB). Empalmes cada dos plantas, a unos 0,5 m sobre el forjado. En negrita: mayores que HEB 140.', frPlans:'Plantas por nivel', frFound:'Cimentación', frFloorOf:'Forjado de {n}', frRoof:'Cubierta del ático', frElev:'Pórticos (alzados de estructura)', frElevNote:'Cada pórtico arriostrado desplegado en plano, visto desde dentro de la parcela. Los arriostramientos cambian de una planta a otra. Marca azul: empalme de pilar.', frE_party:'Medianera, x = 0,30', frE_y43:'Eje y = 4,30', frE_y81:'Eje y ≈ 8,10', frE_back:'Lindero trasero, y = 15,05', frE_burj:'Tras la fachada de Av. Burjassot, y = 0,60', frSideBurj:'Av. Burjassot', frSideBack:'Fondo', frSideParty:'Medianera', frSideCarr:'C/ Carrasqueta', frKeyCol:'Pilar de la planta inferior', frKeyColBase:'Arranque de pilar', frKeyPost:'Pilar que arranca en este forjado', frKeyBeam:'Viga (referencia y perfil)', frKeyBr:'Arriostramiento en la planta inferior', frKeyDeck:'Chapa colaborante, nervios en la dirección de la luz', frKeyVoid:'Hueco', frKeyCap:'Encepado con micropilotes', frKeyTie:'Viga de atado 40×50 cm', frStair:'Escalera', frLift:'Ascensor', frDeck:'forjado {t} cm', frAticoAbove:'ático encima', frBeam:'Viga', frLen:'Longitud', frCol:'Pilar', frBase:'Perfil de arranque', frCap:'Encepado', frNsls:'Carga (ELS)', frMp:'{n} micropilotes', frMpShort:'{n} mp', frUplift:'Tracción con viento', frOnBeam:'sobre viga', frGround:'Rasante', frExistFac:'Fachada existente conservada, hasta +7,00', frScale:'1:125 en A4', frFoundNote:'Micropilotes Ø150–200 mm, de unos 15 m, con 250 kN supuestos por unidad a compresión y 150 kN a tracción. Encepados atados en las dos direcciones con vigas de 40×50 cm. Junto a la medianera los encepados son excéntricos; el estudio geotécnico fija el número y la longitud definitivos. ↑ = tracción con viento.', frSlabNote:'Forjado de chapa colaborante de 13 cm (chapa de 60 mm + hormigón) que salva la luz en y entre vigas, apuntalado en centro de vano al hormigonar. Vigas de canto ≤ 300 mm, ocultas en los tabiques transversales.', frRoofNote:'Cubierta del ático: el mismo forjado colaborante, sólo sobre el estudio. El resto de la última planta es la terraza sobre el forjado inferior.',
+  frH:'Planos de estructura (carcasa)', frP:'El esqueleto de acero pieza a pieza: cimentación, cada forjado, los pórticos arriostrados y el cuadro de pilares. Sigue los selectores de versión y ascensor de arriba.', fr3d:'Esqueleto de acero visto desde la esquina', fr3dNote:'Esqueleto de acero visto desde la esquina de Av. Burjassot y C/ Carrasqueta. Negro: pilares y vigas. Rojo: arriostramientos. Naranja discontinuo: las fachadas antiguas que se conservan (hasta +7,00). Azul: forjados. Peldaños grises: las escaleras, una escalera en U por planta.', frSched:'Cuadro de pilares', frSchedNote:'Perfil de cada pilar en cada planta (S275, HEB). Empalmes cada dos plantas, a unos 0,5 m sobre el forjado. En negrita: mayores que HEB 140.', frPlans:'Plantas por nivel', frFound:'Cimentación', frFloorOf:'Forjado de {n}', frRoof:'Cubierta del ático', frElev:'Pórticos (alzados de estructura)', frElevNote:'Cada pórtico arriostrado desplegado en plano, visto desde dentro de la parcela. Los arriostramientos cambian de una planta a otra. Marca azul: empalme de pilar.', frE_party:'Medianera, x = 0,30', frE_y43:'Eje y = 4,30', frE_y81:'Eje y ≈ 8,10', frE_back:'Lindero trasero, y = 15,05', frE_burj:'Tras la fachada de Av. Burjassot, y = 0,60', frSideBurj:'Av. Burjassot', frSideBack:'Fondo', frSideParty:'Medianera', frSideCarr:'C/ Carrasqueta', frKeyCol:'Pilar de la planta inferior', frKeyColBase:'Arranque de pilar', frKeyPost:'Pilar que arranca en este forjado', frKeyBeam:'Viga (referencia y perfil)', frKeyBr:'Arriostramiento en la planta inferior', frKeyDeck:'Chapa colaborante, nervios en la dirección de la luz', frKeyVoid:'Hueco', frKeyCap:'Encepado con micropilotes', frKeyTie:'Viga de atado 40×50 cm', frStair:'Escalera', frLift:'Ascensor', frDeck:'forjado {t} cm', frAticoAbove:'ático encima', frBeam:'Viga', frLen:'Longitud', frCol:'Pilar', frBase:'Perfil de arranque', frCap:'Encepado', frNsls:'Carga (ELS)', frMp:'{n} micropilotes', frMpShort:'{n} mp', frUplift:'Tracción con viento', frOnBeam:'sobre viga', frGround:'Rasante', frExistFac:'Fachada existente conservada, hasta +7,00', frScale:'1:125 en A4', frFoundNote:'Micropilotes Ø150–200 mm, de unos 15 m, con 250 kN supuestos por unidad a compresión y 150 kN a tracción. Encepados atados en las dos direcciones con vigas de 40×50 cm. Junto a la medianera los encepados son excéntricos; el estudio geotécnico fija el número y la longitud definitivos. ↑ = tracción con viento.', frSlabNote:'Forjado de chapa colaborante de 13 cm (chapa de 60 mm + hormigón) que salva la luz en y entre vigas, apuntalado en centro de vano al hormigonar. Vigas de canto ≤ 300 mm, ocultas en los tabiques transversales.', frRoofNote:'Cubierta del ático: el mismo forjado colaborante, sólo sobre el estudio. El resto de la última planta es la terraza sobre el forjado inferior.',
   eyebrow:'Av. Burjassot 229 · Valencia · Concepto, no válido para obra',
   lede:'Conservar las dos fachadas a calle de la casa en esquina, rehacer el interior y crecer en altura, con un estudio en ático. Dos versiones para comparar: planta baja + 2, o planta baja + 3 (unos 341 m², como en tu análisis urbanístico). La entrada del edificio sigue en el Carrer Carrasqueta, por la puerta existente.', verLabel:'Versión', liftLabel:'Ascensor', liftYes:'Con ascensor', liftNo:'Sin ascensor', noLiftTag:'sin ascensor', storage:'TRASTERO', 'Stair + storage':'Escalera + trastero', 'plan:Stair + storage':'Esc. + trastero', 'Laundry / storage':'Lavadero / almacén', 'plan:Laundry / storage':'Lavadero', 'Stair':'Escalera',
   noLiftNote:'Sin ascensor, el espacio del hueco (detrás del pasillo) se une a cada vivienda como lavadero / almacén; en el ático es un trastero junto al rellano. La normativa (CTE DB-SUA 9) suele exigir ascensor cuando una vivienda está a más de dos plantas sobre la entrada, como el ático aquí; ver los detalles en la sección de estructura.', stPending:'El cálculo sin ascensor se está preparando; las cifras mostradas son con ascensor.', stLiftH:'Con o sin ascensor', homesFmt:'{n} × 2 dorm. · 1 estudio',
@@ -517,9 +518,9 @@ const D={
   k2:'Retirar cubierta, forjados y tabiques. La medianera con el nº 227 se mantiene.',
   k3:'Construir una nueva estructura de acero dentro, con su propia cimentación de micropilotes, y atar a ella los muros antiguos.',
   k4:'Levantar las plantas nuevas y el ático sobre la nueva estructura. Con plantas de 3 m la cornisa antigua cortaría la Planta 2, así que se desmonta y se rehace en la nueva coronación.',
-  extH:'Exterior', extP:'Cambia entre la casa de hoy y la propuesta. Hasta 7 m es la fachada real; las plantas nuevas repiten su ritmo de huecos y los balcones de forja, y la cornisa clásica se rehace arriba. Los edificios vecinos siguen tu foto (tamaño, color, ladrillo y revoco); las calles siguen tus planos.',
+  extH:'Exterior', extP:'Cambia entre la casa de hoy y la propuesta. Hasta 7 m es la fachada real; las plantas nuevas repiten su ritmo de huecos y los balcones de forja, y la cornisa clásica se rehace arriba. Los edificios vecinos siguen tu foto (tamaño, color, ladrillo y revoco); las calles siguen tus planos. Estructura muestra el esqueleto de acero con las escaleras, para la versión y la opción de ascensor elegidas arriba.',
   model3d:'Modelo 3D del edificio', camViews:'Vistas de cámara', vCorner:'Esquina', vAerial:'Desde arriba',
-  modeAria:'Mostrar edificio', mToday:'Hoy', mProp:'Propuesta',
+  modeAria:'Mostrar edificio', mToday:'Hoy', mProp:'Propuesta', mStruct:'Estructura',
   hint:'Arrastra para girar · rueda o pellizca para hacer zoom', err3d:'La vista 3D no se ha podido cargar aquí. Los planos de abajo siguen funcionando.',
   plansH:'Planos de planta', plansP:'Elige una planta. Las superficies se miden a eje de muros. La línea naranja marca los muros que se conservan.',
   notesH:'Antes de seguir adelante',
@@ -1269,14 +1270,76 @@ try{
   }
   const propGs={}; Object.keys(H.VERSIONS).forEach(v=>{propGs[v]=buildProposal(H.levelsFor(v));});
 
-  /* today / proposal switch */
+  /* ---------- structure: the steel frame and the stairs, from frame-data.js (built on first use) ---------- */
+  const structGs={};
+  const stKey=()=>{const F=window.FRAME; if(!F) return null; const k=(H.ver==='pb2'?'B':'A')+(H.lift?'':'0'); return F.options[k]?k:(H.ver==='pb2'?'B':'A');};
+  const SM={col:M({color:0x34495e,roughness:0.45,metalness:0.55}), beam:M({color:0x4f6b84,roughness:0.45,metalness:0.55}),
+    brace:M({color:0xff4422,emissive:0x551000,roughness:0.5,metalness:0.2}), slab:M({color:0x7fb3d5,roughness:0.6,transparent:true,opacity:0.18,depthWrite:false,side:THREE.DoubleSide}),
+    cap:M({color:0x9a9a92,roughness:0.95}), tread:M({color:0xb9b4aa,roughness:0.8}), stringer:M({color:0x2c3e50,roughness:0.45,metalness:0.6}),
+    ghost:M({color:0xd68a3a,roughness:0.9,transparent:true,opacity:0.13,depthWrite:false}), shaft:M({color:0x5dade2,roughness:0.4,transparent:true,opacity:0.16,depthWrite:false})};
+  const pdim=p=>{const m=/(HEB|IPE)\s*(\d+)/.exec(p||''); if(!m) return [0.14,0.14]; const h=+m[2]/1000; return [h, m[1]==='HEB'?Math.min(h,0.3):Math.max(0.064,h*0.5)];};
+  function stick(a,b,r,mat){ // round bar / tube between two 3D plan points [x,y,z]
+    const A=new THREE.Vector3(a[0],a[2],-a[1]), B=new THREE.Vector3(b[0],b[2],-b[1]), d=B.clone().sub(A);
+    const m=new THREE.Mesh(new THREE.CylinderGeometry(r,r,d.length(),8),mat); m.position.copy(A.clone().add(B).multiplyScalar(0.5));
+    m.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),d.normalize()); return put(m);}
+  function iBeam(x1,y1,x2,y2,z,prof){ // I-section, top of steel at the slab level
+    const [h,b]=pdim(prof), dx=x2-x1, dy=y2-y1, len=Math.hypot(dx,dy), g=new THREE.Group();
+    const add=(sx,sy,sz,yy)=>{const m=new THREE.Mesh(new THREE.BoxGeometry(sx,sy,sz),SM.beam); m.position.y=yy; m.castShadow=true; g.add(m);};
+    add(len,0.012,b,-0.006); add(len,0.012,b,-h+0.006); add(len,h,0.007,-h/2);
+    g.position.set((x1+x2)/2,z-0.13,-(y1+y2)/2); g.rotation.y=Math.atan2(dy,dx); G.add(g);}
+  function iCol(x,y,z0,hgt,prof){
+    const [h,b]=pdim(prof), g=new THREE.Group();
+    const add=(sx,sz,xx)=>{const m=new THREE.Mesh(new THREE.BoxGeometry(sx,hgt,sz),SM.col); m.position.x=xx; m.castShadow=true; g.add(m);};
+    add(0.014,b,-h/2+0.007); add(0.014,b,h/2-0.007); add(h,0.009,0);
+    g.position.set(x,z0+hgt/2,-y); G.add(g);}
+  function stairs(st){ // U-stair: flight up along the party wall, half landing at the back, flight back to the floor above
+    const [sx0,sx1,sy0,sy1]=window.FRAME.geom.stair, mid=(sx0+sx1)/2, yL=sy1-0.65, z0=st.z0, hh=st.h;
+    const nR=Math.max(14,Math.round(hh/0.18)), r=hh/nR, nA=Math.ceil(nR/2), nB=nR-nA, tA=(yL-sy0)/nA, tB=(yL-sy0)/nB, w=mid-sx0-0.06;
+    for(let i=0;i<nA;i++) boxAt(sx0+0.03+w/2, sy0+(i+0.5)*tA, z0+(i+1)*r-0.04, w, tA+0.02, 0.04, SM.tread);
+    boxAt((sx0+sx1)/2, (yL+sy1)/2, z0+nA*r-0.12, sx1-sx0-0.06, sy1-yL, 0.12, SM.tread);
+    for(let j=0;j<nB;j++) boxAt(mid+0.03+w/2, yL-(j+0.5)*tB, z0+nA*r+(j+1)*r-0.04, w, tB+0.02, 0.04, SM.tread);
+    for(const x of [sx0+0.04, mid-0.03]) stick([x,sy0,z0-0.05],[x,yL,z0+nA*r-0.1],0.045,SM.stringer);
+    for(const x of [mid+0.03, sx1-0.04]) stick([x,yL,z0+nA*r-0.1],[x,sy0,z0+hh-0.05],0.045,SM.stringer);
+  }
+  function buildStructure(k){
+    const F=window.FRAME, o=F.options[k], grp=new THREE.Group(); scene.add(grp); G=grp;
+    const C={}; o.columns.forEach(c=>C[c.id]=c);
+    o.caps.forEach(q=>{const c=C[q.id]; if(c) boxAt(c.x,c.y,-0.45,0.95,0.95,0.55,SM.cap);});
+    o.columns.forEach(c=>c.profiles.forEach((p,i)=>{ if(p) iCol(c.x,c.y,o.storeys[i].z0,o.storeys[i].h,p); }));
+    o.slabs.forEach(sl=>{
+      sl.beams.forEach(b=>iBeam(b.x1,b.y1,b.x2,b.y2,sl.z,b.profile));
+      const shp=new THREE.Shape((sl.type==='roof'?F.geom.atico:H.PARCEL).map(q=>new THREE.Vector2(q[0],q[1])));
+      if(sl.type!=='roof'){ const [a,b,c,d]=F.geom.stair, hole=new THREE.Path([[a,c],[b,c],[b,d],[a,d]].map(q=>new THREE.Vector2(q[0],q[1]))); shp.holes.push(hole);
+        if(o.lift){const [e,f,g,h]=F.geom.lift; shp.holes.push(new THREE.Path([[e,g],[f,g],[f,h],[e,h]].map(q=>new THREE.Vector2(q[0],q[1]))));} }
+      const geo=new THREE.ExtrudeGeometry(shp,{depth:F.geom.slab_t_m,bevelEnabled:false}); geo.rotateX(-Math.PI/2);
+      const m=new THREE.Mesh(geo,SM.slab); m.position.y=sl.z-F.geom.slab_t_m; m.renderOrder=2; G.add(m);
+    });
+    o.bracing.forEach(pl=>pl.storeys.forEach(q=>q.bays.forEach(([a,b])=>{const A=C[a],B=C[b]; if(!A||!B) return;
+      const st=o.storeys[q.k], z0=st.z0+0.05, z1=st.z0+st.h-0.25, d=/(\d+)/.exec(q.profile), rad=/SHS/.test(q.profile)?(+d[1])/2000:Math.max(0.018,(+d[1])/1000);
+      stick([A.x,A.y,z0],[B.x,B.y,z1],rad,SM.brace); stick([A.x,A.y,z1],[B.x,B.y,z0],rad,SM.brace);})));
+    o.storeys.forEach(st=>{ if(!/tico/i.test(st.name)) stairs(st); });
+    if(o.lift){const [e,f,g,h]=F.geom.lift, top=o.storeys[o.storeys.length-1].z0+0.2; const m=boxAt((e+f)/2,(g+h)/2,-1.2,f-e,h-g,top+1.2,SM.shaft); m.castShadow=false;}
+    OLD_SEGS.forEach(([a,b])=>{const m=segBox(a,b,0,7.0,0.35,0.15,SM.ghost); m.castShadow=false; m.renderOrder=3;});
+    G=scene; return grp;
+  }
+  function showStructure(on){
+    Object.keys(structGs).forEach(k=>structGs[k].visible=false);
+    if(!on) return; const k=stKey(); if(!k) return;
+    if(!structGs[k]) structGs[k]=buildStructure(k);
+    structGs[k].visible=true;
+  }
+
+  /* today / proposal / structure switch */
   let mode='proposal';
   function setMode(m){
-    mode=m; todayG.visible=m==='today'; Object.keys(propGs).forEach(v=>{propGs[v].visible=m!=='today'&&v===H.ver;});
+    mode=m; todayG.visible=m==='today'; Object.keys(propGs).forEach(v=>{propGs[v].visible=m==='proposal'&&v===H.ver;});
+    showStructure(m==='structure');
     document.querySelectorAll('[data-mode]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.mode===m?'true':'false'));
   }
   document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.mode)));
   setMode('proposal');
+  window.addEventListener('load',()=>{let m=null; try{m=new URLSearchParams(location.search).get('mode');}catch(e){} if(m==='structure'||m==='today') setMode(m);});
+  document.addEventListener('versionchange',()=>{ if(mode==='structure') setMode('structure'); });
 
   /* views */
   const A=[W,0], cdir=(()=>{const v=[nC[0],nC[1]-1],l=Math.hypot(v[0],v[1]);return [v[0]/l,v[1]/l];})();
@@ -1354,7 +1417,7 @@ try{
       cam.position.set(tgt[0]+nrm[0]*40,ym,tgt[1]+nrm[1]*40); cam.lookAt(tgt[0],ym,tgt[1]);
       carsG.visible=false; const img=grab(Math.round(2*halfW*PPM),Math.round((Y1-Y0)*PPM),cam); carsG.visible=true; return img;
     }
-    const showOnly=v=>{todayG.visible=false; Object.keys(propGs).forEach(k=>{propGs[k].visible=k===v;});};
+    const showOnly=v=>{todayG.visible=false; showStructure(false); Object.keys(propGs).forEach(k=>{propGs[k].visible=k===v;});};
     Object.keys(propGs).forEach(v=>{
       showOnly(v); const sn={};
       ['corner','carrasqueta','burjassot','aerial'].forEach(n=>{sn[n]=shoot(n);});
@@ -1771,6 +1834,14 @@ function isoSVG(o){
   o.slabs.forEach(sl=>sl.beams.forEach(b=>seg([b.x1,b.y1,sl.z],[b.x2,b.y2,sl.z],`stroke="var(--ink)" stroke-width="0.05" stroke-linecap="round"`,dep((b.x1+b.x2)/2,(b.y1+b.y2)/2)-0.01)));
   o.bracing.forEach(pl=>pl.storeys.forEach(q=>q.bays.forEach(([a,b])=>{const A=C[a],B=C[b]; if(!A||!B) return; const st=o.storeys[q.k], z0=st.z0, z1=st.z0+st.h, d=dep((A.x+B.x)/2,(A.y+B.y)/2)+0.02;
     seg([A.x,A.y,z0],[B.x,B.y,z1],`stroke="${RED}" stroke-width="0.04"`,d); seg([A.x,A.y,z1],[B.x,B.y,z0],`stroke="${RED}" stroke-width="0.04"`,d);})));
+  // stairs: each storey's U-stair (flight up, half landing, flight up), drawn as stepped stringers
+  o.storeys.forEach(st=>{ if(/tico/i.test(st.name)) return;
+    const [sx0,sx1,sy0,sy1]=G.stair, mid=(sx0+sx1)/2, yL=sy1-0.65, nR=Math.max(14,Math.round(st.h/0.18)), rr=st.h/nR, nA=Math.ceil(nR/2), nB=nR-nA;
+    const step=(x,ya,yb,za,n)=>{const ps=[]; for(let i=0;i<n;i++){const y0=ya+(yb-ya)*i/n, y1=ya+(yb-ya)*(i+1)/n; ps.push([x,y0,za+i*rr],[x,y0,za+(i+1)*rr],[x,y1,za+(i+1)*rr]);} return ps;};
+    [[(sx0+mid)/2,sy0,yL,st.z0,nA],[(mid+sx1)/2,yL,sy0,st.z0+nA*rr,nB]].forEach(([x,ya,yb,za,n])=>{
+      const ps=step(x,ya,yb,za,n); for(let i=0;i<ps.length-1;i++) seg(ps[i],ps[i+1],`stroke="var(--muted)" stroke-width="0.035"`,dep(x,(ya+yb)/2)-0.005);});
+    const zl=st.z0+nA*rr; [[sx0,yL],[sx1,yL],[sx1,sy1],[sx0,sy1]].forEach((p,i,a)=>{const q=a[(i+1)%4]; seg([p[0],p[1],zl],[q[0],q[1],zl],`stroke="var(--muted)" stroke-width="0.03"`,dep(p[0],p[1]));});
+  });
   // retained street façades (ghost), drawn last so they read as a veil in front
   const fac=[[[0,0],[H.W,0]],[[H.W,0],[H.fx(H.YOLD),H.YOLD]]];
   let front=fac.map(([a,b])=>`<polygon points="${poly([a,b],0).split(' ').concat(poly([b,a],7).split(' ')).join(' ')}" fill="var(--keep)" fill-opacity="0.06" stroke="var(--keep)" stroke-width="0.05" stroke-dasharray="0.25 0.15"/>`).join('');
