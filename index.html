@@ -371,7 +371,7 @@ const D={
   titleApt:'2-bedroom apartment', titleAtt:'Studio with roof terrace', titleGround:'Shop + building entrance', level:'Level', f2f:'floor to floor',
   totApt:'Apartment total', totAtt:'Studio total', totGround:'Shop total', shared:'shared', wholeFloor:'Whole floor (plot)', keepRow:'Kept: old façades and party wall', atico:'ático',
   noteAtt:'The ático is set back 3.6 m from Av. Burjassot, so the terrace wraps the corner and looks over both streets.',
-  noteGround:'One building entrance only: the existing double door on Carrer Carrasqueta. The old house door on Av. Burjassot becomes a window; the shop keeps its own glass door and shop window there.',
+  noteGround:'One door only: the building entrance at the back end of the Carrer Carrasqueta façade, next to the stair and lift. There are no doors on Av. Burjassot; the old doors become windows. The shop is reached from the entrance hall.',
   noteP1:'Inside the kept façade: the balcony doors and windows stay where the old ones are. The old balcony doors are 2.75 m tall, so the Planta 2 floor sits at 7.0 m with a slab no thicker than 25 cm.',
   noteNew:'New floor on the new frame. It repeats the old window rhythm and iron balconies, so the street sees one building.',
   dlPdf:'Download PDF', facH:'Façades', facP:"Straight-on views of the proposal's two street fronts, at the same scale. Neighbours shown for context.",
@@ -410,7 +410,7 @@ const D={
   titleApt:'Vivienda de 2 dormitorios', titleAtt:'Estudio con terraza', titleGround:'Local + portal', level:'Nivel', f2f:'altura entre plantas',
   totApt:'Total vivienda', totAtt:'Total estudio', totGround:'Total local', shared:'zona común', wholeFloor:'Planta completa (solar)', keepRow:'Se conservan: fachadas antiguas y medianera', atico:'ático',
   noteAtt:'El ático se retranquea 3,6 m respecto a la Av. Burjassot, así que la terraza rodea la esquina y da a las dos calles.',
-  noteGround:'Una sola entrada al edificio: la puerta doble existente del Carrer Carrasqueta. La antigua puerta de la vivienda en la Av. Burjassot pasa a ser ventana; el local conserva allí su puerta de vidrio y su escaparate.',
+  noteGround:'Una sola puerta: la entrada del edificio al final de la fachada del Carrer Carrasqueta, junto a la escalera y el ascensor. No hay puertas a la Av. Burjassot; las puertas antiguas pasan a ser ventanas. Al local se accede desde el portal.',
   noteP1:'Dentro de la fachada conservada: los balcones y ventanas quedan donde están. Las puertas de balcón antiguas miden 2,75 m, así que el forjado de la Planta 2 va a 7,0 m con un canto máximo de 25 cm.',
   noteNew:'Planta nueva sobre la nueva estructura. Repite el ritmo de huecos y los balcones de forja, para que desde la calle se lea un solo edificio.',
   dlPdf:'Descargar PDF', facH:'Fachadas', facP:'Vistas frontales de las dos fachadas a calle de la propuesta, a la misma escala. Los edificios vecinos se muestran como referencia.',
@@ -510,6 +510,7 @@ const GROUND_FURN=[
 ];
 const GROUND_DOORS=[
   {h:[1.6,7.0],u:[0,1],v:[-1,0],w:0.7},
+  {h:[2.4,8.4],u:[1,0],v:[0,-1],w:0.9},
   {open:[[1.4,YC],[fx(YC)-0.12,YC]]}
 ];
 /* Existing ground-floor openings, measured off the 2020 elevations */
@@ -520,9 +521,17 @@ const OPEN_GROUND=[
   {s:'C',a:sToY(6.95),b:sToY(8.55),sill:0.85,h:1.85,classic:1,fan:1},
   {s:'C',a:sToY(9.3),b:sToY(11.0),sill:0,h:2.7,kind:'wood',classic:1,fan:1,entry:1}
 ];
-/* Future building: one building entrance only, on C/ Carrasqueta. The old house door on Burjassot becomes a window
-   (same opening width, so the façade keeps its rhythm); the shop keeps its own door. */
-const OPEN_GROUND_NEW=OPEN_GROUND.map((o,i)=>i===0?{s:'B',a:o.a,b:o.b,sill:0.9,h:1.55,classic:1}:o);
+/* Future building: ONE door only, at the back end of the C/ Carrasqueta façade, next to the stair and lift.
+   No doors on Av. Burjassot. The old doors become windows in the same openings, so the façade keeps its rhythm.
+   The shop is reached from the entrance hall. */
+const OPEN_GROUND_NEW=[
+  {s:'B',a:0.48,b:1.3,sill:0.9,h:1.55,classic:1},
+  {s:'B',a:1.4,b:3.1,sill:0.45,h:2.05,classic:1},
+  {s:'B',a:4.6,b:6.85,sill:0.45,h:2.15,classic:1,fan:1},
+  {s:'C',a:sToY(6.95),b:sToY(8.55),sill:0.85,h:1.85,classic:1,fan:1},
+  {s:'C',a:sToY(9.3),b:sToY(11.0),sill:0.85,h:1.85,classic:1,fan:1},
+  {s:'C',a:11.65,b:12.55,sill:0,h:2.6,kind:'wood',classic:1,fan:1,entry:1}
+];
 
 /* ---- apartment floors (P1 inside the old façade, P2–P3 new) ---- */
 const HALL=[[0,4.3],[1.1,4.3],[1.1,10.5],[fx(10.5),10.5],[fx(YC),YC],[0,YC]];
