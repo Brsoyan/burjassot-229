@@ -36,6 +36,13 @@ body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:1
 .wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 header.wrap{padding-block:40px 8px}
 .eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 10px}
+.topbar .eyebrow{margin:0;min-width:0}
+.lang{display:inline-flex;flex:none;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.lang button{font:500 12px/1 var(--f-mono);letter-spacing:.06em;padding:8px 11px;border:0;background:var(--sheet);color:var(--ink);cursor:pointer}
+.lang button+button{border-left:1px solid var(--line)}
+.lang button[aria-pressed="true"]{background:var(--accent);color:var(--sheet)}
+.lang button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
 h1{font-family:var(--f-display);font-weight:700;font-size:clamp(34px,6vw,56px);line-height:1;letter-spacing:-.02em;margin:0 0 14px;text-wrap:balance}
 .lede{max-width:66ch;margin:0 0 22px;color:var(--ink)}
 .facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin:0;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -104,41 +111,47 @@ footer.wrap{padding-block:30px 40px;color:var(--muted);font-size:13px}
 <body>
 
 <header class="wrap">
-  <p class="eyebrow">Av. Burjassot 229 · Valencia · Concept, not for construction</p>
+  <div class="topbar">
+    <p class="eyebrow" data-i18n="eyebrow">Av. Burjassot 229 · Valencia · Concept, not for construction</p>
+    <div class="lang" role="group" aria-label="Language / Idioma">
+      <button type="button" data-lang="en" aria-pressed="true" lang="en" title="English">EN</button>
+      <button type="button" data-lang="es" aria-pressed="false" lang="es" title="Español">ES</button>
+    </div>
+  </div>
   <h1>Burjassot 229</h1>
-  <p class="lede">A first look at a small corner building on your 85 m² plot: three 2-bedroom apartments and a studio with a roof terrace on top. The main entrance is on Carrer Carrasqueta. All sizes are approximate and traced from the cadastral map.</p>
+  <p class="lede" data-i18n="lede">A first look at a small corner building on your 85 m² plot: three 2-bedroom apartments and a studio with a roof terrace on top. The main entrance is on Carrer Carrasqueta. All sizes are approximate and traced from the cadastral map.</p>
   <dl class="facts">
-    <div><dt>Plot</dt><dd>85.35 m²</dd></div>
-    <div><dt>Levels</dt><dd>PB + 2 + Ático</dd></div>
-    <div><dt>Homes</dt><dd>3 × 2-bed · 1 studio</dd></div>
-    <div><dt>Cornice height</dt><dd id="f-height">≈ 10.1 m</dd></div>
-    <div><dt>Entrance</dt><dd>C/ Carrasqueta</dd></div>
+    <div><dt data-i18n="fPlot">Plot</dt><dd data-i18n="fPlotV">85.35 m²</dd></div>
+    <div><dt data-i18n="fLevels">Levels</dt><dd>PB + 2 + Ático</dd></div>
+    <div><dt data-i18n="fHomes">Homes</dt><dd data-i18n="fHomesV">3 × 2-bed · 1 studio</dd></div>
+    <div><dt data-i18n="fHeight">Cornice height</dt><dd id="f-height">≈ 10.1 m</dd></div>
+    <div><dt data-i18n="fEntrance">Entrance</dt><dd>C/ Carrasqueta</dd></div>
   </dl>
 </header>
 
 <main>
   <section class="wrap" id="exterior">
     <div class="sec-head">
-      <h2>Exterior</h2>
-      <p>White render, stone ground floor, timber shutters, dark set-back ático with a pergola.</p>
+      <h2 data-i18n="extH">Exterior</h2>
+      <p data-i18n="extP">White render, stone ground floor, timber shutters, dark set-back ático with a pergola.</p>
     </div>
     <div class="viewer" id="viewer">
-      <canvas id="c3d" aria-label="3D model of the building"></canvas>
-      <div class="views" role="group" aria-label="Camera views">
-        <button class="btn" data-view="corner" aria-pressed="true">Corner</button>
+      <canvas id="c3d" aria-label="3D model of the building" data-i18n-aria="model3d"></canvas>
+      <div class="views" role="group" aria-label="Camera views" data-i18n-aria="camViews">
+        <button class="btn" data-view="corner" aria-pressed="true" data-i18n="vCorner">Corner</button>
         <button class="btn" data-view="carrasqueta" aria-pressed="false">C/ Carrasqueta</button>
         <button class="btn" data-view="burjassot" aria-pressed="false">Av. Burjassot</button>
-        <button class="btn" data-view="aerial" aria-pressed="false">From above</button>
+        <button class="btn" data-view="aerial" aria-pressed="false" data-i18n="vAerial">From above</button>
       </div>
-      <p class="hint">Drag to rotate · scroll or pinch to zoom</p>
-      <p class="err3d" id="err3d" hidden>The 3D view could not load here. The floor plans below still work.</p>
+      <p class="hint" data-i18n="hint">Drag to rotate · scroll or pinch to zoom</p>
+      <p class="err3d" id="err3d" hidden data-i18n="err3d">The 3D view could not load here. The floor plans below still work.</p>
     </div>
   </section>
 
   <section class="wrap" id="plans">
     <div class="sec-head">
-      <h2>Floor plans</h2>
-      <p>Pick a level. Areas are measured to wall centre lines.</p>
+      <h2 data-i18n="plansH">Floor plans</h2>
+      <p data-i18n="plansP">Pick a level. Areas are measured to wall centre lines.</p>
     </div>
     <div class="tabs" role="tablist" id="tabs"></div>
     <div class="plan-grid">
@@ -148,17 +161,99 @@ footer.wrap{padding-block:30px 40px;color:var(--muted);font-size:13px}
   </section>
 
   <section class="wrap" id="notes">
-    <div class="sec-head"><h2>Before this goes further</h2></div>
+    <div class="sec-head"><h2 data-i18n="notesH">Before this goes further</h2></div>
     <ul class="notes">
-      <li><b>Plot size is traced, not measured</b><p>Sides of about 8.2 m (Burjassot), 16.2 m (Carrasqueta) and 15.3 m (party wall with no. 227), give or take half a metre. A survey (levantamiento topográfico) gives the real numbers.</p></li>
-      <li><b>Minimum plot is 100 m²</b><p>Your plot is 85.35 m². As your own analysis says, confirm with Planeamiento that it can be built on its own (Art. 6.18).</p></li>
-      <li><b>One more floor is allowed</b><p>The rules allow PB + 3 floors + ático. This concept uses PB + 2 + ático as you described, so a fourth apartment floor would still fit.</p></li>
-      <li><b>Parking: 1 space per home</b><p>There is no room for cars on this footprint. Ask the city about an exemption or another solution early.</p></li>
-      <li><b>Stair, lift and balconies are indicative</b><p>An architect has to size them to code (CTE, accessibility) and check how far balconies may stick out over the street (Art. 6.19.10).</p></li>
+      <li><b data-i18n="n1h">Plot size is traced, not measured</b><p data-i18n="n1p">Sides of about 8.2 m (Burjassot), 16.2 m (Carrasqueta) and 15.3 m (party wall with no. 227), give or take half a metre. A survey (levantamiento topográfico) gives the real numbers.</p></li>
+      <li><b data-i18n="n2h">Minimum plot is 100 m²</b><p data-i18n="n2p">Your plot is 85.35 m². As your own analysis says, confirm with Planeamiento that it can be built on its own (Art. 6.18).</p></li>
+      <li><b data-i18n="n3h">One more floor is allowed</b><p data-i18n="n3p">The rules allow PB + 3 floors + ático. This concept uses PB + 2 + ático as you described, so a fourth apartment floor would still fit.</p></li>
+      <li><b data-i18n="n4h">Parking: 1 space per home</b><p data-i18n="n4p">There is no room for cars on this footprint. Ask the city about an exemption or another solution early.</p></li>
+      <li><b data-i18n="n5h">Stair, lift and balconies are indicative</b><p data-i18n="n5p">An architect has to size them to code (CTE, accessibility) and check how far balconies may stick out over the street (Art. 6.19.10).</p></li>
     </ul>
   </section>
 </main>
-<footer class="wrap">Concept visualization for discussion. Not a construction or permit drawing.</footer>
+<footer class="wrap" data-i18n="footer">Concept visualization for discussion. Not a construction or permit drawing.</footer>
+
+<script>
+/* ---------- Language (EN / ES) ---------- */
+(function(){
+const D={
+ en:{
+  eyebrow:'Av. Burjassot 229 · Valencia · Concept, not for construction',
+  lede:'A first look at a small corner building on your 85 m² plot: three 2-bedroom apartments and a studio with a roof terrace on top. The main entrance is on Carrer Carrasqueta. All sizes are approximate and traced from the cadastral map.',
+  fPlot:'Plot', fPlotV:'85.35 m²', fLevels:'Levels', fHomes:'Homes', fHomesV:'3 × 2-bed · 1 studio', fHeight:'Cornice height', fEntrance:'Entrance',
+  extH:'Exterior', extP:'White render, stone ground floor, timber shutters, dark set-back ático with a pergola.',
+  model3d:'3D model of the building', camViews:'Camera views', vCorner:'Corner', vAerial:'From above',
+  hint:'Drag to rotate · scroll or pinch to zoom', err3d:'The 3D view could not load here. The floor plans below still work.',
+  plansH:'Floor plans', plansP:'Pick a level. Areas are measured to wall centre lines.',
+  notesH:'Before this goes further',
+  n1h:'Plot size is traced, not measured', n1p:'Sides of about 8.2 m (Burjassot), 16.2 m (Carrasqueta) and 15.3 m (party wall with no. 227), give or take half a metre. A survey (levantamiento topográfico) gives the real numbers.',
+  n2h:'Minimum plot is 100 m²', n2p:'Your plot is 85.35 m². As your own analysis says, confirm with Planeamiento that it can be built on its own (Art. 6.18).',
+  n3h:'One more floor is allowed', n3p:'The rules allow PB + 3 floors + ático. This concept uses PB + 2 + ático as you described, so a fourth apartment floor would still fit.',
+  n4h:'Parking: 1 space per home', n4p:'There is no room for cars on this footprint. Ask the city about an exemption or another solution early.',
+  n5h:'Stair, lift and balconies are indicative', n5p:'An architect has to size them to code (CTE, accessibility) and check how far balconies may stick out over the street (Art. 6.19.10).',
+  footer:'Concept visualization for discussion. Not a construction or permit drawing.',
+  planAria:'Floor plan', lift:'LIFT', pergola:'pergola above', approx:'approx.', entrance:'Entrance', balcony:'balcony', partyWall:'PARTY WALL · NO. 227',
+  titleApt:'2-bedroom apartment', titleAtt:'Studio with roof terrace', level:'Level', f2f:'floor to floor',
+  totApt:'Apartment total', totAtt:'Studio total', cornerBalc:'Corner balcony', shared:'shared', wholeFloor:'Whole floor (plot)',
+  noteAtt:'The ático is set back 3.6 m from Av. Burjassot, so the terrace wraps the corner and looks over both streets.',
+  noteGround:'The building entrance is on Carrer Carrasqueta, next to the stair and lift. Ground floor height is 4.0 m (the rules ask for 3.70 to 4.80 m).',
+  noteTypical:'Living room and both bedrooms have windows. The corner balcony is off the living room. Planta 1 and Planta 2 have the same layout.'
+ },
+ es:{
+  eyebrow:'Av. Burjassot 229 · Valencia · Concepto, no válido para obra',
+  lede:'Un primer vistazo a un pequeño edificio en esquina sobre tu solar de 85 m²: tres viviendas de 2 dormitorios y un estudio con terraza en la cubierta. La entrada principal está en el Carrer Carrasqueta. Todas las medidas son aproximadas y están tomadas del plano catastral.',
+  fPlot:'Solar', fPlotV:'85,35 m²', fLevels:'Plantas', fHomes:'Viviendas', fHomesV:'3 × 2 dorm. · 1 estudio', fHeight:'Altura de cornisa', fEntrance:'Entrada',
+  extH:'Exterior', extP:'Revoco blanco, planta baja de piedra, contraventanas de madera y ático retranqueado en tono oscuro con pérgola.',
+  model3d:'Modelo 3D del edificio', camViews:'Vistas de cámara', vCorner:'Esquina', vAerial:'Desde arriba',
+  hint:'Arrastra para girar · rueda o pellizca para hacer zoom', err3d:'La vista 3D no se ha podido cargar aquí. Los planos de abajo siguen funcionando.',
+  plansH:'Planos de planta', plansP:'Elige una planta. Las superficies se miden a eje de muros.',
+  notesH:'Antes de seguir adelante',
+  n1h:'La superficie del solar está estimada, no medida', n1p:'Lados de unos 8,2 m (Burjassot), 16,2 m (Carrasqueta) y 15,3 m (medianera con el nº 227), con un margen de medio metro. Un levantamiento topográfico dará las medidas reales.',
+  n2h:'La parcela mínima es de 100 m²', n2p:'Tu solar tiene 85,35 m². Como indica tu propio análisis, confirma con Planeamiento que se puede edificar de forma independiente (art. 6.18).',
+  n3h:'Se permite una planta más', n3p:'La normativa permite PB + 3 plantas + ático. Este concepto usa PB + 2 + ático, como lo describiste, así que todavía cabría una cuarta planta de viviendas.',
+  n4h:'Aparcamiento: 1 plaza por vivienda', n4p:'En esta huella no hay sitio para coches. Consulta cuanto antes con el Ayuntamiento una exención u otra solución.',
+  n5h:'Escalera, ascensor y balcones son orientativos', n5p:'Un arquitecto debe dimensionarlos según normativa (CTE, accesibilidad) y comprobar cuánto pueden volar los balcones sobre la calle (art. 6.19.10).',
+  footer:'Visualización conceptual para debatir. No es un plano de obra ni de licencia.',
+  planAria:'Plano de planta', lift:'ASCENSOR', pergola:'pérgola encima', approx:'aprox.', entrance:'Entrada', balcony:'balcón', partyWall:'MEDIANERA · Nº 227',
+  titleApt:'Vivienda de 2 dormitorios', titleAtt:'Estudio con terraza', level:'Nivel', f2f:'altura entre plantas',
+  totApt:'Total vivienda', totAtt:'Total estudio', cornerBalc:'Balcón en esquina', shared:'zona común', wholeFloor:'Planta completa (solar)',
+  noteAtt:'El ático se retranquea 3,6 m respecto a la Av. Burjassot, así que la terraza rodea la esquina y da a las dos calles.',
+  noteGround:'La entrada del edificio está en el Carrer Carrasqueta, junto a la escalera y el ascensor. La planta baja tiene 4,0 m de altura (la normativa pide entre 3,70 y 4,80 m).',
+  noteTypical:'El salón y los dos dormitorios tienen ventanas. El balcón en esquina sale del salón. La Planta 1 y la Planta 2 tienen la misma distribución.',
+  /* room names, keyed by their English name */
+  'Living · kitchen · dining':'Salón · cocina · comedor', 'Bedroom 1':'Dormitorio 1', 'Bedroom 2':'Dormitorio 2',
+  'Bathroom':'Baño', 'Bath':'Baño', 'Hall':'Pasillo', 'Stair + lift':'Escalera + ascensor', 'plan:Stair + lift':'Esc. + ascensor',
+  'Studio':'Estudio', 'Roof terrace':'Terraza'
+ }
+};
+let lang='en';
+try{
+  const q=new URLSearchParams(location.search).get('lang');
+  const saved=localStorage.getItem('b229-lang');
+  if(q==='en'||q==='es') lang=q;
+  else if(saved==='en'||saved==='es') lang=saved;
+  else if(/^es\b/i.test(navigator.language||'')) lang='es';
+}catch(e){ if(/^es\b/i.test(navigator.language||'')) lang='es'; }
+
+const t=k=>(D[lang]&&D[lang][k]!=null)?D[lang][k]:(D.en[k]!=null?D.en[k]:k);
+const num=(n,d=1)=>{const s=n.toFixed(d);return lang==='es'?s.replace('.',','):s;};
+
+function apply(){
+  document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{el.innerHTML=t(el.dataset.i18n);});
+  document.querySelectorAll('[data-i18n-aria]').forEach(el=>el.setAttribute('aria-label',t(el.dataset.i18nAria)));
+  document.querySelectorAll('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.lang===lang?'true':'false'));
+}
+function set(l){
+  if(l===lang) return; lang=l;
+  try{localStorage.setItem('b229-lang',l);}catch(e){}
+  apply(); document.dispatchEvent(new Event('langchange'));
+}
+document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>set(b.dataset.lang)));
+window.I18N={t,num,set,get lang(){return lang;}};
+apply();
+})();
+</script>
 
 <script>
 /* ---------- Shared geometry (plan metres; x along Av. Burjassot from the party wall, y into the plot) ---------- */
@@ -196,7 +291,7 @@ const APT_ROOMS=[
   {n:'Bedroom 1',t:'bed',p:band(1.1,4.3,6.9),lp:[4.55,5.3]},
   {n:'Bathroom',t:'wet',p:band(1.1,6.9,8.2),lp:[3.05,7.82],sm:1,short:'Bath'},
   {n:'Bedroom 2',t:'bed',p:band(1.1,8.2,10.5),lp:[3.05,8.82],sm:1},
-  {n:'Hall',t:'circ',p:HALL,lp:[3.45,10.95],sm:1,one:1},
+  {n:'Hall',t:'circ',p:HALL,lp:[3.35,10.95],sm:1,one:1},
   {n:'Stair + lift',t:'core',p:CORE,shared:1,lp:[2.65,12.05],sm:1}
 ];
 const CORE_FURN=[{k:'lift',r:[0.15,11.55,1.15,1.15]},{k:'stair',r:[0.15,12.85,1.95,2.3],run:1.65}];
@@ -271,13 +366,15 @@ window.HOUSE={W,L,BK,K,fx,LC,dC,nC,YC,PARCEL,CORE,ATT,TERRACE,LEVELS,balcony,are
 /* ---------- Floor plans (SVG) ---------- */
 (function(){
 const H=window.HOUSE, {W,L,BK,fx,LC,dC,nC,YC,PARCEL,ATT,area}=H;
+const I=window.I18N, T=I.t, N=I.num;
+const PL=k=>{const v=T('plan:'+k);return v==='plan:'+k?T(k):v;};
 const r=n=>Math.round(n*1000)/1000;
 const S=(x,y)=>r(x)+','+r(-y);
 const pts=p=>p.map(q=>S(q[0],q[1])).join(' ');
 const ln=(a,b,cls,w,extra='')=>`<line x1="${r(a[0])}" y1="${r(-a[1])}" x2="${r(b[0])}" y2="${r(-b[1])}" class="${cls}" stroke-width="${w}" ${extra}/>`;
 const rc=(x,y,w,h,cls,sw=0.025,rx=0)=>`<rect x="${r(x)}" y="${r(-(y+h))}" width="${r(w)}" height="${r(h)}" rx="${rx}" class="${cls}" stroke-width="${sw}"/>`;
 const tx=(x,y,s,cls,t,extra='')=>`<text x="${r(x)}" y="${r(-y)}" font-size="${s}" class="${cls}" text-anchor="middle" ${extra}>${t}</text>`;
-const fmt=a=>a.toFixed(1).replace(/\.0$/,'.0');
+const fmt=a=>N(a,1);
 const add=(a,b,k=1)=>[a[0]+b[0]*k,a[1]+b[1]*k];
 
 function furniture(f){
@@ -305,7 +402,7 @@ function furniture(f){
       else {s+=rc(x,y,0.17,h,'furn-f',0.025);s+=`<ellipse cx="${r(x+0.17+(w-0.17)/2)}" cy="${r(-(y+h/2))}" rx="${r((w-0.17)/2)}" ry="${r(h/2-0.02)}" class="furn-f" stroke-width="0.025"/>`;}
       break;}
     case 'shower': s+=rc(x,y,w,h,'furn-f',0.025)+ln([x,y],[x+w,y+h],'furn',0.015)+ln([x+w,y],[x,y+h],'furn',0.015)+`<circle cx="${r(x+w/2)}" cy="${r(-(y+h/2))}" r="0.05" class="furn" stroke-width="0.02"/>`; break;
-    case 'lift': s+=rc(x,y,w,h,'furn-f',0.04)+ln([x,y],[x+w,y+h],'furn',0.02)+ln([x+w,y],[x,y+h],'furn',0.02)+tx(x+w/2,y+h/2-0.08,0.22,'ar','LIFT'); break;
+    case 'lift': s+=rc(x,y,w,h,'furn-f',0.04)+ln([x,y],[x+w,y+h],'furn',0.02)+ln([x+w,y],[x,y+h],'furn',0.02)+tx(x+w/2,y+h/2-0.08,Math.min(0.22,0.95/(T('lift').length*0.6)),'ar',T('lift')); break;
     case 'stair':{
       const mid=x+w/2, yr=y+f.run;
       s+=rc(x,y,w,h,'furn-f',0.03)+ln([mid,y],[mid,yr],'furn',0.03);
@@ -319,7 +416,7 @@ function furniture(f){
     case 'plant': s+=`<circle cx="${r(f.c[0])}" cy="${r(-f.c[1])}" r="${f.rad}" class="plant" stroke-width="0.025"/>`; break;
     case 'pergola':{ s+=rc(x,y,w,h,'pergola',0.04);
       for(let t=x+0.3;t<x+w-0.1;t+=0.3) s+=ln([t,y],[t,y+h],'pergola',0.015);
-      s+=tx(x+w/2,y+h-0.38,0.22,'ar','pergola above'); break;}
+      s+=tx(x+w/2,y+h-0.38,0.22,'ar',T('pergola')); break;}
   }
   return s;
 }
@@ -342,13 +439,13 @@ function opening(o,thick){
     const side=[-n[1],n[0]], h1=add(add(b,n,0.22),side,0.14), h2=add(add(b,n,0.22),side,-0.14);
     s+=`<polyline points="${S(h1[0],h1[1])} ${S(b[0],b[1])} ${S(h2[0],h2[1])}" class="entry" stroke-width="0.06"/>`;
     const t=add(m,n,1.75);
-    s+=tx(t[0],t[1]-0.1,0.3,'entryt','Entrance');
+    s+=tx(t[0],t[1]-0.1,0.3,'entryt',T('entrance'));
   }
   return s;
 }
 
 function roomLabel(rm){
-  const a=area(rm.p), [x,y]=rm.lp, nm=rm.short||rm.n;
+  const a=area(rm.p), [x,y]=rm.lp, nm=PL(rm.short||rm.n);
   if(rm.sm && !rm.one) return tx(x,y+0.06,0.24,'lbl',nm)+tx(x,y-0.24,0.22,'ar',fmt(a)+' m²');
   if(rm.one) return tx(x,y-0.08,0.24,'lbl',nm+' <tspan class="ar" font-weight="400">'+fmt(a)+' m²</tspan>');
   return tx(x,y+0.08,0.32,'lbl',nm)+tx(x,y-0.3,0.27,'ar',fmt(a)+' m²');
@@ -362,19 +459,19 @@ function context(lv){
   const cl=add([fx(L*0.52),L*0.52],nC,2.35), ang=Math.atan2(-dC[1],-dC[0])*-180/Math.PI;
   const angDeg=Math.atan2(L,W-BK)*180/Math.PI;
   s+=`<text x="${r(cl[0])}" y="${r(-cl[1])}" font-size="0.36" class="street" text-anchor="middle" transform="rotate(${r(angDeg)} ${r(cl[0])} ${r(-cl[1])})">CARRER CARRASQUETA</text>`;
-  s+=`<text x="${r(-0.55)}" y="${r(-L/2)}" font-size="0.26" class="street" text-anchor="middle" transform="rotate(-90 ${r(-0.55)} ${r(-L/2)})">PARTY WALL · NO. 227</text>`;
+  s+=`<text x="${r(-0.55)}" y="${r(-L/2)}" font-size="0.26" class="street" text-anchor="middle" transform="rotate(-90 ${r(-0.55)} ${r(-L/2)})">${T('partyWall')}</text>`;
   // dimensions
   const dimY=-1.55;
   s+=ln([0,dimY],[W,dimY],'dim',0.015)+ln([0,dimY-0.15],[0,dimY+0.15],'dim',0.02)+ln([W,dimY-0.15],[W,dimY+0.15],'dim',0.02);
-  s+=tx(W/2,dimY+0.12,0.26,'dimt','≈ '+W.toFixed(1)+' m');
+  s+=tx(W/2,dimY+0.12,0.26,'dimt','≈ '+N(W,1)+' m');
   const dx=-1.45;
   s+=ln([dx,0],[dx,L],'dim',0.015)+ln([dx-0.15,0],[dx+0.15,0],'dim',0.02)+ln([dx-0.15,L],[dx+0.15,L],'dim',0.02);
-  s+=`<text x="${r(dx-0.14)}" y="${r(-L/2)}" font-size="0.26" class="dimt" text-anchor="middle" transform="rotate(-90 ${r(dx-0.14)} ${r(-L/2)})">≈ ${L.toFixed(1)} m</text>`;
+  s+=`<text x="${r(dx-0.14)}" y="${r(-L/2)}" font-size="0.26" class="dimt" text-anchor="middle" transform="rotate(-90 ${r(dx-0.14)} ${r(-L/2)})">≈ ${N(L,1)} m</text>`;
   const c0=add([W,0],nC,1.25), c1=add([BK,L],nC,1.25);
   s+=ln(c0,c1,'dim',0.015);
   const cm=add([(W+BK)/2,L/2],nC,1.45);
-  s+=`<text x="${r(cm[0])}" y="${r(-cm[1])}" font-size="0.26" class="dimt" text-anchor="middle" transform="rotate(${r(angDeg)} ${r(cm[0])} ${r(-cm[1])})">≈ ${LC.toFixed(1)} m</text>`;
-  s+=ln([0,L+0.55],[BK,L+0.55],'dim',0.015)+tx(BK/2,L+0.68,0.24,'dimt','≈ '+BK.toFixed(2)+' m');
+  s+=`<text x="${r(cm[0])}" y="${r(-cm[1])}" font-size="0.26" class="dimt" text-anchor="middle" transform="rotate(${r(angDeg)} ${r(cm[0])} ${r(-cm[1])})">≈ ${N(LC,1)} m</text>`;
+  s+=ln([0,L+0.55],[BK,L+0.55],'dim',0.015)+tx(BK/2,L+0.68,0.24,'dimt','≈ '+N(BK,2)+' m');
   // north arrow (approx., from the north-up cadastral map)
   const nx=10.2, ny=13.6, a=-41*Math.PI/180, v=[Math.cos(a),Math.sin(a)];
   const tip=add([nx,ny],v,0.7), tail=add([nx,ny],v,-0.7), sd=[-v[1],v[0]];
@@ -382,7 +479,7 @@ function context(lv){
   s+=`<polygon points="${S(tip[0],tip[1])} ${S(b1[0],b1[1])} ${S(nx,ny)} ${S(b2[0],b2[1])}" class="north"/>`;
   const nt=add([nx,ny],v,1.05);
   s+=tx(nt[0],nt[1]-0.12,0.32,'lbl','N');
-  s+=tx(nx,ny-1.25,0.2,'ar','approx.');
+  s+=tx(nx,ny-1.25,0.2,'ar',T('approx'));
   return s;
 }
 
@@ -404,9 +501,9 @@ function render(lv){
   opens.forEach(o=>s+=opening(o,(attic&&o.p0)?0.26:0.3));
   furn.forEach(f=>s+=furniture(f));
   rooms.forEach(rm=>s+=roomLabel(rm));
-  if(lv.balcony) s+=tx(4.2,-0.62,0.22,'ar','balcony');
+  if(lv.balcony) s+=tx(4.2,-0.62,0.22,'ar',T('balcony'));
   svg.innerHTML=s;
-  svg.setAttribute('aria-label','Floor plan, '+lv.name);
+  svg.setAttribute('aria-label',T('planAria')+', '+lv.name);
   schedule(lv,rooms);
 }
 
@@ -416,19 +513,15 @@ function schedule(lv,rooms){
   const priv=rooms.filter(r=>!r.shared&&!r.outdoor), shared=rooms.filter(r=>r.shared), out=rooms.filter(r=>r.outdoor);
   const sum=a=>a.reduce((s,r)=>s+area(r.p),0);
   const sw=t=>`<span class="sw" style="background:var(--r-${t==='terrace'?'terrace':t})"></span>`;
-  const title=attic?'Studio with roof terrace':'2-bedroom apartment';
-  const sub=`Level ${lv.num} · ${lv.name} · floor to floor ${lv.h.toFixed(2)} m`;
-  let rows=priv.map(r=>`<tr><td>${sw(r.t)}${r.n}</td><td>${fmt(area(r.p))} m²</td></tr>`).join('');
-  rows+=`<tr class="total"><td>${attic?'Studio':'Apartment'} total</td><td>${fmt(sum(priv))} m²</td></tr>`;
-  out.forEach(r=>rows+=`<tr><td>${sw('terrace')}${r.n}</td><td>${fmt(area(r.p))} m²</td></tr>`);
-  if(lv.balcony) rows+=`<tr><td>${sw('balc')}Corner balcony</td><td>${fmt(area(H.balcony()))} m²</td></tr>`;
-  shared.forEach(r=>rows+=`<tr class="sub"><td>${sw('core')}${r.n} (shared)</td><td>${fmt(area(r.p))} m²</td></tr>`);
-  rows+=`<tr class="sub"><td>Whole floor (plot)</td><td>${fmt(area(PARCEL))} m²</td></tr>`;
-  let note=attic
-    ? 'The ático is set back 3.6 m from Av. Burjassot, so the terrace wraps the corner and looks over both streets.'
-    : lv.ground
-      ? 'The building entrance is on Carrer Carrasqueta, next to the stair and lift. Ground floor height is 4.0 m (the rules ask for 3.70 to 4.80 m).'
-      : 'Living room and both bedrooms have windows. The corner balcony is off the living room. Planta 1 and Planta 2 have the same layout.';
+  const title=attic?T('titleAtt'):T('titleApt');
+  const sub=`${T('level')} ${lv.num} · ${lv.name} · ${T('f2f')} ${N(lv.h,2)} m`;
+  let rows=priv.map(r=>`<tr><td>${sw(r.t)}${T(r.n)}</td><td>${fmt(area(r.p))} m²</td></tr>`).join('');
+  rows+=`<tr class="total"><td>${attic?T('totAtt'):T('totApt')}</td><td>${fmt(sum(priv))} m²</td></tr>`;
+  out.forEach(r=>rows+=`<tr><td>${sw('terrace')}${T(r.n)}</td><td>${fmt(area(r.p))} m²</td></tr>`);
+  if(lv.balcony) rows+=`<tr><td>${sw('balc')}${T('cornerBalc')}</td><td>${fmt(area(H.balcony()))} m²</td></tr>`;
+  shared.forEach(r=>rows+=`<tr class="sub"><td>${sw('core')}${T(r.n)} (${T('shared')})</td><td>${fmt(area(r.p))} m²</td></tr>`);
+  rows+=`<tr class="sub"><td>${T('wholeFloor')}</td><td>${fmt(area(PARCEL))} m²</td></tr>`;
+  const note=attic?T('noteAtt'):lv.ground?T('noteGround'):T('noteTypical');
   el.innerHTML=`<h3>${title}</h3><p class="sub">${sub}</p><table>${rows}</table><p class="legend-note">${note}</p>`;
 }
 
@@ -440,13 +533,15 @@ H.LEVELS.forEach((lv,i)=>{
   b.setAttribute('aria-selected',i===0?'true':'false');
   b.addEventListener('click',()=>{
     tabs.querySelectorAll('.btn').forEach(x=>x.setAttribute('aria-selected','false'));
-    b.setAttribute('aria-selected','true'); render(lv);
+    b.setAttribute('aria-selected','true'); cur=lv; render(lv);
   });
   tabs.appendChild(b);
 });
-render(H.LEVELS[0]);
+let cur=H.LEVELS[0];
 const top=H.LEVELS.filter(l=>l.kind==='apt').reduce((s,l)=>s+l.h,0);
-document.getElementById('f-height').textContent='≈ '+top.toFixed(1)+' m';
+function refresh(){render(cur);document.getElementById('f-height').textContent='≈ '+N(top,1)+' m';}
+refresh();
+document.addEventListener('langchange',refresh);
 })();
 </script>
 
