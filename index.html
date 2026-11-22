@@ -282,6 +282,11 @@ footer.wrap{padding-block:30px 40px;color:var(--muted);font-size:13px}
         <button type="button" data-lang="en" aria-pressed="true" lang="en" title="English">EN</button>
         <button type="button" data-lang="es" aria-pressed="false" lang="es" title="Español">ES</button>
       </div>
+      <div class="lang units" role="group" aria-label="Units / Unidades" data-i18n-aria="unitsLabel">
+        <button type="button" data-unit="m" aria-pressed="true" title="metres / metros">m</button>
+        <button type="button" data-unit="cm" aria-pressed="false" title="centimetres / centímetros">cm</button>
+        <button type="button" data-unit="mm" aria-pressed="false" title="millimetres / milímetros">mm</button>
+      </div>
     </div>
   </div>
   <h1>Burjassot 229</h1>
@@ -368,8 +373,8 @@ footer.wrap{padding-block:30px 40px;color:var(--muted);font-size:13px}
       <p data-i18n="facP">Straight-on views of the proposal's two street fronts, at the same scale. Neighbours shown for context.</p>
     </div>
     <div class="elev">
-      <figure><img id="elevB" alt="" data-i18n-alt="elevB" width="880" height="1536"><figcaption><span data-i18n="elevB">Av. Burjassot façade</span><span class="sbar-w"><span class="sbar" style="width:45.45%"></span>5 m</span></figcaption></figure>
-      <figure><img id="elevC" alt="" data-i18n-alt="elevC" width="1536" height="1536"><figcaption><span data-i18n="elevC">C/ Carrasqueta façade</span><span class="sbar-w"><span class="sbar" style="width:26.04%"></span>5 m</span></figcaption></figure>
+      <figure><img id="elevB" alt="" data-i18n-alt="elevB" width="880" height="1536"><figcaption><span data-i18n="elevB">Av. Burjassot façade</span><span class="sbar-w"><span class="sbar" style="width:45.45%"></span><span data-len="5" data-d="0">5 m</span></span></figcaption></figure>
+      <figure><img id="elevC" alt="" data-i18n-alt="elevC" width="1536" height="1536"><figcaption><span data-i18n="elevC">C/ Carrasqueta façade</span><span class="sbar-w"><span class="sbar" style="width:26.04%"></span><span data-len="5" data-d="0">5 m</span></span></figcaption></figure>
     </div>
   </section>
 
@@ -499,10 +504,10 @@ const D={
   stHomes:'Homes', stCornice:'Cornice', stBase:'Base columns', stMicro:'Micropiles', stProfile:'Profile', stGroup:'Element', stWhere:'Where', stKg:'kg', stTotal:'Total steel',
   stLoad:'Load', stValue:'Value', stFound:'Foundations', stFire:'Fire', stChecks:'Checks', stPlanT:'Structural plan, same on every floor', stCostNote:'Steel, fire protection, slabs and micropiles. Not included: façade stabiliser and demolition, lift, finishes, VAT and fees.',
   todayView:'Today (same corner)', facScale:'Same scale, about 1:180 on A4', todaySrc:'Source: 2020 façade restoration project',
-  frH:'Structural frame drawings', frP:'The steel skeleton member by member: foundations, every floor, the braced frames and the column schedule. It follows the version and lift switches at the top of the page.', fr3d:'Steel skeleton seen from the street corner', fr3dNote:'Steel skeleton seen from the corner of Av. Burjassot and C/ Carrasqueta. Black: columns and beams. Red: bracing. Dashed orange: the old street façades that are kept (to +7.00). Blue: floor slabs. Grey steps: the stairs, one U-stair per storey.', frSched:'Column schedule', frSchedNote:'Profile of each column in each storey (S275, HEB). Splices every two storeys, about 0.5 m above the floor. Bold: larger than HEB 140.', frPlans:'Plans by level', frFound:'Foundations', frFloorOf:'Floor of {n}', frRoof:'Ático roof', frElev:'Frame elevations', frElevNote:'Each braced frame unfolded flat, seen from inside the plot. Bracing sizes change from storey to storey. Blue tick: column splice.', frE_party:'Party wall, x = 0.30', frE_y43:'Axis y = 4.30', frE_y81:'Axis y ≈ 8.10', frE_back:'Back boundary, y = 15.05', frE_burj:'Behind Av. Burjassot façade, y = 0.60', frSideBurj:'Av. Burjassot', frSideBack:'Back', frSideParty:'Party wall', frSideCarr:'C/ Carrasqueta', frKeyCol:'Column of the storey below', frKeyColBase:'Column base', frKeyPost:'Post that starts on this floor', frKeyBeam:'Beam (id and profile)', frKeyBr:'Bracing in the storey below', frKeyDeck:'Composite deck, ribs in the span direction', frKeyVoid:'Opening', frKeyCap:'Pile cap with micropiles', frKeyTie:'Tie beam 40×50 cm', frStair:'Stair', frLift:'Lift', frDeck:'deck {t} cm', frAticoAbove:'ático above', frBeam:'Beam', frLen:'Length', frCol:'Column', frBase:'Base profile', frCap:'Pile cap', frNsls:'Load (SLS)', frMp:'{n} micropiles', frMpShort:'{n} mp', frUplift:'Uplift (tension) under wind', frOnBeam:'on beam', frGround:'Ground', frExistFac:'Existing façade, kept, to +7.00', frScale:'1:125 on A4', frFoundNote:'Micropiles Ø150–200 mm, about 15 m long, assumed 250 kN each in compression and 150 kN in tension. Caps are tied in both directions with 40×50 cm beams. Next to the party wall the caps must be eccentric; the geotechnical study sets the final number and length. ↑ = uplift under wind.', frSlabNote:'Composite slab 13 cm (60 mm steel deck + concrete) spanning in y between the beams, propped at mid-span while concreting. Beams ≤ 300 mm deep, hidden in the cross walls.', frRoofNote:'Ático roof: same composite slab over the studio only. The rest of the top floor is the terrace on the floor below.'
+  unitsLabel:'Units', frH:'Structural frame drawings', frP:'The steel skeleton member by member: foundations, every floor, the braced frames and the column schedule. It follows the version and lift switches at the top of the page.', fr3d:'Steel skeleton seen from the street corner', fr3dNote:'Steel skeleton seen from the corner of Av. Burjassot and C/ Carrasqueta. Black: columns and beams. Red: bracing. Dashed orange: the old street façades that are kept (to +7.00). Blue: floor slabs. Grey steps: the stairs, one U-stair per storey.', frSched:'Column schedule', frSchedNote:'Profile of each column in each storey (S275, HEB). Splices every two storeys, about 0.5 m above the floor. Bold: larger than HEB 140.', frPlans:'Plans by level', frFound:'Foundations', frFloorOf:'Floor of {n}', frRoof:'Ático roof', frElev:'Frame elevations', frElevNote:'Each braced frame unfolded flat, seen from inside the plot. Bracing sizes change from storey to storey. Blue tick: column splice.', frE_party:'Party wall, x = 0.30', frE_y43:'Axis y = 4.30', frE_y81:'Axis y ≈ 8.10', frE_back:'Back boundary, y = 15.05', frE_burj:'Behind Av. Burjassot façade, y = 0.60', frSideBurj:'Av. Burjassot', frSideBack:'Back', frSideParty:'Party wall', frSideCarr:'C/ Carrasqueta', frKeyCol:'Column of the storey below', frKeyColBase:'Column base', frKeyPost:'Post that starts on this floor', frKeyBeam:'Beam (id and profile)', frKeyBr:'Bracing in the storey below', frKeyDeck:'Composite deck, ribs in the span direction', frKeyVoid:'Opening', frKeyCap:'Pile cap with micropiles', frKeyTie:'Tie beam 40×50 cm', frStair:'Stair', frLift:'Lift', frDeck:'deck {t} cm', frAticoAbove:'ático above', frBeam:'Beam', frLen:'Length', frCol:'Column', frBase:'Base profile', frCap:'Pile cap', frNsls:'Load (SLS)', frMp:'{n} micropiles', frMpShort:'{n} mp', frUplift:'Uplift (tension) under wind', frOnBeam:'on beam', frGround:'Ground', frExistFac:'Existing façade, kept, to +7.00', frScale:'1:125 on A4', frFoundNote:'Micropiles Ø150–200 mm, about 15 m long, assumed 250 kN each in compression and 150 kN in tension. Caps are tied in both directions with 40×50 cm beams. Next to the party wall the caps must be eccentric; the geotechnical study sets the final number and length. ↑ = uplift under wind.', frSlabNote:'Composite slab 13 cm (60 mm steel deck + concrete) spanning in y between the beams, propped at mid-span while concreting. Beams ≤ 300 mm deep, hidden in the cross walls.', frRoofNote:'Ático roof: same composite slab over the studio only. The rest of the top floor is the terrace on the floor below.'
  },
  es:{
-  frH:'Planos de estructura (carcasa)', frP:'El esqueleto de acero pieza a pieza: cimentación, cada forjado, los pórticos arriostrados y el cuadro de pilares. Sigue los selectores de versión y ascensor de arriba.', fr3d:'Esqueleto de acero visto desde la esquina', fr3dNote:'Esqueleto de acero visto desde la esquina de Av. Burjassot y C/ Carrasqueta. Negro: pilares y vigas. Rojo: arriostramientos. Naranja discontinuo: las fachadas antiguas que se conservan (hasta +7,00). Azul: forjados. Peldaños grises: las escaleras, una escalera en U por planta.', frSched:'Cuadro de pilares', frSchedNote:'Perfil de cada pilar en cada planta (S275, HEB). Empalmes cada dos plantas, a unos 0,5 m sobre el forjado. En negrita: mayores que HEB 140.', frPlans:'Plantas por nivel', frFound:'Cimentación', frFloorOf:'Forjado de {n}', frRoof:'Cubierta del ático', frElev:'Pórticos (alzados de estructura)', frElevNote:'Cada pórtico arriostrado desplegado en plano, visto desde dentro de la parcela. Los arriostramientos cambian de una planta a otra. Marca azul: empalme de pilar.', frE_party:'Medianera, x = 0,30', frE_y43:'Eje y = 4,30', frE_y81:'Eje y ≈ 8,10', frE_back:'Lindero trasero, y = 15,05', frE_burj:'Tras la fachada de Av. Burjassot, y = 0,60', frSideBurj:'Av. Burjassot', frSideBack:'Fondo', frSideParty:'Medianera', frSideCarr:'C/ Carrasqueta', frKeyCol:'Pilar de la planta inferior', frKeyColBase:'Arranque de pilar', frKeyPost:'Pilar que arranca en este forjado', frKeyBeam:'Viga (referencia y perfil)', frKeyBr:'Arriostramiento en la planta inferior', frKeyDeck:'Chapa colaborante, nervios en la dirección de la luz', frKeyVoid:'Hueco', frKeyCap:'Encepado con micropilotes', frKeyTie:'Viga de atado 40×50 cm', frStair:'Escalera', frLift:'Ascensor', frDeck:'forjado {t} cm', frAticoAbove:'ático encima', frBeam:'Viga', frLen:'Longitud', frCol:'Pilar', frBase:'Perfil de arranque', frCap:'Encepado', frNsls:'Carga (ELS)', frMp:'{n} micropilotes', frMpShort:'{n} mp', frUplift:'Tracción con viento', frOnBeam:'sobre viga', frGround:'Rasante', frExistFac:'Fachada existente conservada, hasta +7,00', frScale:'1:125 en A4', frFoundNote:'Micropilotes Ø150–200 mm, de unos 15 m, con 250 kN supuestos por unidad a compresión y 150 kN a tracción. Encepados atados en las dos direcciones con vigas de 40×50 cm. Junto a la medianera los encepados son excéntricos; el estudio geotécnico fija el número y la longitud definitivos. ↑ = tracción con viento.', frSlabNote:'Forjado de chapa colaborante de 13 cm (chapa de 60 mm + hormigón) que salva la luz en y entre vigas, apuntalado en centro de vano al hormigonar. Vigas de canto ≤ 300 mm, ocultas en los tabiques transversales.', frRoofNote:'Cubierta del ático: el mismo forjado colaborante, sólo sobre el estudio. El resto de la última planta es la terraza sobre el forjado inferior.',
+  unitsLabel:'Unidades', frH:'Planos de estructura (carcasa)', frP:'El esqueleto de acero pieza a pieza: cimentación, cada forjado, los pórticos arriostrados y el cuadro de pilares. Sigue los selectores de versión y ascensor de arriba.', fr3d:'Esqueleto de acero visto desde la esquina', fr3dNote:'Esqueleto de acero visto desde la esquina de Av. Burjassot y C/ Carrasqueta. Negro: pilares y vigas. Rojo: arriostramientos. Naranja discontinuo: las fachadas antiguas que se conservan (hasta +7,00). Azul: forjados. Peldaños grises: las escaleras, una escalera en U por planta.', frSched:'Cuadro de pilares', frSchedNote:'Perfil de cada pilar en cada planta (S275, HEB). Empalmes cada dos plantas, a unos 0,5 m sobre el forjado. En negrita: mayores que HEB 140.', frPlans:'Plantas por nivel', frFound:'Cimentación', frFloorOf:'Forjado de {n}', frRoof:'Cubierta del ático', frElev:'Pórticos (alzados de estructura)', frElevNote:'Cada pórtico arriostrado desplegado en plano, visto desde dentro de la parcela. Los arriostramientos cambian de una planta a otra. Marca azul: empalme de pilar.', frE_party:'Medianera, x = 0,30', frE_y43:'Eje y = 4,30', frE_y81:'Eje y ≈ 8,10', frE_back:'Lindero trasero, y = 15,05', frE_burj:'Tras la fachada de Av. Burjassot, y = 0,60', frSideBurj:'Av. Burjassot', frSideBack:'Fondo', frSideParty:'Medianera', frSideCarr:'C/ Carrasqueta', frKeyCol:'Pilar de la planta inferior', frKeyColBase:'Arranque de pilar', frKeyPost:'Pilar que arranca en este forjado', frKeyBeam:'Viga (referencia y perfil)', frKeyBr:'Arriostramiento en la planta inferior', frKeyDeck:'Chapa colaborante, nervios en la dirección de la luz', frKeyVoid:'Hueco', frKeyCap:'Encepado con micropilotes', frKeyTie:'Viga de atado 40×50 cm', frStair:'Escalera', frLift:'Ascensor', frDeck:'forjado {t} cm', frAticoAbove:'ático encima', frBeam:'Viga', frLen:'Longitud', frCol:'Pilar', frBase:'Perfil de arranque', frCap:'Encepado', frNsls:'Carga (ELS)', frMp:'{n} micropilotes', frMpShort:'{n} mp', frUplift:'Tracción con viento', frOnBeam:'sobre viga', frGround:'Rasante', frExistFac:'Fachada existente conservada, hasta +7,00', frScale:'1:125 en A4', frFoundNote:'Micropilotes Ø150–200 mm, de unos 15 m, con 250 kN supuestos por unidad a compresión y 150 kN a tracción. Encepados atados en las dos direcciones con vigas de 40×50 cm. Junto a la medianera los encepados son excéntricos; el estudio geotécnico fija el número y la longitud definitivos. ↑ = tracción con viento.', frSlabNote:'Forjado de chapa colaborante de 13 cm (chapa de 60 mm + hormigón) que salva la luz en y entre vigas, apuntalado en centro de vano al hormigonar. Vigas de canto ≤ 300 mm, ocultas en los tabiques transversales.', frRoofNote:'Cubierta del ático: el mismo forjado colaborante, sólo sobre el estudio. El resto de la última planta es la terraza sobre el forjado inferior.',
   eyebrow:'Av. Burjassot 229 · Valencia · Concepto, no válido para obra',
   lede:'Conservar las dos fachadas a calle de la casa en esquina, rehacer el interior y crecer en altura, con un estudio en ático. Dos versiones para comparar: planta baja + 2, o planta baja + 3 (unos 341 m², como en tu análisis urbanístico). La entrada del edificio sigue en el Carrer Carrasqueta, por la puerta existente.', verLabel:'Versión', liftLabel:'Ascensor', liftYes:'Con ascensor', liftNo:'Sin ascensor', noLiftTag:'sin ascensor', storage:'TRASTERO', 'Stair + storage':'Escalera + trastero', 'plan:Stair + storage':'Esc. + trastero', 'Laundry / storage':'Lavadero / almacén', 'plan:Laundry / storage':'Lavadero', 'Stair':'Escalera',
   noLiftNote:'Sin ascensor, el espacio del hueco (detrás del pasillo) se une a cada vivienda como lavadero / almacén; en el ático es un trastero junto al rellano. La normativa (CTE DB-SUA 9) suele exigir ascensor cuando una vivienda está a más de dos plantas sobre la entrada, como el ático aquí; ver los detalles en la sección de estructura.', stPending:'El cálculo sin ascensor se está preparando; las cifras mostradas son con ascensor.', stLiftH:'Con o sin ascensor', homesFmt:'{n} × 2 dorm. · 1 estudio',
@@ -561,8 +566,27 @@ try{
   else if(/^es\b/i.test(navigator.language||'')) lang='es';
 }catch(e){ if(/^es\b/i.test(navigator.language||'')) lang='es'; }
 
-const t=k=>(D[lang]&&D[lang][k]!=null)?D[lang][k]:(D.en[k]!=null?D.en[k]:k);
 const num=(n,d=1)=>{const s=n.toFixed(d);return lang==='es'?s.replace('.',','):s;};
+/* Length units. Spanish plans are dimensioned in metres with 2 decimals (3,45); cm and mm on request.
+   Lengths are stored in metres; d = decimals when shown in metres. */
+const UNITS=['m','cm','mm'];
+let unit='m';
+try{
+  const qu=new URLSearchParams(location.search).get('u'), su=localStorage.getItem('b229-unit');
+  if(UNITS.includes(qu)) unit=qu; else if(UNITS.includes(su)) unit=su;
+}catch(e){}
+const grp=s=>s.replace(/^(\d+)(\d{3})(?=$|[.,])/,(m,a,b)=>a.length>=2?a+'\u2009'+b:m);   // 16 170, but 1530
+const lenNum=(m,d=2)=>unit==='m'?num(m,d):unit==='cm'?grp(num(m*100,d>2?1:0)):grp(num(m*1000,0));
+const len=(m,d=2)=>lenNum(m,d)+' '+unit;
+/* lengths written in metres inside the text ("8.22 m", "3.70 to 4.80 m") follow the unit switch */
+const NUM='(\\d+(?:[.,]\\d+)?)';
+const RANGE=new RegExp(NUM+'(\\s*(?:–|-|to|and|a|y)\\s*)'+NUM+' m(?![²³\\w])','g'), ONE=new RegExp(NUM+' m(?![²³\\w])','g');
+const toM=x=>parseFloat(x.replace(',','.'));
+const dec=x=>(x.split(/[.,]/)[1]||'').length;
+const convText=s=>unit==='m'||typeof s!=='string'?s:s
+  .replace(RANGE,(m,a,sep,b)=>lenNum(toM(a),dec(a))+sep+len(toM(b),dec(b)))
+  .replace(ONE,(m,a)=>len(toM(a),dec(a)));
+const t=k=>convText((D[lang]&&D[lang][k]!=null)?D[lang][k]:(D.en[k]!=null?D.en[k]:k));
 
 function apply(){
   document.documentElement.lang=lang;
@@ -571,6 +595,8 @@ function apply(){
   document.querySelectorAll('[data-i18n-alt]').forEach(el=>el.setAttribute('alt',t(el.dataset.i18nAlt)));
   const dl=document.getElementById('dl'); if(dl) dl.setAttribute('href','burjassot-229-'+((window.HOUSE&&window.HOUSE.varKey())||'pb3')+'-'+lang+'.pdf');
   document.querySelectorAll('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.lang===lang?'true':'false'));
+  document.querySelectorAll('[data-unit]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.unit===unit?'true':'false'));
+  document.querySelectorAll('[data-len]').forEach(el=>{el.textContent=len(+el.dataset.len,el.dataset.d!=null?+el.dataset.d:2);});
 }
 function set(l){
   if(l===lang) return; lang=l;
@@ -578,7 +604,13 @@ function set(l){
   apply(); document.dispatchEvent(new Event('langchange'));
 }
 document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>set(b.dataset.lang)));
-window.I18N={t,num,set,get lang(){return lang;}};
+function setUnit(u){
+  if(u===unit||!UNITS.includes(u)) return; unit=u;
+  try{localStorage.setItem('b229-unit',u);}catch(e){}
+  apply(); document.dispatchEvent(new Event('langchange'));   // every drawing re-renders on langchange
+}
+document.querySelectorAll('[data-unit]').forEach(b=>b.addEventListener('click',()=>setUnit(b.dataset.unit)));
+window.I18N={t,num,len,lenNum,conv:convText,set,setUnit,get lang(){return lang;},get unit(){return unit;}};
 apply();
 })();
 </script>
@@ -771,7 +803,7 @@ window.HOUSE={W,L,BK,K,fx,LC,dC,nC,YC,YOLD,sToY,band,rect,PARCEL,CORE,ATT,TERRAC
 /* ---------- Floor plans (SVG) ---------- */
 (function(){
 const H=window.HOUSE, {W,L,BK,fx,LC,dC,nC,YC,YOLD,PARCEL,ATT,area}=H;
-const I=window.I18N, T=I.t, N=I.num;
+const I=window.I18N, T=I.t, N=I.num, U=I.len;
 const PL=k=>{const v=T('plan:'+k);return v==='plan:'+k?T(k):v;};
 const r=n=>Math.round(n*1000)/1000;
 const S=(x,y)=>r(x)+','+r(-y);
@@ -869,15 +901,15 @@ function context(lv,sfx){
   // dimensions (Burjassot and Carrasqueta lengths from the 2020 drawings)
   const dimY=-1.55;
   s+=ln([0,dimY],[W,dimY],'dim',0.015)+ln([0,dimY-0.15],[0,dimY+0.15],'dim',0.02)+ln([W,dimY-0.15],[W,dimY+0.15],'dim',0.02);
-  s+=tx(W/2,dimY+0.12,0.26,'dimt',N(8.21,2)+' m');
+  s+=tx(W/2,dimY+0.12,0.26,'dimt',U(8.21,2));
   const dx=-1.45;
   s+=ln([dx,0],[dx,L],'dim',0.015)+ln([dx-0.15,0],[dx+0.15,0],'dim',0.02)+ln([dx-0.15,L],[dx+0.15,L],'dim',0.02);
-  s+=`<text x="${r(dx-0.14)}" y="${r(-L/2)}" font-size="0.26" class="dimt" text-anchor="middle" transform="rotate(-90 ${r(dx-0.14)} ${r(-L/2)})">≈ ${N(L,1)} m</text>`;
+  s+=`<text x="${r(dx-0.14)}" y="${r(-L/2)}" font-size="0.26" class="dimt" text-anchor="middle" transform="rotate(-90 ${r(dx-0.14)} ${r(-L/2)})">≈ ${U(L,1)}</text>`;
   const c0=add([W,0],nC,1.25), c1=add([BK,L],nC,1.25);
   s+=ln(c0,c1,'dim',0.015);
   const cm=add([(W+BK)/2,L/2],nC,1.45);
-  s+=`<text x="${r(cm[0])}" y="${r(-cm[1])}" font-size="0.26" class="dimt" text-anchor="middle" transform="rotate(${r(angDeg)} ${r(cm[0])} ${r(-cm[1])})">${N(16.17,2)} m</text>`;
-  s+=ln([0,L+0.55],[BK,L+0.55],'dim',0.015)+tx(BK/2,L+0.68,0.24,'dimt','≈ '+N(BK,2)+' m');
+  s+=`<text x="${r(cm[0])}" y="${r(-cm[1])}" font-size="0.26" class="dimt" text-anchor="middle" transform="rotate(${r(angDeg)} ${r(cm[0])} ${r(-cm[1])})">${U(16.17,2)}</text>`;
+  s+=ln([0,L+0.55],[BK,L+0.55],'dim',0.015)+tx(BK/2,L+0.68,0.24,'dimt','≈ '+U(BK,2));
   // north arrow (approx., from the north-up cadastral map)
   const nx=10.2, ny=13.6, a=-41*Math.PI/180, v=[Math.cos(a),Math.sin(a)];
   const tip=add([nx,ny],v,0.7), tail=add([nx,ny],v,-0.7), sd=[-v[1],v[0]];
@@ -890,7 +922,7 @@ function context(lv,sfx){
   const sx=7.3, sy=-2.75;
   for(let i=0;i<5;i++) s+=rc(sx+i,sy,1,0.13,i%2?'erase-f':'north',0.02);
   s+=`<rect x="${r(sx)}" y="${r(-(sy+0.13))}" width="5" height="0.13" fill="none" class="face" stroke-width="0.02"/>`;
-  s+=tx(sx,sy+0.3,0.2,'dimt','0')+tx(sx+5,sy+0.3,0.2,'dimt','5 m');
+  s+=tx(sx,sy+0.3,0.2,'dimt','0')+tx(sx+5,sy+0.3,0.2,'dimt',U(5,0));
   return s;
 }
 
@@ -941,7 +973,7 @@ function schedule(lv,rooms,el){
   const sum=a=>a.reduce((s,r)=>s+area(r.p),0);
   const sw=t=>`<span class="sw" style="background:var(--r-${t})"></span>`;
   const title=K==='attic'?T('titleAtt'):K==='ground'?T('titleGround'):T('titleApt');
-  const sub=`${T('level')} ${lv.num} · ${lv.name} · ${T('f2f')} ${N(lv.h,2)} m`;
+  const sub=`${T('level')} ${lv.num} · ${lv.name} · ${T('f2f')} ${U(lv.h,2)}`;
   let rows=priv.map(r=>`<tr><td>${sw(r.t)}${T(r.n)}</td><td>${fmt(area(r.p))} m²</td></tr>`).join('');
   rows+=`<tr class="total"><td>${K==='attic'?T('totAtt'):K==='ground'?T('totGround'):T('totApt')}</td><td>${fmt(sum(priv))} m²</td></tr>`;
   out.forEach(r=>rows+=`<tr><td>${sw('terrace')}${T(r.n)}</td><td>${fmt(area(r.p))} m²</td></tr>`);
@@ -976,7 +1008,7 @@ function refresh(){
   document.getElementById('f-levels').textContent=H.VLABEL[H.ver]+(H.lift?'':' · '+T('noLiftTag'));
   document.querySelectorAll('[data-lift]').forEach(b=>b.setAttribute('aria-pressed',(b.dataset.lift==='1')===H.lift?'true':'false'));
   document.getElementById('f-homes').textContent=T('homesFmt').replace('{n}',apts);
-  document.getElementById('f-height').textContent='≈ '+N(cornice,1)+' m';
+  document.getElementById('f-height').textContent='≈ '+U(cornice,1);
   document.getElementById('f-built').textContent='≈ '+N(ab.length*area(PARCEL),0)+' m² + '+T('atico')+' '+N(area(ATT),0)+' m²';
   document.querySelectorAll('[data-ver]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.ver===H.ver?'true':'false'));
   const dl=document.getElementById('dl'); if(dl) dl.setAttribute('href','burjassot-229-'+H.varKey()+'-'+I.lang+'.pdf');
@@ -1449,10 +1481,10 @@ try{
 <script>
 /* ---------- Steel structure (data: structure/steel-calc.json → steel-data.js) ---------- */
 (function(){
-const H=window.HOUSE, I=window.I18N, T=I.t, N=I.num, D=window.STEEL;
+const H=window.HOUSE, I=window.I18N, T=I.t, N=I.num, U=I.len, D=window.STEEL;
 const sec=document.getElementById('steel');
 if(!D){ sec.hidden=true; window.STEELVIEW=null; return; }
-const Lx=o=>o==null?'':(typeof o==='string'?o:(o[I.lang]||o.en||''));
+const Lx=o=>o==null?'':I.conv(typeof o==='string'?o:(o[I.lang]||o.en||''));
 const sfx=()=>(!H.lift&&D.options.A0&&D.options.B0)?'0':'';
 const opt=()=>(H.ver==='pb2'?'B':'A')+sfx();
 const r=n=>Math.round(n*1000)/1000, S=(x,y)=>r(x)+','+r(-y);
@@ -1473,7 +1505,7 @@ function stack(){
       z+=lv.h;
     });
     s+=`<line x1="${x0-0.6}" y1="${r(19-op.cornice_m)}" x2="${x0+8.8}" y2="${r(19-op.cornice_m)}" stroke="var(--keep)" stroke-width="0.07" stroke-dasharray="0.3 0.2"/>`;
-    s+=`<text x="${x0+8.9}" y="${r(19-op.cornice_m+0.25)}" font-size="0.65" fill="var(--keep)" font-family="var(--f-mono)">${N(op.cornice_m,1)} m</text>`;
+    s+=`<text x="${x0+8.9}" y="${r(19-op.cornice_m+0.25)}" font-size="0.65" fill="var(--keep)" font-family="var(--f-mono)">${U(op.cornice_m,1)}</text>`;
     s+=`<text x="${x0+4.1}" y="${r(19-op.top_m-0.9)}" font-size="1.0" text-anchor="middle" font-weight="700" fill="${ink}" font-family="var(--f-display)">${H.VLABEL[o==='A'?'pb3':'pb2']}${cur?' ◂':''}</text>`;
     s+=`<text x="${x0+4.1}" y="20.4" font-size="0.62" text-anchor="middle" fill="${ink}" font-family="var(--f-mono)">${op.homes} ${T('stHomes').toLowerCase()} · ${N(op.totals.steel_kg/1000,1)} t ${T('stSteel').toLowerCase()}</text>`;
   };
@@ -1525,7 +1557,7 @@ function side(o){
   op.foundations.forEach(f=>h+=`<p><b>${T('stFound')}:</b> ${Lx(f.type)} — ${Lx(f.detail)}</p>`);
   h+=`<p><b>${T('stFire')}:</b> ${Lx(op.fire)}</p>`;
   h+=`<details class="st-d" style="margin-top:6px"><summary>${T('stChecks')}</summary><table class="st-table">`
-    +op.checks.map(c=>`<tr><td>${Lx(c.item)}</td><td>${c.value}</td><td class="${c.ok?'ok':'nok'}">${c.ok?'✓':'!'}</td></tr>`).join('')+`</table></details>`;
+    +op.checks.map(c=>`<tr><td>${Lx(c.item)}</td><td>${I.conv(String(c.value))}</td><td class="${c.ok?'ok':'nok'}">${c.ok?'✓':'!'}</td></tr>`).join('')+`</table></details>`;
   return h;
 }
 
@@ -1544,7 +1576,7 @@ function render(){
   document.getElementById('st-side').innerHTML=side(o);
   document.getElementById('st-members').innerHTML=membersTable(o);
   document.getElementById('st-assum').innerHTML=`<tr><th>${T('stGroup')}</th><th>${T('stValue')}</th></tr>`
-    +D.assumptions.map(a=>`<tr><td>${Lx(a.label)}</td><td>${a.value}</td></tr>`).join('')
+    +D.assumptions.map(a=>`<tr><td>${Lx(a.label)}</td><td>${Lx(a.value)}</td></tr>`).join('')
     +D.loads.map(l=>`<tr><td>${Lx(l.label)} (${l.type})</td><td style="font-family:var(--f-mono)">${N(l.kN_m2,2)} kN/m²</td></tr>`).join('');
   document.getElementById('st-proc').innerHTML=D.procedure.map(p=>`<li><b>${Lx(p.title)}</b><p>${Lx(p.text)}</p></li>`).join('');
   document.getElementById('st-warn').innerHTML=D.warnings.map(w=>`<li>${Lx(w)}</li>`).join('');
@@ -1585,7 +1617,7 @@ window.STEELVIEW={pages(){
 <script>
 /* ---------- Structural frame drawings (data: structure/frame.py → frame.json → frame-data.js) ---------- */
 (function(){
-const H=window.HOUSE, I=window.I18N, T=I.t, N=I.num, F=window.FRAME;
+const H=window.HOUSE, I=window.I18N, T=I.t, N=I.num, U=I.len, F=window.FRAME;
 const sec=document.getElementById('frame');
 if(!F){ sec.hidden=true; window.FRAMEVIEW=null; return; }
 const G=F.geom;
@@ -1594,7 +1626,7 @@ const O=()=>F.options[key()];
 const r=n=>Math.round(n*1000)/1000;
 const P=(x,y)=>r(x)+','+r(-y);
 const fm=(s,o)=>s.replace(/\{(\w+)\}/g,(_,k)=>o[k]);
-const lvTxt=z=>(z>0?'+':z<0?'−':'±')+N(Math.abs(z),2);
+const lvTxt=z=>(z>0?'+':z<0?'−':'±')+I.lenNum(Math.abs(z),2);   // level marks +3,00 / +300 / +3000, no unit, as on Spanish drawings
 const hebB=p=>{const m=/(\d+)/.exec(p||'');return m?+m[1]/1000:0.14;};
 const nat=(a,b)=>a.localeCompare(b,'en',{numeric:true});
 const RED='#c0392b', MONO='font-family="var(--f-mono)"';
@@ -1612,7 +1644,7 @@ function lvName(o,L,long){
 
 /* scale bar, 5 m, in plan/elevation metres */
 const sbar=(x,y,len)=>{let s='';for(let i=0;i<len;i++) s+=`<rect x="${x+i}" y="${y}" width="1" height="0.16" fill="${i%2?'var(--sheet)':'var(--ink)'}" stroke="var(--ink)" stroke-width="0.03"/>`;
-  return s+`<text x="${x+len+0.2}" y="${y+0.16}" font-size="0.3" fill="var(--muted)" ${MONO}>${len} m</text>`;};
+  return s+`<text x="${x+len+0.2}" y="${y+0.16}" font-size="0.3" fill="var(--muted)" ${MONO}>${U(len,0)}</text>`;};
 
 /* ---------- plans ---------- */
 function beamLabel(b,txt,side){
@@ -1709,7 +1741,7 @@ function planSVG(o,L){
   // beams
   sl.beams.forEach(b=>{
     const d=hebB(b.profile)*1.0+0.03;
-    s+=`<line x1="${b.x1}" y1="${-b.y1}" x2="${b.x2}" y2="${-b.y2}" stroke="var(--ink)" stroke-width="${r(0.03+d*0.35)}"><title>${b.id} · ${b.profile} · ${N(b.L,2)} m</title></line>`;
+    s+=`<line x1="${b.x1}" y1="${-b.y1}" x2="${b.x2}" y2="${-b.y2}" stroke="var(--ink)" stroke-width="${r(0.03+d*0.35)}"><title>${b.id} · ${b.profile} · ${U(b.L,2)}</title></line>`;
     s+=beamLabel(b,`font-size="0.21" fill="var(--ink)" ${MONO}>${b.id} ${b.profile}`,1);
   });
   // columns: the storey below (filled), posts that start here (hollow)
@@ -1734,7 +1766,7 @@ function sideTable(o,L){
       +o.caps.map(c=>`<tr><td><b>${c.id}</b></td><td style="font-family:var(--f-mono)">${c.base}</td><td>${fm(T('frMp'),{n:c.n_mp})}${c.T_sls<0?` <span class="nok" title="${T('frUplift')}">↑ ${-c.T_sls} kN</span>`:''}</td><td style="text-align:right;font-family:var(--f-mono)">${c.N_sls} kN</td></tr>`).join('');
   }
   return `<tr><th>${T('frBeam')}</th><th>${T('stProfile')}</th><th style="text-align:right">${T('frLen')}</th></tr>`
-    +L.s.beams.slice().sort((a,b)=>nat(a.id,b.id)).map(b=>`<tr><td><b>${b.id}</b></td><td style="font-family:var(--f-mono)">${b.profile}</td><td style="text-align:right;font-family:var(--f-mono)">${N(b.L,2)} m</td></tr>`).join('');
+    +L.s.beams.slice().sort((a,b)=>nat(a.id,b.id)).map(b=>`<tr><td><b>${b.id}</b></td><td style="font-family:var(--f-mono)">${b.profile}</td><td style="text-align:right;font-family:var(--f-mono)">${U(b.L,2)}</td></tr>`).join('');
 }
 function sideHTML(o,L){
   const note=L.kind==='found'?T('frFoundNote'):(L.s.type==='roof'?T('frRoofNote'):T('frSlabNote'));
@@ -1930,7 +1962,7 @@ function build(){
     +`<div class="pp-2col">${info}</div></section>`;
   if(S.elevB){
     // 5.5 mm per metre on paper (about 1:180); 5 m = 27.5 mm
-    const fig=(src,cap,wmm)=>`<figure class="pp-fig"><img src="${src}" alt="" style="width:${wmm}mm;height:105.6mm"><figcaption style="width:${wmm}mm"><span>${cap}</span><span class="sbar-w"><span class="sbar" style="width:27.5mm"></span>5 m</span></figcaption></figure>`;
+    const fig=(src,cap,wmm)=>`<figure class="pp-fig"><img src="${src}" alt="" style="width:${wmm}mm;height:105.6mm"><figcaption style="width:${wmm}mm"><span>${cap}</span><span class="sbar-w"><span class="sbar" style="width:27.5mm"></span>${I.len(5,0)}</span></figcaption></figure>`;
     h+=`<section class="pp"><div class="pp-head"><h2>${T('facH')}</h2><span>${T('facScale')}</span></div>`
       +fig(S.elevB,T('elevB'),60.5)+fig(S.elevC,T('elevC'),105.6)+`</section>`;
   }
