@@ -235,6 +235,33 @@ details.st-d[open] summary{margin-bottom:10px}
 .st-warn{margin:0;padding-left:1.2em;font-size:14px;color:var(--muted);display:grid;gap:6px}
 .st-status{margin:0 0 14px;padding:10px 12px;border-left:3px solid var(--keep);background:var(--sheet);font-size:14px}
 .ok{color:#2e7d4f;font-weight:700} .nok{color:#c0392b;font-weight:700}
+/* Structural frame drawings */
+.fr-top{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:900px){.fr-top{grid-template-columns:minmax(0,1fr)}}
+#fr-3d{display:block;width:100%;height:auto;max-height:76vh}
+.fr-h{font-family:var(--f-display);font-weight:600;font-size:20px;margin:26px 0 10px}
+.fr-cap{margin:8px 4px 0;font-size:13px;color:var(--muted)}
+.fr-sched th,.fr-sched td{white-space:nowrap}
+.fr-sched td{font-family:var(--f-mono);font-size:13px} .fr-sched td.big{font-weight:700}
+.fr-el svg{display:block;width:100%;height:auto;max-height:84vh}
+#fr-side h3{font-family:var(--f-display);font-weight:600;font-size:18px;margin:0 0 6px}
+#fr-side p{margin:0 0 10px;font-size:14px;color:var(--muted)}
+.st-key i.po{width:10px;height:10px;border:1.5px solid var(--ink);background:var(--sheet);vertical-align:0}
+.st-key i.dk{width:16px;height:10px;border:0;background:repeating-linear-gradient(90deg,var(--accent) 0 1px,transparent 1px 4px);opacity:.7;vertical-align:0}
+.st-key i.vd{width:12px;height:10px;border:1px solid var(--ink);background:linear-gradient(to top right,transparent 46%,var(--muted) 48% 52%,transparent 54%),linear-gradient(to bottom right,transparent 46%,var(--muted) 48% 52%,transparent 54%);vertical-align:0}
+.st-key i.cp{width:16px;height:9px;border:1px solid var(--muted);background:var(--line);vertical-align:0}
+.st-key i.tb{width:18px;height:6px;border:1px solid var(--muted);background:var(--r-core);vertical-align:1px}
+.st-key i.colbase{width:10px;height:10px;border:0;background:var(--ink);vertical-align:0}
+.fr-figs{display:flex;justify-content:center;align-items:flex-start;gap:6mm}
+.fr-fig{margin:0} .fr-fig figcaption{font-size:8.5pt;font-weight:600;margin-top:1mm;text-align:center}
+.pp .fr-cap{font-size:8pt;margin:1mm 0 2mm}
+.pp .fr-pkey{font-size:7.5pt;margin:0 0 1mm}
+.pp .fr-sched td,.pp .fr-sched th{font-size:7.5pt;padding:.6mm 1.2mm}
+.pp .fr-bl{font-size:7.5pt} .pp .fr-bl td,.pp .fr-bl th{padding:.4mm 1.2mm}
+.pp .fr-bl tbody{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:4mm}
+.pp .fr-bl tr{display:grid;grid-template-columns:12mm minmax(0,1fr) 18mm}
+.pp .fr-bl tr:first-child{display:none}
+.pp .fr-bl4 tbody{grid-template-columns:repeat(2,minmax(0,1fr))} .pp .fr-bl4 tr{grid-template-columns:10mm 17mm minmax(0,1fr) 16mm}
 /* Notes */
 .notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px 28px;margin:0;padding:0;list-style:none}
 .notes li{border-top:1px solid var(--line);padding-top:10px;min-width:0}
@@ -387,6 +414,27 @@ footer.wrap{padding-block:30px 40px;color:var(--muted);font-size:13px}
     <ul class="st-warn" id="st-warn"></ul>
   </section>
 
+  <section class="wrap" id="frame">
+    <div class="sec-head">
+      <h2 data-i18n="frH">Structural frame drawings</h2>
+      <p data-i18n="frP">The steel skeleton member by member: foundations, every floor, the braced frames and the column schedule. It follows the version and lift switches at the top of the page.</p>
+    </div>
+    <div class="fr-top">
+      <div class="sheet"><svg id="fr-3d" role="img" data-i18n-aria="fr3d" aria-label="Steel skeleton"></svg><p class="fr-cap" data-i18n="fr3dNote"></p></div>
+      <div><div class="st-wrap"><table class="st-table fr-sched" id="fr-sched"></table></div><p class="fr-cap" data-i18n="frSchedNote"></p></div>
+    </div>
+    <h3 class="fr-h" data-i18n="frPlans">Plans by level</h3>
+    <div class="tabs" role="tablist" id="fr-tabs"></div>
+    <div class="st-grid" style="margin-top:0">
+      <div class="sheet st-plan"><svg id="fr-plan" viewBox="-2.9 -16.9 15.4 20.1" role="img" data-i18n-aria="frPlans" aria-label="Plans by level"></svg><div class="st-key" id="fr-key"></div></div>
+      <div id="fr-side"></div>
+    </div>
+    <h3 class="fr-h" data-i18n="frElev">Frame elevations</h3>
+    <div class="tabs" role="tablist" id="fr-etabs"></div>
+    <div class="sheet fr-el"><svg id="fr-elev" role="img" data-i18n-aria="frElev" aria-label="Frame elevations"></svg></div>
+    <p class="fr-cap" data-i18n="frElevNote"></p>
+  </section>
+
   <section class="wrap" id="notes">
     <div class="sec-head"><h2 data-i18n="notesH">Before this goes further</h2></div>
     <ul class="notes">
@@ -449,9 +497,11 @@ const D={
   stProc:'How it must be built', stWarn:'Open points for the engineer', stMetric:'Compare', stShown:'shown', stSteel:'Steel', stCost:'Structure cost', stPerHome:'per home',
   stHomes:'Homes', stCornice:'Cornice', stBase:'Base columns', stMicro:'Micropiles', stProfile:'Profile', stGroup:'Element', stWhere:'Where', stKg:'kg', stTotal:'Total steel',
   stLoad:'Load', stValue:'Value', stFound:'Foundations', stFire:'Fire', stChecks:'Checks', stPlanT:'Structural plan, same on every floor', stCostNote:'Steel, fire protection, slabs and micropiles. Not included: façade stabiliser and demolition, lift, finishes, VAT and fees.',
-  todayView:'Today (same corner)', facScale:'Same scale, about 1:180 on A4', todaySrc:'Source: 2020 façade restoration project'
+  todayView:'Today (same corner)', facScale:'Same scale, about 1:180 on A4', todaySrc:'Source: 2020 façade restoration project',
+  frH:'Structural frame drawings', frP:'The steel skeleton member by member: foundations, every floor, the braced frames and the column schedule. It follows the version and lift switches at the top of the page.', fr3d:'Steel skeleton seen from the street corner', fr3dNote:'Steel skeleton seen from the corner of Av. Burjassot and C/ Carrasqueta. Black: columns and beams. Red: bracing. Dashed orange: the old street façades that are kept (to +7.00). Blue: floor slabs.', frSched:'Column schedule', frSchedNote:'Profile of each column in each storey (S275, HEB). Splices every two storeys, about 0.5 m above the floor. Bold: larger than HEB 140.', frPlans:'Plans by level', frFound:'Foundations', frFloorOf:'Floor of {n}', frRoof:'Ático roof', frElev:'Frame elevations', frElevNote:'Each braced frame unfolded flat, seen from inside the plot. Bracing sizes change from storey to storey. Blue tick: column splice.', frE_party:'Party wall, x = 0.30', frE_y43:'Axis y = 4.30', frE_y81:'Axis y ≈ 8.10', frE_back:'Back boundary, y = 15.05', frE_burj:'Behind Av. Burjassot façade, y = 0.60', frSideBurj:'Av. Burjassot', frSideBack:'Back', frSideParty:'Party wall', frSideCarr:'C/ Carrasqueta', frKeyCol:'Column of the storey below', frKeyColBase:'Column base', frKeyPost:'Post that starts on this floor', frKeyBeam:'Beam (id and profile)', frKeyBr:'Bracing in the storey below', frKeyDeck:'Composite deck, ribs in the span direction', frKeyVoid:'Opening', frKeyCap:'Pile cap with micropiles', frKeyTie:'Tie beam 40×50 cm', frStair:'Stair', frLift:'Lift', frDeck:'deck {t} cm', frAticoAbove:'ático above', frBeam:'Beam', frLen:'Length', frCol:'Column', frBase:'Base profile', frCap:'Pile cap', frNsls:'Load (SLS)', frMp:'{n} micropiles', frMpShort:'{n} mp', frUplift:'Uplift (tension) under wind', frOnBeam:'on beam', frGround:'Ground', frExistFac:'Existing façade, kept, to +7.00', frScale:'1:125 on A4', frFoundNote:'Micropiles Ø150–200 mm, about 15 m long, assumed 250 kN each in compression and 150 kN in tension. Caps are tied in both directions with 40×50 cm beams. Next to the party wall the caps must be eccentric; the geotechnical study sets the final number and length. ↑ = uplift under wind.', frSlabNote:'Composite slab 13 cm (60 mm steel deck + concrete) spanning in y between the beams, propped at mid-span while concreting. Beams ≤ 300 mm deep, hidden in the cross walls.', frRoofNote:'Ático roof: same composite slab over the studio only. The rest of the top floor is the terrace on the floor below.'
  },
  es:{
+  frH:'Planos de estructura (carcasa)', frP:'El esqueleto de acero pieza a pieza: cimentación, cada forjado, los pórticos arriostrados y el cuadro de pilares. Sigue los selectores de versión y ascensor de arriba.', fr3d:'Esqueleto de acero visto desde la esquina', fr3dNote:'Esqueleto de acero visto desde la esquina de Av. Burjassot y C/ Carrasqueta. Negro: pilares y vigas. Rojo: arriostramientos. Naranja discontinuo: las fachadas antiguas que se conservan (hasta +7,00). Azul: forjados.', frSched:'Cuadro de pilares', frSchedNote:'Perfil de cada pilar en cada planta (S275, HEB). Empalmes cada dos plantas, a unos 0,5 m sobre el forjado. En negrita: mayores que HEB 140.', frPlans:'Plantas por nivel', frFound:'Cimentación', frFloorOf:'Forjado de {n}', frRoof:'Cubierta del ático', frElev:'Pórticos (alzados de estructura)', frElevNote:'Cada pórtico arriostrado desplegado en plano, visto desde dentro de la parcela. Los arriostramientos cambian de una planta a otra. Marca azul: empalme de pilar.', frE_party:'Medianera, x = 0,30', frE_y43:'Eje y = 4,30', frE_y81:'Eje y ≈ 8,10', frE_back:'Lindero trasero, y = 15,05', frE_burj:'Tras la fachada de Av. Burjassot, y = 0,60', frSideBurj:'Av. Burjassot', frSideBack:'Fondo', frSideParty:'Medianera', frSideCarr:'C/ Carrasqueta', frKeyCol:'Pilar de la planta inferior', frKeyColBase:'Arranque de pilar', frKeyPost:'Pilar que arranca en este forjado', frKeyBeam:'Viga (referencia y perfil)', frKeyBr:'Arriostramiento en la planta inferior', frKeyDeck:'Chapa colaborante, nervios en la dirección de la luz', frKeyVoid:'Hueco', frKeyCap:'Encepado con micropilotes', frKeyTie:'Viga de atado 40×50 cm', frStair:'Escalera', frLift:'Ascensor', frDeck:'forjado {t} cm', frAticoAbove:'ático encima', frBeam:'Viga', frLen:'Longitud', frCol:'Pilar', frBase:'Perfil de arranque', frCap:'Encepado', frNsls:'Carga (ELS)', frMp:'{n} micropilotes', frMpShort:'{n} mp', frUplift:'Tracción con viento', frOnBeam:'sobre viga', frGround:'Rasante', frExistFac:'Fachada existente conservada, hasta +7,00', frScale:'1:125 en A4', frFoundNote:'Micropilotes Ø150–200 mm, de unos 15 m, con 250 kN supuestos por unidad a compresión y 150 kN a tracción. Encepados atados en las dos direcciones con vigas de 40×50 cm. Junto a la medianera los encepados son excéntricos; el estudio geotécnico fija el número y la longitud definitivos. ↑ = tracción con viento.', frSlabNote:'Forjado de chapa colaborante de 13 cm (chapa de 60 mm + hormigón) que salva la luz en y entre vigas, apuntalado en centro de vano al hormigonar. Vigas de canto ≤ 300 mm, ocultas en los tabiques transversales.', frRoofNote:'Cubierta del ático: el mismo forjado colaborante, sólo sobre el estudio. El resto de la última planta es la terraza sobre el forjado inferior.',
   eyebrow:'Av. Burjassot 229 · Valencia · Concepto, no válido para obra',
   lede:'Conservar las dos fachadas a calle de la casa en esquina, rehacer el interior y crecer en altura, con un estudio en ático. Dos versiones para comparar: planta baja + 2, o planta baja + 3 (unos 341 m², como en tu análisis urbanístico). La entrada del edificio sigue en el Carrer Carrasqueta, por la puerta existente.', verLabel:'Versión', liftLabel:'Ascensor', liftYes:'Con ascensor', liftNo:'Sin ascensor', noLiftTag:'sin ascensor', storage:'TRASTERO', 'Stair + storage':'Escalera + trastero', 'plan:Stair + storage':'Esc. + trastero', 'Laundry / storage':'Lavadero / almacén', 'plan:Laundry / storage':'Lavadero', 'Stair':'Escalera',
   noLiftNote:'Sin ascensor, el espacio del hueco (detrás del pasillo) se une a cada vivienda como lavadero / almacén; en el ático es un trastero junto al rellano. La normativa (CTE DB-SUA 9) suele exigir ascensor cuando una vivienda está a más de dos plantas sobre la entrada, como el ático aquí; ver los detalles en la sección de estructura.', stPending:'El cálculo sin ascensor se está preparando; las cifras mostradas son con ascensor.', stLiftH:'Con o sin ascensor', homesFmt:'{n} × 2 dorm. · 1 estudio',
@@ -1468,6 +1518,324 @@ window.STEELVIEW={pages(){
 })();
 </script>
 
+<script src="frame-data.js"></script>
+<script>
+/* ---------- Structural frame drawings (data: structure/frame.py → frame.json → frame-data.js) ---------- */
+(function(){
+const H=window.HOUSE, I=window.I18N, T=I.t, N=I.num, F=window.FRAME;
+const sec=document.getElementById('frame');
+if(!F){ sec.hidden=true; window.FRAMEVIEW=null; return; }
+const G=F.geom;
+const key=()=>{const k=(H.ver==='pb2'?'B':'A')+(H.lift?'':'0'); return F.options[k]?k:k[0];};
+const O=()=>F.options[key()];
+const r=n=>Math.round(n*1000)/1000;
+const P=(x,y)=>r(x)+','+r(-y);
+const fm=(s,o)=>s.replace(/\{(\w+)\}/g,(_,k)=>o[k]);
+const lvTxt=z=>(z>0?'+':z<0?'−':'±')+N(Math.abs(z),2);
+const hebB=p=>{const m=/(\d+)/.exec(p||'');return m?+m[1]/1000:0.14;};
+const nat=(a,b)=>a.localeCompare(b,'en',{numeric:true});
+const RED='#c0392b', MONO='font-family="var(--f-mono)"';
+const verLabel=()=>H.VLABEL[H.ver]+(H.lift?'':' · '+T('noLiftTag'));
+const colOf=o=>{const C={};o.columns.forEach(c=>C[c.id]=c);return C;};
+let uid=0;
+
+function levels(o){ return [{kind:'found',z:0}].concat(o.slabs.map(s=>({kind:'slab',s,z:s.z}))); }
+function lvName(o,L,long){
+  if(L.kind==='found') return T('frFound');
+  const s=L.s, n=o.storeys.length, top=s.i>=n;
+  const nm=top?T('frRoof'):o.storeys[s.i].name;
+  return long?(top?nm:fm(T('frFloorOf'),{n:nm}))+' · '+lvTxt(s.z):nm+' '+lvTxt(s.z);
+}
+
+/* scale bar, 5 m, in plan/elevation metres */
+const sbar=(x,y,len)=>{let s='';for(let i=0;i<len;i++) s+=`<rect x="${x+i}" y="${y}" width="1" height="0.16" fill="${i%2?'var(--sheet)':'var(--ink)'}" stroke="var(--ink)" stroke-width="0.03"/>`;
+  return s+`<text x="${x+len+0.2}" y="${y+0.16}" font-size="0.3" fill="var(--muted)" ${MONO}>${len} m</text>`;};
+
+/* ---------- plans ---------- */
+function beamLabel(b,txt,side){
+  const mx=(b.x1+b.x2)/2,my=(b.y1+b.y2)/2;
+  let a=Math.atan2(-(b.y2-b.y1),b.x2-b.x1)*180/Math.PI; if(a>90)a-=180; if(a<=-90)a+=180;
+  const ar=a*Math.PI/180, off=side>0?0.08:-0.27;
+  const sx=mx+Math.sin(ar)*off, sy=-my-Math.cos(ar)*off;
+  return `<text x="${r(sx)}" y="${r(sy)}" transform="rotate(${r(a)} ${r(sx)} ${r(sy)})" text-anchor="middle" paint-order="stroke" stroke="var(--sheet)" stroke-width="0.07" ${txt}</text>`;
+}
+function colSym(c,prof,fill){
+  const b=Math.max(hebB(prof),0.12)*1.4;
+  return `<rect x="${r(c.x-b/2)}" y="${r(-c.y-b/2)}" width="${r(b)}" height="${r(b)}" fill="${fill?'var(--ink)':'var(--sheet)'}" stroke="var(--ink)" stroke-width="0.05"><title>${c.id} · ${prof}</title></rect>`;
+}
+function colLabel(c,l1,l2,below){
+  if(below) return `<text x="${r(c.x)}" y="${r(-c.y+0.42)}" font-size="0.26" font-weight="700" fill="var(--ink)" text-anchor="middle" paint-order="stroke" stroke="var(--sheet)" stroke-width="0.07">${c.id}</text>`
+    +(l2?`<text x="${r(c.x)}" y="${r(-c.y+0.68)}" font-size="0.21" fill="var(--muted)" text-anchor="middle" ${MONO}>${l2}</text>`:'');
+  const right=c.id==='C13'||(c.x<4&&c.id!=='C12'), dx=right?0.2:-0.2, an=right?'start':'end';
+  return `<text x="${r(c.x+dx)}" y="${r(-c.y-0.14)}" font-size="0.28" font-weight="700" fill="var(--ink)" text-anchor="${an}" paint-order="stroke" stroke="var(--sheet)" stroke-width="0.07">${c.id}</text>`
+    +(l1?`<text x="${r(c.x+dx)}" y="${r(-c.y+0.2)}" font-size="0.21" fill="var(--muted)" text-anchor="${an}" paint-order="stroke" stroke="var(--sheet)" stroke-width="0.07" ${MONO}>${l1}</text>`:'')
+    +(l2?`<text x="${r(c.x+dx)}" y="${r(-c.y+0.45)}" font-size="0.21" fill="var(--muted)" text-anchor="${an}" ${MONO}>${l2}</text>`:'');
+}
+function streets(){
+  // Carrasqueta label along the slanted façade, outside the plot
+  const a=Math.atan2(15.3,H.W-H.BK)*180/Math.PI, mx=(H.W+H.BK)/2+0.95, my=-7.65+0.33;
+  return `<text x="${r(H.W/2-0.3)}" y="2.55" font-size="0.36" class="street" text-anchor="middle">AVINGUDA BURJASSOT</text>`
+    +`<text x="${r(mx)}" y="${r(my)}" font-size="0.36" class="street" text-anchor="middle" transform="rotate(${r(a)} ${r(mx)} ${r(my)})">CARRER CARRASQUETA</text>`;
+}
+function voids(o){
+  const R=(b,lab)=>{const [x0,x1,y0,y1]=b;
+    return `<rect x="${x0}" y="${-y1}" width="${r(x1-x0)}" height="${r(y1-y0)}" fill="var(--sheet)" stroke="var(--ink)" stroke-width="0.05"/>`
+      +`<path d="M${P(x0,y0)}L${P(x1,y1)}M${P(x0,y1)}L${P(x1,y0)}" stroke="var(--muted)" stroke-width="0.025"/>`
+      +`<text x="${r((x0+x1)/2)}" y="${r(-(y0+y1)/2-0.08)}" font-size="0.2" fill="var(--muted)" text-anchor="middle" paint-order="stroke" stroke="var(--sheet)" stroke-width="0.08">${lab}</text>`;};
+  return R(G.stair,T('frStair'))+(o.lift?R(G.lift,T('frLift')):'');
+}
+
+// eccentric pile cap: push a w×h cap (rotated rotDeg on screen) inside the parcel by the least amount
+function pushIn(cx,cy,w,h,rotDeg){
+  const ps=H.PARCEL, th=rotDeg*Math.PI/180;
+  const corners=()=>[[-1,-1],[1,-1],[1,1],[-1,1]].map(([a,b])=>{const lx=a*w/2,ly=b*h/2;
+    return [cx+lx*Math.cos(th)-ly*Math.sin(th), cy-(lx*Math.sin(th)+ly*Math.cos(th))];});
+  for(let it=0;it<4;it++) for(let i=0;i<ps.length;i++){
+    const [x1,y1]=ps[i],[x2,y2]=ps[(i+1)%ps.length], L=Math.hypot(x2-x1,y2-y1), nx=-(y2-y1)/L, ny=(x2-x1)/L;
+    const dmin=Math.min(...corners().map(([x,y])=>(x-x1)*nx+(y-y1)*ny));
+    if(dmin<0){cx-=nx*dmin; cy-=ny*dmin;}
+  }
+  return [cx,cy];
+}
+function planSVG(o,L){
+  const C=colOf(o), id='fr'+(++uid);
+  let s=`<defs><pattern id="${id}" width="0.3" height="1" patternUnits="userSpaceOnUse"><line x1="0.15" y1="0" x2="0.15" y2="1" stroke="var(--accent)" stroke-width="0.025" opacity="0.55"/></pattern></defs>`;
+  const parcel=H.PARCEL.map(p=>P(p[0],p[1])).join(' '), at=G.atico.map(p=>P(p[0],p[1])).join(' ');
+  s+=streets();
+  if(L.kind==='found'){
+    s+=`<polygon points="${parcel}" fill="var(--r-circ)" stroke="var(--ink)" stroke-width="0.2"/>`;
+    // tie beams 40x50 along the grid lines of the first floor (core trimmers excluded)
+    const s1=o.slabs[0];
+    s1.beams.filter(b=>b.group!=='core').forEach(b=>{
+      s+=`<line x1="${b.x1}" y1="${-b.y1}" x2="${b.x2}" y2="${-b.y2}" stroke="var(--muted)" stroke-width="0.44"/>`
+        +`<line x1="${b.x1}" y1="${-b.y1}" x2="${b.x2}" y2="${-b.y2}" stroke="var(--r-core)" stroke-width="0.36"/>`;});
+    const rot=c=>c.x<0.5?90:(['C3','C6','C9','C11','C13'].includes(c.id)?Math.atan2(15.3,H.W-H.BK)*180/Math.PI:0);
+    o.caps.forEach(cp=>{
+      const c=C[cp.id], n=cp.n_mp, w=1.3, h=n<=2?0.6:n===3?1.2:1.3;
+      const pts=n<=2?[[-0.35,0],[0.35,0]]:n===3?[[-0.35,-0.25],[0.35,-0.25],[0,0.33]]:[[-0.35,-0.35],[0.35,-0.35],[-0.35,0.35],[0.35,0.35]];
+      // eccentric cap: slide the cap towards the middle of the plot until it sits inside the boundary
+      let [cx,cy]=pushIn(c.x,c.y,w,h,rot(c));
+      s+=`<g transform="translate(${r(cx)} ${r(-cy)}) rotate(${r(rot(c))})"><rect x="${-w/2}" y="${-h/2}" width="${w}" height="${h}" fill="var(--line)" stroke="var(--muted)" stroke-width="0.04"/>`
+        +pts.map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="0.09" fill="var(--sheet)" stroke="var(--ink)" stroke-width="0.03"/>`).join('')+`</g>`;
+    });
+    o.caps.forEach(cp=>{const c=C[cp.id];
+      s+=colSym(c,cp.base,true)+colLabel(c,fm(T('frMpShort'),{n:cp.n_mp})+(cp.T_sls<0?' ↑':''),'',false);});
+    s+=sbar(6.6,-16.55,5);
+    return s;
+  }
+  const sl=L.s, k=sl.i-1, roof=sl.type==='roof';
+  if(roof){
+    s+=`<polygon points="${parcel}" fill="none" stroke="var(--muted)" stroke-width="0.06" stroke-dasharray="0.25 0.15"/>`;
+    s+=`<polygon points="${at}" fill="url(#${id})" stroke="var(--ink)" stroke-width="0.16"/>`;
+  } else {
+    s+=`<polygon points="${parcel}" fill="url(#${id})" stroke="var(--ink)" stroke-width="0.2"/>`;
+    s+=voids(o);
+    if(sl.type==='cornice') s+=`<polygon points="${at}" fill="none" stroke="var(--keep)" stroke-width="0.07" stroke-dasharray="0.3 0.15"/>`
+      +`<text x="2.25" y="-5.0" font-size="0.26" fill="var(--keep)" text-anchor="middle">${T('frAticoAbove')}</text>`;
+  }
+  // deck span arrow (ribs in y)
+  const ax=roof?3.2:5.1, ay0=roof?4.6:4.75, ay1=roof?7.7:7.75;
+  s+=`<path d="M${P(ax,ay0)}L${P(ax,ay1)}M${P(ax-0.12,ay0+0.22)}L${P(ax,ay0)}L${P(ax+0.12,ay0+0.22)}M${P(ax-0.12,ay1-0.22)}L${P(ax,ay1)}L${P(ax+0.12,ay1-0.22)}" fill="none" stroke="var(--accent)" stroke-width="0.05"/>`
+    +`<text x="${r(ax-0.12)}" y="${r(-(ay0+ay1)/2)}" font-size="0.22" fill="var(--accent)" text-anchor="middle" transform="rotate(-90 ${r(ax-0.12)} ${r(-(ay0+ay1)/2)})">${fm(T('frDeck'),{t:Math.round(G.slab_t_m*100)})}</text>`;
+  // bracing in the storey below this slab
+  o.bracing.forEach(pl=>pl.storeys.filter(q=>q.k===k).forEach(q=>q.bays.forEach(([a,b])=>{
+    const A=C[a],B=C[b]; if(!A||!B) return;
+    s+=`<line x1="${A.x}" y1="${-A.y}" x2="${B.x}" y2="${-B.y}" stroke="${RED}" stroke-width="0.07" stroke-dasharray="0.22 0.12"/>`;
+    s+=beamLabel({x1:A.x,y1:A.y,x2:B.x,y2:B.y},`font-size="0.21" fill="${RED}" font-weight="600" ${MONO}>X ${q.profile}`,-1);
+  })));
+  // beams
+  sl.beams.forEach(b=>{
+    const d=hebB(b.profile)*1.0+0.03;
+    s+=`<line x1="${b.x1}" y1="${-b.y1}" x2="${b.x2}" y2="${-b.y2}" stroke="var(--ink)" stroke-width="${r(0.03+d*0.35)}"><title>${b.id} · ${b.profile} · ${N(b.L,2)} m</title></line>`;
+    s+=beamLabel(b,`font-size="0.21" fill="var(--ink)" ${MONO}>${b.id} ${b.profile}`,1);
+  });
+  // columns: the storey below (filled), posts that start here (hollow)
+  o.columns.forEach(c=>{
+    const below=c.profiles[k], above=c.profiles[sl.i];
+    if(below){ s+=colSym(c,below,true)+colLabel(c,below,'',c.post); }
+    else if(above){ s+=colSym(c,above,false)+colLabel(c,above,'',true); }
+  });
+  s+=`<text x="-2.6" y="-16.3" font-size="0.42" font-weight="700" fill="var(--ink)">${lvTxt(sl.z)}</text>`;
+  s+=sbar(6.6,-16.55,5);
+  return s;
+}
+
+function keyHTML(L){
+  const it=(c,t)=>`<span><i class="${c}"></i><span>${T(t)}</span></span>`;
+  if(L.kind==='found') return it('co','frKeyColBase')+it('cp','frKeyCap')+it('tb','frKeyTie');
+  return it('co','frKeyCol')+(L.s.type==='cornice'?it('po','frKeyPost'):'')+it('','frKeyBeam')+it('br','frKeyBr')+it('dk','frKeyDeck')+it('vd','frKeyVoid');
+}
+function sideTable(o,L){
+  if(L.kind==='found'){
+    return `<tr><th>${T('frCol')}</th><th>${T('frBase')}</th><th>${T('frCap')}</th><th style="text-align:right">${T('frNsls')}</th></tr>`
+      +o.caps.map(c=>`<tr><td><b>${c.id}</b></td><td style="font-family:var(--f-mono)">${c.base}</td><td>${fm(T('frMp'),{n:c.n_mp})}${c.T_sls<0?` <span class="nok" title="${T('frUplift')}">↑ ${-c.T_sls} kN</span>`:''}</td><td style="text-align:right;font-family:var(--f-mono)">${c.N_sls} kN</td></tr>`).join('');
+  }
+  return `<tr><th>${T('frBeam')}</th><th>${T('stProfile')}</th><th style="text-align:right">${T('frLen')}</th></tr>`
+    +L.s.beams.slice().sort((a,b)=>nat(a.id,b.id)).map(b=>`<tr><td><b>${b.id}</b></td><td style="font-family:var(--f-mono)">${b.profile}</td><td style="text-align:right;font-family:var(--f-mono)">${N(b.L,2)} m</td></tr>`).join('');
+}
+function sideHTML(o,L){
+  const note=L.kind==='found'?T('frFoundNote'):(L.s.type==='roof'?T('frRoofNote'):T('frSlabNote'));
+  return `<h3>${lvName(o,L,true)}</h3><p>${note}</p><div class="st-wrap"><table class="st-table">${sideTable(o,L)}</table></div>`;
+}
+
+/* ---------- frame elevations ---------- */
+const FRAMES=[
+  {id:'party',cols:['C1','C4','C7','C10','C12'],ax:'y',key:'frE_party',ends:['frSideBurj','frSideBack']},
+  {id:'y43',cols:['C4','C5','C14','C6'],ax:'x',key:'frE_y43',ends:['frSideParty','frSideCarr']},
+  {id:'y81',cols:['C7','C8','C15','C9'],ax:'x',key:'frE_y81',ends:['frSideParty','frSideCarr']},
+  {id:'back',cols:['C12','C13'],ax:'x',key:'frE_back',ends:['frSideParty','frSideCarr']},
+  {id:'burj',cols:['C1','C2','C3'],ax:'x',key:'frE_burj',ends:['frSideParty','frSideCarr']},
+];
+function elevBox(o,f){
+  const C=colOf(o), ss=f.cols.filter(c=>C[c]).map(c=>C[c][f.ax]);
+  const s0=Math.min(...ss), s1=Math.max(...ss), x0=s0-2.7, w=s1-s0+5.4, y0=-(o.top_m+1.5), h=o.top_m+1.5+3.4;
+  return {s0,s1,x0,w,y0,h,vb:`${r(x0)} ${r(y0)} ${r(w)} ${r(h)}`};
+}
+function elevSVG(o,f){
+  const C=colOf(o), B=elevBox(o,f), cols=f.cols.filter(c=>C[c]).map(id=>C[id]);
+  const sv=c=>c[f.ax], inF=(x,y)=>cols.find(c=>Math.abs(c.x-x)<0.03&&Math.abs(c.y-y)<0.03);
+  const {s0,s1}=B; let s='';
+  // ground and old façade (Burjassot frame only)
+  s+=`<line x1="${r(s0-2.2)}" y1="0" x2="${r(s1+2.2)}" y2="0" stroke="var(--ink)" stroke-width="0.07"/>`;
+  s+=`<text x="${r(s0-2.2)}" y="0.45" font-size="0.26" fill="var(--muted)">${T('frGround')}</text>`;
+  if(f.id==='burj'){
+    s+=`<rect x="0" y="-7" width="${H.W}" height="7" fill="var(--keep)" fill-opacity="0.07" stroke="var(--keep)" stroke-width="0.06" stroke-dasharray="0.3 0.15"/>`
+      +(()=>{const t=T('frExistFac'), i=t.lastIndexOf(', '), l=[t.slice(0,i),t.slice(i+2)];
+        return l.map((q,j)=>`<text x="1.84" y="${r(-2.3+j*0.3)}" font-size="0.18" fill="var(--keep)" text-anchor="middle">${q}</text>`).join('');})()
+      +`<line x1="0" y1="${-o.cornice_m}" x2="${H.W}" y2="${-o.cornice_m}" stroke="var(--keep)" stroke-width="0.06" stroke-dasharray="0.3 0.15"/>`
+      +`<text x="${r(H.W+0.1)}" y="${r(-o.cornice_m+0.08)}" font-size="0.22" fill="var(--keep)">${T('stCornice')} ${lvTxt(o.cornice_m)}</text>`;
+  }
+  // slabs (13 cm) across the frame
+  o.slabs.forEach(sl=>{
+    const roof=sl.type==='roof', ids=roof?cols.filter(c=>c.profiles[sl.i-1]).map(sv):cols.filter(c=>!c.post).map(sv);
+    if(!ids.length) return;
+    const a=Math.min(...ids)-0.3, b=Math.max(...ids)+0.3;
+    s+=`<rect x="${r(a)}" y="${r(-sl.z)}" width="${r(b-a)}" height="${G.slab_t_m}" fill="var(--r-core)" stroke="var(--muted)" stroke-width="0.02"/>`;
+  });
+  // levels on the left, storey names on the right
+  s+=`<text x="${r(s0-2.2)}" y="-0.12" font-size="0.26" fill="var(--muted)" ${MONO}>${lvTxt(0)}</text>`;
+  o.slabs.forEach(sl=>{s+=`<text x="${r(s0-2.2)}" y="${r(-sl.z-0.1)}" font-size="0.26" fill="var(--ink)" ${MONO}>${lvTxt(sl.z)}</text>`
+    +`<line x1="${r(s0-2.2)}" y1="${-sl.z}" x2="${r(s0-0.5)}" y2="${-sl.z}" stroke="var(--muted)" stroke-width="0.02"/>`;});
+  o.storeys.forEach(st=>{s+=`<text x="${r(s1+0.75)}" y="${r(-(st.z0+st.h/2)+0.1)}" font-size="0.3" font-weight="700" fill="var(--muted)">${st.name}</text>`;});
+  // bracing X
+  o.bracing.forEach(pl=>pl.storeys.forEach(q=>q.bays.forEach(([a,b])=>{
+    const A=cols.find(c=>c.id===a), Bc=cols.find(c=>c.id===b); if(!A||!Bc) return;
+    const st=o.storeys[q.k], z0=st.z0+(q.k?G.slab_t_m:0), z1=st.z0+st.h, xa=sv(A), xb=sv(Bc);
+    s+=`<path d="M${r(xa)},${r(-z0)}L${r(xb)},${r(-z1)}M${r(xa)},${r(-z1)}L${r(xb)},${r(-z0)}" stroke="${RED}" stroke-width="${/SHS/.test(q.profile)?0.08:0.045}" fill="none"/>`;
+    s+=`<text x="${r((xa+xb)/2)}" y="${r(-z0-0.3)}" font-size="0.21" fill="${RED}" font-weight="600" text-anchor="middle" paint-order="stroke" stroke="var(--sheet)" stroke-width="0.07" ${MONO}>${q.profile}</text>`;
+  })));
+  // beams
+  o.slabs.forEach(sl=>sl.beams.forEach(b=>{
+    const A=inF(b.x1,b.y1), Bc=inF(b.x2,b.y2); if(!A||!Bc) return;
+    const xa=Math.min(sv(A),sv(Bc)), xb=Math.max(sv(A),sv(Bc)), d=hebB(b.profile);
+    s+=`<rect x="${r(xa)}" y="${r(-sl.z+G.slab_t_m)}" width="${r(xb-xa)}" height="${r(d)}" fill="var(--ink)"><title>${b.id} · ${b.profile}</title></rect>`;
+    s+=`<text x="${r((xa+xb)/2)}" y="${r(-sl.z+G.slab_t_m+d+0.27)}" font-size="0.21" fill="var(--ink)" text-anchor="middle" ${MONO}>${xb-xa<1.9?'':b.id+' '}${b.profile}</text>`;
+  }));
+  // columns, one label per run of equal profile; caps and micropiles
+  cols.forEach(c=>{
+    const x=sv(c);
+    c.profiles.forEach((p,k)=>{ if(!p) return; const st=o.storeys[k], w=Math.max(hebB(p),0.12);
+      s+=`<rect x="${r(x-w/2)}" y="${r(-(st.z0+st.h))}" width="${r(w)}" height="${st.h}" fill="var(--ink)"><title>${c.id} · ${st.name} · ${p}</title></rect>`; });
+    let k=0; while(k<c.profiles.length){ if(!c.profiles[k]){k++;continue;} let j=k; while(j+1<c.profiles.length&&c.profiles[j+1]===c.profiles[k]) j++;
+      const za=o.storeys[k].z0, zb=o.storeys[j].z0+o.storeys[j].h, ym=-(za+zb)/2, xl=x-0.2;
+      s+=`<text x="${r(xl)}" y="${r(ym)}" font-size="0.21" fill="var(--ink)" text-anchor="middle" transform="rotate(-90 ${r(xl)} ${r(ym)})" paint-order="stroke" stroke="var(--sheet)" stroke-width="0.07" ${MONO}>${c.profiles[k]}</text>`;
+      if(j+1<c.profiles.length&&c.profiles[j+1]) s+=`<line x1="${r(x-0.22)}" y1="${r(-zb-0.5)}" x2="${r(x+0.22)}" y2="${r(-zb-0.5)}" stroke="var(--accent)" stroke-width="0.05"/>`;
+      k=j+1; }
+    const top=c.profiles.reduce((z,p,k)=>p?o.storeys[k].z0+o.storeys[k].h:z,0);
+    s+=`<text x="${r(x)}" y="${r(-top-0.3)}" font-size="0.28" font-weight="700" fill="var(--ink)" text-anchor="middle">${c.id}</text>`;
+    const cp=o.caps.find(q=>q.id===c.id);
+    if(cp){ s+=`<rect x="${r(x-0.55)}" y="0.05" width="1.1" height="0.7" fill="var(--line)" stroke="var(--muted)" stroke-width="0.03"/>`;
+      [-0.3,0.3].forEach(dx=>{s+=`<path d="M${r(x+dx)},0.75V2.2l-0.08,0.1l0.16,0.1l-0.08,0.1V2.7" fill="none" stroke="var(--muted)" stroke-width="0.04"/>`;});
+      s+=`<text x="${r(x)}" y="2.98" font-size="0.21" fill="var(--muted)" text-anchor="middle" ${MONO}>${fm(T('frMpShort'),{n:cp.n_mp})}</text>`; }
+  });
+  s+=`<text x="${r(B.x0+0.5)}" y="${r(-o.top_m-0.9)}" font-size="0.26" fill="var(--muted)" text-anchor="start">← ${T(f.ends[0])}</text>`
+    +`<text x="${r(B.x0+B.w-0.2)}" y="${r(-o.top_m-0.9)}" font-size="0.26" fill="var(--muted)" text-anchor="end">${T(f.ends[1])} →</text>`;
+  s+=sbar(r(B.x0+0.5),r(-o.top_m-1.4),B.w>10?5:2);
+  return s;
+}
+
+/* ---------- 3D skeleton (axonometric from the street corner) ---------- */
+function isoSVG(o){
+  const C=colOf(o), ph=40*Math.PI/180, el=28*Math.PI/180, cp=Math.cos(ph), sp=Math.sin(ph), ce=Math.cos(el), se=Math.sin(el);
+  const pr=(x,y,z)=>[x*cp+y*sp, -(z*ce+(y*cp-x*sp)*se)], dep=(x,y)=>y*cp-x*sp;
+  const pts=[], items=[];
+  const poly=(ps,z)=>ps.map(p=>{const q=pr(p[0],p[1],z);pts.push(q);return r(q[0])+','+r(q[1]);}).join(' ');
+  const seg=(a,b,attr,d)=>{const p=pr(...a),q=pr(...b);pts.push(p,q);items.push({d,s:`<line x1="${r(p[0])}" y1="${r(p[1])}" x2="${r(q[0])}" y2="${r(q[1])}" ${attr}/>`});};
+  let back='';
+  back+=`<polygon points="${poly(H.PARCEL,0)}" fill="var(--r-circ)" stroke="var(--muted)" stroke-width="0.04"/>`;
+  o.caps.forEach(q=>{const c=C[q.id], h=0.45; back+=`<polygon points="${poly([[c.x-h,c.y-h],[c.x+h,c.y-h],[c.x+h,c.y+h],[c.x-h,c.y+h]],0)}" fill="var(--line)" stroke="var(--muted)" stroke-width="0.03"/>`;});
+  o.slabs.forEach(sl=>{const ps=sl.type==='roof'?G.atico:H.PARCEL;
+    back+=`<polygon points="${poly(ps,sl.z)}" fill="var(--accent)" fill-opacity="0.07" stroke="var(--accent)" stroke-opacity="0.35" stroke-width="0.03"/>`;});
+  o.columns.forEach(c=>c.profiles.forEach((p,k)=>{ if(!p) return; const st=o.storeys[k];
+    seg([c.x,c.y,st.z0],[c.x,c.y,st.z0+st.h],`stroke="var(--ink)" stroke-width="${r(0.06+hebB(p)*0.35)}" stroke-linecap="square"`,dep(c.x,c.y)); }));
+  o.slabs.forEach(sl=>sl.beams.forEach(b=>seg([b.x1,b.y1,sl.z],[b.x2,b.y2,sl.z],`stroke="var(--ink)" stroke-width="0.05" stroke-linecap="round"`,dep((b.x1+b.x2)/2,(b.y1+b.y2)/2)-0.01)));
+  o.bracing.forEach(pl=>pl.storeys.forEach(q=>q.bays.forEach(([a,b])=>{const A=C[a],B=C[b]; if(!A||!B) return; const st=o.storeys[q.k], z0=st.z0, z1=st.z0+st.h, d=dep((A.x+B.x)/2,(A.y+B.y)/2)+0.02;
+    seg([A.x,A.y,z0],[B.x,B.y,z1],`stroke="${RED}" stroke-width="0.04"`,d); seg([A.x,A.y,z1],[B.x,B.y,z0],`stroke="${RED}" stroke-width="0.04"`,d);})));
+  // retained street façades (ghost), drawn last so they read as a veil in front
+  const fac=[[[0,0],[H.W,0]],[[H.W,0],[H.fx(H.YOLD),H.YOLD]]];
+  let front=fac.map(([a,b])=>`<polygon points="${poly([a,b],0).split(' ').concat(poly([b,a],7).split(' ')).join(' ')}" fill="var(--keep)" fill-opacity="0.06" stroke="var(--keep)" stroke-width="0.05" stroke-dasharray="0.25 0.15"/>`).join('');
+  items.sort((a,b)=>b.d-a.d);
+  // level marks at the party-wall / Burjassot corner
+  let marks='';
+  [0].concat(o.slabs.map(s=>s.z)).forEach(z=>{const q=pr(0,0,z); pts.push([q[0]-2.2,q[1]]);
+    marks+=`<text x="${r(q[0]-0.25)}" y="${r(q[1]+0.1)}" font-size="0.45" fill="var(--muted)" text-anchor="end" ${MONO}>${lvTxt(z)}</text>`;});
+  const xs=pts.map(p=>p[0]), ys=pts.map(p=>p[1]), x0=Math.min(...xs)-0.5, y0=Math.min(...ys)-0.5;
+  return {vb:`${r(x0)} ${r(y0)} ${r(Math.max(...xs)+0.5-x0)} ${r(Math.max(...ys)+0.5-y0)}`, s:back+items.map(i=>i.s).join('')+front+marks};
+}
+
+/* ---------- column schedule (cuadro de pilares) ---------- */
+function schedHTML(o){
+  const st=o.storeys.map((s,k)=>({s,k})).reverse();
+  return `<tr><th>${T('frCol')}</th>${st.map(q=>`<th>${q.s.name}</th>`).join('')}<th>${T('frCap')}</th></tr>`
+    +o.columns.slice().sort((a,b)=>nat(a.id,b.id)).map(c=>{const cp=o.caps.find(q=>q.id===c.id);
+      return `<tr><td><b>${c.id}</b></td>${st.map(q=>{const p=c.profiles[q.k];return `<td class="${p&&hebB(p)>0.14?'big':''}">${p?p.replace('HEB ','HEB&nbsp;'):'—'}</td>`;}).join('')}<td>${cp?fm(T('frMpShort'),{n:cp.n_mp}):'<span style="color:var(--muted)">'+T('frOnBeam')+'</span>'}</td></tr>`;}).join('');
+}
+
+/* ---------- render ---------- */
+function render(){
+  const o=O(), Ls=levels(o);
+  if(lvSel>=Ls.length) lvSel=Ls.length-1;
+  const iso=isoSVG(o), sv3=document.getElementById('fr-3d');
+  sv3.setAttribute('viewBox',iso.vb); sv3.innerHTML=iso.s;
+  document.getElementById('fr-sched').innerHTML=schedHTML(o);
+  document.getElementById('fr-tabs').innerHTML=Ls.map((L,i)=>`<button class="btn" role="tab" data-i="${i}" aria-selected="${i===lvSel}">${lvName(o,L,false)}</button>`).join('');
+  const L=Ls[lvSel];
+  document.getElementById('fr-plan').innerHTML=planSVG(o,L);
+  document.getElementById('fr-key').innerHTML=keyHTML(L);
+  document.getElementById('fr-side').innerHTML=sideHTML(o,L);
+  document.getElementById('fr-etabs').innerHTML=FRAMES.map(f=>`<button class="btn" role="tab" data-e="${f.id}" aria-selected="${f.id===elSel}">${T(f.key)}</button>`).join('');
+  const f=FRAMES.find(q=>q.id===elSel), ev=document.getElementById('fr-elev');
+  ev.setAttribute('viewBox',elevBox(o,f).vb); ev.innerHTML=elevSVG(o,f);
+}
+let lvSel=1, elSel='party';
+document.getElementById('fr-tabs').addEventListener('click',e=>{const b=e.target.closest('[data-i]'); if(b){lvSel=+b.dataset.i; render();}});
+document.getElementById('fr-etabs').addEventListener('click',e=>{const b=e.target.closest('[data-e]'); if(b){elSel=b.dataset.e; render();}});
+render();
+document.addEventListener('langchange',render);
+document.addEventListener('versionchange',render);
+
+/* ---------- pages for the PDF (plans and frames at 1:125: 8 mm per metre) ---------- */
+window.FRAMEVIEW={pages(){
+  const o=O(), lab=verLabel(), sc=T('frScale');
+  const head=(h,sub)=>`<div class="pp-head"><h2>${h}</h2><span>${sub}</span></div>`;
+  const iso=isoSVG(o);
+  let h=`<section class="pp">${head(T('frH'),lab)}<p class="st-status">${(window.STEEL&&window.STEEL.meta&&(window.STEEL.meta.status[I.lang]||window.STEEL.meta.status.en))||''}</p>`
+    +`<svg viewBox="${iso.vb}" style="display:block;width:auto;height:92mm;max-width:100%;margin:0 auto 2mm">${iso.s}</svg><p class="fr-cap">${T('fr3dNote')}</p>`
+    +`<h3 style="margin-top:3mm">${T('frSched')}</h3><table class="st-table fr-sched">${schedHTML(o)}</table><p class="fr-cap">${T('frSchedNote')}</p></section>`;
+  levels(o).forEach(L=>{
+    const note=L.kind==='found'?T('frFoundNote'):(L.s.type==='roof'?T('frRoofNote'):T('frSlabNote'));
+    h+=`<section class="pp">${head(lvName(o,L,true),lab+' · '+sc)}<svg class="pp-plan" viewBox="-2.9 -16.9 15.4 20.1" role="img">${planSVG(o,L)}</svg>`
+      +`<div class="st-key fr-pkey">${keyHTML(L)}</div><p class="fr-cap">${note}</p><table class="st-table fr-bl ${L.kind==='found'?'fr-bl4':''}">${sideTable(o,L)}</table></section>`;
+  });
+  const fig=f=>{const B=elevBox(o,f); return `<figure class="fr-fig"><svg viewBox="${B.vb}" style="width:${r(B.w*8)}mm;height:${r(B.h*8)}mm">${elevSVG(o,f)}</svg><figcaption>${T(f.key)}</figcaption></figure>`;};
+  [['party'],['y43','y81'],['back','burj']].forEach(g=>{
+    h+=`<section class="pp">${head(T('frElev'),lab+' · '+sc)}<div class="fr-figs">${g.map(id=>fig(FRAMES.find(f=>f.id===id))).join('')}</div><p class="fr-cap">${T('frElevNote')}</p></section>`;
+  });
+  return h;
+}};
+})();
+</script>
+
 <script>
 /* ---------- Print document (what the PDF and Ctrl+P show) ---------- */
 (function(){
@@ -1500,6 +1868,7 @@ function build(){
       +`<svg class="pp-plan" id="pp-plan-${lv.id}" viewBox="-2.9 -16.9 15.4 20.1" role="img"></svg><aside class="schedule" id="pp-sch-${lv.id}"></aside></section>`;
   });
   if(window.STEELVIEW) h+=window.STEELVIEW.pages();
+  if(window.FRAMEVIEW) h+=window.FRAMEVIEW.pages();
   h+=`<section class="pp"><div class="pp-head"><h2>${T('notesH')}</h2></div>${notes}<p class="pp-foot">${T('footer')}</p></section>`;
   out.innerHTML=h;
   H.LEVELS.forEach(lv=>window.PLANS.render(lv,document.getElementById('pp-plan-'+lv.id),document.getElementById('pp-sch-'+lv.id),'p'+lv.id));
